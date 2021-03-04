@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" fx:id="panecom" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="ftbb.FXMLCommentsController">
+   <children>
+      <TableView fx:id="listcomments" layoutX="14.0" layoutY="14.0" prefHeight="333.0" prefWidth="567.0" />
+      <Button fx:id="ref_but" layoutX="14.0" layoutY="357.0" mnemonicParsing="false" onAction="#refreshComment" text="Refresh" />
+      <Button fx:id="ban_but" layoutX="84.0" layoutY="357.0" mnemonicParsing="false" onAction="#banComment" text="Ban Comment" />
+      <TextField fx:id="article_id" editable="false" layoutX="196.0" layoutY="357.0" />
+   </children>
+</AnchorPane>
