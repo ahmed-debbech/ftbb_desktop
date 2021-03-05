@@ -28,7 +28,7 @@
       <Button layoutX="260.0" layoutY="218.0" mnemonicParsing="false" onAction="#updateProduct" text="UPDATE" />
       <Button layoutX="374.0" layoutY="218.0" mnemonicParsing="false" onAction="#deleteProduct" text="DELETE" />
       <Button fx:id="show_but" layoutX="489.0" layoutY="218.0" mnemonicParsing="false" onAction="#showProduct" text="SHOW" />
-      <TableView fx:id="lproduct" layoutX="104.0" layoutY="253.0" onMouseClicked="#handleMouseButton" prefHeight="223.0" prefWidth="495.0" />
+      <TableView fx:id="lproduct" layoutX="23.0" layoutY="250.0" onMouseClicked="#handleMouseButton" prefHeight="223.0" prefWidth="643.0" />
       <Label layoutX="289.0" layoutY="24.0" text="ADD PRODUCT" textAlignment="CENTER" />
     </children>
    <opaqueInsets>

@@ -18,6 +18,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -68,6 +69,13 @@ public class ShowCommandsController implements Initializable {
         ServiceCommand sc = new ServiceCommand();
         sc.updateCommand(c, 1);
         
+        //aleeeeeeeeeeeeeeeert
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("SUCCESS VALIDATION");
+        alert.setHeaderText(null);
+        alert.setContentText("COMMAND VALIDATED !");
+        alert.showAndWait();
+        
     }
 
     @FXML
@@ -75,6 +83,13 @@ public class ShowCommandsController implements Initializable {
         Command c  = lcommand.getSelectionModel().getSelectedItem();
         ServiceCommand sc = new ServiceCommand();
         sc.updateCommand(c, 2);
+        
+        //aleeeeeeeeeeeeeeeert
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("SUCCESS CANCEL");
+        alert.setHeaderText(null);
+        alert.setContentText("COMMAND CANCELED !");
+        alert.showAndWait();
     }
     
 }

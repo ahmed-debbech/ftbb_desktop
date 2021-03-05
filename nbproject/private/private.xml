@@ -4,12 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/PC/Documents/NetBeansProjects/gestion_store/src/IService/IServiceCommand.java</file>
-            <file>file:/C:/Users/PC/Documents/NetBeansProjects/gestion_store/src/Entities/Command.java</file>
             <file>file:/C:/Users/PC/Documents/NetBeansProjects/gestion_store/src/gestion_store/ShowCommandsController.java</file>
-            <file>file:/C:/Users/PC/Documents/NetBeansProjects/gestion_store/src/gestion_store/FXMLDocumentController.java</file>
             <file>file:/C:/Users/PC/Documents/NetBeansProjects/gestion_store/src/Service/ServiceProduct.java</file>
+            <file>file:/C:/Users/PC/Documents/NetBeansProjects/gestion_store/src/gestion_store/FXMLDocumentController.java</file>
             <file>file:/C:/Users/PC/Documents/NetBeansProjects/gestion_store/nbproject/build-impl.xml</file>
-            <file>file:/C:/Users/PC/Documents/NetBeansProjects/gestion_store/src/gestion_store/Page1Controller.java</file>
             <file>file:/C:/Users/PC/Documents/NetBeansProjects/gestion_store/src/Service/ServiceCommand.java</file>
         </group>
     </open-files>

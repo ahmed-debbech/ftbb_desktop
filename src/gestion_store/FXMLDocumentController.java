@@ -80,16 +80,8 @@ public class FXMLDocumentController implements Initializable {
      @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
-    
-    /******** AFFICHER *************************************************************************************************************/
-    @FXML
-    private void showProduct(ActionEvent event) {
-        ServiceProduct sp = new ServiceProduct();
-        List<Product> l = sp.ShowProduct();
         
-        TableColumn t1 = new TableColumn("Reference");
+           TableColumn t1 = new TableColumn("Reference");
         t1.setCellValueFactory(new PropertyValueFactory<Product, String>("ref_product"));
         TableColumn t2 = new TableColumn("Category");
         t2.setCellValueFactory(new PropertyValueFactory<Product, String>("category"));
@@ -107,6 +99,34 @@ public class FXMLDocumentController implements Initializable {
         t8.setCellValueFactory(new PropertyValueFactory<Product, String>("add_date"));
         
         lproduct.getColumns().addAll(t1,t2,t3,t4,t5,t6,t7,t8);
+        
+    }    
+    
+    
+    /******** AFFICHER *************************************************************************************************************/
+    @FXML
+    private void showProduct(ActionEvent event) {
+        ServiceProduct sp = new ServiceProduct();
+        List<Product> l = sp.ShowProduct();
+        
+      /*  TableColumn t1 = new TableColumn("Reference");
+        t1.setCellValueFactory(new PropertyValueFactory<Product, String>("ref_product"));
+        TableColumn t2 = new TableColumn("Category");
+        t2.setCellValueFactory(new PropertyValueFactory<Product, String>("category"));
+        TableColumn t3 = new TableColumn("Stock");
+        t3.setCellValueFactory(new PropertyValueFactory<Product, String>("stock"));
+        TableColumn t4 = new TableColumn("Name");
+        t4.setCellValueFactory(new PropertyValueFactory<Product, String>("name"));
+        TableColumn t5 = new TableColumn("Price");
+        t5.setCellValueFactory(new PropertyValueFactory<Product, String>("price"));
+        TableColumn t6 = new TableColumn("Details");
+        t6.setCellValueFactory(new PropertyValueFactory<Product, String>("details"));
+        TableColumn t7 = new TableColumn("ID Admin");
+        t7.setCellValueFactory(new PropertyValueFactory<Product, String>("id_admin"));
+        TableColumn t8 = new TableColumn("ADD date");
+        t8.setCellValueFactory(new PropertyValueFactory<Product, String>("add_date"));
+        
+        lproduct.getColumns().addAll(t1,t2,t3,t4,t5,t6,t7,t8);*/
         ObservableList<Product> data=FXCollections.observableArrayList(l);
         lproduct.setItems(data);
     }
