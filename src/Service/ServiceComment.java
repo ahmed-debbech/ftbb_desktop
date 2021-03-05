@@ -53,7 +53,13 @@ public class ServiceComment implements IServiceComment{
 
     @Override
     public void delComment(Comment a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try{
+            Statement stm = cnx.createStatement();
+            String query = "delete from comment where id="+a.getId()+";";
+            stm.executeUpdate(query);
+        }catch(SQLException ex){
+            System.out.println("Could not delete comment");
+        }
     }
     
 }

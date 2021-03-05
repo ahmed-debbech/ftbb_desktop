@@ -9,9 +9,12 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Optional;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 
 /**
  *
@@ -42,5 +45,12 @@ public class Utilities {
             generated = -1;
         }
         return generated;
+    }
+    public static void alert(String title, String context){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+           alert.setTitle(title);
+           alert.setHeaderText(null);
+           alert.setContentText(context);
+           Optional<ButtonType> result = alert.showAndWait();
     }
 }

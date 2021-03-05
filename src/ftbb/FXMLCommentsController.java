@@ -11,6 +11,7 @@ import Service.ServiceComment;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,7 +21,9 @@ import javafx.fxml.Initializable;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -28,6 +31,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import utils.Utilities;
 
 /**
  * FXML Controller class
@@ -67,14 +71,21 @@ public class FXMLCommentsController implements Initializable {
         TableColumn t9 = new TableColumn("Content");
         t9.setCellValueFactory(new PropertyValueFactory<Comment, String>("content"));
         listcomments.getColumns().addAll(t8,t9);
-        System.out.println("xx=x " + article_id.getLength());
-        List<Comment> l = sc.showComment(article_id.getText());
+        String i = "63438507";
+        List<Comment> l = sc.showComment(i);
         ObservableList<Comment> data =FXCollections.observableArrayList(l);
         listcomments.setItems(data);
     }
 
     @FXML
     private void banComment(ActionEvent event) {
+        Comment c = listcomments.getSelectionModel().getSelectedItem();
+        if(c == null){
+             Utilities.alert("WARNING!", "Please select a comment from the list.");
+        }else{
+            ServiceComment sc = new ServiceComment();
+            sc.delComment(c);
+        }
     }
 
     

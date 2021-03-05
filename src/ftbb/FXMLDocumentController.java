@@ -37,6 +37,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import utils.Utilities;
 
 /**
  *
@@ -131,11 +132,7 @@ public class FXMLDocumentController implements Initializable {
             mod_but.setText("Submit");
             Article a = listarticle.getSelectionModel().getSelectedItem();
             if(a == null){
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("WARNING!");
-                alert.setHeaderText(null);
-                alert.setContentText("Please select an Article from the list.");
-                Optional<ButtonType> result = alert.showAndWait();
+                Utilities.alert("WARNING!", "Please select an article from the list!");
             }else{
                 article_id.setText(String.valueOf(a.getArticle_id()));
                 text.setText(a.getText());
@@ -165,11 +162,7 @@ public class FXMLDocumentController implements Initializable {
     private void delArticle(ActionEvent event) {
         Article a = listarticle.getSelectionModel().getSelectedItem();
         if(a == null){
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("WARNING!");
-            alert.setHeaderText(null);
-            alert.setContentText("Please select an Article from the list.");
-            Optional<ButtonType> result = alert.showAndWait();
+            Utilities.alert("WARNING!", "Please select an article from the list!");
         }else{
            ServiceArticle sa = new ServiceArticle();
            Article aa = new Article(a.getArticle_id());
@@ -181,19 +174,15 @@ public class FXMLDocumentController implements Initializable {
     private void showComments(ActionEvent event) throws IOException {
         Article a = listarticle.getSelectionModel().getSelectedItem();
         if(a == null){ 
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("WARNING!");
-            alert.setHeaderText(null);
-            alert.setContentText("Please select an Article from the list.");
-            Optional<ButtonType> result = alert.showAndWait();
+           Utilities.alert("WARNING!", "Please select an article from the list!");
         }else{
             FXMLLoader fxmlLoader = new FXMLLoader();
             Pane root1 =  fxmlLoader.load(getClass().getResource("FXMLComments.fxml").openStream());
-            FXMLCommentsController cont = fxmlLoader.getController();
-            cont.receiveId(String.valueOf(a.getArticle_id()));
             Stage stage = new Stage();
             stage.setTitle("Comments of article: " + a.getArticle_id());
             stage.setScene(new Scene(root1));  
+            FXMLCommentsController cont = fxmlLoader.getController();
+            cont.receiveId(String.valueOf(a.getArticle_id()));
             stage.show();
         }
     }
