@@ -58,7 +58,7 @@ public class FXMLCommentsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         TableColumn t8 = new TableColumn("Client Name");
-        t8.setCellValueFactory(new PropertyValueFactory<Comment, String>("client_id"));
+        t8.setCellValueFactory(new PropertyValueFactory<Comment, String>("client_name"));
         TableColumn t9 = new TableColumn("Content");
         t9.setCellValueFactory(new PropertyValueFactory<Comment, String>("content"));
         listcomments.getColumns().addAll(t8,t9);

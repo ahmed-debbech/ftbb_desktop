@@ -18,7 +18,8 @@ public class Comment {
     private int client_id;
     private int article_id;
     private Date date;
-    
+    private String client_name;
+ 
     public Comment(){
         
     }
@@ -91,6 +92,20 @@ public class Comment {
      */
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    /**
+     * @return the client_name
+     */
+    public String getClient_name() {
+        return client_name;
+    }
+
+    /**
+     * @param client_name the client_name to set
+     */
+    public void setClient_name(String client_name) {
+        this.client_name = client_name;
     }
     
 }

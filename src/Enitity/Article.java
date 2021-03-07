@@ -14,10 +14,10 @@ import utils.Utilities;
  */
 public class Article {
     // category types
-    public static int BREAKING_NEWS = 0;
-    public static int HOT = 1;
-    public static int ANNOUNCE = 2;
-    public static int MISC = 3;
+    private static int BREAKING_NEWS = 0;
+    private static int HOT = 1;
+    private static int ANNOUNCE = 2;
+    private static int MISC = 3;
     
     
     private int article_id;
@@ -29,7 +29,8 @@ public class Article {
     private String photo_url;
     private String video_url;
     private int category;
-
+    private String admin_name;
+    
     public Article(int id){
         this.article_id =id;
     }
@@ -203,6 +204,76 @@ public class Article {
      */
     public void setCategory(int category) {
         this.category = category;
+    }
+
+    /**
+     * @return the BREAKING_NEWS
+     */
+    public static int getBREAKING_NEWS() {
+        return BREAKING_NEWS;
+    }
+
+    /**
+     * @param aBREAKING_NEWS the BREAKING_NEWS to set
+     */
+    public static void setBREAKING_NEWS(int aBREAKING_NEWS) {
+        BREAKING_NEWS = aBREAKING_NEWS;
+    }
+
+    /**
+     * @return the HOT
+     */
+    public static int getHOT() {
+        return HOT;
+    }
+
+    /**
+     * @param aHOT the HOT to set
+     */
+    public static void setHOT(int aHOT) {
+        HOT = aHOT;
+    }
+
+    /**
+     * @return the ANNOUNCE
+     */
+    public static int getANNOUNCE() {
+        return ANNOUNCE;
+    }
+
+    /**
+     * @param aANNOUNCE the ANNOUNCE to set
+     */
+    public static void setANNOUNCE(int aANNOUNCE) {
+        ANNOUNCE = aANNOUNCE;
+    }
+
+    /**
+     * @return the MISC
+     */
+    public static int getMISC() {
+        return MISC;
+    }
+
+    /**
+     * @param aMISC the MISC to set
+     */
+    public static void setMISC(int aMISC) {
+        MISC = aMISC;
+    }
+
+    /**
+     * @return the admin_name
+     */
+    public String getAdmin_name() {
+        return admin_name;
+    }
+
+    /**
+     * @param admin_name the admin_name to set
+     */
+    public void setAdmin_name(String admin_name) {
+        this.admin_name = admin_name;
     }
   
 }

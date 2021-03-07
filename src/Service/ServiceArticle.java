@@ -69,12 +69,13 @@ public class ServiceArticle implements IServiceArticle {
         List<Article> list = new ArrayList<>();
         try{
             Statement stm = this.cnx.createStatement();
-            String query = "select * from `article`;";
+            String query = "SELECT article.*, admin.name FROM `article` inner join admin on article.admin_id=admin.id;";
             ResultSet rst = stm.executeQuery(query);
             while(rst.next()){
                 Article a = new Article();
                 a.setArticle_id(rst.getInt("article_id"));
                 a.setAdmin_id(rst.getInt("admin_id"));
+                a.setAdmin_name(rst.getString("name"));
                 a.setTitle(rst.getString("title"));
                 a.setText(rst.getString("text"));
                 a.setAuthor(rst.getString("author"));

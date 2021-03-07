@@ -83,14 +83,14 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         showArticle(null);
-        category.getItems().add(Article.toStringCatTypes(Article.BREAKING_NEWS));
-        category.getItems().add(Article.toStringCatTypes(Article.HOT));
-        category.getItems().add(Article.toStringCatTypes(Article.ANNOUNCE));
-        category.getItems().add(Article.toStringCatTypes(Article.MISC));
+        category.getItems().add(Article.toStringCatTypes(Article.getBREAKING_NEWS()));
+        category.getItems().add(Article.toStringCatTypes(Article.getHOT()));
+        category.getItems().add(Article.toStringCatTypes(Article.getANNOUNCE()));
+        category.getItems().add(Article.toStringCatTypes(Article.getMISC()));
         TableColumn t1 = new TableColumn("ID ");
         t1.setCellValueFactory(new PropertyValueFactory<Article, String>("article_id"));
         TableColumn t2 = new TableColumn("Admin name");
-        t2.setCellValueFactory(new PropertyValueFactory<Article, String>("admin_id"));
+        t2.setCellValueFactory(new PropertyValueFactory<Article, String>("admin_name"));
         TableColumn t3 = new TableColumn("Title");
         t3.setCellValueFactory(new PropertyValueFactory<Article, String>("title"));
         TableColumn t4 = new TableColumn("Text");

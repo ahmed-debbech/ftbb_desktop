@@ -34,13 +34,14 @@ public class ServiceComment implements IServiceComment{
         try{
             Statement stm = this.cnx.createStatement();
             System.out.println("xxxx " + id);
-            String query = "select * from `comment` where article_id="+id+";";
+            String query = "SELECT comment.*, client.name, client.surname FROM `comment` inner join client on comment.client_id=client.id where article_id="+id+";";
             ResultSet rst = stm.executeQuery(query);
             while(rst.next()){
                 Comment a = new Comment();
                 a.setId(rst.getInt("id"));
                 a.setContent(rst.getString("content"));
                 a.setClient_id(rst.getInt("client_id"));
+                a.setClient_name(rst.getString("name") + rst.getString("surname"));
                 a.setArticle_id(rst.getInt("article_id"));
                 a.setDate(rst.getDate("date"));
                 list.add(a);
