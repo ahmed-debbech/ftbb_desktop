@@ -15,7 +15,10 @@
             <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/ftbb/FXMLComments.fxml</file>
             <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/ftbb/FXMLCommentsController.java</file>
             <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/Service/ServiceComment.java</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/utils/Utilities.java</file>
             <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/ftbb/FXMLDocumentController.java</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/Enitity/Article.java</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/Enitity/Comment.java</file>
             <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/Service/ServiceArticle.java</file>
             <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/IService/IServiceComment.java</file>
         </group>

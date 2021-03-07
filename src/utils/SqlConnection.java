@@ -23,6 +23,7 @@ public class SqlConnection{
             System.out.println("Connection established");
         }catch(SQLException ex){
             System.out.println("no conncetion");
+            cnx = null;
         }
     }
     

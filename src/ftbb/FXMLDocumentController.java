@@ -86,12 +86,6 @@ public class FXMLDocumentController implements Initializable {
         category.getItems().add(Article.toStringCatTypes(Article.HOT));
         category.getItems().add(Article.toStringCatTypes(Article.ANNOUNCE));
         category.getItems().add(Article.toStringCatTypes(Article.MISC));
-    }    
-
-    @FXML
-    private void showArticle(ActionEvent event) {
-        ServiceArticle sp = new ServiceArticle();
-        List<Article> l = sp.showArticle();
         TableColumn t1 = new TableColumn("ID ");
         t1.setCellValueFactory(new PropertyValueFactory<Article, String>("article_id"));
         TableColumn t2 = new TableColumn("Admin name");
@@ -111,8 +105,16 @@ public class FXMLDocumentController implements Initializable {
         TableColumn t9 = new TableColumn("Category");
         t9.setCellValueFactory(new PropertyValueFactory<Article, String>("category"));
         listarticle.getColumns().addAll(t1,t2,t3,t4,t5,t6,t7,t8,t9);
-        ObservableList<Article> data =FXCollections.observableArrayList(l);
-        listarticle.setItems(data);
+    }    
+
+    @FXML
+    private void showArticle(ActionEvent event) {
+        ServiceArticle sp = new ServiceArticle();
+        List<Article> l = sp.showArticle();
+        if(l != null){
+            ObservableList<Article> data =FXCollections.observableArrayList(l);
+            listarticle.setItems(data);
+        }
     }
 
     @FXML
