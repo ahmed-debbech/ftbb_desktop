@@ -54,8 +54,6 @@ public class ServiceArticle implements IServiceArticle {
                     +a.getPhoto_url()+"','"
                     +a.getVideo_url()+"',"
                     +a.getCategory()+");";
-            //String query = "insert into article (article_id, admin_id, title, text, author, date, photo_url"
-             //       + ", video_url, category) values (777,234,'ooepe','oeoddd','3oedod',sysdate(),'oppp','prp',2);";
             stm.executeUpdate(query);
         } catch (SQLException ex) {
             System.out.println("could not add new article");
@@ -77,7 +75,6 @@ public class ServiceArticle implements IServiceArticle {
                 Article a = new Article();
                 a.setArticle_id(rst.getInt("article_id"));
                 a.setAdmin_id(rst.getInt("admin_id"));
-                a.setArticle_id(rst.getInt("article_id"));
                 a.setTitle(rst.getString("title"));
                 a.setText(rst.getString("text"));
                 a.setAuthor(rst.getString("author"));

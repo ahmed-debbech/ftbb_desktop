@@ -31,6 +31,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import utils.Passable;
 import utils.Utilities;
 
 /**
@@ -46,33 +47,29 @@ public class FXMLCommentsController implements Initializable {
     private Button ref_but;
     @FXML
     private Button ban_but;
-    
-    @FXML
-    private TextField article_id;
-    
-    
+   
     @FXML
     private AnchorPane panecom;
+    
+    private String article_id;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       refreshComment(null);
-    }    
-    public void receiveId(String id){
-        article_id.setText(id);
-    }
-    @FXML
-    private void refreshComment(ActionEvent event) {
-        ServiceComment sc = new ServiceComment();
         TableColumn t8 = new TableColumn("Client Name");
         t8.setCellValueFactory(new PropertyValueFactory<Comment, String>("client_id"));
         TableColumn t9 = new TableColumn("Content");
         t9.setCellValueFactory(new PropertyValueFactory<Comment, String>("content"));
         listcomments.getColumns().addAll(t8,t9);
-        String i = "63438507";
-        List<Comment> l = sc.showComment(i);
+         article_id = Passable.getInstance().getTextData();
+         Passable.getInstance().erase();
+         refreshComment(null);
+    }    
+    @FXML
+    private void refreshComment(ActionEvent event) {
+        ServiceComment sc = new ServiceComment();
+        List<Comment> l = sc.showComment(article_id);
         ObservableList<Comment> data =FXCollections.observableArrayList(l);
         listcomments.setItems(data);
     }

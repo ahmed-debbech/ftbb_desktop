@@ -37,6 +37,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import utils.Passable;
 import utils.Utilities;
 
 /**
@@ -180,11 +181,11 @@ public class FXMLDocumentController implements Initializable {
         }else{
             FXMLLoader fxmlLoader = new FXMLLoader();
             Pane root1 =  fxmlLoader.load(getClass().getResource("FXMLComments.fxml").openStream());
+            Passable p = Passable.getInstance();
+            p.setTextData(String.valueOf(a.getArticle_id()));
             Stage stage = new Stage();
             stage.setTitle("Comments of article: " + a.getArticle_id());
             stage.setScene(new Scene(root1));  
-            FXMLCommentsController cont = fxmlLoader.getController();
-            cont.receiveId(String.valueOf(a.getArticle_id()));
             stage.show();
         }
     }
