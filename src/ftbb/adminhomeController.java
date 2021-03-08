@@ -5,6 +5,7 @@
  */
 package ftbb;
 
+import java.io.IOException;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,7 +16,11 @@ import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 
 /**
  * FXML Controller class
@@ -35,11 +40,21 @@ import javafx.fxml.Initializable;
 
     @FXML
     private AnchorPane slider;
+    @FXML
+    private AnchorPane linker;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) 
     {
+        
+        Node node;
+        try {
+            node = (Node)FXMLLoader.load(getClass().getResource("FXMLArticles.fxml"));
+            linker.getChildren().setAll(node);
 
+        } catch (IOException ex) {
+            Logger.getLogger(adminhomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         Exit.setOnMouseClicked(event -> {
             System.exit(0);
         });
