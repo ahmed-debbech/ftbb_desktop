@@ -39,7 +39,7 @@ import utils.Utilities;
  *
  * @author Ahmed
  */
-public class FXMLCommentsController implements Initializable {
+public class CommentsController implements Initializable {
 
     @FXML
     private TableView<Comment> listcomments;

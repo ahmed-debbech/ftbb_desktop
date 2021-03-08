@@ -44,7 +44,7 @@ import utils.Utilities;
  *
  * @author Ahmed
  */
-public class FXMLDocumentController implements Initializable {
+public class ArticlesController implements Initializable {
     
     @FXML
     private Button add_but;
