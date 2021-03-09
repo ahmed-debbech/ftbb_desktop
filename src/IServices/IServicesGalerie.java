@@ -14,8 +14,9 @@ import java.util.List;
  * @author narug
  */
 public interface IServicesGalerie {
-    public void AddPhoto(Galerie g);
+    
     public List<Galerie> ShowPhoto() throws SQLException;
+    public void AddPhoto(Galerie g);
     public void ModifyPhoto(Galerie g);
     public void DeletePhoto(Galerie g);
 }

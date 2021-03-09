@@ -5,6 +5,8 @@
  */
 package Entites;
 
+import Utils.Utilities;
+
 /**
  *
  * @author narug
@@ -19,8 +21,16 @@ public class Feedback {
     private String type;
     
     
-    public Feedback(){
+    public Feedback(int x,String y){
+        this.feedback_id=x;
+        this.text=y;
+    }
     
+    
+    
+    public Feedback(){
+    this.feedback_id=Utilities.generatedId("feedback", "feedback_id");
+    this.client_id=0101;
     }
 
     /**

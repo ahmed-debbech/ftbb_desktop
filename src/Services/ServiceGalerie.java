@@ -33,7 +33,7 @@ public ServiceGalerie(){
     public void AddPhoto(Galerie g) {
         try {
             Statement stm=cnx.createStatement();
-            String query ="INSERT INTO `galerie`(`galerie_id`, `admin_id`, `photo_url`, `photo_title`) VALUES ("+g.getGalerie_id()+","+g.getAdmin_id()+",'"+g.getPhoto_url()+"','"+g.getPhoto_title()+"');";
+            String query ="INSERT INTO `galerie`(`galerie_id`, `admin_id`, `photo_url`, `photo_title`, `description`) VALUES ("+g.getGalerie_id()+","+g.getAdmin_id()+",'"+g.getPhoto_url()+"','"+g.getPhoto_title()+"','"+g.getDescription()+"');";
             stm.executeUpdate(query);
         } catch (SQLException ex) {
             Logger.getLogger(ServiceGalerie.class.getName()).log(Level.SEVERE, null, ex);
@@ -56,6 +56,7 @@ public ServiceGalerie(){
             g.setAdmin_id(rst.getInt("admin_id"));
             g.setPhoto_url(rst.getString("photo_url"));
             g.setPhoto_title(rst.getString("photo_title"));
+            g.setDescription(rst.getString("description"));
             Galeries.add(g);
         
         }
@@ -66,7 +67,7 @@ public ServiceGalerie(){
     public void ModifyPhoto(Galerie g) {
         try {
             Statement stm=cnx.createStatement();
-            String query ="UPDATE galerie SET photo_title='"+g.getPhoto_title()+"' WHERE galerie_id="+g.getGalerie_id()+";";
+            String query ="UPDATE galerie SET photo_title='"+g.getPhoto_title()+"', description='"+g.getDescription()+"' WHERE galerie_id="+g.getGalerie_id()+";";
             
             stm.executeUpdate(query);
         } catch (SQLException ex) {

@@ -5,6 +5,8 @@
  */
 package Entites;
 
+import Utils.Utilities;
+
 /**
  *
  * @author narug
@@ -14,10 +16,18 @@ public class Report {
     private int client_id;
     private int command_id;
     private String report_date;
+    private String email;
     private String description;
     
-    public Report(){
     
+    public Report(int x,String y){
+        this.report_id=x;
+        this.description=y;
+    }
+    
+    public Report(){
+       this.report_id=Utilities.generatedId("report", "report_id");
+       this.client_id=999;
     
     }
 
@@ -89,6 +99,20 @@ public class Report {
      */
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
     }
     
     

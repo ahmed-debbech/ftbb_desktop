@@ -14,6 +14,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -42,11 +44,48 @@ public class ServiceReport implements IServicesReport {
             r.setClient_id(rst.getInt("client_id"));
             r.setCommand_id(rst.getInt("command_id"));
             r.setReport_date(rst.getString("report_date"));
+            r.setEmail(rst.getString("email"));
             r.setDescription(rst.getString("description"));
             Reports.add(r);
         
         }
         return Reports;
     }
-    
+
+    @Override
+    public void AddReport(Report r) {
+      try {
+            Statement stm=cnx.createStatement();
+            String query ="INSERT INTO `report`(`report_id`, `client_id`, `command_id`, `report_date`, `email`, `description`) VALUES ("+r.getReport_id()+","+r.getClient_id()+","+r.getCommand_id()+","+"sysdate(), '"+r.getEmail()+"','"+r.getDescription()+"');";
+            stm.executeUpdate(query);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceGalerie.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public void ModifyReport(Report r) {
+        try {
+            Statement stm=cnx.createStatement();
+            String query ="UPDATE report SET description='"+r.getDescription()+"' WHERE report_id="+r.getReport_id()+";";
+            
+            stm.executeUpdate(query);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceGalerie.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public void DeleteReport(Report r) {
+         try {
+            Statement stm=cnx.createStatement();
+            String query ="DELETE FROM report where report_id ="+r.getReport_id()+";";
+            
+            stm.executeUpdate(query);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceGalerie.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+   
+
 }

@@ -25,6 +25,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
@@ -50,6 +51,8 @@ public class FXMLDocumentController implements Initializable {
     private Label gld;
     @FXML
     private Button sub;
+    @FXML
+    private TextArea tfdesc;
     
     
     private void handleButtonAction(ActionEvent event) {
@@ -59,7 +62,17 @@ public class FXMLDocumentController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        TableColumn t1 = new TableColumn("Galerie ID ");
+        t1.setCellValueFactory(new PropertyValueFactory<Galerie, String>("galerie_id"));
+        TableColumn t2 = new TableColumn("Admin ID ");
+        t2.setCellValueFactory(new PropertyValueFactory<Galerie, String>("admin_id"));
+        TableColumn t3 = new TableColumn("Photo url");
+        t3.setCellValueFactory(new PropertyValueFactory<Galerie, String>("photo_url"));
+        TableColumn t4 = new TableColumn("Photo title");
+        t4.setCellValueFactory(new PropertyValueFactory<Galerie, String>("photo_title"));
+        TableColumn t5 = new TableColumn("Description");
+        t5.setCellValueFactory(new PropertyValueFactory<Galerie, String>("description"));
+        listphoto.getColumns().addAll(t1,t2,t3,t4,t5);
     }    
 
     @FXML
@@ -67,8 +80,10 @@ public class FXMLDocumentController implements Initializable {
             Galerie g =new Galerie();
             g.setPhoto_title(tfphototitle.getText());
             g.setPhoto_url(tfphotourl.getText());
+            g.setDescription(tfdesc.getText());
             
-       if((tfphototitle.getText() == " ") || (tfphotourl.getText() == " ")){
+       if((tfphototitle.getText().equals("")) || (tfphotourl.getText().equals("")) ||(tfdesc.getText().equals("")) ){
+           
            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("WARNING!");
             alert.setHeaderText(null);
@@ -111,15 +126,6 @@ public class FXMLDocumentController implements Initializable {
     private void showphoto(ActionEvent event)throws SQLException {
         ServiceGalerie sg=new ServiceGalerie();
         List<Galerie> g = sg.ShowPhoto();
-        TableColumn t1 = new TableColumn("Galerie ID ");
-        t1.setCellValueFactory(new PropertyValueFactory<Galerie, String>("galerie_id"));
-        TableColumn t2 = new TableColumn("Admin ID ");
-        t2.setCellValueFactory(new PropertyValueFactory<Galerie, String>("admin_id"));
-        TableColumn t3 = new TableColumn("Photo url");
-        t3.setCellValueFactory(new PropertyValueFactory<Galerie, String>("photo_url"));
-        TableColumn t4 = new TableColumn("Photo title");
-        t4.setCellValueFactory(new PropertyValueFactory<Galerie, String>("photo_title"));
-        listphoto.getColumns().addAll(t1,t2,t3,t4);
         ObservableList<Galerie> data =FXCollections.observableArrayList(g);
         listphoto.setItems(data);
         
@@ -136,6 +142,7 @@ public class FXMLDocumentController implements Initializable {
         }else{
         gld.setText(String.valueOf(g.getGalerie_id()));
         tfphototitle1.setText(g.getPhoto_title());
+        tfdesc.setText(g.getDescription());
         }
         
     }
@@ -143,14 +150,18 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void ModeSubmit(ActionEvent event) {
         ServiceGalerie sg=new ServiceGalerie();
-        Galerie g = new Galerie(Integer.parseInt(gld.getText()),tfphototitle1.getText());
+        Galerie g = new Galerie(Integer.parseInt(gld.getText()),tfphototitle1.getText(),tfdesc.getText());
         sg.ModifyPhoto(g);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Note!");
             alert.setHeaderText(null);
-            alert.setContentText("Photo title modified successfully.");
+            alert.setContentText("Photo  modified successfully.");
             Optional<ButtonType> result = alert.showAndWait();
         
+    }
+
+    @FXML
+    private void Browse(ActionEvent event) {
     }
     
 }

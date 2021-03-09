@@ -13,9 +13,6 @@ import java.util.List;
  *
  * @author narug
  */
-public interface IServicesFeedback {
-    public List<Feedback> ShowFeedback() throws SQLException;
-    public void AddFeedback(Feedback f);
-    public void DeleteFeedback(Feedback f);
-    public void ModifyFeedback(Feedback f );
+public interface IServicesAdminFeedbacks {
+     public List<Feedback> ShowFeedback() throws SQLException;
 }

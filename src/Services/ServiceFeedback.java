@@ -13,6 +13,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -50,9 +52,40 @@ public class ServiceFeedback {
         return Feedbacks;
     }
 
+    public void AddFeedback(Feedback f) {
+        try {
+            Statement stm=cnx.createStatement();
+            String query ="INSERT INTO `feedback`(`feedback_id`, `client_id`, `feedback_date`, `email`, `topic`, `text`, `type`) VALUES ("+f.getFeedback_id()+","+f.getClient_id()+","+"sysdate(), '"+f.getEmail()+"','"+f.getTopic()+"','"+f.getText()+"','"+f.getType()+"');";
+            stm.executeUpdate(query);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceGalerie.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     
+    }
 
 
+    public void ModifyFeedback(Feedback f ){
+     try {
+            Statement stm=cnx.createStatement();
+            String query ="UPDATE feedback SET text='"+f.getText()+"' WHERE feedback_id="+f.getFeedback_id()+";";
+            
+            stm.executeUpdate(query);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceGalerie.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+     public void DeleteFeedback(Feedback f){
+        try {
+            Statement stm=cnx.createStatement();
+            String query ="DELETE FROM feedback where feedback_id ="+f.getFeedback_id()+";";
+            
+            stm.executeUpdate(query);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceGalerie.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    }
 
 
-
-}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="479.0" prefWidth="671.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.RespondfeedbackController">
+   <children>
+      <Label fx:id="clem" layoutX="216.0" layoutY="126.0" />
+      <Label layoutX="128.0" layoutY="188.0" text="Description :" />
+      <TextArea fx:id="tfdesc" layoutX="209.0" layoutY="197.0" prefHeight="200.0" prefWidth="375.0" />
+      <Button layoutX="584.0" layoutY="425.0" mnemonicParsing="false" onAction="#respondfeedback" text="Respond" />
+      <Label layoutX="128.0" layoutY="126.0" text="Client Email :" />
+   </children>
+</AnchorPane>

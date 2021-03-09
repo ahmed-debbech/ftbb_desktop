@@ -5,7 +5,7 @@
  */
 package IServices;
 
-import Entites.Feedback;
+import Entites.Report;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -13,9 +13,6 @@ import java.util.List;
  *
  * @author narug
  */
-public interface IServicesFeedback {
-    public List<Feedback> ShowFeedback() throws SQLException;
-    public void AddFeedback(Feedback f);
-    public void DeleteFeedback(Feedback f);
-    public void ModifyFeedback(Feedback f );
+public interface IServicesAdminReports {
+    public List<Report> ShowReport() throws SQLException;
 }

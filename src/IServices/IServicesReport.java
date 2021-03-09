@@ -5,7 +5,7 @@
  */
 package IServices;
 
-import Entites.Galerie;
+
 import Entites.Report;
 import java.sql.SQLException;
 import java.util.List;
@@ -16,4 +16,7 @@ import java.util.List;
  */
 public interface IServicesReport {
     public List<Report> ShowReport() throws SQLException;
+    public void AddReport(Report r);
+    public void ModifyReport(Report r);
+    public void DeleteReport(Report r);
 }

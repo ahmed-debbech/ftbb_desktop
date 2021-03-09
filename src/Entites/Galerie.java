@@ -16,12 +16,15 @@ public class Galerie {
     private int admin_id;
     private String photo_title;
     private String photo_url;
+    private String description;
     
     
-    public Galerie(int x,String y){
+    public Galerie(int x,String y,String z){
         this.galerie_id=x;
         this.photo_title=y;
+        this.description=z;
     }
+    
    
     public Galerie(){
      this.galerie_id=Utilities.generatedId("galerie", "galerie_id");
@@ -87,6 +90,20 @@ public class Galerie {
     @Override
     public String toString(){
         return "Galerie{"+"galerie_id"+galerie_id+",admin_id"+admin_id+"pohto_title"+photo_title+",photo_url"+photo_url+"}\n";  
+    }
+
+    /**
+     * @return the description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * @param description the description to set
+     */
+    public void setDescription(String description) {
+        this.description = description;
     }
     
 }
