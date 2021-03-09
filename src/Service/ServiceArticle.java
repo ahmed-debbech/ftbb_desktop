@@ -39,11 +39,6 @@ public class ServiceArticle implements IServiceArticle {
         }
         try {
             Statement stm = cnx.createStatement();
-            System.out.println("of: " +String.valueOf(a.getArticle_id()) 
-            +String.valueOf(a.getAdmin_id())
-            + a.getTitle()
-            + a.getText()
-            + a.getAuthor());
             String query = "insert into article (article_id, admin_id,"
                     + "title, text, author, date, photo_url, video_url, category) values ("
                     +String.valueOf(a.getArticle_id())+","

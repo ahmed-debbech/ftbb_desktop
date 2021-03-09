@@ -5,6 +5,7 @@
  */
 package ftbb;
 
+import Enitity.Article;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -44,4 +45,8 @@ public class PostsController implements Initializable {
         // TODO
     }    
     
+    public void setData(Article a){
+           this.title.setText(a.getTitle());
+           this.date.setText(a.getDate().toString());
+    }
 }

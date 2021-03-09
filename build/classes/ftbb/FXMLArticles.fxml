@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" fx:id="pane1" prefHeight="567.0" prefWidth="1091.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.FXMLDocumentController">
+<AnchorPane id="AnchorPane" fx:id="pane1" prefHeight="567.0" prefWidth="1091.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.ArticlesController">
     <children>
         <Button fx:id="add_but" layoutX="215.0" layoutY="493.0" onAction="#addArticle" prefHeight="40.0" prefWidth="94.0" text="Add New " />
       <Label layoutX="31.0" layoutY="30.0" prefHeight="19.0" prefWidth="37.0" text="Title" />
