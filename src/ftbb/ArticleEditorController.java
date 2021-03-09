@@ -55,7 +55,7 @@ public class ArticleEditorController implements Initializable {
     @FXML
     private ComboBox<String> category;
     @FXML
-    private Label photo_dir;
+    private TextField photo_dir;
     @FXML
     private Button browse_photo;
     @FXML
@@ -88,7 +88,7 @@ public class ArticleEditorController implements Initializable {
                     text.setText(whatToMod.getText());
                     title.setText(whatToMod.getTitle());
                     author.setText(whatToMod.getAuthor());
-                    photo_dir.setText(whatToMod.getPhoto_url());
+                    photo_dir.setText(whatToMod.getPhoto_url().replace('/', '\\'));
                     switch(whatToMod.getCategory()){
                         case 0: 
                             category.setValue(Article.toStringCatTypes(whatToMod.getCategory()));

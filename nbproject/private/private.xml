@@ -23,12 +23,11 @@
             <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/ftbb/FXMLArticlesEditor.fxml</file>
             <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/ftbb/ArticleEditorController.java</file>
             <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/ftbb/Ftbb.java</file>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/utils/Utilities.java</file>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/Enitity/Article.java</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/ftbb/FXMLArticlesViewController.java</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/ftbb/PostsAdminController.java</file>
             <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/ftbb/ClientArticlesController.java</file>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/Service/ServiceArticle.java</file>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/ftbb/PostsController.java</file>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/ftbb/ArticlesController.java</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/ftbb/FXMLArticlesView.fxml</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/ftbb/FXMLPostsAdmin.fxml</file>
         </group>
     </open-files>
 </project-private>

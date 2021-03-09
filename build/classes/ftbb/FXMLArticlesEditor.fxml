@@ -7,9 +7,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="548.0" prefWidth="901.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.ArticleEditorController">
+<AnchorPane id="AnchorPane" prefHeight="506.0" prefWidth="889.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.ArticleEditorController">
    <children>
-      <Button fx:id="add_but" layoutX="680.0" layoutY="496.0" onAction="#addArticle" prefHeight="30.0" prefWidth="190.0" text="Add New " />
+      <Button fx:id="add_but" layoutX="678.0" layoutY="443.0" onAction="#addArticle" prefHeight="30.0" prefWidth="190.0" text="Add New " />
       <Label layoutX="16.0" layoutY="23.0" prefHeight="19.0" prefWidth="37.0" text="Title" />
       <Label layoutX="16.0" layoutY="60.0" text="Text" />
       <TextArea fx:id="text" layoutX="95.0" layoutY="60.0" prefHeight="271.0" prefWidth="774.0" />
@@ -17,10 +17,10 @@
       <Label layoutX="651.0" layoutY="357.0" text="Author" />
       <TextField fx:id="author" layoutX="651.0" layoutY="381.0" prefHeight="30.0" prefWidth="217.0" />
       <Label layoutX="13.0" layoutY="357.0" prefHeight="19.0" prefWidth="103.0" text="Photo Path" />
-      <Label layoutX="14.0" layoutY="461.0" text="Category" />
-      <ComboBox fx:id="category" layoutX="94.0" layoutY="456.0" prefHeight="30.0" prefWidth="200.0" promptText="Select Category" />
-      <Label fx:id="photo_dir" layoutX="125.0" layoutY="357.0" prefHeight="19.0" prefWidth="446.0" text="browse an image" />
-      <Button fx:id="browse_photo" layoutX="125.0" layoutY="396.0" mnemonicParsing="false" onAction="#browseImage" prefHeight="30.0" prefWidth="103.0" text="Browse" />
+      <Label layoutX="14.0" layoutY="419.0" text="Category" />
+      <ComboBox fx:id="category" layoutX="94.0" layoutY="413.0" prefHeight="30.0" prefWidth="200.0" promptText="Select Category" />
+      <Button fx:id="browse_photo" layoutX="303.0" layoutY="352.0" mnemonicParsing="false" onAction="#browseImage" prefHeight="30.0" prefWidth="85.0" text="Browse" />
       <Label fx:id="article_id" layoutX="94.0" layoutY="517.0" />
+      <TextField fx:id="photo_dir" layoutX="97.0" layoutY="352.0" prefHeight="30.0" prefWidth="206.0" />
    </children>
 </AnchorPane>
