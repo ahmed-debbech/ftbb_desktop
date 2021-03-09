@@ -27,7 +27,6 @@ public class Article {
     private String author;
     private Date date;
     private String photo_url;
-    private String video_url;
     private int category;
     private String admin_name;
     
@@ -38,25 +37,23 @@ public class Article {
         this.article_id = Utilities.generatedId("article", "article_id");
         this.admin_id=234;
     }
-    public Article(String title, String text, String author, String photo, String video, String category){
+    public Article(String title, String text, String author, String photo, String category){
         this.article_id = Utilities.generatedId("article", "article_id");
         this.admin_id=234;
         this.title = title;
         this.text= text;
         this.author = author;
         this.photo_url = photo;
-        this.video_url = video;
         this.category = toIntCatTypes(category);
     }
     
-    public Article(int id, String title, String text, String author, String photo, String video, String category){
+    public Article(int id, String title, String text, String author, String photo, String category){
         this.article_id = id;
         this.admin_id=234;
         this.title = title;
         this.text= text;
         this.author = author;
         this.photo_url = photo;
-        this.video_url = video;
         this.category = toIntCatTypes(category);
     }
     
@@ -177,21 +174,6 @@ public class Article {
     public void setPhoto_url(String photo_url) {
         this.photo_url = photo_url;
     }
-
-    /**
-     * @return the video_url
-     */
-    public String getVideo_url() {
-        return video_url;
-    }
-
-    /**
-     * @param video_url the video_url to set
-     */
-    public void setVideo_url(String video_url) {
-        this.video_url = video_url;
-    }
-
     /**
      * @return the category
      */

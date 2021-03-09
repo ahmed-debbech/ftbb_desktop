@@ -19,7 +19,7 @@ public class Ftbb extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLArticles.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLArticlesEditor.fxml"));
         
         Scene scene = new Scene(root);
         

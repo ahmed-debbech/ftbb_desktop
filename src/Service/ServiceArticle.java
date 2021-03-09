@@ -40,14 +40,13 @@ public class ServiceArticle implements IServiceArticle {
         try {
             Statement stm = cnx.createStatement();
             String query = "insert into article (article_id, admin_id,"
-                    + "title, text, author, date, photo_url, video_url, category) values ("
+                    + "title, text, author, date, photo_url, category) values ("
                     +String.valueOf(a.getArticle_id())+","
                     +String.valueOf(a.getAdmin_id())+",'"
                     +a.getTitle()+"','"
                     +a.getText()+"','"
                     +a.getAuthor()+"', sysdate(),'"
-                    +a.getPhoto_url()+"','"
-                    +a.getVideo_url()+"',"
+                    +a.getPhoto_url()+"',"
                     +a.getCategory()+");";
             stm.executeUpdate(query);
         } catch (SQLException ex) {
@@ -76,7 +75,6 @@ public class ServiceArticle implements IServiceArticle {
                 a.setAuthor(rst.getString("author"));
                 a.setDate(rst.getDate("date"));
                 a.setPhoto_url(rst.getString("photo_url"));
-                a.setVideo_url(rst.getString("video_url"));
                 a.setCategory(rst.getInt("category"));
                 list.add(a);
             }
@@ -100,7 +98,6 @@ public class ServiceArticle implements IServiceArticle {
                     + "text = '"+a.getText()+"',"
                     + "author = '"+a.getAuthor()+"',"
                     + "photo_url = '" + a.getPhoto_url() + "',"
-                    + "video_url = '" + a.getVideo_url() + "',"
                     + "category = " + a.getCategory() + " "
                     + "where article_id=" + a.getArticle_id() +";";
             stm.executeUpdate(query);

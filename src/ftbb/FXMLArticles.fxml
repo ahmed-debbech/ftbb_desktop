@@ -18,16 +18,15 @@
       <Label layoutX="30.0" layoutY="287.0" text="Author" />
       <TextField fx:id="author" layoutX="110.0" layoutY="282.0" prefHeight="30.0" prefWidth="200.0" />
       <Label layoutX="30.0" layoutY="333.0" prefHeight="19.0" prefWidth="103.0" text="Photo Path" />
-      <TextField fx:id="photo_dir" layoutX="110.0" layoutY="328.0" prefHeight="30.0" prefWidth="200.0" />
       <Label layoutX="29.0" layoutY="447.0" text="Category" />
-      <ComboBox fx:id="category" layoutX="110.0" layoutY="442.0" prefHeight="30.0" prefWidth="200.0" />
-      <Label layoutX="30.0" layoutY="392.0" prefHeight="19.0" prefWidth="77.0" text="Video Path" />
-      <TextField fx:id="video_dir" layoutX="110.0" layoutY="387.0" prefHeight="30.0" prefWidth="200.0" />
+      <ComboBox fx:id="category" layoutX="110.0" layoutY="442.0" prefHeight="30.0" prefWidth="200.0" promptText="Select Category" />
       <Button fx:id="show_but" layoutX="552.0" layoutY="493.0" mnemonicParsing="false" onAction="#showArticle" prefHeight="40.0" prefWidth="94.0" text="Refresh" />
       <Button fx:id="mod_but" layoutX="115.0" layoutY="493.0" mnemonicParsing="false" onAction="#modArticle" prefHeight="40.0" prefWidth="94.0" text="Modify" />
       <Button fx:id="del_but" layoutX="389.0" layoutY="493.0" mnemonicParsing="false" onAction="#delArticle" prefHeight="40.0" prefWidth="146.0" text="Delete selected item" />
       <TableView fx:id="listarticle" layoutX="389.0" layoutY="25.0" prefHeight="450.0" prefWidth="689.0" />
       <Label fx:id="article_id" layoutX="110.0" layoutY="4.0" visible="false" />
       <Button layoutX="659.0" layoutY="493.0" mnemonicParsing="false" onAction="#showComments" prefHeight="40.0" prefWidth="252.0" text="Show comments of selected article" />
+      <Label fx:id="photo_dir" layoutX="110.0" layoutY="333.0" prefHeight="19.0" prefWidth="200.0" text="browse an image" />
+      <Button fx:id="browse_photo" layoutX="181.0" layoutY="370.0" mnemonicParsing="false" onAction="#browseImage" text="Browse" />
     </children>
 </AnchorPane>

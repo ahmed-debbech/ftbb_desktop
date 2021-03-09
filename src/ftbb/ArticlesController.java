@@ -7,6 +7,8 @@ package ftbb;
 
 import Enitity.Article;
 import Service.ServiceArticle;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -15,6 +17,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,11 +35,14 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javax.imageio.ImageIO;
 import utils.Passable;
 import utils.Utilities;
 
@@ -55,12 +61,11 @@ public class ArticlesController implements Initializable {
     @FXML
     private TextField author;
     @FXML
-    private TextField photo_dir;
+    private Label photo_dir;
     @FXML
     private TableView<Article> listarticle;
     @FXML
     private ComboBox<String> category;
-    @FXML
     private TextField video_dir;
     @FXML
     private Button show_but;
@@ -72,11 +77,13 @@ public class ArticlesController implements Initializable {
     private Label article_id;
     @FXML
     private AnchorPane pane1;
+    @FXML
+    private Button browse_photo;
     
     @FXML
     private void addArticle(ActionEvent event) {
         ServiceArticle sp = new ServiceArticle();
-        Article a = new Article(title.getText(), text.getText(), author.getText(), photo_dir.getText(), video_dir.getText(), category.getSelectionModel().getSelectedItem());
+        Article a = new Article(title.getText(), text.getText(), author.getText(), photo_dir.getText(), category.getSelectionModel().getSelectedItem());
         sp.addArticle(a);
     }
     
@@ -122,7 +129,7 @@ public class ArticlesController implements Initializable {
     private void modArticle(ActionEvent event) {
         if(mod_but.getText() == "Submit"){
             ServiceArticle sa = new ServiceArticle();
-            Article a = new Article(Integer.parseInt(article_id.getText()), title.getText(), text.getText(), author.getText(), photo_dir.getText(), video_dir.getText(), category.getSelectionModel().getSelectedItem());
+            Article a = new Article(Integer.parseInt(article_id.getText()), title.getText(), text.getText(), author.getText(), photo_dir.getText(), category.getSelectionModel().getSelectedItem());
             sa.modArticle(a);
             
             mod_but.setText("Modify");
@@ -142,7 +149,6 @@ public class ArticlesController implements Initializable {
                 title.setText(a.getTitle());
                 author.setText(a.getAuthor());
                 photo_dir.setText(a.getPhoto_url());
-                video_dir.setText(a.getVideo_url());
                 switch(a.getCategory()){
                     case 0:
                         category.setValue(Article.toStringCatTypes(a.getCategory()));
@@ -188,6 +194,25 @@ public class ArticlesController implements Initializable {
             stage.setScene(new Scene(root1));  
             stage.show();
         }
+    }
+
+    @FXML
+    private void browseImage(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Pick a banner file!");
+        Stage stage = new Stage();
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+                new FileChooser.ExtensionFilter("PNG", "*.png")
+            );
+        File file = fileChooser.showOpenDialog(stage);
+        try {
+                BufferedImage bufferedImage = ImageIO.read(file);
+                Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+                photo_dir.setText(file.getAbsolutePath());
+            } catch (IOException ex) {
+                System.out.println("could not get the image");
+            }
     }
     
 }
