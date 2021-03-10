@@ -57,7 +57,7 @@ public class ClientArticlesController implements Initializable {
                     article_grid.add(postbox, cl++, row);
                 }
             }catch(IOException e){
-                System.out.println("soierjf");
+                System.out.println("no load for articles in client");
                    e.printStackTrace();
             }
     }    

@@ -6,12 +6,18 @@
 package ftbb;
 
 import Enitity.Article;
+import Enitity.Like;
+import Service.ServiceLikes;
+import java.io.File;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 
@@ -36,17 +42,66 @@ public class PostsController implements Initializable {
     private Label com_number;
     @FXML
     private Label date;
-
+    @FXML
+    private ImageView like_icon;
+    @FXML
+    private Label article_id;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
     }    
     
     public void setData(Article a){
+        System.out.println("eeee: " + a.getArticle_id());
+        this.article_id.setText(String.valueOf(a.getArticle_id()));
            this.title.setText(a.getTitle());
            this.date.setText(a.getDate().toString());
+           File file = new File(a.getPhoto_url());
+        Image im = null;
+        if(file.exists()){
+                 im = new Image(file.toURI().toString());
+        }else{
+            im = new Image("resources/default-article.jpg");
+        }
+        this.image.setImage(im);
+        
+        ServiceLikes sl = new ServiceLikes();
+        if(sl.getLike(Integer.parseInt(article_id.getText()), -1, 122) == true){
+            this.like_icon.setImage(new Image("resources/like-press.png"));
+        }else{
+           this.like_icon.setImage(new Image("resources/like.png"));
+        }
+        int nm = sl.countLikes(Integer.parseInt(article_id.getText()), -1);
+        this.like_number.setText(String.valueOf(nm));
     }
+
+    @FXML
+    private void onClickLike(MouseEvent event) {     
+        ServiceLikes sl = new ServiceLikes();
+        Like l = new Like(Integer.parseInt(article_id.getText()), -1, 122);
+        if(!sl.isExisted(l)){
+            // add the like
+            sl.add(l);
+            this.like_icon.setImage(new Image("resources/like-press.png"));
+            int x= Integer.parseInt(this.like_number.getText());
+            x++;
+            this.like_number.setText(String.valueOf(x));
+        }else{
+            //else remove it
+            sl.remove(l);
+            this.like_icon.setImage(new Image("resources/like.png"));
+            int x= Integer.parseInt(this.like_number.getText());
+            x--;
+            this.like_number.setText(String.valueOf(x));
+        }
+        
+    }
+
+    @FXML
+    private void onClickComment(MouseEvent event) {
+    }
+    
 }
