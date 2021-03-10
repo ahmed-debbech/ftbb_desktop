@@ -61,7 +61,7 @@ public class ArticleEditorController implements Initializable {
     @FXML
     private Label article_id;
     
-    private int mode = 0; // 0 for add , 1 for modify
+    private int mode; // 0 for add , 1 for modify
     private Article whatToMod;
     
    @FXML
@@ -73,11 +73,15 @@ public class ArticleEditorController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        this.whatToMod = (Article) Passable.getInstance().getAnyData();
+        this.mode = Passable.getInstance().getNumberData();
+        System.out.println("mode ==" + Passable.getInstance().getNumberData());
+       // Passable.getInstance().erase();
         category.getItems().add(Article.toStringCatTypes(Article.getBREAKING_NEWS()));
         category.getItems().add(Article.toStringCatTypes(Article.getHOT()));
         category.getItems().add(Article.toStringCatTypes(Article.getANNOUNCE()));
         category.getItems().add(Article.toStringCatTypes(Article.getMISC()));
-        if(mode == 0){
+        if(this.mode == 0){
             this.add_but.setText("Add New");
         }else{
             this.add_but.setText("Change");

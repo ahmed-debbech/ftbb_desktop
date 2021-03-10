@@ -20,7 +20,7 @@
       <Label layoutX="14.0" layoutY="419.0" text="Category" />
       <ComboBox fx:id="category" layoutX="94.0" layoutY="413.0" prefHeight="30.0" prefWidth="200.0" promptText="Select Category" />
       <Button fx:id="browse_photo" layoutX="303.0" layoutY="352.0" mnemonicParsing="false" onAction="#browseImage" prefHeight="30.0" prefWidth="85.0" text="Browse" />
-      <Label fx:id="article_id" layoutX="94.0" layoutY="517.0" />
+      <Label fx:id="article_id" layoutX="94.0" layoutY="517.0" visible="false" />
       <TextField fx:id="photo_dir" layoutX="97.0" layoutY="352.0" prefHeight="30.0" prefWidth="206.0" />
    </children>
 </AnchorPane>

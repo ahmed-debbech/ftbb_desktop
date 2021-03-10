@@ -24,7 +24,7 @@ import javafx.scene.layout.VBox;
  *
  * @author Ahmed
  */
-public class FXMLArticlesViewController implements Initializable {
+public class ArticlesViewController implements Initializable {
 
     @FXML
     private ScrollPane articles_scroller;
@@ -37,7 +37,7 @@ public class FXMLArticlesViewController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        refreshArticle(null);
     }    
 
     @FXML
@@ -48,14 +48,13 @@ public class FXMLArticlesViewController implements Initializable {
     private void refreshArticle(ActionEvent event) {
         ServiceArticle sa = new ServiceArticle();
             this.articles =  sa.showArticle();
-            int row = 1, cl =0;
             try{
                 for(Article a : this.articles){
                     FXMLLoader loader = new FXMLLoader();
                     loader.setLocation(getClass().getResource("FXMLPostsAdmin.fxml"));
                     Node postbox = loader.load();
-                    //PostsAdminController pc = loader.getController();
-                    //pc.setData(a);
+                    PostsAdminController pc = loader.getController();
+                    pc.setData(a);
                     this.vbox_articles.getChildren().add(postbox);
                 }
             }catch(IOException e){

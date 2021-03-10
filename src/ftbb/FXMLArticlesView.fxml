@@ -5,15 +5,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="502.0" prefWidth="721.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="ftbb.FXMLArticlesViewController">
+<AnchorPane id="AnchorPane" prefHeight="493.0" prefWidth="668.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.ArticlesViewController">
    <children>
-      <ScrollPane fx:id="articles_scroller" layoutX="-1.0" layoutY="-1.0" prefHeight="429.0" prefWidth="719.0">
+      <ScrollPane fx:id="articles_scroller" layoutX="-1.0" layoutY="-1.0" prefHeight="467.0" prefWidth="667.0">
          <content>
-            <VBox fx:id="vbox_articles" prefHeight="428.0" prefWidth="719.0" />
+            <VBox fx:id="vbox_articles" prefHeight="466.0" prefWidth="653.0" />
          </content>
       </ScrollPane>
-      <Button layoutX="591.0" layoutY="451.0" mnemonicParsing="false" onAction="#addArticle" text="Add a new article" />
-      <Button layoutX="462.0" layoutY="450.0" mnemonicParsing="false" onAction="#refreshArticle" prefHeight="30.0" prefWidth="116.0" text="Refresh" />
+      <Button layoutX="550.0" layoutY="463.0" mnemonicParsing="false" onAction="#addArticle" text="Add a new article" />
+      <Button layoutX="421.0" layoutY="463.0" mnemonicParsing="false" onAction="#refreshArticle" prefHeight="30.0" prefWidth="116.0" text="Refresh" />
    </children>
 </AnchorPane>

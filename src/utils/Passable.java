@@ -27,8 +27,6 @@ public class Passable {
     }
     
     public void erase(){
-        this.textData = "";
-        numberData = 0;
         anyData = null;
         instance = null;
     }
