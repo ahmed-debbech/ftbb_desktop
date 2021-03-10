@@ -16,8 +16,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import utils.Passable;
 
 /**
  * FXML Controller class
@@ -41,12 +45,21 @@ public class ArticlesViewController implements Initializable {
     }    
 
     @FXML
-    private void addArticle(ActionEvent event) {
+    private void addArticle(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+            Pane root1 =  fxmlLoader.load(getClass().getResource("FXMLArticlesEditor.fxml").openStream());
+            Passable p = Passable.getInstance();
+            p.setNumberData(0);
+            Stage stage = new Stage();
+            stage.setTitle("Article Editor");
+            stage.setScene(new Scene(root1));  
+            stage.show();
     }
 
     @FXML
     private void refreshArticle(ActionEvent event) {
         ServiceArticle sa = new ServiceArticle();
+        this.vbox_articles.getChildren().clear();
             this.articles =  sa.showArticle();
             try{
                 for(Article a : this.articles){

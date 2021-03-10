@@ -64,19 +64,13 @@ public class ArticleEditorController implements Initializable {
     private int mode; // 0 for add , 1 for modify
     private Article whatToMod;
     
-   @FXML
-    private void addArticle(ActionEvent event) {
-        ServiceArticle sp = new ServiceArticle();
-        Article a = new Article(title.getText(), text.getText(), author.getText(), photo_dir.getText().replace('\\', '/'), category.getSelectionModel().getSelectedItem());
-        sp.addArticle(a);
-    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.whatToMod = (Article) Passable.getInstance().getAnyData();
         this.mode = Passable.getInstance().getNumberData();
         System.out.println("mode ==" + Passable.getInstance().getNumberData());
-       // Passable.getInstance().erase();
+        Passable.getInstance().erase();
         category.getItems().add(Article.toStringCatTypes(Article.getBREAKING_NEWS()));
         category.getItems().add(Article.toStringCatTypes(Article.getHOT()));
         category.getItems().add(Article.toStringCatTypes(Article.getANNOUNCE()));
@@ -112,16 +106,33 @@ public class ArticleEditorController implements Initializable {
     }    
 
 
+    private boolean controlFields(){
+        if(this.title.getText().equals("") || 
+                this.text.getText().equals("") || 
+                this.author.getText().equals("") || 
+                this.photo_dir.getText().equals("") ||
+                this.category.getSelectionModel().getSelectedItem() .equals("Select Category")){
+            Utilities.alert("Error", "All field are mendatory!");
+            return false;
+        }
+        return true;
+    }
+    @FXML
     private void modArticle(ActionEvent event) {
+        if(!controlFields()){
+            return;
+        }
         if(this.mode == 0){
               ServiceArticle sp = new ServiceArticle();
-             Article a = new Article(title.getText(), text.getText(), author.getText(), photo_dir.getText(), category.getSelectionModel().getSelectedItem());
+             Article a = new Article(title.getText(), text.getText(), author.getText(), photo_dir.getText().replace('\\', '/'), category.getSelectionModel().getSelectedItem());
              sp.addArticle(a);
         }else{
             ServiceArticle sa = new ServiceArticle();
-            Article a = new Article(Integer.parseInt(article_id.getText()), title.getText(), text.getText(), author.getText(), photo_dir.getText(), category.getSelectionModel().getSelectedItem());
+            Article a = new Article(Integer.parseInt(article_id.getText()), title.getText(), text.getText(), author.getText(), photo_dir.getText().replace('\\', '/'), category.getSelectionModel().getSelectedItem());
             sa.modArticle(a);
         }
+        Stage stage = (Stage) add_but.getScene().getWindow();
+        stage.close();
     }
 
     @FXML

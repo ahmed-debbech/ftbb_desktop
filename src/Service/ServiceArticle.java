@@ -107,10 +107,10 @@ public class ServiceArticle implements IServiceArticle {
     }
 
     @Override
-    public void delArticle(Article a) {
+    public boolean delArticle(Article a) {
          if(cnx == null){
              Utilities.alert("ERROR", "could not connect to database.");
-            return;
+            return false;
         }
         try{
             Statement stm = cnx.createStatement();
@@ -118,7 +118,9 @@ public class ServiceArticle implements IServiceArticle {
             stm.executeUpdate(query);
         }catch(SQLException ex){
             System.out.println("Could not delete article");
+            return false;
         }
+        return true;
     }
     
 }

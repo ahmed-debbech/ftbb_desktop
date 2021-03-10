@@ -9,7 +9,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="506.0" prefWidth="889.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.ArticleEditorController">
    <children>
-      <Button fx:id="add_but" layoutX="678.0" layoutY="443.0" onAction="#addArticle" prefHeight="30.0" prefWidth="190.0" text="Add New " />
+      <Button fx:id="add_but" layoutX="678.0" layoutY="443.0" onAction="#modArticle" prefHeight="30.0" prefWidth="190.0" text="Add New " />
       <Label layoutX="16.0" layoutY="23.0" prefHeight="19.0" prefWidth="37.0" text="Title" />
       <Label layoutX="16.0" layoutY="60.0" text="Text" />
       <TextArea fx:id="text" layoutX="95.0" layoutY="60.0" prefHeight="271.0" prefWidth="774.0" />

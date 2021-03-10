@@ -6,6 +6,7 @@
 package ftbb;
 
 import Enitity.Article;
+import Service.ServiceArticle;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -54,8 +55,15 @@ public class PostsAdminController implements Initializable {
     }    
 
     @FXML
-    private void showComments(ActionEvent event) {
-        
+    private void showComments(ActionEvent event) throws IOException {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            Pane root1 =  fxmlLoader.load(getClass().getResource("FXMLComments.fxml").openStream());
+            Passable p = Passable.getInstance();
+            p.setTextData(String.valueOf(ref.getArticle_id()));
+            Stage stage = new Stage();
+            stage.setTitle("Comments of article: " + ref.getArticle_id());
+            stage.setScene(new Scene(root1));  
+            stage.show();
     }
 
     @FXML
@@ -73,6 +81,10 @@ public class PostsAdminController implements Initializable {
 
     @FXML
     private void delArticle(ActionEvent event) {
+           ServiceArticle sa = new ServiceArticle();
+           if(sa.delArticle(this.ref) == true){
+               Utilities.alert("SUCCESS", "Element deleted successfully");
+            }
     }
     
     

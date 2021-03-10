@@ -16,5 +16,5 @@ public interface IServiceArticle {
     public void addArticle(Article a);
     public List<Article> showArticle();
     public void modArticle(Article a);
-    public void delArticle(Article a);
+    public boolean delArticle(Article a);
 }
