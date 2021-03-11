@@ -3,9 +3,10 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_store.Page1Controller">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_store.Page1Controller">
    <children>
-      <Button layoutX="293.0" layoutY="219.0" mnemonicParsing="false" onAction="#buttonaddp" text="ADD PRODUCT" />
-      <Button layoutX="280.0" layoutY="257.0" mnemonicParsing="false" onAction="#buttoncc" text="SHOW COMMANDS" />
+      <Button layoutX="293.0" layoutY="155.0" mnemonicParsing="false" onAction="#buttonaddp" text="ADD PRODUCT" />
+      <Button layoutX="280.0" layoutY="188.0" mnemonicParsing="false" onAction="#buttoncc" text="SHOW COMMANDS" />
+      <Button layoutX="580.0" layoutY="321.0" mnemonicParsing="false" onAction="#btnback" text="back" />
    </children>
 </AnchorPane>

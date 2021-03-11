@@ -6,6 +6,7 @@
 package Entities;
 
 import java.sql.Date;
+import javafx.scene.control.Button;
 
 /**
  *
@@ -17,10 +18,22 @@ public class Command {
     private Date date_command;
     private int status;
     private int total_price;
+    private Button button;
     
     public Command(){
         
     }
+
+    public Command(int command_id, int id_client, Date date_command, int status, int total_price, Button button) {
+        this.command_id = command_id;
+        this.id_client = id_client;
+        this.date_command = date_command;
+        this.status = status;
+        this.total_price = total_price;
+        this.button = new Button("action");
+    }
+    
+    
 
     /**
      * @return the command_id
@@ -57,6 +70,16 @@ public class Command {
         return date_command;
     }
 
+    public Button getButton() {
+        return button;
+    }
+
+    public void setButton(Button button) {
+        this.button = button;
+    }
+
+   
+    
     /**
      * @param date_command the date_command to set
      */

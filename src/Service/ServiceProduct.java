@@ -19,6 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 
 
@@ -38,7 +40,7 @@ public class ServiceProduct implements IServiceProduct{
     public void AddProduct(Product p) {
         try {
             Statement stm=cnx.createStatement();
-            String query="INSERT INTO `product`(`ref_product`, `category`, `stock`, `name`, `price`, `details`, `id_admin`, `add_date`) VALUES ("+p.getRef_product()+", '"+p.getCategory()+"',"+p.getStock()+",'"+p.getName()+"',"+p.getPrice()+",'"+p.getDetails()+"',"+p.getId_admin()+",sysdate());";
+            String query="INSERT INTO `product`(`ref_product`, `category`, `stock`, `name`, `price`, `details`, `id_admin`, `add_date`, `photo`) VALUES ("+p.getRef_product()+", '"+p.getCategory()+"' , "+p.getStock()+" , '"+p.getName()+"' , "+p.getPrice()+" , '"+p.getDetails()+"' , "+p.getId_admin()+" ,sysdate(),'"+p.getPhoto()+"');";
             stm.executeUpdate(query);
         } 
         catch (SQLException ex) 
@@ -68,6 +70,8 @@ public class ServiceProduct implements IServiceProduct{
                  p.setDetails(rst.getString("details"));
                  p.setId_admin(rst.getInt("id_admin"));
                  p.setAdd_date(rst.getDate("add_date"));
+                 p.setPhoto(rst.getString("photo"));
+                 
                  
                  products.add(p);
              }
@@ -91,13 +95,16 @@ public class ServiceProduct implements IServiceProduct{
     public void updateProduct(Product p){
         try {
             Statement stm = cnx.createStatement();
-            String query = "UPDATE product SET category='"+p.getCategory()+"',stock="+p.getStock()+",name='"+p.getName()+"',price="+p.getPrice()+",details='"+p.getDetails()+"',id_admin="+p.getId_admin()+" WHERE ref_product="+p.getRef_product()+";";
+            String query = "UPDATE product SET category='"+p.getCategory()+"',stock="+p.getStock()+",name='"+p.getName()+"',price="+p.getPrice()+",details='"+p.getDetails()+"',id_admin="+p.getId_admin()+",photo='"+p.getPhoto()+"' WHERE ref_product="+p.getRef_product()+";";
             stm.executeUpdate(query);
         } catch (SQLException ex) {
             System.out.println("COULD NOT UPDATE");
         }
         
     }
+    
+    
+
 
 
 }

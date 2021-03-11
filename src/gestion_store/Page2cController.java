@@ -12,7 +12,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -22,7 +21,7 @@ import javafx.stage.Stage;
  *
  * @author PC
  */
-public class Page1Controller implements Initializable {
+public class Page2cController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -33,24 +32,33 @@ public class Page1Controller implements Initializable {
     }    
 
     @FXML
-    private void buttonaddp(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("InterfaceGestionProduit.fxml"));/* Exception */
-        Scene scene = new Scene(root,1024, 800);
-        stage.setScene(scene);
+    private void btnstoreclient(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("store.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        //stage.initStyle(StageStyle.UNDECORATED); 
+        stage.setScene(new Scene(root1));  
         stage.show();
     }
 
     @FXML
-    private void buttoncc(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("commandAdmin.fxml"));/* Exception */
-        Scene scene = new Scene(root,1024, 800);
-        stage.setScene(scene);
+    private void btncommandclient(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("commandClient.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        //stage.initStyle(StageStyle.UNDECORATED); 
+        stage.setScene(new Scene(root1));  
         stage.show();
-        
+    }
+
+    @FXML
+    private void btncartclient(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("panierClient.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        //stage.initStyle(StageStyle.UNDECORATED); 
+        stage.setScene(new Scene(root1));  
+        stage.show();
     }
     
     @FXML
@@ -62,4 +70,5 @@ public class Page1Controller implements Initializable {
         stage.setScene(new Scene(root1));  
         stage.show();
     }
+    
 }

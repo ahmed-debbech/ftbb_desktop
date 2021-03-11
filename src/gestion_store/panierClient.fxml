@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="gestion_store.PanierClientController">
+   <children>
+      <Button layoutX="265.0" layoutY="344.0" mnemonicParsing="false" onAction="#startshopping" text="START YOUR SHOPPING NOW !" />
+      <Label layoutX="265.0" layoutY="134.0" text="Your cart is empty !">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="275.0" layoutY="173.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/cart.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
