@@ -40,5 +40,15 @@ public class PanierClientController implements Initializable {
         stage.setScene(new Scene(root1));  
         stage.show();
     }
+
+    @FXML
+    private void btnback(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("store.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        //stage.initStyle(StageStyle.UNDECORATED); 
+        stage.setScene(new Scene(root1));  
+        stage.show();
+    }
     
 }

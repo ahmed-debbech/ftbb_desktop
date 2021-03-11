@@ -15,6 +15,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 /**
  *
@@ -64,4 +72,108 @@ public class ServiceCommand implements IServiceCommand{
             System.out.println("COULD NOT UPDATE");
         }
     }
+    
+    /************ MAILING **********************************************************************************************************************************************************************************************************************************/
+     public List<String> getEmailList(int command_id){
+       
+       List<String> list = null ;
+       int i=0;
+       String query = "select email from client where id_client in (select id_client from command where command_id = "+command_id+");";
+       Statement stm ;
+       ResultSet rst;
+       try{
+           stm = cnx.createStatement();
+           rst = stm.executeQuery(query);
+           while (rst.next())
+            {
+                list.add(rst.getString("email"));
+                i++;
+            }
+           
+           }
+       catch(Exception ex)
+       {
+           ex.printStackTrace();
+       }
+       
+        return list;
+       
+   }
+    
+    
+    // mailiiiing 
+    
+    public void sendEmail(int Command_id) {
+        System.out.println("aaaaaaaa");
+       // Sender's email ID needs to be mentioned
+      String from = "arij.mazigh@esprit.tn";
+      final String username = "arij.mazigh@esprit.tn";//change accordingly
+      final String password = "181JFT2011";//change accordingly
+       
+       String query = "select email from client";
+       Statement stm ;
+       ResultSet rst;
+       try{ System.out.println("bbbbbb");
+           stm = cnx.createStatement();
+           rst = stm.executeQuery(query);
+           while (rst.next())
+            {   System.out.println("ccccc");
+               // Recipient's email ID needs to be mentioned.
+                String to = "ons.kechrid@esprit.tn";
+                  //  String to = "arij.mazigh92@gmail.com";
+                   // Assuming you are sending email through relay.jangosmtp.net
+      String host = "smtp.gmail.com";
+      Properties props = new Properties();
+      props.put("mail.smtp.auth", "true");
+      props.put("mail.smtp.starttls.enable", "true");
+      props.put("mail.smtp.host", host);
+      props.put("mail.smtp.port", "587");
+
+      // Get the Session object.
+      Session session = Session.getInstance(props,
+         new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+               return new PasswordAuthentication(username, password);
+	   }
+         });
+
+      try {
+	   // Create a default MimeMessage object.
+	   Message message = new MimeMessage(session);
+	
+	   // Set From: header field of the header.
+	   message.setFrom(new InternetAddress(from));
+	
+	   // Set To: header field of the header.
+	   message.setRecipients(Message.RecipientType.TO,
+               InternetAddress.parse(to));
+	
+	   // Set Subject: header field
+	   message.setSubject("Commande validée !");
+	
+	   // Now set the actual message
+	   message.setText("bbbbbb");
+
+	   // Send message
+	   Transport.send(message);
+
+	   System.out.println("Sent message successfully....");
+
+      } catch (MessagingException e) {
+         throw new RuntimeException(e);
+      }
+                
+            }
+           
+           }
+       
+       
+       catch(Exception ex)
+       {
+           ex.printStackTrace();
+       }
+      
+   }
+
+   
 }

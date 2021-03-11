@@ -19,7 +19,7 @@ public class Gestion_store extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("page1.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("page.fxml"));
         
         Scene scene = new Scene(root);
         

@@ -61,6 +61,8 @@ public class CommandAdminController implements Initializable {
     private TextField rechercher_command;
     @FXML
     private Button export;
+    @FXML
+    private Button back;
    
 
     /**
@@ -168,16 +170,21 @@ public class CommandAdminController implements Initializable {
         alert.showAndWait();
         
         sc.updateCommand(c, 1);
+        sc.sendEmail(2);
         this.refreshButton(null);
+        
         
     }
 
     @FXML
     private void btnback(ActionEvent event) throws IOException {
+       
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("page1.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
-        //stage.initStyle(StageStyle.UNDECORATED); 
+        
+        //stage.initStyle(StageStyle.UNDECORATED);
+       
         stage.setScene(new Scene(root1));  
         stage.show();
     }

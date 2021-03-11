@@ -36,8 +36,8 @@ public class Page1Controller implements Initializable {
     private void buttonaddp(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("InterfaceGestionProduit.fxml"));/* Exception */
-        Scene scene = new Scene(root,1024, 800);
+        Parent root = FXMLLoader.load(getClass().getResource("produitAdmin.fxml"));/* Exception */
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
@@ -47,7 +47,7 @@ public class Page1Controller implements Initializable {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("commandAdmin.fxml"));/* Exception */
-        Scene scene = new Scene(root,1024, 800);
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
         

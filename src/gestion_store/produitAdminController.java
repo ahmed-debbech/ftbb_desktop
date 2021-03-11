@@ -185,7 +185,7 @@ public class produitAdminController implements Initializable {
         coladddate.setCellValueFactory(new PropertyValueFactory<>("add_date"));        
         colphoto.setCellValueFactory(new PropertyValueFactory<>("photo"));    
            
-      
+     
         lproduct.setItems(list);
         
         /*********** RECHERCHE D'UN PRODUIT ***************************************************************************************************************************************************/

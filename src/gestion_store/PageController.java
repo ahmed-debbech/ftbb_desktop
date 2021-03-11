@@ -43,7 +43,7 @@ public class PageController implements Initializable {
 
     @FXML
     private void btnclient(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("page2.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("page2c.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         //stage.initStyle(StageStyle.UNDECORATED); 
