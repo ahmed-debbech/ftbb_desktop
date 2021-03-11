@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="319.0" prefWidth="358.0" style="-fx-background-color: red; -fx-border-color: black; -fx-border-width: 1px 1px 1px 1px;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="gestion_store.ProductViewController">
+<AnchorPane id="AnchorPane" prefHeight="319.0" prefWidth="358.0" style="-fx-background-color: #E5E7E9; -fx-border-color: black; -fx-border-width: 1px 1px 1px 1px;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_store.ProductViewController">
    <children>
       <ImageView fx:id="image" fitHeight="243.0" fitWidth="358.0" pickOnBounds="true" preserveRatio="true" />
       <Button layoutX="303.0" layoutY="274.0" mnemonicParsing="false" onAction="#AddToCart" text="ADD" />

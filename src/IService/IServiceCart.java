@@ -6,6 +6,7 @@
 package IService;
 
 import Entities.Product;
+import java.util.List;
 
 /**
  *
@@ -13,4 +14,5 @@ import Entities.Product;
  */
 public interface IServiceCart {
      public void addToCart(int client, Product p );
+     public List<Product> getCartProducts(int client);
 }
