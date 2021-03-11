@@ -292,7 +292,7 @@ public class produitAdminController implements Initializable {
         p.setPrice(Integer.parseInt(price_p.getText()));
         p.setDetails(details_p.getText());
         p.setId_admin(Integer.parseInt(idAdmin_p.getText()));
-        p.setPhoto(photo_p.getText());
+        p.setPhoto(photo_p.getText().replace('\\', '/'));
         sp.AddProduct(p);
         
         //aleeeeeeeeeeeeeeeert

@@ -4,16 +4,13 @@
  * and open the template in the editor.
  */
 package IService;
-import java.util.List;
 
-import Entities.Command;
+import Entities.Product;
 
 /**
  *
  * @author PC
  */
-public interface IServiceCommand {
-    public List<Command> showCommand();
-    public void updateCommand(Command c, int v);
-    public List<Command> showClientCommands(int cl);
+public interface IServiceCart {
+     public void addToCart(int client, Product p );
 }

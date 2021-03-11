@@ -18,12 +18,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 /**
@@ -33,26 +36,19 @@ import javafx.stage.Stage;
  */
 public class StoreController implements Initializable {
 
-    @FXML
     private TableColumn<Product, Integer> colref;
-    @FXML
     private TableColumn<Product, String> colcat;
-    @FXML
     private TableColumn<Product, Integer> colstock;
-    @FXML
     private TableColumn<Product, String> colname;
-    @FXML
     private TableColumn<Product, String> coldetails;
-    @FXML
     private TableColumn<Product, Integer> colprice;
-    @FXML
     private TableColumn<Product, Integer> colidadmin;
-    @FXML
     private TableColumn<Product, Date> coladddate;
-    @FXML
     private TableColumn<Product, String> colphoto;
     @FXML
-    private TableView<Product> ldetails;
+    private GridPane ldetails;
+    @FXML
+    private ScrollPane scroller;
 
     /**
      * Initializes the controller class.
@@ -89,23 +85,27 @@ public class StoreController implements Initializable {
     /******** AFFICHER *************************************************************************************************************/
     @FXML
     private void showProduct(ActionEvent event) {
-       
+       ldetails.getChildren().clear();
         ServiceProduct sp = new ServiceProduct();
         List<Product> l = sp.ShowProduct();
-        ObservableList<Product> list  = FXCollections.observableArrayList(l);
-        colref.setCellValueFactory(new PropertyValueFactory<>("ref_product"));       
-        colcat.setCellValueFactory(new PropertyValueFactory<>("category"));        
-        colstock.setCellValueFactory(new PropertyValueFactory<>("stock"));        
-        colname.setCellValueFactory(new PropertyValueFactory<>("name"));        
-        colprice.setCellValueFactory(new PropertyValueFactory<>("price"));
-        coldetails.setCellValueFactory(new PropertyValueFactory<>("details"));       
-        colidadmin.setCellValueFactory(new PropertyValueFactory<>("id_admin"));        
-        coladddate.setCellValueFactory(new PropertyValueFactory<>("add_date"));        
-        colphoto.setCellValueFactory(new PropertyValueFactory<>("photo"));    
-           
-     
-        ldetails.setItems(list);
-        this.showProduct(null);
+        int row = 1, cl =0;
+            try{
+                for(Product a : l){
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("ProductView.fxml"));
+                    Node postbox = loader.load();
+                    ProductViewController pc = loader.getController();
+                    pc.setData(a);
+                    if(cl== 3){
+                         cl= 0;
+                         row++;
+                    }
+                    this.ldetails.add(postbox, cl++, row);
+                }
+            }catch(IOException e){
+                System.out.println("no load for product in client");
+                   e.printStackTrace();
+            }
     }
 
     @FXML
@@ -114,9 +114,6 @@ public class StoreController implements Initializable {
        
     }
 
-    @FXML
-    private void handleMouseButton(MouseEvent event) {
-    }
 
     @FXML
     private void panier(ActionEvent event) throws IOException {

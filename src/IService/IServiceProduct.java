@@ -19,4 +19,5 @@ import java.util.List;
 public interface IServiceProduct {
     public void AddProduct(Product p);
     public List<Product> ShowProduct();
+    public void addToCart(int id);
 }

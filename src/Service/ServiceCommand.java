@@ -175,5 +175,33 @@ public class ServiceCommand implements IServiceCommand{
       
    }
 
+    @Override
+    public List<Command> showClientCommands(int cl) {
+         List<Command> list = new ArrayList<>() ;
+       String query = "select * from command where id_client="+cl+";";
+       Statement stm ;
+       ResultSet rst;
+       try{
+           stm = cnx.createStatement();
+           rst = stm.executeQuery(query);
+           while (rst.next())
+            {
+                Command c = new Command();
+                c.setCommand_id(rst.getInt("command_id"));
+                c.setDate_command(rst.getDate("date_command"));
+                c.setStatus(rst.getInt("status"));
+                c.setTotal_price(rst.getInt("total_price"));
+                c.setId_client(rst.getInt("id_client"));
+                list.add(c);
+            }
+           return list;
+           }
+       catch(SQLException ex)
+       {
+           System.out.println("could not retreive user commands");
+       }
+       return null;
+    }
+
    
 }

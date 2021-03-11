@@ -14,6 +14,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
@@ -23,12 +26,20 @@ import javafx.stage.Stage;
  */
 public class PanierClientController implements Initializable {
 
+    @FXML
+    private AnchorPane empty;
+    @FXML
+    private ScrollPane scroller;
+    @FXML
+    private VBox prodlist;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        //hna bech t7ot test doub matet7al el page mta3 panier tasti ken fer8a tafichi el anchorpane (empty.setVisible(true);
+        //sinon affichi el scroller scroller.setVisible(true); 
     }    
 
     @FXML

@@ -53,10 +53,10 @@ public class ServiceProduct implements IServiceProduct{
         } 
         catch (SQLException ex) 
          {
-            Logger.getLogger(ServiceProduct.class.getName()).log(Level.SEVERE, null, ex);
-         }            
+             Logger.getLogger(ServiceProduct.class.getName()).log(Level.SEVERE, null, ex);
+         }           
         }
-
+    
     @Override
     public List<Product> ShowProduct()
     {
@@ -110,6 +110,13 @@ public class ServiceProduct implements IServiceProduct{
         }
         
     }
+
+    @Override
+    public void addToCart(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
     
     
     
