@@ -96,8 +96,14 @@ public class FeedbackController implements Initializable {
             alert.setContentText("Please Type!.");
             Optional<ButtonType> result = alert.showAndWait();
             
-        }else{
-           ServiceFeedback sf=new ServiceFeedback();
+        }else if((tfemail.getText().indexOf('@') == -1)){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("WARNING!");
+            alert.setHeaderText(null);
+            alert.setContentText("Wrong Email !.");
+            Optional<ButtonType> result = alert.showAndWait();
+            
+        }else{ServiceFeedback sf=new ServiceFeedback();
            sf.AddFeedback(f);
            Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Note!");
@@ -105,10 +111,10 @@ public class FeedbackController implements Initializable {
             alert.setContentText("Feedback added successfully!.");
             Optional<ButtonType> result = alert.showAndWait();
     }
-
+    }
    
     
-}
+
 
     @FXML
     private void modifyfeed(ActionEvent event) {

@@ -1,4 +1,4 @@
- /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -57,101 +57,111 @@ public class ReportController implements Initializable {
         t3.setCellValueFactory(new PropertyValueFactory<Report, String>("command_id"));
         TableColumn t4 = new TableColumn("Report Date");
         t4.setCellValueFactory(new PropertyValueFactory<Report, String>("report_date"));
-         TableColumn t5 = new TableColumn("Email");
+        TableColumn t5 = new TableColumn("Email");
         t5.setCellValueFactory(new PropertyValueFactory<Report, String>("email"));
         TableColumn t6 = new TableColumn("Description");
         t6.setCellValueFactory(new PropertyValueFactory<Report, String>("description"));
-        listreport.getColumns().addAll(t1,t2,t3,t4,t5,t6);
-    }    
+        listreport.getColumns().addAll(t1, t2, t3, t4, t5, t6);
+    }
 
     @FXML
     private void ShowReports(ActionEvent event) throws SQLException {
-        
-        ServiceReport sr=new ServiceReport();
+
+        ServiceReport sr = new ServiceReport();
         List<Report> r = sr.ShowReport();
-        ObservableList<Report> data =FXCollections.observableArrayList(r);
+        ObservableList<Report> data = FXCollections.observableArrayList(r);
         listreport.setItems(data);
     }
 
     @FXML
     private void modifyreport(ActionEvent event) {
-        
-        Report r =listreport.getSelectionModel().getSelectedItem();
-        if(r == null){
+
+        Report r = listreport.getSelectionModel().getSelectedItem();
+        if (r == null) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("WARNING!");
             alert.setHeaderText(null);
             alert.setContentText("Please select a Photo title from the list.");
             Optional<ButtonType> result = alert.showAndWait();
-        }else{
-        rld.setText(String.valueOf(r.getReport_id()));
-        tfdesc.setText(r.getDescription());
+        } else {
+            rld.setText(String.valueOf(r.getReport_id()));
+            tfdesc.setText(r.getDescription());
         }
     }
 
     @FXML
     private void deletereport(ActionEvent event) {
-        Report r =listreport.getSelectionModel().getSelectedItem();
-          if(r == null){
+        Report r = listreport.getSelectionModel().getSelectedItem();
+        if (r == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("WARNING!");
             alert.setHeaderText(null);
             alert.setContentText("Please select a Report title from the list.");
             Optional<ButtonType> result = alert.showAndWait();
-        }else{
-           
-           ServiceReport sr= new ServiceReport();
-           sr.DeleteReport(r);
-           Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        } else {
+
+            ServiceReport sr = new ServiceReport();
+            sr.DeleteReport(r);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Note!");
             alert.setHeaderText(null);
             alert.setContentText("Report Deleted Successfully!.");
             Optional<ButtonType> result = alert.showAndWait();
-    }
+        }
     }
 
     @FXML
     private void subdes(ActionEvent event) {
-        ServiceReport sr=new ServiceReport();
-        Report r = new Report(Integer.parseInt(rld.getText()),tfdesc.getText());
+        ServiceReport sr = new ServiceReport();
+        Report r = new Report(Integer.parseInt(rld.getText()), tfdesc.getText());
         sr.ModifyReport(r);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Note!");
-            alert.setHeaderText(null);
-            alert.setContentText("Report modified successfully.");
-            Optional<ButtonType> result = alert.showAndWait();
+        alert.setTitle("Note!");
+        alert.setHeaderText(null);
+        alert.setContentText("Report modified successfully.");
+        Optional<ButtonType> result = alert.showAndWait();
     }
 
     @FXML
     private void addreport(ActionEvent event) {
-        Report r =new Report();
-        String cmdid = tfcmd.getText();
-        int cmdid2= Integer.parseInt(cmdid);
-            r.setCommand_id(cmdid2);
-            r.setEmail(tfemail.getText());
-            r.setDescription(tfdesc.getText());
-            
-       if((tfcmd.getText().equals("")) || (tfemail.getText().equals("")) || (tfdesc.getText().equals(""))){
-           
-           Alert alert = new Alert(Alert.AlertType.ERROR);
+
+        Report r = new Report();
+
+        if (tfcmd.getText().equals("") || tfemail.getText().equals("") || tfdesc.getText().equals("")) {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("WARNING!");
             alert.setHeaderText(null);
             alert.setContentText("Please Type!.");
             Optional<ButtonType> result = alert.showAndWait();
-            
-        }else{
-           ServiceReport sr=new ServiceReport();
-           sr.AddReport(r);
-           Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
+        } else if (tfemail.getText().indexOf('@') == -1) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("WARNING!");
+            alert.setHeaderText(null);
+            alert.setContentText("Wrong Email !.");
+            Optional<ButtonType> result = alert.showAndWait();
+        } else if (!tfcmd.getText().matches("\\d*")) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("WARNING!");
+            alert.setHeaderText(null);
+            alert.setContentText("numbers only  !.");
+            Optional<ButtonType> result = alert.showAndWait();
+
+        } else {
+            Integer holder = Integer.parseInt(tfcmd.getText());
+            r.setCommand_id(holder);
+            r.setEmail(tfemail.getText());
+            r.setDescription(tfdesc.getText());
+            ServiceReport sr = new ServiceReport();
+            sr.AddReport(r);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Note!");
             alert.setHeaderText(null);
             alert.setContentText("Report added successfully!.");
             Optional<ButtonType> result = alert.showAndWait();
         }
-        
+
     }
-    
-    
-    
-    
+
 }
