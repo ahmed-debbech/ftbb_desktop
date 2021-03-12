@@ -106,9 +106,9 @@ public class ServiceCommand implements IServiceCommand{
     public void sendEmail(int Command_id) {
         System.out.println("aaaaaaaa");
        // Sender's email ID needs to be mentioned
-      String from = "arij.mazigh@esprit.tn";
-      final String username = "arij.mazigh@esprit.tn";//change accordingly
-      final String password = "181JFT2011";//change accordingly
+      String from = "ons.kechrid@esprit.tn";
+      final String username = "ons.kechrid@esprit.tn";//change accordingly
+      final String password = "esprit1999";//change accordingly
        
        String query = "select email from client";
        Statement stm ;
@@ -119,7 +119,7 @@ public class ServiceCommand implements IServiceCommand{
            while (rst.next())
             {   System.out.println("ccccc");
                // Recipient's email ID needs to be mentioned.
-                String to = "ons.kechrid@esprit.tn";
+                String to = "khaled.ghedria@esprit.tn";
                   //  String to = "arij.mazigh92@gmail.com";
                    // Assuming you are sending email through relay.jangosmtp.net
       String host = "smtp.gmail.com";
@@ -152,7 +152,12 @@ public class ServiceCommand implements IServiceCommand{
 	   message.setSubject("Commande validée !");
 	
 	   // Now set the actual message
-	   message.setText("bbbbbb");
+	   message.setText("Cher Client,\n" +"\n"+
+"Merci de faire vos achats sur FTBB store ! Votre commande 303925136 a été confirmée avec succès.\n" +
+"\n" +
+"Elle sera à votre disposition dès que possible. Veuillez noter : Si vous avez depassé une semaine pour récupérer votre commande , elle va être annulée automatiquement.\n" +
+"\n" +
+"Merci d'avoir fait vos achats sur  FTBB store.");
 
 	   // Send message
 	   Transport.send(message);

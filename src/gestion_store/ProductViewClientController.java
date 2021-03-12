@@ -53,5 +53,6 @@ public class ProductViewClientController implements Initializable {
         this.quantite.setText("1");
         this.prixunitaire.setText(String.valueOf(a.getPrice()));
         this.prixtotal.setText(String.valueOf(Integer.parseInt(this.quantite.getText()) * Integer.parseInt(this.prixunitaire.getText())));
-    }
+        
+      }
 }

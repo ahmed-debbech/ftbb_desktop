@@ -14,6 +14,9 @@
          <font>
             <Font name="Tahoma Bold" size="18.0" />
          </font></Button>
-      <Button layoutX="615.0" layoutY="31.0" mnemonicParsing="false" onAction="#btnback" text="&lt;-" />
+      <Button layoutX="615.0" layoutY="31.0" mnemonicParsing="false" onAction="#btnback" style="-fx-background-color: transparent; -fx-background-color: red;" text="&lt;" textFill="WHITE">
+         <font>
+            <Font name="Tahoma Bold" size="13.0" />
+         </font></Button>
    </children>
 </AnchorPane>

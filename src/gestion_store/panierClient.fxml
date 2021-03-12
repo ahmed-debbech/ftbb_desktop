@@ -11,7 +11,10 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_store.PanierClientController">
    <children>
-      <Button layoutX="620.0" layoutY="26.0" mnemonicParsing="false" onAction="#btnback" text="&lt;-" />
+      <Button layoutX="620.0" layoutY="26.0" mnemonicParsing="false" onAction="#btnback" style="-fx-background-color: transparent; -fx-background-color: red;" text="&lt;" textFill="WHITE">
+         <font>
+            <Font name="Tahoma Bold" size="12.0" />
+         </font></Button>
       <AnchorPane fx:id="empty" layoutX="149.0" layoutY="125.0" prefHeight="296.0" prefWidth="403.0">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="135.0" layoutY="73.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
@@ -36,5 +39,25 @@
             <VBox fx:id="prodlist" prefHeight="499.0" prefWidth="656.0" />
          </content>
       </ScrollPane>
+      <Button layoutX="487.0" layoutY="60.0" mnemonicParsing="false" onAction="#passercommande" style="-fx-background-color: transparent; -fx-background-color: red;" text="PASSER LA COMMANDE" textFill="WHITE">
+         <font>
+            <Font name="Tahoma Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label fx:id="prixcommande" layoutX="314.0" layoutY="63.0" text="prixcommande">
+         <font>
+            <Font name="Tahoma Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="63.0" text="PRIX TOTAL DE VOTRE COMMANDE :">
+         <font>
+            <Font name="Tahoma Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="434.0" layoutY="63.0" text="DT">
+         <font>
+            <Font name="Tahoma Bold" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

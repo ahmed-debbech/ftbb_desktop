@@ -18,11 +18,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-
+import javafx.stage.Stage; 
 /**
  * FXML Controller class
  *
@@ -36,6 +36,8 @@ public class PanierClientController implements Initializable {
     private ScrollPane scroller;
     @FXML
     private VBox prodlist;
+    @FXML
+    private Label prixcommande;
 
     /**
      * Initializes the controller class.
@@ -54,9 +56,11 @@ public class PanierClientController implements Initializable {
             scroller.setVisible(true);
             //as long as we have something in our cart then we should retreive it
            loadProducts();
+           
         }
     }    
     private void loadProducts(){
+      
         this.prodlist.getChildren().clear();
         ServiceCart sc = new ServiceCart();
             List<Product> products =  sc.getCartProducts(2);
@@ -68,10 +72,11 @@ public class PanierClientController implements Initializable {
                     ProductViewClientController pc = loader.getController();
                     pc.setData(a);
                     this.prodlist.getChildren().add(postbox);
-                }
+               }
             }catch(IOException e){
                    System.out.println("could not load");
             }
+            
     }
     @FXML
     private void startshopping(ActionEvent event) throws IOException {
@@ -92,5 +97,10 @@ public class PanierClientController implements Initializable {
         stage.setScene(new Scene(root1));  
         stage.show();
     }
+
+    @FXML
+    private void passercommande(ActionEvent event) {
+         
+     }
+    }
     
-}
