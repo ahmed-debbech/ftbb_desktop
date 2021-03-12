@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="700.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.adminhomeController"> 
+<AnchorPane prefHeight="600.0" prefWidth="700.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.ClienthomeController"> 
    <children>
       <BorderPane layoutX="114.0" layoutY="54.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -47,11 +48,21 @@
                   </Pane>
                   <HBox alignment="CENTER_RIGHT" layoutX="239.0" layoutY="1.0" prefHeight="43.0" prefWidth="525.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#btnvueclient" style="-fx-background-radius: 100; -fx-background-color: transparent;">
+                        <ComboBox fx:id="box" prefHeight="25.0" prefWidth="151.0" promptText="Bonjour CLIENT !" style="-fx-background-radius: 40; -fx-background-color: #E5E7E9;" />
+                        <Button mnemonicParsing="false" onAction="#btncart" style="-fx-background-radius: 50; -fx-background-color: tarnsparent;">
                            <graphic>
-                              <ImageView fx:id="buttonvueclient" fitHeight="30.0" fitWidth="30.0" opacity="0.34" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="150.0" fitWidth="25.0" opacity="0.3" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../resources/eye.png" />
+                                    <Image url="@../resources/cart11.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#btnhelp" style="-fx-background-radius: 50; -fx-background-color: transparent;">
+                           <graphic>
+                              <ImageView fitHeight="150.0" fitWidth="30.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/help.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -61,10 +72,10 @@
                               <Image url="@../resources/admin.png" />
                            </image>
                            <HBox.margin>
-                              <Insets />
+                              <Insets left="5.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="ADMIN">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="CLIENT">
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
@@ -119,7 +130,7 @@
                   </HBox>
                   <VBox layoutX="14.0" layoutY="35.0" prefHeight="377.0" prefWidth="176.0" AnchorPane.bottomAnchor="107.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
                      <children>
-                        <Button alignment="BASELINE_LEFT" onAction="#btnActualiteAd" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #B80000;" styleClass="sidebarItem" text="Actualités" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" onAction="#btnActualiteCl" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #B80000;" styleClass="sidebarItem" text="Actualités" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -134,7 +145,7 @@
                               <Insets />
                            </VBox.margin>
                         </Button>
-                        <Button alignment="BASELINE_LEFT" onAction="#btnSondageAd" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #B80000;" styleClass="sidebarItem" text="Questionnaires et Sondage" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" onAction="#btnSondageCl" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #B80000;" styleClass="sidebarItem" text="Questionnaires et Sondage" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -149,7 +160,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button alignment="BASELINE_LEFT" onAction="#btnStoreAd" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #B80000;" styleClass="sidebarItem" text="Store" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" onAction="#btnStoreCl" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #B80000;" styleClass="sidebarItem" text="Store" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -164,7 +175,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button alignment="BASELINE_LEFT" onAction="#btnGalerieAd" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #B80000;" styleClass="sidebarItem" text="Galerie" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" onAction="#btnGalerieCl" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #B80000;" styleClass="sidebarItem" text="Galerie" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -179,7 +190,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button alignment="BASELINE_LEFT" onAction="#btnReportAd" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #B80000;" styleClass="sidebarItem" text=" Feedback et Report" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" onAction="#btnReportCl" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #B80000;" styleClass="sidebarItem" text=" Feedback et Report" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -194,7 +205,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button alignment="BASELINE_LEFT" onAction="#btnCompteAd" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #B80000;" styleClass="sidebarItem" text="Comptes" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" onAction="#btnCompteCl" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #B80000;" styleClass="sidebarItem" text="Comptes" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -209,7 +220,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button alignment="BASELINE_LEFT" onAction="#btnCompetitionAd" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #B80000;" styleClass="sidebarItem" text="Competitions" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" onAction="#btnCompetitionCl" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #B80000;" styleClass="sidebarItem" text="Competitions" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -230,7 +241,7 @@
             </AnchorPane>
          </left>
          <center>
-           <AnchorPane fx:id="linker" prefHeight="535.0" prefWidth="702.0" BorderPane.alignment="CENTER" />
+          <AnchorPane fx:id="linker" prefHeight="535.0" prefWidth="526.0" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
    </children>

@@ -122,5 +122,36 @@ public class ServiceArticle implements IServiceArticle {
         }
         return true;
     }
+
+    @Override
+    public Article getArticle(int id) {
+        if(cnx == null){
+            Utilities.alert("ERROR", "could not connect to database.");
+            return null;
+        }
+        try{
+            Statement stm = this.cnx.createStatement();
+            String query = "select * from article where article_id="+id+";";
+            ResultSet rst = stm.executeQuery(query);
+            if(rst.next()){
+                Article a = new Article();
+                a.setArticle_id(rst.getInt("article_id"));
+                a.setAdmin_id(rst.getInt("admin_id"));
+                a.setTitle(rst.getString("title"));
+                a.setText(rst.getString("text"));
+                a.setAuthor(rst.getString("author"));
+                a.setDate(rst.getDate("date"));
+                a.setPhoto_url(rst.getString("photo_url"));
+                a.setCategory(rst.getInt("category"));
+                System.out.println();
+                return a;
+            }else{
+                return null;
+            }
+        }catch(SQLException ex){
+            System.out.println("Could not show articles");
+        }
+        return null;
+    }
     
 }

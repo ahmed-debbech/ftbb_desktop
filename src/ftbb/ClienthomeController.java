@@ -13,16 +13,18 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -32,7 +34,7 @@ import javafx.stage.StageStyle;
  *
  * @author PC
  */
-    public class adminhomeController implements Initializable {
+    public class ClienthomeController implements Initializable {
 
     @FXML
     private ImageView Exit;
@@ -45,22 +47,29 @@ import javafx.stage.StageStyle;
 
     @FXML
     private AnchorPane slider;
+    
+    
     @FXML
-    private ImageView buttonvueclient;
+    private ComboBox box;
+   
+    ObservableList<String> list = FXCollections.observableArrayList("Votre Compte","Vos commandes","Vos envis");
+    
     @FXML
     private ImageView logo;
     @FXML
-   private AnchorPane linker;
+    private AnchorPane linker;
     @FXML
     private Text title;
+    
 
     @Override
     public void initialize(URL location, ResourceBundle resources) 
     {
-        
+        //exit button
         Exit.setOnMouseClicked(event -> {
             System.exit(0);
         });
+        //menu
         slider.setTranslateX(-176);
         Menu.setOnMouseClicked(event -> {
             TranslateTransition slide = new TranslateTransition();
@@ -92,41 +101,38 @@ import javafx.stage.StageStyle;
                 Menu.setVisible(true);
                 MenuClose.setVisible(false);
             });
-        }); 
-      /*  this.buttonvueclient.setOnMouseClicked(event -> {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("clienthome.fxml"));
-        Parent root1 = null;
-            try {
-                root1 = (Parent) fxmlLoader.load();
-            } catch (IOException ex) {
-                Logger.getLogger(adminhomeController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root1));  
-        stage.show();
-        });*/
-    }
+        });
+        
+        //hedhy ta3 el combobox ta3 el client illi fil menu mil fou9
+        box.setValue("Bonjour CLIENT !");
+        box.setItems(list);
+        
+        //houni kif tenzel aala el logo yhezzek lil page d'acceuil
+        /*logo.setOnMouseClicked(event -> {
+            logo.
+        }   */   
+   }
 
     @FXML
-    private void btnActualiteAd(ActionEvent event) throws IOException {
-      Node node;
+    private void btnActualiteCl(ActionEvent event) throws IOException {
+         Node node;
             try {
-                  title.setText("Fédération Tunisienne de Basket-Ball"+"-Actualié");
+                title.setText("Fédération Tunisienne de Basket-Ball"+"-Actualié");
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
-            node = (Node)FXMLLoader.load(getClass().getResource("FXMLArticlesView.fxml"));
+            node = (Node)FXMLLoader.load(getClass().getResource("FXMLClientArticles.fxml"));
             linker.getChildren().setAll(node);
 
             } catch (IOException ex) {
             Logger.getLogger(adminhomeController.class.getName()).log(Level.SEVERE, null, ex);
             }
-          
+            
     }
 
     @FXML
-    private void btnSondageAd(ActionEvent event) throws IOException {
-        Node node;
+    private void btnSondageCl(ActionEvent event) throws IOException {
+         Node node;
             try {
-                 title.setText("Fédération Tunisienne de Basket-Ball"+"-Sondage");
+                title.setText("Fédération Tunisienne de Basket-Ball"+"-Sondage");
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
             node = (Node)FXMLLoader.load(getClass().getResource("slim.fxml"));
             linker.getChildren().setAll(node);
@@ -134,14 +140,14 @@ import javafx.stage.StageStyle;
             } catch (IOException ex) {
             Logger.getLogger(adminhomeController.class.getName()).log(Level.SEVERE, null, ex);
             }
-           
+            
     }
 
     @FXML
-    private void btnStoreAd(ActionEvent event) throws IOException {
+    private void btnStoreCl(ActionEvent event) throws IOException {
          Node node;
             try {
-            title.setText("Fédération Tunisienne de Basket-Ball"+"-Store");
+                title.setText("Fédération Tunisienne de Basket-Ball"+"-Store");
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
             node = (Node)FXMLLoader.load(getClass().getResource("aandiEna.fxml"));
             linker.getChildren().setAll(node);
@@ -149,14 +155,14 @@ import javafx.stage.StageStyle;
             } catch (IOException ex) {
             Logger.getLogger(adminhomeController.class.getName()).log(Level.SEVERE, null, ex);
             }
-           
+            
     }
 
     @FXML
-    private void btnGalerieAd(ActionEvent event) throws IOException {
+    private void btnGalerieCl(ActionEvent event) throws IOException {
          Node node;
             try {
-                 title.setText("Fédération Tunisienne de Basket-Ball"+"-Galerie");
+                title.setText("Fédération Tunisienne de Basket-Ball"+"-Galerie");
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
             node = (Node)FXMLLoader.load(getClass().getResource("amine.fxml"));
             linker.getChildren().setAll(node);
@@ -164,14 +170,14 @@ import javafx.stage.StageStyle;
             } catch (IOException ex) {
             Logger.getLogger(adminhomeController.class.getName()).log(Level.SEVERE, null, ex);
             }
-           
+            
     }
 
     @FXML
-    private void btnReportAd(ActionEvent event) throws IOException {
-         Node node;
+    private void btnReportCl(ActionEvent event) throws IOException {
+        Node node;
             try {
-                 title.setText("Fédération Tunisienne de Basket-Ball"+"-Report");
+                    title.setText("Fédération Tunisienne de Basket-Ball"+"-Report");
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
             node = (Node)FXMLLoader.load(getClass().getResource("amine.fxml"));
             linker.getChildren().setAll(node);
@@ -179,14 +185,14 @@ import javafx.stage.StageStyle;
             } catch (IOException ex) {
             Logger.getLogger(adminhomeController.class.getName()).log(Level.SEVERE, null, ex);
             }
-           
+        
     }
 
     @FXML
-    private void btnCompteAd(ActionEvent event) throws IOException {
-         Node node;
+    private void btnCompteCl(ActionEvent event) throws IOException {
+       Node node;
             try {
-                  title.setText("Fédération Tunisienne de Basket-Ball"+"-Compte");
+                title.setText("Fédération Tunisienne de Basket-Ball"+"-Compte");
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
             node = (Node)FXMLLoader.load(getClass().getResource("yassine.fxml"));
             linker.getChildren().setAll(node);
@@ -194,14 +200,14 @@ import javafx.stage.StageStyle;
             } catch (IOException ex) {
             Logger.getLogger(adminhomeController.class.getName()).log(Level.SEVERE, null, ex);
             }
-          
+        
     }
 
     @FXML
-    private void btnCompetitionAd(ActionEvent event) throws IOException {
-         Node node;
+    private void btnCompetitionCl(ActionEvent event) throws IOException {
+        Node node;
             try {
-                  title.setText("Fédération Tunisienne de Basket-Ball"+"-Competition");
+                 title.setText("Fédération Tunisienne de Basket-Ball"+"-Competition");
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
             node = (Node)FXMLLoader.load(getClass().getResource("ali.fxml"));
             linker.getChildren().setAll(node);
@@ -209,36 +215,50 @@ import javafx.stage.StageStyle;
             } catch (IOException ex) {
             Logger.getLogger(adminhomeController.class.getName()).log(Level.SEVERE, null, ex);
             }
-          
+           
     }
-    
-    //mrigla
-    @FXML
-    private void btnvueclient(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("clienthome.fxml"));
-        Parent root1 = (Parent) fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.initStyle(StageStyle.UNDECORATED); 
-        stage.setScene(new Scene(root1));  
-        stage.show();
 
+    @FXML
+    private void btncart(ActionEvent event) throws IOException {
+        Node node;
+            try {
+               title.setText("Fédération Tunisienne de Basket-Ball"+"-Votre panier");  
+            //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
+            node = (Node)FXMLLoader.load(getClass().getResource("aandiEna.fxml"));
+            linker.getChildren().setAll(node);
+
+            } catch (IOException ex) {
+            Logger.getLogger(adminhomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
+
+    @FXML
+    private void btnhelp(ActionEvent event) throws IOException {
+        Node node;
+            try {
+            title.setText("Fédération Tunisienne de Basket-Ball"+"-Aide");     
+            //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
+            node = (Node)FXMLLoader.load(getClass().getResource("aandiEna.fxml"));
+            linker.getChildren().setAll(node);
+
+            } catch (IOException ex) {
+            Logger.getLogger(adminhomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+
     
-    //mrigla
     @FXML
     private void btnactualitelogo(ActionEvent event) throws IOException {
-          title.setText("Fédération Tunisienne de Basket-Ball"+"-Actualité");  
-         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("adminhome.fxml"));
+        title.setText("Fédération Tunisienne de Basket-Ball"+"-Actualité");  
+         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("clienthome.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.initStyle(StageStyle.UNDECORATED); 
         stage.setScene(new Scene(root1));  
         stage.show();
     }
+}
 
-    }
-
-   
-
-
+      
+    
 

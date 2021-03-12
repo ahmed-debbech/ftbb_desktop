@@ -56,10 +56,11 @@ public class PostsAdminController implements Initializable {
 
     @FXML
     private void showComments(ActionEvent event) throws IOException {
+        Passable p = Passable.getInstance();
+            p.setTextData(String.valueOf(ref.getArticle_id()));
+            System.out.println("iddsw" + p.getTextData() );
             FXMLLoader fxmlLoader = new FXMLLoader();
             Pane root1 =  fxmlLoader.load(getClass().getResource("FXMLComments.fxml").openStream());
-            Passable p = Passable.getInstance();
-            p.setTextData(String.valueOf(ref.getArticle_id()));
             Stage stage = new Stage();
             stage.setTitle("Comments of article: " + ref.getArticle_id());
             stage.setScene(new Scene(root1));  

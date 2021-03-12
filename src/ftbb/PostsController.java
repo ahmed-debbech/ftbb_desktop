@@ -9,17 +9,25 @@ import Enitity.Article;
 import Enitity.Like;
 import Service.ServiceLikes;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import utils.Passable;
 
 /**
  * FXML Controller class
@@ -76,6 +84,7 @@ public class PostsController implements Initializable {
         }
         int nm = sl.countLikes(Integer.parseInt(article_id.getText()), -1);
         this.like_number.setText(String.valueOf(nm));
+        
     }
 
     @FXML
@@ -101,7 +110,15 @@ public class PostsController implements Initializable {
     }
 
     @FXML
-    private void onClickComment(MouseEvent event) {
+    private void passDetails(MouseEvent event) throws IOException {
+    Passable p = Passable.getInstance();
+            p.setNumberData(Integer.parseInt(this.article_id.getText()));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLArticleDetails.fxml"));
+            Pane root1 =  fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle(this.title.getText());
+            stage.setScene(new Scene(root1));  
+            stage.show();
     }
     
 }

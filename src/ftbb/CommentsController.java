@@ -63,6 +63,7 @@ public class CommentsController implements Initializable {
         t9.setCellValueFactory(new PropertyValueFactory<Comment, String>("content"));
         listcomments.getColumns().addAll(t8,t9);
          article_id = Passable.getInstance().getTextData();
+         System.out.println("comt id " + article_id);
          Passable.getInstance().erase();
          refreshComment(null);
     }    

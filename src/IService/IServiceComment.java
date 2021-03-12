@@ -15,4 +15,5 @@ import java.util.List;
 public interface IServiceComment {
     public List<Comment> showComment(String id);
     public void delComment(Comment a);
+    public void addComment(Comment a);
 }

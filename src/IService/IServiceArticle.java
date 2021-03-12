@@ -17,4 +17,5 @@ public interface IServiceArticle {
     public List<Article> showArticle();
     public void modArticle(Article a);
     public boolean delArticle(Article a);
+    public Article getArticle(int id);
 }

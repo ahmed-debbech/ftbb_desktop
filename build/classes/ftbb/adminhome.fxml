@@ -13,16 +13,15 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.adminhomeController"> 
+<AnchorPane prefHeight="600.0" prefWidth="700.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.adminhomeController"> 
    <children>
-      <AnchorPane fx:id="linker" layoutY="66.0" prefHeight="534.0" prefWidth="1000.0" />
       <BorderPane layoutX="114.0" layoutY="54.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <AnchorPane prefHeight="65.0" prefWidth="200.0" style="-fx-background-color: WHITE;" BorderPane.alignment="CENTER">
                <children>
                   <Pane layoutX="102.0" layoutY="20.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: #A10101;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <ImageView fx:id="Exit" fitHeight="22.0" fitWidth="22.0" layoutX="967.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="Exit" fitHeight="22.0" fitWidth="22.0" layoutX="678.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/exit.png" />
                            </image>
@@ -37,7 +36,7 @@
                                     <Insets left="5.0" top="2.0" />
                                  </HBox.margin>
                               </ImageView>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Fédération Tunisienne de Basket-Ball">
+                              <Text fx:id="title" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Fédération Tunisienne de Basket-Ball">
                                  <HBox.margin>
                                     <Insets left="5.0" />
                                  </HBox.margin>
@@ -48,6 +47,15 @@
                   </Pane>
                   <HBox alignment="CENTER_RIGHT" layoutX="239.0" layoutY="1.0" prefHeight="43.0" prefWidth="525.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
                      <children>
+                        <Button mnemonicParsing="false" onAction="#btnvueclient" style="-fx-background-radius: 100; -fx-background-color: transparent;">
+                           <graphic>
+                              <ImageView fx:id="buttonvueclient" fitHeight="30.0" fitWidth="30.0" opacity="0.34" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/eye.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/admin.png" />
@@ -63,7 +71,7 @@
                         </Text>
                      </children>
                   </HBox>
-                  <Label fx:id="Menu" layoutX="14.0" layoutY="36.0" prefHeight="23.0" prefWidth="109.0" text="MENU" textFill="#b7b7b7" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="577.0" AnchorPane.topAnchor="36.0">
+                  <Label fx:id="Menu" layoutX="14.0" layoutY="36.0" prefHeight="22.0" prefWidth="92.0" text="MENU" textFill="#b7b7b7" AnchorPane.bottomAnchor="7.007998687500045" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="618.063980710938" AnchorPane.topAnchor="36.0">
                      <graphic>
                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -95,19 +103,23 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="73.0" prefWidth="176.0">
                      <children>
-                        <ImageView fitHeight="80.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../resources/ftbb-logo-stroke-2.png" />
-                           </image>
+                        <Button mnemonicParsing="false" onAction="#btnactualitelogo" style="-fx-background-color: transparent;">
+                           <graphic>
+                              <ImageView fx:id="logo" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/ftbb-logo-stroke-2.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                            <HBox.margin>
-                              <Insets top="20.0" />
+                              <Insets top="5.0" />
                            </HBox.margin>
-                        </ImageView>
+                        </Button>
                      </children>
                   </HBox>
                   <VBox layoutX="14.0" layoutY="35.0" prefHeight="377.0" prefWidth="176.0" AnchorPane.bottomAnchor="107.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
                      <children>
-                        <Button alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #B80000;" styleClass="sidebarItem" text="Actualités" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" onAction="#btnActualiteAd" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #B80000;" styleClass="sidebarItem" text="Actualités" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -122,7 +134,7 @@
                               <Insets />
                            </VBox.margin>
                         </Button>
-                        <Button alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #B80000;" styleClass="sidebarItem" text="Questionnaires et Sondage" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" onAction="#btnSondageAd" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #B80000;" styleClass="sidebarItem" text="Questionnaires et Sondage" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -137,7 +149,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #B80000;" styleClass="sidebarItem" text="Store" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" onAction="#btnStoreAd" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #B80000;" styleClass="sidebarItem" text="Store" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -152,7 +164,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #B80000;" styleClass="sidebarItem" text="Galerie" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" onAction="#btnGalerieAd" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #B80000;" styleClass="sidebarItem" text="Galerie" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -167,7 +179,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #B80000;" styleClass="sidebarItem" text=" Feedback et Report" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" onAction="#btnReportAd" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #B80000;" styleClass="sidebarItem" text=" Feedback et Report" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -182,7 +194,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #B80000;" styleClass="sidebarItem" text="Comptes" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" onAction="#btnCompteAd" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #B80000;" styleClass="sidebarItem" text="Comptes" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -197,7 +209,7 @@
                               <Insets top="5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #B80000;" styleClass="sidebarItem" text="Competitions" textFill="WHITE">
+                        <Button alignment="BASELINE_LEFT" onAction="#btnCompetitionAd" prefHeight="38.0" prefWidth="176.0" style="-fx-background-color: #B80000;" styleClass="sidebarItem" text="Competitions" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -218,11 +230,7 @@
             </AnchorPane>
          </left>
          <center>
-            <ImageView fitHeight="493.0" fitWidth="380.0" opacity="0.1" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-               <image>
-                  <Image url="@../resources/ftbb-logo-stroke-2.png" />
-               </image>
-            </ImageView>
+           <AnchorPane fx:id="linker" prefHeight="535.0" prefWidth="702.0" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
    </children>

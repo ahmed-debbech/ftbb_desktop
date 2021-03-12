@@ -15,6 +15,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import utils.SqlConnection;
+import utils.Utilities;
 
 /**
  *
@@ -60,6 +61,26 @@ public class ServiceComment implements IServiceComment{
             stm.executeUpdate(query);
         }catch(SQLException ex){
             System.out.println("Could not delete comment");
+        }
+    }
+
+    @Override
+    public void addComment(Comment a) {
+        if(cnx == null){
+             Utilities.alert("ERROR", "could not connect to database.");
+            return;
+        }
+        try {
+            Statement stm = cnx.createStatement();
+            String query = "insert into comment (id, content,"
+                    + "client_id, article_id, date) values ("
+                    +String.valueOf(a.getId())+",'"
+                    +String.valueOf(a.getContent())+"',"
+                    +a.getClient_id()+","
+                    +a.getArticle_id()+","+" sysdate()"+");";
+            stm.executeUpdate(query);
+        } catch (SQLException ex) {
+            System.out.println("could not add new comment");
         }
     }
     
