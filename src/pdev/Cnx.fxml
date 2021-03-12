@@ -31,7 +31,7 @@
             <Font size="25.0" />
          </font>
       </PasswordField>
-      <Button fx:id="Blogin" layoutX="327.0" layoutY="458.0" mnemonicParsing="false" onAction="#Login" text="Login">
+      <Button fx:id="Blogin" layoutX="310.0" layoutY="446.0" mnemonicParsing="false" onAction="#Login" prefHeight="54.0" prefWidth="151.0" text="Login">
          <font>
             <Font size="25.0" />
          </font>
@@ -41,5 +41,10 @@
             <Image url="@../img/ftbb-logo-stroke.png" />
          </image>
       </ImageView>
+      <Button fx:id="BInsc" layoutX="310.0" layoutY="514.0" mnemonicParsing="false" onAction="#Inscription" text="Inscription">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

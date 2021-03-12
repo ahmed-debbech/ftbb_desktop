@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="782.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pdev.InscriptionClientController">
+   <children>
+      <Label layoutX="294.0" layoutY="39.0" prefHeight="37.0" prefWidth="248.0" text="Inscription">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="137.0" layoutY="103.0" text="Nom:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="138.0" layoutY="152.0" text="Prenom:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="132.0" layoutY="258.0" text="Password:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="137.0" layoutY="351.0" text="Date de naissance:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="138.0" layoutY="386.0" text="Sexe :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="136.0" layoutY="309.0" text="Number:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfnom" layoutX="215.0" layoutY="97.0" prefHeight="39.0" prefWidth="410.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfprenom" layoutX="215.0" layoutY="146.0" prefHeight="39.0" prefWidth="410.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfemail" layoutX="215.0" layoutY="198.0" prefHeight="39.0" prefWidth="410.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfnumber" layoutX="215.0" layoutY="303.0" prefHeight="39.0" prefWidth="410.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Button layoutX="476.0" layoutY="496.0" mnemonicParsing="false" onAction="#Inscription" prefHeight="39.0" prefWidth="104.0" text="Inscription" />
+      <DatePicker fx:id="tdate" layoutX="340.0" layoutY="352.0" />
+      <Button fx:id="Btretour" layoutX="625.0" layoutY="496.0" mnemonicParsing="false" onAction="#RetourCnx" prefHeight="39.0" prefWidth="104.0" text="Retour" />
+      <Label layoutX="137.0" layoutY="204.0" text="Email:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="tfpass" layoutX="215.0" layoutY="252.0" prefHeight="39.0" prefWidth="410.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </PasswordField>
+      <HBox layoutX="293.0" layoutY="392.0" prefHeight="25.0" prefWidth="248.0">
+         <children>
+            <RadioButton fx:id="Rmale" mnemonicParsing="false" prefHeight="17.0" prefWidth="117.0" text="Male">
+               <toggleGroup>
+                  <ToggleGroup fx:id="sexe" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="Rfemme" mnemonicParsing="false" prefHeight="17.0" prefWidth="70.0" text="Femme" toggleGroup="$sexe" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

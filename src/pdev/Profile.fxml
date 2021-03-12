@@ -84,6 +84,8 @@
             <Image url="@../img/ftbb-logo-stroke.png" />
          </image>
       </ImageView>
-      <Button fx:id="BAjout" layoutX="303.0" layoutY="539.0" mnemonicParsing="false" onAction="#BajoutAdmin" prefHeight="41.0" prefWidth="107.0" text="AjoutAdmin" />
+      <Button fx:id="BAjout" layoutX="303.0" layoutY="539.0" mnemonicParsing="false" onAction="#BajoutAdmin" prefHeight="41.0" prefWidth="129.0" text="GestionDesAdmins" />
+      <Button layoutX="299.0" layoutY="608.0" mnemonicParsing="false" onAction="#GestionUtil" prefHeight="41.0" prefWidth="138.0" text="GestionDesUtilisateurs" />
+      <Button layoutX="41.0" layoutY="35.0" mnemonicParsing="false" onAction="#deconnexion" prefHeight="41.0" prefWidth="129.0" text="Se deconnecter" />
    </children>
 </AnchorPane>

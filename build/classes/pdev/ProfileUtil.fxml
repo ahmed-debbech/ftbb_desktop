@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #FFEBCD;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pdev.ProfileUtilController">
+   <children>
+      <ImageView fx:id="Iprofil" fitHeight="189.0" fitWidth="216.0" layoutX="780.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/user.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </ImageView>
+      <Label layoutX="358.0" layoutY="194.0" text="Nom:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="358.0" layoutY="238.0" text="Prenom:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="358.0" layoutY="288.0" text="Date de naissance:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="358.0" layoutY="338.0" text="Numero:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="358.0" layoutY="391.0" text="Sexe:">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="lnom" layoutX="581.0" layoutY="194.0">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="lprenom" layoutX="581.0" layoutY="238.0">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbirth" layoutX="581.0" layoutY="288.0">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="lnumber" layoutX="581.0" layoutY="338.0">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="lsex" layoutX="581.0" layoutY="391.0">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Button fx:id="BtModif" layoutX="608.0" layoutY="549.0" mnemonicParsing="false" onAction="#Updateinfo" prefHeight="41.0" prefWidth="107.0" text="Modifier" />
+      <ImageView fitHeight="104.0" fitWidth="67.0" layoutX="911.0" layoutY="678.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/ftbb-logo-stroke.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="51.0" layoutY="45.0" mnemonicParsing="false" onAction="#deconnexion" prefHeight="41.0" prefWidth="129.0" text="Se deconnecter" />
+   </children>
+</AnchorPane>

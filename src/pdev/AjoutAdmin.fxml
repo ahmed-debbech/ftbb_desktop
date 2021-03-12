@@ -5,8 +5,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
@@ -28,7 +32,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="135.0" layoutY="255.0" text="Password:">
+      <Label layoutX="135.0" layoutY="255.0" text="Mot de passe:">
          <font>
             <Font size="18.0" />
          </font>
@@ -43,27 +47,27 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="139.0" layoutY="306.0" text="Number:">
+      <Label layoutX="139.0" layoutY="306.0" text="Numero:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="tfnom" layoutX="218.0" layoutY="94.0" prefHeight="39.0" prefWidth="410.0">
+      <TextField fx:id="tfnom" layoutX="249.0" layoutY="94.0" prefHeight="39.0" prefWidth="410.0">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <TextField fx:id="tfprenom" layoutX="218.0" layoutY="143.0" prefHeight="39.0" prefWidth="410.0">
+      <TextField fx:id="tfprenom" layoutX="249.0" layoutY="143.0" prefHeight="39.0" prefWidth="410.0">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <TextField fx:id="tfemail" layoutX="218.0" layoutY="195.0" prefHeight="39.0" prefWidth="410.0">
+      <TextField fx:id="tfemail" layoutX="249.0" layoutY="195.0" prefHeight="39.0" prefWidth="410.0">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <TextField fx:id="tfnumber" layoutX="218.0" layoutY="300.0" prefHeight="39.0" prefWidth="410.0">
+      <TextField fx:id="tfnumber" layoutX="249.0" layoutY="300.0" prefHeight="39.0" prefWidth="410.0">
          <font>
             <Font size="18.0" />
          </font>
@@ -96,38 +100,33 @@
             <RadioButton fx:id="Rstore" mnemonicParsing="false" prefHeight="17.0" prefWidth="149.0" text="Store Manager" toggleGroup="$role" />
          </children>
       </HBox>
-      <Button layoutX="371.0" layoutY="493.0" mnemonicParsing="false" onAction="#TAfficherAdmin" prefHeight="39.0" prefWidth="104.0" text="Afficher" />
       <Label layoutX="140.0" layoutY="201.0" text="Email:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <PasswordField fx:id="tfpass" layoutX="218.0" layoutY="249.0" prefHeight="39.0" prefWidth="410.0">
+      <PasswordField fx:id="tfpass" layoutX="249.0" layoutY="249.0" prefHeight="39.0" prefWidth="410.0">
          <font>
             <Font size="18.0" />
          </font>
       </PasswordField>
-      <Label fx:id="laff" layoutX="634.0" layoutY="25.0" prefHeight="379.0" prefWidth="609.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="tidadmin" layoutX="880.0" layoutY="493.0" prefHeight="39.0" prefWidth="148.0" promptText="saisir id admin">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
-      <Button layoutX="731.0" layoutY="493.0" mnemonicParsing="false" onAction="#DeleteAdmin" prefHeight="39.0" prefWidth="104.0" text="Delete" />
-      <Button layoutX="187.0" layoutY="649.0" mnemonicParsing="false" onAction="#Modifname" prefHeight="39.0" prefWidth="104.0" text="Modifnom" />
-      <TextField fx:id="tidadModif" layoutX="356.0" layoutY="649.0" prefHeight="39.0" prefWidth="148.0" promptText="saisir id modif">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="tNvNom" layoutX="560.0" layoutY="649.0" prefHeight="39.0" prefWidth="148.0" promptText="Nv Nom">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
+      <Button layoutX="1083.0" layoutY="493.0" mnemonicParsing="false" onAction="#DeleteAdmin" prefHeight="39.0" prefWidth="104.0" text="Delete" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1122.0" layoutY="594.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/ftbb-logo-stroke.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="table_ad" layoutX="708.0" layoutY="93.0" prefHeight="200.0" prefWidth="511.0">
+        <columns>
+          <TableColumn fx:id="col_id" prefWidth="75.0" text="id" />
+          <TableColumn fx:id="col_name" prefWidth="75.0" text="Nom" />
+            <TableColumn fx:id="col_surname" prefWidth="75.0" text="Prenom" />
+            <TableColumn fx:id="col_email" prefWidth="75.0" text="Email" />
+            <TableColumn fx:id="col_numero" prefWidth="75.0" text="Numero" />
+            <TableColumn fx:id="col_sex" prefWidth="75.0" text="Sexe" />
+            <TableColumn fx:id="col_role" prefWidth="75.0" text="Role" />
+        </columns>
+      </TableView>
+      <Button fx:id="btretour" layoutX="83.0" layoutY="676.0" mnemonicParsing="false" onAction="#Retour" prefHeight="39.0" prefWidth="104.0" text="Retour" />
    </children>
 </AnchorPane>

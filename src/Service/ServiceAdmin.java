@@ -8,6 +8,7 @@ package Service;
 import Entities.Admin;
 import Entities.Client;
 import Entities.Password;
+import Utils.AES256;
 import Utils.SqlConnection;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -15,24 +16,37 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
  * @author Yassine
  */
 public class ServiceAdmin implements IService.IServiceAdmin {
+private static Admin a =new Admin();
 
+    
     private List<Admin> admins = new ArrayList<>();
+    private ObservableList<Admin> data = FXCollections.observableArrayList();
+
+    public ObservableList<Admin> getData() {
+        return data;
+    }
 
     public List<Admin> getAdmins() {
         return admins;
     }
+    
+   public static Admin getA() {
+        return a;
+    }
 
-    public List<Admin> getAdmin() {
-        return admins;
+    public static void setA(Admin a) {
+        ServiceAdmin.a = a;
     }
     Connection cnx;
-
+    
     public ServiceAdmin() {
         cnx = SqlConnection.getInstance().getConnection();
 
@@ -44,7 +58,7 @@ public class ServiceAdmin implements IService.IServiceAdmin {
         try {
             Statement stm = cnx.createStatement();
             String rq = "INSERT INTO `password`(`password_id`, `pwd`) VALUES"
-                    + " (" + a.getPassword_id() + "," + a.getPwd() + ")";
+                    + " (" + a.getPassword_id() + ",'" +AES256.encrypt(a.getPwd())+ "')";
             stm.executeUpdate(rq);
             System.out.println("cree pass réussi");
         } catch (SQLException ex) {
@@ -101,6 +115,32 @@ while (rst.next()) {
             a.setPassword_id(rst.getInt("password_id"));
             a.setPhoto_url(rst.getString("photo_url"));
             a.setRole(rst.getInt("role"));
+            
+}
+            System.out.println("select réussi");
+
+        } catch (SQLException ex) {
+            System.out.println("erreur select");
+        }
+        return a;
+    }
+    public Admin SelectAdmin(String mail) {
+        Admin a = new Admin();
+        try {
+            Statement stm = cnx.createStatement();
+            String rq = "SELECT `id`, `name`, `surname`, `email`, `number`, `birthday`, `sex`, `password_id`, `photo_url`, `role` FROM `admin` WHERE `email`='" +mail+"'";
+            ResultSet rst = stm.executeQuery(rq);
+while (rst.next()) {
+            a.setId(rst.getInt("id"));
+            a.setName(rst.getString("name"));
+            a.setSurname(rst.getString("surname"));
+            a.setEmail(rst.getString("email"));
+            a.setNumber(rst.getInt("number"));
+//                a.setBirthday(rst.getDate("birthday"));
+            a.setSex(rst.getString("sex"));
+            a.setPassword_id(rst.getInt("password_id"));
+            a.setPhoto_url(rst.getString("photo_url"));
+            a.setRole(rst.getInt("role"));
 }
             System.out.println("select réussi");
 
@@ -125,14 +165,27 @@ while (rst.next()) {
     @Override
     public void BanClient(int id_Client) {
         try {
-            String ban = "Banned";
+            int ban = 2;
             Statement stm = cnx.createStatement();
-            String rq = "UPDATE `admin` SET `status`=" + ban
+            String rq = "UPDATE `client` SET `status`=" + ban
                     + " WHERE `id`=" + id_Client;
             stm.executeUpdate(rq);
-            System.out.println("suppression réussi");
+            System.out.println("ban reussi");
         } catch (SQLException ex) {
-            System.out.println("erreur sur suppression");
+            System.out.println("erreur sur ban");
+        }
+    }
+     @Override
+    public void UnBanClient(int id_Client) {
+        try {
+            int ban = 0;
+            Statement stm = cnx.createStatement();
+            String rq = "UPDATE `client` SET `status`=" + ban
+                    + " WHERE `id`=" + id_Client;
+            stm.executeUpdate(rq);
+            System.out.println("unban reussi");
+        } catch (SQLException ex) {
+            System.out.println("erreur sur unban");
         }
     }
 
@@ -171,6 +224,7 @@ while (rst.next()) {
                 a.setPhoto_url(rst.getString("photo_url"));
                 a.setRole(rst.getInt("role"));
                 admins.add(a);
+                data.add(a);
                 System.out.println("aff réussi");
             }
         } catch (SQLException ex) {

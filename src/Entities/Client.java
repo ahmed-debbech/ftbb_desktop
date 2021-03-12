@@ -14,9 +14,9 @@ import Utils.Utilities;
  * @author Yassine
  */
 public class Client {
-   private int id,number,birthday,id_cart,password_id;
-   private String name,surname,email,sex,photo_url,status;
-   private Date creation_date ;
+   private int id,number,id_cart,password_id,status;
+   private String name,surname,email,sex,photo_url;
+   private Date creation_date,birthday ;
 
     public Client() {
         this.id = Utilities.generatedId("client","id");
@@ -39,11 +39,11 @@ public class Client {
         this.number = number;
     }
 
-    public int getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(int birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 
@@ -103,11 +103,11 @@ public class Client {
         this.photo_url = photo_url;
     }
 
-    public String getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 

@@ -15,6 +15,7 @@ import java.util.List;
  * @author Yassine
  */
 public interface IServiceAdmin {
+     public void UnBanClient(int id_Client) ;
     public Admin SelectAdmin(int id);
     public void AddPasswordAdmin(Password a);
     public void AddAdmin(Admin a);

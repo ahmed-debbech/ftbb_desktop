@@ -6,6 +6,7 @@
 package pdev;
 
 import Entities.Admin;
+import Service.ServiceAdmin;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -46,42 +47,9 @@ public class ProfileController implements Initializable {
     @FXML
     private Label lrole;
 
-   
+   Admin a =new Admin ();
 
-//    public void setLnom(String lnom) {
-//        this.lnom.setText(lnom); 
-//    }
-//
-//    public void setLprenom(String lprenom) {
-//        this.lprenom.setText(lprenom);
-//    }
-//
-//    public void setLbirth(Date lbirth) {
-//        
-//        this.lbirth.setText(lbirth.toString()); 
-//    }
-//
-//    public void setLnumber(int lnumber) {
-//        String s=String.valueOf(lnumber);
-//        this.lnumber.setText(s);
-//    }
-//
-//    public void setLsex(String lsex) {
-//        this.lsex.setText(lsex);
-//    }
-//
-//    public void setLrole(int lrole) {
-//        if (lrole==1){
-//            this.lrole.setText("Admin");
-//        }
-//        else {  if (lrole==2){
-//            this.lrole.setText("Store Manager");
-//        }
-//            else {  if (lrole==3){
-//            this.lrole.setText("Editeur");
-//        }} 
-//        }
-//    }
+   
     
 
 
@@ -91,12 +59,35 @@ public class ProfileController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+  Admin a= new Admin();
+  a= ServiceAdmin.getA();
+         
+        lnom.setText(a.getName()); 
+        lprenom.setText(a.getSurname());
+        //lbirth.setText(a.getBirthday().toString()); 
         
-        // TODO
+        String s=String.valueOf(a.getNumber());
+        lnumber.setText(s);
+        lsex.setText(a.getSex());
+    
+
+    int lrole= a.getRole();
+        if (lrole==1){
+            this.lrole.setText("Admin");
+        }
+        else {  if (lrole==2){
+            this.lrole.setText("Store Manager");
+        }
+            else {  if (lrole==3){
+            this.lrole.setText("Editeur");
+        }} 
+        
+    }
     }    
 
     @FXML
     private void Updateinfo(ActionEvent event) {
+
     }
 
   
@@ -107,6 +98,34 @@ public class ProfileController implements Initializable {
         
      
         Parent root = FXMLLoader.load(getClass().getResource("AjoutAdmin.fxml"));
+        
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+        stage.setResizable(false);
+    }
+
+    @FXML
+    private void GestionUtil(ActionEvent event) throws IOException {
+        BAjout.getScene().getWindow().hide();
+        
+     
+        Parent root = FXMLLoader.load(getClass().getResource("GestionUtilisateur.fxml"));
+        
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+        stage.setResizable(false);
+    }
+
+    @FXML
+    private void deconnexion(ActionEvent event) throws IOException {
+        BAjout.getScene().getWindow().hide();
+        
+     
+        Parent root = FXMLLoader.load(getClass().getResource("Cnx.fxml"));
         
         Scene scene = new Scene(root);
         Stage stage = new Stage();

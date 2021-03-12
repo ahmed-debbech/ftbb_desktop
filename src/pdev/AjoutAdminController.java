@@ -8,18 +8,36 @@ package pdev;
 import Entities.Admin;
 import Entities.Password;
 import Service.ServiceAdmin;
+import Utils.Utilities;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
+import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.InputMethodEvent;
+import javafx.scene.input.KeyEvent;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -56,25 +74,95 @@ public class AjoutAdminController implements Initializable {
     @FXML
     private PasswordField tfpass;
     @FXML
-    private Label laff;
+    private TableColumn<Admin, String> col_id;
     @FXML
-    private TextField tidadmin;
+    private TableColumn<Admin, String> col_name;
     @FXML
-    private TextField tidadModif;
+    private TableColumn<Admin, String> col_surname;
     @FXML
-    private TextField tNvNom;
+    private TableColumn<Admin, String> col_email;
+    @FXML
+    private TableColumn<Admin, String> col_numero;
+    @FXML
+    private TableColumn<Admin, String> col_sex;
+    @FXML
+    private TableColumn<Admin, String> col_role;
+    @FXML
+    private TableView<Admin> table_ad;
+    @FXML
+    private Button btretour;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+          ServiceAdmin sp = new ServiceAdmin();
+          List <Admin> a =sp.AffichierAdmin();
+        
+        
+        col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        col_name.setCellValueFactory(new PropertyValueFactory<>("name"));
+        col_surname.setCellValueFactory(new PropertyValueFactory<>("surname"));
+        col_role.setCellValueFactory(new PropertyValueFactory<>("role"));
+        col_numero.setCellValueFactory(new PropertyValueFactory<>("number"));
+        col_sex.setCellValueFactory(new PropertyValueFactory<>("sex"));
+        col_email.setCellValueFactory(new PropertyValueFactory<>("email"));
+        table_ad.setItems(sp.getData());
     }
 
     @FXML
     private void TajoutAdmin(ActionEvent event) {
         Admin ad = new Admin();
+        boolean a=Utilities.validationEmail(tfemail.getText());        
+        if (a=false) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("WARNING!");
+            alert.setHeaderText(null);
+            alert.setContentText("votre email n'est pas valide");
+            Optional<ButtonType> result = alert.showAndWait();
+        }  else if (tfnom.getText().isEmpty()) {
+             Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("WARNING!");
+            alert.setHeaderText(null);
+            alert.setContentText("votre nom n'est pas valide");
+            Optional<ButtonType> result = alert.showAndWait();  
+        }   else if (tfprenom.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("WARNING!");
+            alert.setHeaderText(null);
+            alert.setContentText("votre prenom n'est pas valide");
+            Optional<ButtonType> result = alert.showAndWait(); 
+            
+        }   else if (tfpass.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("WARNING!");
+            alert.setHeaderText(null);
+            alert.setContentText("votre password n'est pas valide");
+            Optional<ButtonType> result = alert.showAndWait(); 
+        } else if ((!Rmale.isSelected())&&(!Rfemme.isSelected())) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("WARNING!");
+            alert.setHeaderText(null);
+            alert.setContentText("Selectionner le sexe ");
+            Optional<ButtonType> result = alert.showAndWait(); 
+        } else if ((!Radmin.isSelected())&&(!Rediteur.isSelected())&&(!Rstore.isSelected())) {
+            
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("WARNING!");
+            alert.setHeaderText(null);
+            alert.setContentText("Selectionner le role ");
+            Optional<ButtonType> result = alert.showAndWait(); }
+//         else if (tdate.isPressed()){
+//           
+//            Alert alert = new Alert(Alert.AlertType.ERROR);
+//            alert.setTitle("WARNING!");
+//            alert.setHeaderText(null);
+//            alert.setContentText("Selectionner date de naissance ");
+//            Optional<ButtonType> result = alert.showAndWait(); 
+//        }
+            else {
+        
         ServiceAdmin sa = new ServiceAdmin();
         Password pass =new Password ();
         pass.setPwd(tfpass.getText());
@@ -114,31 +202,68 @@ public class AjoutAdminController implements Initializable {
         }
         ad.setRole(rol);
         System.out.println(ad.toString());
-        sa.AddAdmin(ad);
+        sa.AddAdmin(ad); 
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Succes!");
+            alert.setHeaderText(null);
+            alert.setContentText("Ajout terminer");
+            Optional<ButtonType> result = alert.showAndWait(); 
+            
+    }
+            ServiceAdmin sp =new ServiceAdmin();
+            List <Admin> v =sp.AffichierAdmin();
+        
+        
+        col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        col_name.setCellValueFactory(new PropertyValueFactory<>("name"));
+        col_surname.setCellValueFactory(new PropertyValueFactory<>("surname"));
+        col_role.setCellValueFactory(new PropertyValueFactory<>("role"));
+        col_numero.setCellValueFactory(new PropertyValueFactory<>("number"));
+        col_sex.setCellValueFactory(new PropertyValueFactory<>("sex"));
+        col_email.setCellValueFactory(new PropertyValueFactory<>("email"));
+        table_ad.setItems(sp.getData());
     }
 
-    @FXML
-    private void TAfficherAdmin(ActionEvent event) {
-        ServiceAdmin sp = new ServiceAdmin();
-        
-          laff.setText(sp.AffichierAdmin().toString());
-    }
+    
 
     @FXML
     private void DeleteAdmin(ActionEvent event) {
         ServiceAdmin sp = new ServiceAdmin();
-        Admin a =new Admin();
-        a.setId(Integer.parseInt(tidadmin.getText()));
-        sp.DeleteAdmin(a);
+        Admin b =new Admin();
+        b.setId(table_ad.getSelectionModel().getSelectedItem().getId());
+
+        sp.DeleteAdmin(b);
+        
+          List <Admin> a =sp.AffichierAdmin();
+        
+        
+        col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        col_name.setCellValueFactory(new PropertyValueFactory<>("name"));
+        col_surname.setCellValueFactory(new PropertyValueFactory<>("surname"));
+        col_role.setCellValueFactory(new PropertyValueFactory<>("role"));
+        col_numero.setCellValueFactory(new PropertyValueFactory<>("number"));
+        col_sex.setCellValueFactory(new PropertyValueFactory<>("sex"));
+        col_email.setCellValueFactory(new PropertyValueFactory<>("email"));
+        table_ad.setItems(sp.getData());
     }
 
     @FXML
-    private void Modifname(ActionEvent event) {
-        ServiceAdmin sp = new ServiceAdmin();
-        Admin a =new Admin();
-        a=sp.SelectAdmin(Integer.parseInt(tidadModif.getText()));
-        a.setName(tNvNom.getText());
-        sp.UpdateAdmin(a);
+    private void Retour(ActionEvent event) throws IOException {
+           btretour.getScene().getWindow().hide();
+        
+     
+        Parent root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
+        
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+        stage.setResizable(false);
     }
+
+   
+
+    
+    
 
 }

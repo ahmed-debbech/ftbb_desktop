@@ -16,7 +16,7 @@ import Entities.Client;
  * @author Yassine
  */
 public interface IServiceCnx {
-   public Admin CheckAdminCnx(String mail,String pwd);
+   public boolean CheckAdminCnx(String mail,String pwd);
     public boolean checkPass(int id ,String pwd);
-   
+   public boolean CheckClientCnx(String mail, String pwd);
 }

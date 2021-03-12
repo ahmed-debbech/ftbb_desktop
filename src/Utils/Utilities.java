@@ -12,6 +12,7 @@ import java.sql.Statement;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -42,5 +43,16 @@ public class Utilities {
             generated = -1;
         }
         return generated;
+    }
+    
+    public static boolean validationEmail (String email){
+      boolean a=false;
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\\\.)+[a-zA-Z]{2,7}$";
+        Pattern pat = Pattern.compile(emailRegex);
+        a=pat.matcher(email).matches();
+          
+        
+        return a;
+        
     }
 }
