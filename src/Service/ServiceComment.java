@@ -83,5 +83,24 @@ public class ServiceComment implements IServiceComment{
             System.out.println("could not add new comment");
         }
     }
+
+    @Override
+    public int countComments(String art_id) {
+         if(cnx == null){
+             Utilities.alert("ERROR", "could not connect to database.");
+            return -1;
+        }
+        try {
+            ResultSet rst;
+            Statement stm = cnx.createStatement();
+            String query = "select count(*) as co from comment where article_id="+art_id+";";
+            rst = stm.executeQuery(query); 
+            rst.last();
+            return  rst.getInt("co");
+        } catch (SQLException ex) {
+            System.out.println("Could not return the comments count.");
+        }
+        return -1;
+    }
     
 }

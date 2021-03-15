@@ -7,6 +7,7 @@ package ftbb;
 
 import Enitity.Article;
 import Enitity.Like;
+import Service.ServiceComment;
 import Service.ServiceLikes;
 import java.io.File;
 import java.io.IOException;
@@ -84,7 +85,9 @@ public class PostsController implements Initializable {
         }
         int nm = sl.countLikes(Integer.parseInt(article_id.getText()), -1);
         this.like_number.setText(String.valueOf(nm));
-        
+        ServiceComment ser = new ServiceComment();
+        int nm_cm = ser.countComments(String.valueOf(a.getArticle_id()));
+        this.com_number.setText(String.valueOf(nm_cm));
     }
 
     @FXML

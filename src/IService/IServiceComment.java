@@ -16,4 +16,5 @@ public interface IServiceComment {
     public List<Comment> showComment(String id);
     public void delComment(Comment a);
     public void addComment(Comment a);
+    public int countComments(String art_id);
 }

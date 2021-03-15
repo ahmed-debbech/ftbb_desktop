@@ -125,13 +125,13 @@ public class ServiceLikes implements IServiceLikes {
             Statement stm = cnx.createStatement();
             String query = "";
             if(cmt == -1){
-                query = "select count(*) from likes where id_article="+art+";";
+                query = "select count(*) as co from likes where id_article="+art+";";
             }else{
-                 query = "select count(*) from likes where id_comment="+cmt+";";
+                 query = "select count(*) as co from likes where id_comment="+cmt+";";
             }
             rst = stm.executeQuery(query); 
             rst.last();
-            return rst.getRow();
+            return  rst.getInt("co");
         } catch (SQLException ex) {
             System.out.println("Could not return the like count.");
         }
