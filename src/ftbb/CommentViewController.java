@@ -7,6 +7,7 @@ package ftbb;
 
 import Enitity.Comment;
 import Enitity.Like;
+import Service.ServiceComment;
 import Service.ServiceLikes;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,6 +18,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import utils.Utilities;
 
 /**
  * FXML Controller class
@@ -39,6 +41,10 @@ public class CommentViewController implements Initializable {
     private Label date;
     @FXML
     private Label comment_id;
+    @FXML
+    private ImageView delete;
+    @FXML
+    private Label client_id;
 
     /**
      * Initializes the controller class.
@@ -69,13 +75,16 @@ public class CommentViewController implements Initializable {
         }
     }
     public void setData(Comment c){
+         this.client_id.setText(String.valueOf(c.getClient_id()));
+        if(this.client_id.getText().equals("122")){
+                this.delete.setVisible(true);
+        }else{
+            this.delete.setVisible(false);
+        }
         this.client_name.setText(c.getClient_name());
         this.content.setText(c.getContent());
         this.date.setText(c.getDate().toString());
         this.comment_id.setText(String.valueOf(c.getId()));
-       // ServiceLikes sl = new ServiceLikes();
-        //int nm = sl.countLikes(-1,Integer.parseInt(this.comment_id.getText()));
-        //this.like_number.setText(String.valueOf(nm));
          ServiceLikes sl = new ServiceLikes();
         if(sl.getLike(-1, Integer.parseInt(comment_id.getText()), 122) == true){
             this.like_icon.setImage(new Image("resources/like-press.png"));
@@ -84,5 +93,15 @@ public class CommentViewController implements Initializable {
         }
         int nm = sl.countLikes(-1, Integer.parseInt(comment_id.getText()));
         this.like_number.setText(String.valueOf(nm));
+    }
+
+    @FXML
+    private void deleteComment(MouseEvent event) {
+        if(Utilities.alertConfirmation("Warning", "Are you sure you want to delete this comment?") == true){
+            ServiceComment sc = new ServiceComment();
+            Comment a = new Comment();
+            a.setId(Integer.parseInt(this.comment_id.getText()));
+            sc.delComment(a);
+        }
     }
 }

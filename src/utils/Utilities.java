@@ -53,5 +53,15 @@ public class Utilities {
            alert.setContentText(context);
            Optional<ButtonType> result = alert.showAndWait();
     }
-    
+    public static boolean alertConfirmation(String title, String context){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+           alert.setTitle(title);
+           alert.setHeaderText(null);
+           alert.setContentText(context);
+           Optional<ButtonType> result = alert.showAndWait();
+           if(result.isPresent() && result.get() == ButtonType.OK){
+               return true;
+           }
+           return false;
+    }
 }
