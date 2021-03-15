@@ -79,6 +79,7 @@ public class ArticleDetailsController implements Initializable {
          System.out.println("ldld" + this.ref.getArticle_id());
            this.title.setText(ref.getTitle());
            this.date.setText(ref.getDate().toString());
+           this.text.setText(ref.getText());
            File file = new File(ref.getPhoto_url());
         Image im = null;
         if(file.exists()){

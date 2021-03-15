@@ -6,12 +6,14 @@
 package ftbb;
 
 import Enitity.Comment;
+import Enitity.Like;
 import Service.ServiceLikes;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -48,13 +50,39 @@ public class CommentViewController implements Initializable {
 
     @FXML
     private void onClickLike(MouseEvent event) {
+        ServiceLikes sl = new ServiceLikes();
+        Like l = new Like(-1, Integer.parseInt(comment_id.getText()), 122);
+        if(!sl.isExisted(l)){
+            // add the like
+            sl.add(l);
+            this.like_icon.setImage(new Image("resources/like-press.png"));
+            int x= Integer.parseInt(this.like_number.getText());
+            x++;
+            this.like_number.setText(String.valueOf(x));
+        }else{
+            //else remove it
+            sl.remove(l);
+            this.like_icon.setImage(new Image("resources/like.png"));
+            int x= Integer.parseInt(this.like_number.getText());
+            x--;
+            this.like_number.setText(String.valueOf(x));
+        }
     }
     public void setData(Comment c){
         this.client_name.setText(c.getClient_name());
         this.content.setText(c.getContent());
         this.date.setText(c.getDate().toString());
+        this.comment_id.setText(String.valueOf(c.getId()));
        // ServiceLikes sl = new ServiceLikes();
         //int nm = sl.countLikes(-1,Integer.parseInt(this.comment_id.getText()));
         //this.like_number.setText(String.valueOf(nm));
+         ServiceLikes sl = new ServiceLikes();
+        if(sl.getLike(-1, Integer.parseInt(comment_id.getText()), 122) == true){
+            this.like_icon.setImage(new Image("resources/like-press.png"));
+        }else{
+           this.like_icon.setImage(new Image("resources/like.png"));
+        }
+        int nm = sl.countLikes(-1, Integer.parseInt(comment_id.getText()));
+        this.like_number.setText(String.valueOf(nm));
     }
 }

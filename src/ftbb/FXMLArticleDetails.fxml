@@ -12,10 +12,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="713.0" prefWidth="555.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="ftbb.ArticleDetailsController">
+<AnchorPane id="AnchorPane" prefHeight="714.0" prefWidth="633.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.ArticleDetailsController">
    <children>
-      <VBox prefHeight="713.0" prefWidth="555.0">
+      <VBox prefHeight="714.0" prefWidth="633.0">
          <children>
             <HBox prefHeight="114.0" prefWidth="555.0">
                <children>
@@ -30,7 +29,7 @@
                   </Label>
                </children>
             </HBox>
-            <Label fx:id="text" alignment="TOP_LEFT" prefHeight="278.0" prefWidth="555.0" text="TEXT....">
+            <Label fx:id="text" alignment="TOP_LEFT" prefHeight="278.0" prefWidth="634.0" text="TEXT....">
                <padding>
                   <Insets left="15.0" right="15.0" />
                </padding>
@@ -72,16 +71,16 @@
                   <Insets left="50.0" />
                </padding>
             </HBox>
-            <ScrollPane fx:id="scroller" prefHeight="227.0" prefWidth="555.0">
+            <ScrollPane fx:id="scroller" prefHeight="233.0" prefWidth="634.0">
                <content>
-                  <VBox fx:id="comlist" prefHeight="227.0" prefWidth="554.0" />
+                  <VBox fx:id="comlist" prefHeight="236.0" prefWidth="627.0" />
                </content>
             </ScrollPane>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox prefHeight="46.0" prefWidth="634.0">
                <children>
                   <Label prefHeight="19.0" prefWidth="105.0" text="Your comment:" />
-                  <TextField fx:id="comment_content" prefHeight="85.0" prefWidth="371.0" />
-                  <Button mnemonicParsing="false" onAction="#comment" prefHeight="85.0" prefWidth="118.0" text="Comment" />
+                  <TextField fx:id="comment_content" prefHeight="86.0" prefWidth="434.0" />
+                  <Button mnemonicParsing="false" onAction="#comment" prefHeight="86.0" prefWidth="134.0" text="Comment" />
                </children>
             </HBox>
          </children>
