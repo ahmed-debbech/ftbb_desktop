@@ -18,6 +18,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import utils.Utilities;
 
 /**
@@ -45,7 +46,11 @@ public class CommentViewController implements Initializable {
     private ImageView delete;
     @FXML
     private Label client_id;
-
+    @FXML
+    private Label item_pos;
+    
+    private VBox parent_list;
+    
     /**
      * Initializes the controller class.
      */
@@ -74,7 +79,9 @@ public class CommentViewController implements Initializable {
             this.like_number.setText(String.valueOf(x));
         }
     }
-    public void setData(Comment c){
+    public void setData(Comment c, int pos, VBox parent){
+        this.parent_list = parent;
+        this.item_pos.setText(String.valueOf(pos));
          this.client_id.setText(String.valueOf(c.getClient_id()));
         if(this.client_id.getText().equals("122")){
                 this.delete.setVisible(true);
@@ -102,6 +109,7 @@ public class CommentViewController implements Initializable {
             Comment a = new Comment();
             a.setId(Integer.parseInt(this.comment_id.getText()));
             sc.delComment(a);
+            this.parent_list.getChildren().remove(Integer.parseInt(this.item_pos.getText()));
         }
     }
 }

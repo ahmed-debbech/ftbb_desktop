@@ -99,23 +99,27 @@ public class ArticleDetailsController implements Initializable {
         this.like_number.setText(String.valueOf(nm));
         
         //**** load comments
+        loadComments();
+    }    
+    private void loadComments(){
         this.comlist.getChildren().clear();
         ServiceComment sc = new ServiceComment();
            List<Comment> list =  sc.showComment(String.valueOf(ref.getArticle_id()));
             try{
+                int pos = 0;
                 for(Comment a : list){
                     FXMLLoader loader = new FXMLLoader();
                     loader.setLocation(getClass().getResource("FXMLCommentView.fxml"));
                     Node postbox = loader.load();
                     CommentViewController pc = loader.getController();
-                    pc.setData(a);
+                    pc.setData(a, pos, this.comlist);
                     this.comlist.getChildren().add(postbox);
+                    pos++;
                 }
             }catch(IOException e){
                   System.out.println("error");
             }
-    }    
-
+    }
     @FXML
     private void passDetails(MouseEvent event) {
     }
@@ -151,6 +155,7 @@ public class ArticleDetailsController implements Initializable {
         a.setContent(comment);
         a.setId(Utilities.generatedId("comment", "id"));
         sc.addComment(a);
+        loadComments();
     }
     
 }

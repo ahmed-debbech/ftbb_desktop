@@ -40,5 +40,6 @@
          </image>
       </ImageView>
       <Label fx:id="client_id" layoutX="143.0" layoutY="5.0" visible="false" />
+      <Label fx:id="item_pos" layoutX="358.0" layoutY="67.0" visible="false" />
    </children>
 </AnchorPane>
