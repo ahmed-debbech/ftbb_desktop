@@ -6,6 +6,7 @@
 package IService;
 
 import Enitity.Article;
+import Enitity.Comment;
 import java.util.List;
 
 /**
@@ -18,4 +19,6 @@ public interface IServiceArticle {
     public void modArticle(Article a);
     public boolean delArticle(Article a);
     public Article getArticle(int id);
+     public List<Comment> sortByNew(int article_id);
+    public List<Comment> sortByHot(int article_id);
 }

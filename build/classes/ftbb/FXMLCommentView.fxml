@@ -6,40 +6,54 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.shape.Line?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="90.0" prefWidth="601.0" style="-fx-background-color: #ffb3b3;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.CommentViewController">
+<AnchorPane id="AnchorPane" style="-fx-background-color: #ffb3b3;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.CommentViewController">
    <children>
-      <Label fx:id="client_name" layoutX="14.0" layoutY="14.0" text="client_name">
-         <font>
-            <Font name="System Bold Italic" size="13.0" />
-         </font>
-      </Label>
-      <Label fx:id="content" alignment="TOP_LEFT" layoutX="13.0" layoutY="37.0" prefHeight="44.0" prefWidth="574.0" text="Content" />
-      <HBox fx:id="likes" layoutX="526.0" layoutY="13.0" onMouseClicked="#onClickLike" prefHeight="19.0" prefWidth="74.0">
-         <children>
-            <ImageView fx:id="like_icon" fitHeight="20.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/like.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="like_number" prefHeight="18.0" prefWidth="66.0" text="0">
-               <padding>
-                  <Insets left="5.0" />
-               </padding>
-            </Label>
-         </children>
-      </HBox>
-      <Label fx:id="date" layoutX="435.0" layoutY="13.0" prefHeight="19.0" prefWidth="83.0" text="dd/mm/yyyy" />
       <Label fx:id="comment_id" layoutX="134.0" layoutY="5.0" visible="false" />
-      <Line endX="100.0" layoutX="300.0" layoutY="13.0" startX="-100.0" />
-      <ImageView fx:id="delete" fitHeight="17.0" fitWidth="17.0" layoutX="579.0" layoutY="68.0" onMouseClicked="#deleteComment" pickOnBounds="true" preserveRatio="true" visible="false">
-         <image>
-            <Image url="@../resources/delete.png" />
-         </image>
-      </ImageView>
       <Label fx:id="client_id" layoutX="143.0" layoutY="5.0" visible="false" />
       <Label fx:id="item_pos" layoutX="358.0" layoutY="67.0" visible="false" />
+      <HBox>
+         <children>
+            <VBox prefHeight="100.0" prefWidth="500.0">
+               <children>
+                  <Label fx:id="client_name" text="client_name">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="content" alignment="TOP_LEFT" prefHeight="44.0" prefWidth="574.0" text="Content" />
+               </children>
+            </VBox>
+            <Label fx:id="date" prefHeight="19.0" prefWidth="148.0" text="dd/mm/yyyy" />
+            <VBox prefHeight="100.0" prefWidth="90.0">
+               <children>
+                  <HBox fx:id="likes" onMouseClicked="#onClickLike" prefHeight="30.0" prefWidth="58.0">
+                     <children>
+                        <ImageView fx:id="like_icon" fitHeight="20.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/like.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="like_number" prefHeight="18.0" prefWidth="66.0" text="0">
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <ImageView fx:id="delete" fitHeight="17.0" fitWidth="17.0" onMouseClicked="#deleteComment" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../resources/delete.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets left="30.0" />
+                     </VBox.margin>
+                  </ImageView>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

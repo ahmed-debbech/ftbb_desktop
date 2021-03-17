@@ -6,6 +6,7 @@
 package Service;
 
 import Enitity.Article;
+import Enitity.Comment;
 import IService.IServiceArticle;
 import java.sql.Connection;
 import java.sql.Date;
@@ -152,6 +153,35 @@ public class ServiceArticle implements IServiceArticle {
             System.out.println("Could not show articles");
         }
         return null;
+    }
+
+    @Override
+    public List<Comment> sortByNew(int article_id) {
+         List<Comment> list = new ArrayList<>();
+        try{
+            Statement stm = this.cnx.createStatement();
+            System.out.println("xxxx " + article_id);
+            String query = "SELECT comment.*, client.name, client.surname FROM `comment` inner join client on comment.client_id=client.id where article_id="+article_id+" order by date DESC;";
+            ResultSet rst = stm.executeQuery(query);
+            while(rst.next()){
+                Comment a = new Comment();
+                a.setId(rst.getInt("id"));
+                a.setContent(rst.getString("content"));
+                a.setClient_id(rst.getInt("client_id"));
+                a.setClient_name(rst.getString("name") + rst.getString("surname"));
+                a.setArticle_id(rst.getInt("article_id"));
+                a.setDate(rst.getDate("date"));
+                list.add(a);
+            }
+        }catch(SQLException ex){
+            System.out.println("Could not show comments");
+        }
+        return list;
+    }
+
+    @Override
+    public List<Comment> sortByHot(int article_id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

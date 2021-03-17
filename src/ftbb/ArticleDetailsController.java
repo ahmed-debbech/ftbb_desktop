@@ -21,6 +21,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
@@ -66,6 +67,8 @@ public class ArticleDetailsController implements Initializable {
     private VBox comlist;
     @FXML
     private TextField comment_content;
+    @FXML
+    private ComboBox<String> filter;
     /**
      * Initializes the controller class.
      */
@@ -80,6 +83,9 @@ public class ArticleDetailsController implements Initializable {
            this.title.setText(ref.getTitle());
            this.date.setText(ref.getDate().toString());
            this.text.setText(ref.getText());
+           this.filter.getItems().add("None");
+        this.filter.getItems().add("New");
+        this.filter.getItems().add("Hot");
            File file = new File(ref.getPhoto_url());
         Image im = null;
         if(file.exists()){
@@ -97,6 +103,7 @@ public class ArticleDetailsController implements Initializable {
         }
         int nm = sl.countLikes(ref.getArticle_id(), -1);
         this.like_number.setText(String.valueOf(nm));
+        this.author.setText(ref.getAuthor());
         
         //**** load comments
         loadComments();
@@ -105,6 +112,25 @@ public class ArticleDetailsController implements Initializable {
         this.comlist.getChildren().clear();
         ServiceComment sc = new ServiceComment();
            List<Comment> list =  sc.showComment(String.valueOf(ref.getArticle_id()));
+            try{
+                int pos = 0;
+                for(Comment a : list){
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("FXMLCommentView.fxml"));
+                    Node postbox = loader.load();
+                    CommentViewController pc = loader.getController();
+                    pc.setData(a, pos, this.comlist);
+                    this.comlist.getChildren().add(postbox);
+                    pos++;
+                }
+            }catch(IOException e){
+                  System.out.println("error");
+            }
+    }
+    private void loadComments(List<Comment> li){
+        this.comlist.getChildren().clear();
+        ServiceComment sc = new ServiceComment();
+           List<Comment> list =  li;
             try{
                 int pos = 0;
                 for(Comment a : list){
@@ -155,7 +181,36 @@ public class ArticleDetailsController implements Initializable {
         a.setContent(comment);
         a.setId(Utilities.generatedId("comment", "id"));
         sc.addComment(a);
-        loadComments();
+        ServiceArticle ss = new ServiceArticle();
+        if(this.filter.getSelectionModel().getSelectedIndex() == 1){
+            System.out.println("first is selected");
+            List<Comment> list = ss.sortByNew(ref.getArticle_id());
+            loadComments(list);
+        }else{  
+            if(this.filter.getSelectionModel().getSelectedIndex() == 2){
+                System.out.println("second is selected");
+                List<Comment> list = ss.sortByHot(ref.getArticle_id());
+                loadComments(list);
+            }
+        }
+        this.comment_content.setText("");
+    }
+
+    @FXML
+    private void itemChanged(ActionEvent event) {
+        ServiceArticle sc = new ServiceArticle();
+        
+        if(this.filter.getSelectionModel().getSelectedIndex() == 1){
+            System.out.println("first is selected");
+            List<Comment> list = sc.sortByNew(ref.getArticle_id());
+            loadComments(list);
+        }else{  
+            if(this.filter.getSelectionModel().getSelectedIndex() == 2){
+                System.out.println("second is selected");
+                List<Comment> list = sc.sortByHot(ref.getArticle_id());
+                loadComments(list);
+            }
+        }
     }
     
 }
