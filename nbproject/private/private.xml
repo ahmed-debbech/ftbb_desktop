@@ -5,7 +5,7 @@
             <url>src/IService/IServiceArticle.java</url>
             <bookmark id="2">
                 <name/>
-                <line>16</line>
+                <line>17</line>
                 <key/>
             </bookmark>
         </file>
@@ -13,7 +13,7 @@
             <url>src/Service/ServiceArticle.java</url>
             <bookmark id="1">
                 <name/>
-                <line>108</line>
+                <line>109</line>
                 <key/>
             </bookmark>
         </file>
@@ -29,6 +29,7 @@
             <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/utils/Utilities.java</file>
             <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/ftbb/ArticlesViewController.java</file>
             <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/ftbb/PostsAdminController.java</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/Service/ServiceArticle.java</file>
             <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/ftbb/PostsController.java</file>
             <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/IService/IServiceArticle.java</file>
             <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/ftbb/adminhomeController.java</file>
@@ -40,7 +41,6 @@
             <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/Service/ServiceLikes.java</file>
             <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/Enitity/Comment.java</file>
             <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/ftbb/FXMLClientArticles.fxml</file>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/IService/IServiceComment.java</file>
         </group>
     </open-files>
 </project-private>

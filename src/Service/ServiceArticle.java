@@ -181,7 +181,27 @@ public class ServiceArticle implements IServiceArticle {
 
     @Override
     public List<Comment> sortByHot(int article_id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Comment> list = new ArrayList<>();
+        try{
+            Statement stm = this.cnx.createStatement();
+            System.out.println("xxxx " + article_id);
+            String query = "SELECT comment.*, count(likes.id_like) as likes_count, client.name, client.surname from `comment` left join likes on likes.id_comment = comment.id inner join client on client.id = comment.client_id where article_id="+article_id+" group by comment.id order by likes_count DESC;";
+            //String query = "SELECT comment.*, client.name, client.surname FROM `comment` inner join client on comment.client_id=client.id where article_id="+article_id+";";
+            ResultSet rst = stm.executeQuery(query);
+            while(rst.next()){
+                Comment a = new Comment();
+                a.setId(rst.getInt("id"));
+                a.setContent(rst.getString("content"));
+                a.setClient_id(rst.getInt("client_id"));
+                a.setClient_name(rst.getString("name") + rst.getString("surname"));
+                a.setArticle_id(rst.getInt("article_id"));
+                a.setDate(rst.getDate("date"));
+                list.add(a);
+            }
+        }catch(SQLException ex){
+            System.out.println("Could not show comments");
+        }
+        return list;
     }
     
 }
