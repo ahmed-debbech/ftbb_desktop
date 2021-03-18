@@ -9,11 +9,14 @@ import Enitity.Article;
 import Enitity.Like;
 import Service.ServiceComment;
 import Service.ServiceLikes;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -28,6 +31,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javax.imageio.ImageIO;
 import utils.Passable;
 
 /**
@@ -70,12 +74,22 @@ public class PostsController implements Initializable {
            this.date.setText(a.getDate().toString());
            File file = new File(a.getPhoto_url());
         Image im = null;
-        if(file.exists()){
-                 im = new Image(file.toURI().toString());
-        }else{
-            im = new Image("resources/default-article.jpg");
-        }
-        this.image.setImage(im);
+        //if(file.exists()){
+                 //im = new Image("http://127.0.0.1/ftbb_images/photo.jpg");
+        //}else{
+            //im = new Image("resources/default-article.jpg");
+        //}
+      try {
+    URL imageUrl = new URL("http://127.0.0.1/ftbb_images/photo.jpg");
+    InputStream in = imageUrl.openStream();
+    BufferedImage image = ImageIO.read(in);
+    Image imm = SwingFXUtils.toFXImage(image, null);
+        this.image.setImage(imm);
+    in.close();
+}
+catch (IOException ioe) {
+    //log the error
+}
         
         ServiceLikes sl = new ServiceLikes();
         if(sl.getLike(Integer.parseInt(article_id.getText()), -1, 122) == true){
