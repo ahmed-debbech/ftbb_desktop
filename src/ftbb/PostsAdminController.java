@@ -7,10 +7,13 @@ package ftbb;
 
 import Enitity.Article;
 import Service.ServiceArticle;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +25,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javax.imageio.ImageIO;
 import utils.Passable;
 import utils.Utilities;
 
@@ -90,12 +94,15 @@ public class PostsAdminController implements Initializable {
     
     
     public void setData(Article a){
-        File file = new File(a.getPhoto_url());
         Image im = null;
-        if(file.exists()){
-                 im = new Image(file.toURI().toString());
-        }else{
-            im = new Image("resources/default-article.jpg");
+        try {
+            URL imageUrl = new URL(a.getPhoto_url());
+            InputStream in = imageUrl.openStream();
+            BufferedImage image = ImageIO.read(in);
+            im = SwingFXUtils.toFXImage(image, null);
+            in.close();
+        }catch (IOException ioe) {
+           im = new Image("resources/default-article.jpg");
         }
         this.image.setImage(im);
         this.text.setText(a.getText());

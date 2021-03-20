@@ -11,9 +11,14 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Date;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
@@ -124,11 +129,13 @@ public class ArticleEditorController implements Initializable {
         }
         if(this.mode == 0){
               ServiceArticle sp = new ServiceArticle();
-             Article a = new Article(title.getText(), text.getText(), author.getText(), photo_dir.getText().replace('\\', '/'), category.getSelectionModel().getSelectedItem());
-             sp.addArticle(a);
+              String dir = Utilities.pathToUrl(photo_dir.getText());
+                Article a = new Article(title.getText(), text.getText(), author.getText(), dir, category.getSelectionModel().getSelectedItem());
+                sp.addArticle(a);
         }else{
             ServiceArticle sa = new ServiceArticle();
-            Article a = new Article(Integer.parseInt(article_id.getText()), title.getText(), text.getText(), author.getText(), photo_dir.getText().replace('\\', '/'), category.getSelectionModel().getSelectedItem());
+            String dir = Utilities.pathToUrl(photo_dir.getText());
+            Article a = new Article(Integer.parseInt(article_id.getText()), title.getText(), dir, author.getText(), photo_dir.getText().replace('\\', '/'), category.getSelectionModel().getSelectedItem());
             sa.modArticle(a);
         }
         Stage stage = (Stage) add_but.getScene().getWindow();
@@ -139,6 +146,7 @@ public class ArticleEditorController implements Initializable {
     private void browseImage(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Pick a banner file!");
+        fileChooser.setInitialDirectory(new File("C:\\xampp\\htdocs\\uploads"));
         Stage stage = new Stage();
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("JPG", "*.jpg"),

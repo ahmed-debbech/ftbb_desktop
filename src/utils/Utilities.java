@@ -5,6 +5,8 @@
  */
 package utils;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -63,5 +65,11 @@ public class Utilities {
                return true;
            }
            return false;
+    }
+    public static String pathToUrl(String str){
+            Path p = Paths.get(str);
+            String file = p.getFileName().toString();
+            String s=(new StringBuilder()).append("http://127.0.0.1/uploads/").append(file).toString();  
+            return s;
     }
 }

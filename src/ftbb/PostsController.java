@@ -72,25 +72,17 @@ public class PostsController implements Initializable {
         this.article_id.setText(String.valueOf(a.getArticle_id()));
            this.title.setText(a.getTitle());
            this.date.setText(a.getDate().toString());
-           File file = new File(a.getPhoto_url());
         Image im = null;
-        //if(file.exists()){
-                 //im = new Image("http://127.0.0.1/ftbb_images/photo.jpg");
-        //}else{
-            //im = new Image("resources/default-article.jpg");
-        //}
-      try {
-    URL imageUrl = new URL("http://127.0.0.1/ftbb_images/photo.jpg");
-    InputStream in = imageUrl.openStream();
-    BufferedImage image = ImageIO.read(in);
-    Image imm = SwingFXUtils.toFXImage(image, null);
-        this.image.setImage(imm);
-    in.close();
-}
-catch (IOException ioe) {
-    //log the error
-}
-        
+        try {
+            URL imageUrl = new URL(a.getPhoto_url());
+            InputStream in = imageUrl.openStream();
+            BufferedImage image = ImageIO.read(in);
+            im = SwingFXUtils.toFXImage(image, null);
+            in.close();
+        }catch (IOException ioe) {
+           im = new Image("resources/default-article.jpg");
+        }
+        this.image.setImage(im);
         ServiceLikes sl = new ServiceLikes();
         if(sl.getLike(Integer.parseInt(article_id.getText()), -1, 122) == true){
             this.like_icon.setImage(new Image("resources/like-press.png"));

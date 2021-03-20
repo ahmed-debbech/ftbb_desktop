@@ -11,11 +11,14 @@ import Enitity.Like;
 import Service.ServiceArticle;
 import Service.ServiceComment;
 import Service.ServiceLikes;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,6 +33,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javax.imageio.ImageIO;
 import utils.Passable;
 import utils.Utilities;
 
@@ -86,12 +90,16 @@ public class ArticleDetailsController implements Initializable {
            this.filter.getItems().add("None");
         this.filter.getItems().add("New");
         this.filter.getItems().add("Hot");
-           File file = new File(ref.getPhoto_url());
+
         Image im = null;
-        if(file.exists()){
-                 im = new Image(file.toURI().toString());
-        }else{
-            im = new Image("resources/default-article.jpg");
+        try {
+            URL imageUrl = new URL(ref.getPhoto_url());
+            InputStream in = imageUrl.openStream();
+            BufferedImage image = ImageIO.read(in);
+            im = SwingFXUtils.toFXImage(image, null);
+            in.close();
+        }catch (IOException ioe) {
+           im = new Image("resources/default-article.jpg");
         }
         this.image.setImage(im);
         
