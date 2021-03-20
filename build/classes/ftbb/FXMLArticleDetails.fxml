@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -30,11 +31,7 @@
                   </Label>
                </children>
             </HBox>
-            <Label fx:id="text" alignment="TOP_LEFT" prefHeight="278.0" prefWidth="809.0" text="TEXT....">
-               <padding>
-                  <Insets left="15.0" right="15.0" />
-               </padding>
-            </Label>
+            <TextArea fx:id="text" prefHeight="263.0" prefWidth="810.0" />
             <HBox prefHeight="49.0" prefWidth="810.0">
                <children>
                   <HBox fx:id="likes" onMouseClicked="#onClickLike" prefHeight="47.0" prefWidth="137.0">

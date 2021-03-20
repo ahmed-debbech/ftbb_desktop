@@ -22,12 +22,19 @@
         <group>
             <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/ftbb/ArticleEditorController.java</file>
             <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/ftbb/ArticleDetailsController.java</file>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/ftbb/Ftbb.java</file>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/ftbb/CommentViewController.java</file>
-            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/TODO</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/Service/ServiceComment.java</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/utils/Utilities.java</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/ftbb/ArticlesViewController.java</file>
             <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/ftbb/PostsAdminController.java</file>
             <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/Service/ServiceArticle.java</file>
             <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/ftbb/PostsController.java</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/ftbb/ArticlesController.java</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/ftbb/Ftbb.java</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/ftbb/CommentViewController.java</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/Enitity/Article.java</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/TODO</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/ftbb/ClientArticlesController.java</file>
+            <file>file:/C:/Users/DELL/Documents/NetBeansProjects/ftbb/src/Enitity/Comment.java</file>
         </group>
     </open-files>
 </project-private>

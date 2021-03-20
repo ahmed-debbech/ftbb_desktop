@@ -27,6 +27,7 @@ import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -50,7 +51,7 @@ public class ArticleDetailsController implements Initializable {
     @FXML
     private Label title;
     @FXML
-    private Label text;
+    private TextArea text;
     @FXML
     private HBox likes;
     @FXML
@@ -199,6 +200,8 @@ public class ArticleDetailsController implements Initializable {
                 System.out.println("second is selected");
                 List<Comment> list = ss.sortByHot(ref.getArticle_id());
                 loadComments(list);
+            }else{
+                loadComments();
             }
         }
         this.comment_content.setText("");
