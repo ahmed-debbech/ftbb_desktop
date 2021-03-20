@@ -30,6 +30,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import utils.Passable;
 import utils.Utilities;
@@ -42,7 +43,7 @@ import utils.Utilities;
 public class CommentsController implements Initializable {
 
     @FXML
-    private TableView<Comment> listcomments;
+    private VBox listcomments;
     @FXML
     private Button ref_but;
     @FXML
@@ -57,33 +58,43 @@ public class CommentsController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        TableColumn t8 = new TableColumn("Client Name");
-        t8.setCellValueFactory(new PropertyValueFactory<Comment, String>("client_name"));
-        TableColumn t9 = new TableColumn("Content");
-        t9.setCellValueFactory(new PropertyValueFactory<Comment, String>("content"));
-        listcomments.getColumns().addAll(t8,t9);
          article_id = Passable.getInstance().getTextData();
          System.out.println("comt id " + article_id);
          Passable.getInstance().erase();
          refreshComment(null);
     }    
+
+    
     @FXML
     private void refreshComment(ActionEvent event) {
+        this.listcomments.getChildren().clear();
         ServiceComment sc = new ServiceComment();
-        List<Comment> l = sc.showComment(article_id);
-        ObservableList<Comment> data =FXCollections.observableArrayList(l);
-        listcomments.setItems(data);
+           List<Comment> list =  sc.showComment(article_id);
+           System.out.println(list.toString());
+            try{
+                for(Comment a : list){
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("FXMLCommentAdminView.fxml"));
+                    Node postbox = loader.load();
+                    CommentAdminViewController pc = loader.getController();
+                    pc.setData(a);
+                    System.out.println("hehehehe");
+                    this.listcomments.getChildren().add(postbox);
+                }
+            }catch(IOException e){
+                  System.out.println("error");
+            }
     }
 
     @FXML
     private void banComment(ActionEvent event) {
-        Comment c = listcomments.getSelectionModel().getSelectedItem();
+        /*Comment c = listcomments.getSelectionModel().getSelectedItem();
         if(c == null){
              Utilities.alert("WARNING!", "Please select a comment from the list.");
         }else{
             ServiceComment sc = new ServiceComment();
             sc.delComment(c);
-        }
+        }*/
     }
 
     
