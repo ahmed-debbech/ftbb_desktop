@@ -11,6 +11,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Optional;
 import java.util.Random;
 import java.util.logging.Level;
@@ -71,5 +73,9 @@ public class Utilities {
             String file = p.getFileName().toString();
             String s=(new StringBuilder()).append("http://127.0.0.1/uploads/").append(file).toString();  
             return s;
+    }
+    public static String timestampConverter(Timestamp ts){
+        String timeStamp = new SimpleDateFormat("yyyy-MM-dd  HH:mm").format(ts);
+        return timeStamp;
     }
 }

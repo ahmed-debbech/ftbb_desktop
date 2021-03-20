@@ -90,7 +90,7 @@ public class CommentViewController implements Initializable {
         }
         this.client_name.setText(c.getClient_name());
         this.content.setText(c.getContent());
-        this.date.setText(c.getDate().toString());
+        this.date.setText(Utilities.timestampConverter(c.getDate()));
         this.comment_id.setText(String.valueOf(c.getId()));
          ServiceLikes sl = new ServiceLikes();
         if(sl.getLike(-1, Integer.parseInt(comment_id.getText()), 122) == true){

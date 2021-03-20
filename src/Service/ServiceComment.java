@@ -44,7 +44,7 @@ public class ServiceComment implements IServiceComment{
                 a.setClient_id(rst.getInt("client_id"));
                 a.setClient_name(rst.getString("name") + rst.getString("surname"));
                 a.setArticle_id(rst.getInt("article_id"));
-                a.setDate(rst.getDate("date"));
+                a.setDate(rst.getTimestamp("date"));
                 list.add(a);
             }
         }catch(SQLException ex){
@@ -77,7 +77,7 @@ public class ServiceComment implements IServiceComment{
                     +String.valueOf(a.getId())+",'"
                     +String.valueOf(a.getContent())+"',"
                     +a.getClient_id()+","
-                    +a.getArticle_id()+","+" sysdate()"+");";
+                    +a.getArticle_id()+","+" CURRENT_TIMESTAMP()"+");";
             stm.executeUpdate(query);
         } catch (SQLException ex) {
             System.out.println("could not add new comment");

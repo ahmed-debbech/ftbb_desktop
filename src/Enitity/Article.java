@@ -6,6 +6,7 @@
 package Enitity;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import utils.Utilities;
 
 /**
@@ -25,7 +26,7 @@ public class Article {
     private String title;
     private String text;
     private String author;
-    private Date date;
+    private Timestamp date;
     private String photo_url;
     private int category;
     private String admin_name;
@@ -147,19 +148,6 @@ public class Article {
         this.author = author;
     }
 
-    /**
-     * @return the date
-     */
-    public Date getDate() {
-        return date;
-    }
-
-    /**
-     * @param date the date to set
-     */
-    public void setDate(Date date) {
-        this.date = date;
-    }
 
     /**
      * @return the photo_url
@@ -257,5 +245,21 @@ public class Article {
     public void setAdmin_name(String admin_name) {
         this.admin_name = admin_name;
     }
+
+    /**
+     * @return the date
+     */
+    public Timestamp getDate() {
+        return date;
+    }
+
+    /**
+     * @param date the date to set
+     */
+    public void setDate(Timestamp date) {
+        this.date = date;
+    }
+
+   
   
 }

@@ -107,7 +107,7 @@ public class PostsAdminController implements Initializable {
         this.image.setImage(im);
         this.text.setText(a.getText());
         this.title.setText(a.getTitle());
-        this.date.setText(a.getDate().toString());
+        this.date.setText(Utilities.timestampConverter(a.getDate()));
         this.num_likes.setText("0" + " likes");
         this.ref = a;
     }

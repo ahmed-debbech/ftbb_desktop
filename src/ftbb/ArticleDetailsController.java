@@ -85,7 +85,7 @@ public class ArticleDetailsController implements Initializable {
          this.ref = sa.getArticle(id);
          System.out.println("ldld" + this.ref.getArticle_id());
            this.title.setText(ref.getTitle());
-           this.date.setText(ref.getDate().toString());
+           this.date.setText(Utilities.timestampConverter(ref.getDate()));
            this.text.setText(ref.getText());
            this.filter.getItems().add("None");
         this.filter.getItems().add("New");

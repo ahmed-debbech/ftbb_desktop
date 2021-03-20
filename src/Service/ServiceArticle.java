@@ -46,7 +46,7 @@ public class ServiceArticle implements IServiceArticle {
                     +String.valueOf(a.getAdmin_id())+",'"
                     +a.getTitle()+"','"
                     +a.getText()+"','"
-                    +a.getAuthor()+"', sysdate(),'"
+                    +a.getAuthor()+"', CURRENT_TIMESTAMP(),'"
                     +a.getPhoto_url()+"',"
                     +a.getCategory()+");";
             stm.executeUpdate(query);
@@ -74,7 +74,7 @@ public class ServiceArticle implements IServiceArticle {
                 a.setTitle(rst.getString("title"));
                 a.setText(rst.getString("text"));
                 a.setAuthor(rst.getString("author"));
-                a.setDate(rst.getDate("date"));
+                a.setDate(rst.getTimestamp("date"));
                 a.setPhoto_url(rst.getString("photo_url"));
                 a.setCategory(rst.getInt("category"));
                 list.add(a);
@@ -141,7 +141,7 @@ public class ServiceArticle implements IServiceArticle {
                 a.setTitle(rst.getString("title"));
                 a.setText(rst.getString("text"));
                 a.setAuthor(rst.getString("author"));
-                a.setDate(rst.getDate("date"));
+                a.setDate(rst.getTimestamp("date"));
                 a.setPhoto_url(rst.getString("photo_url"));
                 a.setCategory(rst.getInt("category"));
                 System.out.println();
@@ -170,7 +170,7 @@ public class ServiceArticle implements IServiceArticle {
                 a.setClient_id(rst.getInt("client_id"));
                 a.setClient_name(rst.getString("name") + rst.getString("surname"));
                 a.setArticle_id(rst.getInt("article_id"));
-                a.setDate(rst.getDate("date"));
+                a.setDate(rst.getTimestamp("date"));
                 list.add(a);
             }
         }catch(SQLException ex){
@@ -195,7 +195,7 @@ public class ServiceArticle implements IServiceArticle {
                 a.setClient_id(rst.getInt("client_id"));
                 a.setClient_name(rst.getString("name") + rst.getString("surname"));
                 a.setArticle_id(rst.getInt("article_id"));
-                a.setDate(rst.getDate("date"));
+                a.setDate(rst.getTimestamp("date"));
                 list.add(a);
             }
         }catch(SQLException ex){

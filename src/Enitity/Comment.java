@@ -6,6 +6,8 @@
 package Enitity;
 
 import java.sql.Date;
+import java.sql.Time;
+import java.sql.Timestamp;
 
 /**
  *
@@ -17,7 +19,7 @@ public class Comment {
     private String content;
     private int client_id;
     private int article_id;
-    private Date date;
+    private Timestamp date;
     private String client_name;
  
     public Comment(){
@@ -81,20 +83,6 @@ public class Comment {
     }
 
     /**
-     * @return the date
-     */
-    public Date getDate() {
-        return date;
-    }
-
-    /**
-     * @param date the date to set
-     */
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    /**
      * @return the client_name
      */
     public String getClient_name() {
@@ -106,6 +94,20 @@ public class Comment {
      */
     public void setClient_name(String client_name) {
         this.client_name = client_name;
+    }
+
+    /**
+     * @return the date
+     */
+    public Timestamp getDate() {
+        return date;
+    }
+
+    /**
+     * @param date the date to set
+     */
+    public void setDate(Timestamp date) {
+        this.date = date;
     }
     
 }

@@ -33,6 +33,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
 import utils.Passable;
+import utils.Utilities;
 
 /**
  * FXML Controller class
@@ -71,7 +72,7 @@ public class PostsController implements Initializable {
         System.out.println("eeee: " + a.getArticle_id());
         this.article_id.setText(String.valueOf(a.getArticle_id()));
            this.title.setText(a.getTitle());
-           this.date.setText(a.getDate().toString());
+           this.date.setText(Utilities.timestampConverter(a.getDate()));
         Image im = null;
         try {
             URL imageUrl = new URL(a.getPhoto_url());

@@ -91,7 +91,7 @@ public class ArticleEditorController implements Initializable {
                     text.setText(whatToMod.getText());
                     title.setText(whatToMod.getTitle());
                     author.setText(whatToMod.getAuthor());
-                    photo_dir.setText(whatToMod.getPhoto_url().replace('/', '\\'));
+                    photo_dir.setText(whatToMod.getPhoto_url());
                     switch(whatToMod.getCategory()){
                         case 0: 
                             category.setValue(Article.toStringCatTypes(whatToMod.getCategory()));
@@ -135,7 +135,7 @@ public class ArticleEditorController implements Initializable {
         }else{
             ServiceArticle sa = new ServiceArticle();
             String dir = Utilities.pathToUrl(photo_dir.getText());
-            Article a = new Article(Integer.parseInt(article_id.getText()), title.getText(), dir, author.getText(), photo_dir.getText().replace('\\', '/'), category.getSelectionModel().getSelectedItem());
+            Article a = new Article(Integer.parseInt(article_id.getText()), title.getText() , text.getText(), author.getText(), dir, category.getSelectionModel().getSelectedItem());
             sa.modArticle(a);
         }
         Stage stage = (Stage) add_but.getScene().getWindow();
