@@ -22,4 +22,6 @@ public interface IServiceArticle {
      public List<Comment> sortByNew(int article_id);
     public List<Comment> sortByHot(int article_id);
     public List<Article> searchArticle(String snap);
+    public List<Article> sortByLikes();
+    public List<Article> sortByComments();
 }

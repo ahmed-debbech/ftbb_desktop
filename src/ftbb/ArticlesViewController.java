@@ -17,6 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
@@ -39,28 +40,21 @@ public class ArticlesViewController implements Initializable {
     private List<Article> articles;
     @FXML
     private TextField filter;
+    @FXML
+    private ComboBox<String> sort;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        sort.getItems().add("Sort...");
+        sort.getItems().add("Sort by most liked");
+        sort.getItems().add("Sort by highest comments");
         refreshArticle(null);
         filter.textProperty().addListener((observable, oldValue, newValue) -> {
             ServiceArticle sa = new ServiceArticle();
             this.articles =  sa.searchArticle(newValue);
-             this.vbox_articles.getChildren().clear();
-              try{
-                for(Article a : this.articles){
-                    FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("FXMLPostsAdmin.fxml"));
-                    Node postbox = loader.load();
-                    PostsAdminController pc = loader.getController();
-                    pc.setData(a);
-                    this.vbox_articles.getChildren().add(postbox);
-                }
-            }catch(IOException e){
-                   e.printStackTrace();
-            }
+             loadArticles(this.articles);
         });
     }    
 
@@ -79,10 +73,14 @@ public class ArticlesViewController implements Initializable {
     @FXML
     private void refreshArticle(ActionEvent event) {
         ServiceArticle sa = new ServiceArticle();
-        this.vbox_articles.getChildren().clear();
             this.articles =  sa.showArticle();
+          loadArticles(this.articles);
+    }
+    
+    private void loadArticles(List<Article> list){
+        this.vbox_articles.getChildren().clear();
             try{
-                for(Article a : this.articles){
+                for(Article a : list){
                     FXMLLoader loader = new FXMLLoader();
                     loader.setLocation(getClass().getResource("FXMLPostsAdmin.fxml"));
                     Node postbox = loader.load();
@@ -93,6 +91,22 @@ public class ArticlesViewController implements Initializable {
             }catch(IOException e){
                    e.printStackTrace();
             }
+    }
+    @FXML
+    private void onSelected(ActionEvent event) {
+        int i = this.sort.getSelectionModel().getSelectedIndex();
+        ServiceArticle sa = new ServiceArticle();
+        if(i == 1){
+            //sort by likes
+           List<Article> l = sa.sortByLikes();
+           loadArticles(l);
+        }else{
+            if(i == 2){
+                    //sort by comments
+                     List<Article> l = sa.sortByComments();
+           loadArticles(l);
+            }
+        }
     }
     
 }
