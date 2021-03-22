@@ -24,6 +24,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
 import utils.Passable;
@@ -55,7 +57,7 @@ public class PostsAdminController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        pane.setStyle("-fx-border-color: black; -fx-border-width: 1px 1px 1px 1px");
+        pane.setStyle("-fx-border-color: #e6e6e6; -fx-border-width: 0.5px 0.5px 0.5px 0.5px");
     }    
 
     @FXML
