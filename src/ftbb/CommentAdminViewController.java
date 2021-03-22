@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import utils.Utilities;
 
@@ -36,6 +37,8 @@ public class CommentAdminViewController implements Initializable {
     private Label comment_id;
     @FXML
     private CheckBox ban;
+    @FXML
+    private AnchorPane anchor;
 
     /**
      * Initializes the controller class.
@@ -45,12 +48,16 @@ public class CommentAdminViewController implements Initializable {
         // TODO
     }    
     public void setData(Comment c){
+        System.out.println("teser eeee");
         this.comment_id.setText(String.valueOf(c.getId()));
         this.client_name.setText(c.getClient_name());
         this.content.setText(c.getContent());
         this.date.setText(Utilities.timestampConverter(c.getDate()));
         ServiceLikes sl = new ServiceLikes();
         int nm = sl.countLikes(-1, Integer.parseInt(comment_id.getText()));
-        this.likes.setText(String.valueOf(nm));
+        this.likes.setText(String.valueOf(nm) + " likes");
+    }
+    public AnchorPane getNode(){
+        return this.anchor;
     }
 }

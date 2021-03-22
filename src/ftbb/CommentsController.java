@@ -10,7 +10,9 @@ import Enitity.Comment;
 import Service.ServiceComment;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -24,12 +26,14 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import utils.Passable;
@@ -52,7 +56,9 @@ public class CommentsController implements Initializable {
     @FXML
     private AnchorPane panecom;
     
+    List<AnchorPane> children;
     private String article_id;
+    
     /**
      * Initializes the controller class.
      */
@@ -71,6 +77,7 @@ public class CommentsController implements Initializable {
         ServiceComment sc = new ServiceComment();
            List<Comment> list =  sc.showComment(article_id);
            System.out.println(list.toString());
+           children = new ArrayList<>();
             try{
                 for(Comment a : list){
                     FXMLLoader loader = new FXMLLoader();
@@ -78,8 +85,9 @@ public class CommentsController implements Initializable {
                     Node postbox = loader.load();
                     CommentAdminViewController pc = loader.getController();
                     pc.setData(a);
-                    System.out.println("hehehehe");
+                    children.add(pc.getNode());
                     this.listcomments.getChildren().add(postbox);
+                     this.listcomments.setSpacing(5);
                 }
             }catch(IOException e){
                   System.out.println("error");
@@ -88,13 +96,27 @@ public class CommentsController implements Initializable {
 
     @FXML
     private void banComment(ActionEvent event) {
-        /*Comment c = listcomments.getSelectionModel().getSelectedItem();
-        if(c == null){
+        List<String> ids = new ArrayList<>();
+       for(AnchorPane ap : children){
+           HBox hb = (HBox)ap.getChildren().get(0);
+           VBox vb = (VBox)hb.getChildren().get(1);
+           CheckBox chb = (CheckBox)vb.getChildren().get(3);
+           Label lab = (Label)vb.getChildren().get(2);
+           if(chb.isSelected()){
+               ids.add(lab.getText());
+           }
+       }
+       if(ids.size() == 0){
              Utilities.alert("WARNING!", "Please select a comment from the list.");
         }else{
             ServiceComment sc = new ServiceComment();
-            sc.delComment(c);
-        }*/
+            for(String id : ids){
+                Comment ccc = new Comment();
+                ccc.setId(Integer.parseInt(id));
+                sc.delComment(ccc);
+                refreshComment(null);
+            }
+        }
     }
 
     
