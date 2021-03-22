@@ -34,7 +34,6 @@ public class ServiceComment implements IServiceComment{
         List<Comment> list = new ArrayList<>();
         try{
             Statement stm = this.cnx.createStatement();
-            System.out.println("xxxx " + id);
             String query = "SELECT comment.*, client.name, client.surname FROM `comment` inner join client on comment.client_id=client.id where article_id="+id+";";
             ResultSet rst = stm.executeQuery(query);
             while(rst.next()){

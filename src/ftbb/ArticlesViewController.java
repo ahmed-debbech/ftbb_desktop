@@ -18,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -36,12 +37,31 @@ public class ArticlesViewController implements Initializable {
     private VBox vbox_articles;
     
     private List<Article> articles;
+    @FXML
+    private TextField filter;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         refreshArticle(null);
+        filter.textProperty().addListener((observable, oldValue, newValue) -> {
+            ServiceArticle sa = new ServiceArticle();
+            this.articles =  sa.searchArticle(newValue);
+             this.vbox_articles.getChildren().clear();
+              try{
+                for(Article a : this.articles){
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("FXMLPostsAdmin.fxml"));
+                    Node postbox = loader.load();
+                    PostsAdminController pc = loader.getController();
+                    pc.setData(a);
+                    this.vbox_articles.getChildren().add(postbox);
+                }
+            }catch(IOException e){
+                   e.printStackTrace();
+            }
+        });
     }    
 
     @FXML

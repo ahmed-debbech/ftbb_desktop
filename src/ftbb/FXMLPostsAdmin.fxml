@@ -23,12 +23,12 @@
             </HBox>
             <VBox prefHeight="220.0" prefWidth="402.0">
                <children>
-                  <Label fx:id="title" prefHeight="70.0" prefWidth="390.0" text="Title">
+                  <Label fx:id="title" alignment="TOP_LEFT" prefHeight="70.0" prefWidth="390.0" text="Title">
                      <font>
                         <Font name="System Bold" size="12.800000190734863" />
                      </font>
                      <padding>
-                        <Insets left="10.0" />
+                        <Insets left="10.0" top="15.0" />
                      </padding>
                   </Label>
                   <Label fx:id="text" alignment="TOP_LEFT" prefHeight="174.0" prefWidth="365.0" text="text">
@@ -40,7 +40,7 @@
             </VBox>
             <VBox prefHeight="222.0" prefWidth="149.0" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#showComments" prefHeight="36.0" prefWidth="98.0" text="Show Comments">
+                  <Button fx:id="com_but" mnemonicParsing="false" onAction="#showComments" prefHeight="36.0" prefWidth="98.0" text="0 Comments">
                      <font>
                         <Font size="9.0" />
                      </font>

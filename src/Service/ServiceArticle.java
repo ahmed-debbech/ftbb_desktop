@@ -204,4 +204,35 @@ public class ServiceArticle implements IServiceArticle {
         return list;
     }
     
+    @Override
+    public List<Article> searchArticle(String snap) {
+           if(cnx == null){
+            Utilities.alert("ERROR", "could not connect to database.");
+            return null;
+        }
+        List<Article> list = new ArrayList<>();
+        try{
+            Statement stm = this.cnx.createStatement();
+            String query = "SELECT article.*, admin.name FROM `article` inner join admin on article.admin_id=admin.id where article.text LIKE '"+snap+"%' OR article.title like '"+snap+"%';";
+            ResultSet rst = stm.executeQuery(query);
+            while(rst.next()){
+                Article a = new Article();
+                a.setArticle_id(rst.getInt("article_id"));
+                a.setAdmin_id(rst.getInt("admin_id"));
+                a.setAdmin_name(rst.getString("name"));
+                a.setTitle(rst.getString("title"));
+                a.setText(rst.getString("text"));
+                a.setAuthor(rst.getString("author"));
+                a.setDate(rst.getTimestamp("date"));
+                a.setPhoto_url(rst.getString("photo_url"));
+                a.setCategory(rst.getInt("category"));
+                list.add(a);
+            }
+        }catch(SQLException ex){
+            System.out.println("Could not show articles");
+            list = null;
+        }
+        return list;
+    }
+    
 }

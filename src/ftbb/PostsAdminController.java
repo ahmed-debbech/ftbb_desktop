@@ -7,6 +7,8 @@ package ftbb;
 
 import Enitity.Article;
 import Service.ServiceArticle;
+import Service.ServiceComment;
+import Service.ServiceLikes;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -19,6 +21,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -51,6 +54,8 @@ public class PostsAdminController implements Initializable {
     private Label date;
     @FXML
     private Label num_likes;
+    @FXML
+    private Button com_but;
 
     /**
      * Initializes the controller class.
@@ -64,7 +69,6 @@ public class PostsAdminController implements Initializable {
     private void showComments(ActionEvent event) throws IOException {
         Passable p = Passable.getInstance();
             p.setTextData(String.valueOf(ref.getArticle_id()));
-            System.out.println("iddsw" + p.getTextData() );
             FXMLLoader fxmlLoader = new FXMLLoader();
             Pane root1 =  fxmlLoader.load(getClass().getResource("FXMLComments.fxml").openStream());
             Stage stage = new Stage();
@@ -110,7 +114,12 @@ public class PostsAdminController implements Initializable {
         this.text.setText(a.getText());
         this.title.setText(a.getTitle());
         this.date.setText(Utilities.timestampConverter(a.getDate()));
-        this.num_likes.setText("0" + " likes");
+        ServiceLikes sl = new ServiceLikes();
+        int nm = sl.countLikes(a.getArticle_id(), -1);
+        this.num_likes.setText(String.valueOf(nm)+ " likes");
+        ServiceComment sc = new ServiceComment();
+        int count = sc.countComments(String.valueOf(a.getArticle_id()));
+        this.com_but.setText(count + " comments");
         this.ref = a;
     }
 }
