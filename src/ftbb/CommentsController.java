@@ -7,6 +7,7 @@ package ftbb;
 
 import Enitity.Article;
 import Enitity.Comment;
+import Service.ServiceArticle;
 import Service.ServiceComment;
 import java.io.IOException;
 import java.net.URL;
@@ -58,6 +59,10 @@ public class CommentsController implements Initializable {
     
     List<AnchorPane> children;
     private String article_id;
+    @FXML
+    private TextField filter;
+    @FXML
+    private CheckBox checks;
     
     /**
      * Initializes the controller class.
@@ -68,15 +73,16 @@ public class CommentsController implements Initializable {
          System.out.println("comt id " + article_id);
          Passable.getInstance().erase();
          refreshComment(null);
+         filter.textProperty().addListener((observable, oldValue, newValue) -> {
+            ServiceComment sa = new ServiceComment();
+            List<Comment> l ;
+            l =  sa.searchComment(Integer.parseInt(article_id), newValue);
+             loadComments(l);
+        });
     }    
 
-    
-    @FXML
-    private void refreshComment(ActionEvent event) {
+    private void loadComments(List<Comment> list){
         this.listcomments.getChildren().clear();
-        ServiceComment sc = new ServiceComment();
-           List<Comment> list =  sc.showComment(article_id);
-           System.out.println(list.toString());
            children = new ArrayList<>();
             try{
                 for(Comment a : list){
@@ -92,6 +98,13 @@ public class CommentsController implements Initializable {
             }catch(IOException e){
                   System.out.println("error");
             }
+    }
+    
+    @FXML
+    private void refreshComment(ActionEvent event) {
+        ServiceComment sc = new ServiceComment();
+           List<Comment> list =  sc.showComment(article_id);
+           loadComments(list);
     }
 
     @FXML
@@ -116,6 +129,20 @@ public class CommentsController implements Initializable {
                 sc.delComment(ccc);
                 refreshComment(null);
             }
+        }
+    }
+
+    @FXML
+    private void onSelectAll(ActionEvent event) {
+        for(AnchorPane ap : children){
+        HBox hb = (HBox)ap.getChildren().get(0);
+           VBox vb = (VBox)hb.getChildren().get(1);
+           CheckBox chb = (CheckBox)vb.getChildren().get(3);
+           if(this.checks.isSelected() == true){
+           chb.setSelected(true);
+            }else{
+               chb.setSelected(false);
+           }
         }
     }
 

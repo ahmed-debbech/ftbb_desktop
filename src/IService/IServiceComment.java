@@ -17,4 +17,5 @@ public interface IServiceComment {
     public void delComment(Comment a);
     public void addComment(Comment a);
     public int countComments(String art_id);
+    public List<Comment> searchComment(int article_id, String text);
 }

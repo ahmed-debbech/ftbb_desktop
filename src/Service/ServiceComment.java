@@ -101,4 +101,27 @@ public class ServiceComment implements IServiceComment{
         }
         return -1;
     }
+
+    @Override
+    public List<Comment> searchComment(int article_id, String text) {
+          List<Comment> list = new ArrayList<>();
+        try{
+            Statement stm = this.cnx.createStatement();
+             String query = "SELECT  comment.*, client.name, client.surname FROM `comment` inner join client on comment.client_id=client.id where article_id= "+article_id+" and comment.content like '%"+text+"%';";
+            ResultSet rst = stm.executeQuery(query);
+            while(rst.next()){
+                Comment a = new Comment();
+                a.setId(rst.getInt("id"));
+                a.setContent(rst.getString("content"));
+                a.setClient_id(rst.getInt("client_id"));
+                a.setClient_name(rst.getString("name") + rst.getString("surname"));
+                a.setArticle_id(rst.getInt("article_id"));
+                a.setDate(rst.getTimestamp("date"));
+                list.add(a);
+            }
+        }catch(SQLException ex){
+            System.out.println("Could not show comments");
+        }
+        return list;
+    }
 }
