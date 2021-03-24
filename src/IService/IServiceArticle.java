@@ -24,4 +24,5 @@ public interface IServiceArticle {
     public List<Article> searchArticle(String snap);
     public List<Article> sortByLikes();
     public List<Article> sortByComments();
+    public List<Article> getTopLatest(int time);
 }

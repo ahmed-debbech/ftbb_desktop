@@ -63,6 +63,8 @@ public class CommentsController implements Initializable {
     private TextField filter;
     @FXML
     private CheckBox checks;
+    @FXML
+    private Label title;
     
     /**
      * Initializes the controller class.

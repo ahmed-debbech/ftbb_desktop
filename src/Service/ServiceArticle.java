@@ -284,5 +284,41 @@ public class ServiceArticle implements IServiceArticle {
         }
         return list;
     }
+
+    @Override
+    public List<Article> getTopLatest(int time) {
+          List<Article> list = new ArrayList<>();
+        try{
+            Statement stm = this.cnx.createStatement();
+            String query = null;
+            switch(time){
+                case 0:
+                    query = "SELECT article.*, count(likes.id_like) as likes_count from `article` left join likes on likes.id_article = article.article_id where article.date > subdate(CURRENT_TIMESTAMP(), INTERVAL 6 hour)  group by article.article_id order by likes_count DESC;";
+                    break;
+                case 1:
+                    query = "SELECT article.*, count(likes.id_like) as likes_count from `article` left join likes on likes.id_article = article.article_id where article.date > subdate(CURRENT_TIMESTAMP(), INTERVAL 24 hour)  group by article.article_id order by likes_count DESC;";
+                    break;
+                case 2:
+                    query = "SELECT article.*, count(likes.id_like) as likes_count from `article` left join likes on likes.id_article = article.article_id  group by article.article_id order by likes_count DESC;";
+                    break;
+            }
+            ResultSet rst = stm.executeQuery(query);
+            while(rst.next()){
+                Article a = new Article();
+                a.setArticle_id(rst.getInt("article_id"));
+                a.setAdmin_id(rst.getInt("admin_id"));
+                a.setTitle(rst.getString("title"));
+                a.setText(rst.getString("text"));
+                a.setAuthor(rst.getString("author"));
+                a.setDate(rst.getTimestamp("date"));
+                a.setPhoto_url(rst.getString("photo_url"));
+                a.setCategory(rst.getInt("category"));
+                list.add(a);
+            }
+        }catch(SQLException ex){
+            System.out.println("Could not show comments");
+        }
+        return list;
+    }
     
 }

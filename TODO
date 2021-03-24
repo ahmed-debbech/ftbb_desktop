@@ -1,6 +1,3 @@
-* resize the articles view in client 
 * find a way to show all the windows inside 'linker'
 * send an email when someone likes your comment
-* change the layout of viewing the comments of an article in the admin side
-*  add filter and sort in articles in both admin and client
-* add search in the comment section for admin
+* add share options for client in article

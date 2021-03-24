@@ -6,56 +6,81 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" prefHeight="311.0" prefWidth="282.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.PostsController">
    <children>
-      <Line endX="124.00001525878906" endY="-1.52587890625E-5" layoutX="129.0" layoutY="204.0" startX="-100.0" />
-      <ImageView fx:id="image" fitHeight="189.0" fitWidth="267.0" layoutX="8.0" layoutY="6.0" onMouseClicked="#passDetails" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../resources/default-article.jpg" />
-         </image>
-      </ImageView>
-      <Text fx:id="title" layoutX="8.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The tunisian federation wins the cup" wrappingWidth="267.0">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Text>
-      <HBox fx:id="likes" layoutX="14.0" layoutY="278.0" onMouseClicked="#onClickLike" prefHeight="32.0" prefWidth="74.0">
+      <VBox prefHeight="311.0" prefWidth="282.0" spacing="10.0">
          <children>
-            <ImageView fx:id="like_icon" fitHeight="29.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="image" fitHeight="189.0" fitWidth="267.0" onMouseClicked="#passDetails" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/like.png" />
+                  <Image url="@../resources/default-article.jpg" />
                </image>
+               <VBox.margin>
+                  <Insets left="3.0" />
+               </VBox.margin>
             </ImageView>
-            <Label fx:id="like_number" prefHeight="29.0" prefWidth="54.0" text="0">
-               <padding>
+            <Line endX="124.00001525878906" endY="-1.52587890625E-5" startX="-100.0">
+               <VBox.margin>
+                  <Insets left="18.0" />
+               </VBox.margin>
+            </Line>
+            <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="The tunisian federation wins the cup" wrappingWidth="267.0">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <VBox.margin>
                   <Insets left="5.0" />
-               </padding>
-            </Label>
+               </VBox.margin>
+            </Text>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <HBox fx:id="likes" onMouseClicked="#onClickLike" prefHeight="32.0" prefWidth="74.0">
+                     <children>
+                        <ImageView fx:id="like_icon" fitHeight="29.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/like.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="like_number" prefHeight="29.0" prefWidth="54.0" text="0">
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="7.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <HBox fx:id="comments" onMouseClicked="#passDetails" prefHeight="26.0" prefWidth="87.0">
+                     <children>
+                        <ImageView fitHeight="26.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/comment.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="com_number" prefHeight="26.0" prefWidth="60.0" text="0">
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Label fx:id="date" text="dd/mm/yyyy">
+                     <font>
+                        <Font name="System Italic" size="12.800000190734863" />
+                     </font>
+                  </Label>
+                  <Label fx:id="article_id" visible="false" />
+               </children>
+            </HBox>
          </children>
-      </HBox>
-      <HBox fx:id="comments" layoutX="88.0" layoutY="280.0" onMouseClicked="#passDetails" prefHeight="26.0" prefWidth="87.0">
-         <children>
-            <ImageView fitHeight="26.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/comment.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="com_number" prefHeight="26.0" prefWidth="60.0" text="0">
-               <padding>
-                  <Insets left="5.0" />
-               </padding>
-            </Label>
-         </children>
-      </HBox>
-      <Label fx:id="date" layoutX="196.0" layoutY="283.0" text="dd/mm/yyyy">
-         <font>
-            <Font name="System Italic" size="12.800000190734863" />
-         </font>
-      </Label>
-      <Label fx:id="article_id" layoutX="196.0" layoutY="268.0" visible="false" />
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
    </children>
 </AnchorPane>
