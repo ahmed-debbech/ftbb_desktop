@@ -48,6 +48,12 @@ public class ClientArticlesController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        search.textProperty().addListener((observable, oldValue, newValue) -> {
+            ServiceArticle sa = new ServiceArticle();
+            List<Article> l ;
+            l =  sa.searchArticle(newValue);
+             loadArticles(l);
+        });
         sort.getItems().add("Newest");
         sort.getItems().add("Top in past 6 hours");
         sort.getItems().add("Top in past day");
