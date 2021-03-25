@@ -116,9 +116,9 @@ public class InscriptionClientController implements Initializable {
         cl.setSurname(tfprenom.getText());
         cl.setEmail(tfemail.getText());
         
-        Date d = (Date)Date.valueOf(tdate.getValue());
+        LocalDate d = tdate.getValue();
         System.out.println(d);
-       // cl.setBirthday(d);
+       cl.setBirthday(Date.valueOf(d));//**********
         int nb = Integer.parseInt(tfnumber.getText());
         cl.setNumber(nb);
         if (Rmale.isSelected()) {

@@ -51,7 +51,7 @@ public ServiceClient() {
     public void AddClient(Client c) {
      try {
             Statement stm = cnx.createStatement();
-            String rq ="INSERT INTO `client`(`id`, `name`, `surname`, `email`, `number`, `sex`,  `password_id`, `photo_url`, `id_cart`, `status`) VALUES ("+c.getId()+",'"+c.getName()+"','"+c.getSurname()+"','"+c.getEmail()+"',"+c.getNumber()+",'"+c.getSex()+"',"+c.getPassword_id()+",'"+c.getPhoto_url()+"',"+c.getId_cart()+",'"+c.getStatus()+"')";
+            String rq ="INSERT INTO `client`(`id`, `name`, `surname`, `email`, `number`, `sex`,  `password_id`, `photo_url`, `id_cart`, `status`, `birthday`) VALUES ("+c.getId()+",'"+c.getName()+"','"+c.getSurname()+"','"+c.getEmail()+"',"+c.getNumber()+",'"+c.getSex()+"',"+c.getPassword_id()+",'"+c.getPhoto_url()+"',"+c.getId_cart()+",'"+c.getStatus()+"','"+c.getBirthday()+"')";
             stm.executeUpdate(rq);
             System.out.println("ajout réussi");
         } catch (SQLException ex) {
@@ -72,7 +72,7 @@ public ServiceClient() {
                 a.setSurname(rst.getString("surname"));
                 a.setEmail(rst.getString("email"));
                 a.setNumber(rst.getInt("number"));
-              //  a.setBirthday(rst.getDate("birthday"));
+              a.setBirthday(rst.getDate("birthday"));
                 a.setSex(rst.getString("sex"));
                 a.setPassword_id(rst.getInt("password_id"));
                 a.setPhoto_url(rst.getString("photo_url"));
@@ -97,7 +97,7 @@ public ServiceClient() {
 
             String rq = "UPDATE `client` SET `name`='" + c.getName() + "',`surname`='" + c.getSurname() + "',`email`='" + c.getEmail() + "',"
                     + "`number`=" + c.getNumber() 
-                   // + ",`birthday`=" + c.getBirthday() 
+                  //  + ",`birthday`='" + c.getBirthday() 
                     + ",`sex`='" + c.getSex() + "',"
                     + "`password_id`=" + c.getPassword_id() + ",`photo_url`='" + c.getPhoto_url() + "',`id_cart`=" + c.getId_cart() + ","
                     + "`status`='" + c.getStatus() + "' WHERE `id`=" + c.getId();
@@ -120,7 +120,7 @@ while (rst.next()) {
             a.setSurname(rst.getString("surname"));
             a.setEmail(rst.getString("email"));
             a.setNumber(rst.getInt("number"));
-//                a.setBirthday(rst.getDate("birthday"));
+          //  a.setBirthday(rst.getDate("birthday"));
             a.setSex(rst.getString("sex"));
             a.setPassword_id(rst.getInt("password_id"));
             a.setPhoto_url(rst.getString("photo_url"));

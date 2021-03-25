@@ -9,6 +9,8 @@ import Entities.Client;
 import Service.ServiceClient;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -55,6 +57,7 @@ public class EditProfileUtilController implements Initializable {
         Tnom.setText(c.getName());
         Tprenom.setText(c.getSurname());
         Tnumero.setText(""+c.getNumber());
+        
     }    
 
     @FXML
@@ -64,6 +67,9 @@ public class EditProfileUtilController implements Initializable {
         c.setName(Tnom.getText());
         c.setSurname(Tprenom.getText());
         c.setNumber(Integer.parseInt(Tnumero.getText()));
+         LocalDate d = Tdate.getValue();
+        System.out.println(d);
+       c.setBirthday(Date.valueOf(d));
         sc.UpdateClient(c);
         ServiceClient.setA(c);
          BtVal.getScene().getWindow().hide();

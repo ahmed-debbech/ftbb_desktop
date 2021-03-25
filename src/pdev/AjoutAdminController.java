@@ -12,6 +12,7 @@ import Utils.Utilities;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -52,7 +53,7 @@ public class AjoutAdminController implements Initializable {
     private TextField tfprenom;
     @FXML
     private TextField tfemail;
-    
+
     @FXML
     private TextField tfnumber;
     @FXML
@@ -97,10 +98,9 @@ public class AjoutAdminController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-          ServiceAdmin sp = new ServiceAdmin();
-          List <Admin> a =sp.AffichierAdmin();
-        
-        
+        ServiceAdmin sp = new ServiceAdmin();
+        List<Admin> a = sp.AffichierAdmin();
+
         col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
         col_name.setCellValueFactory(new PropertyValueFactory<>("name"));
         col_surname.setCellValueFactory(new PropertyValueFactory<>("surname"));
@@ -114,106 +114,107 @@ public class AjoutAdminController implements Initializable {
     @FXML
     private void TajoutAdmin(ActionEvent event) {
         Admin ad = new Admin();
-        boolean a=Utilities.validationEmail(tfemail.getText());        
-        if (a=false) {
+        boolean a = Utilities.validationEmail(tfemail.getText());
+        if (a = false) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("WARNING!");
             alert.setHeaderText(null);
             alert.setContentText("votre email n'est pas valide");
             Optional<ButtonType> result = alert.showAndWait();
-        }  else if (tfnom.getText().isEmpty()) {
-             Alert alert = new Alert(Alert.AlertType.ERROR);
+        } else if (tfnom.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("WARNING!");
             alert.setHeaderText(null);
             alert.setContentText("votre nom n'est pas valide");
-            Optional<ButtonType> result = alert.showAndWait();  
-        }   else if (tfprenom.getText().isEmpty()){
+            Optional<ButtonType> result = alert.showAndWait();
+        } else if (tfprenom.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("WARNING!");
             alert.setHeaderText(null);
             alert.setContentText("votre prenom n'est pas valide");
-            Optional<ButtonType> result = alert.showAndWait(); 
-            
-        }   else if (tfpass.getText().isEmpty()){
+            Optional<ButtonType> result = alert.showAndWait();
+
+        } else if (tfpass.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("WARNING!");
             alert.setHeaderText(null);
             alert.setContentText("votre password n'est pas valide");
-            Optional<ButtonType> result = alert.showAndWait(); 
-        } else if ((!Rmale.isSelected())&&(!Rfemme.isSelected())) {
+            Optional<ButtonType> result = alert.showAndWait();
+        } else if ((!Rmale.isSelected()) && (!Rfemme.isSelected())) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("WARNING!");
             alert.setHeaderText(null);
             alert.setContentText("Selectionner le sexe ");
-            Optional<ButtonType> result = alert.showAndWait(); 
-        } else if ((!Radmin.isSelected())&&(!Rediteur.isSelected())&&(!Rstore.isSelected())) {
-            
+            Optional<ButtonType> result = alert.showAndWait();
+        } else if ((!Radmin.isSelected()) && (!Rediteur.isSelected()) && (!Rstore.isSelected())) {
+
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("WARNING!");
             alert.setHeaderText(null);
             alert.setContentText("Selectionner le role ");
-            Optional<ButtonType> result = alert.showAndWait(); }
-//         else if (tdate.isPressed()){
-//           
-//            Alert alert = new Alert(Alert.AlertType.ERROR);
-//            alert.setTitle("WARNING!");
-//            alert.setHeaderText(null);
-//            alert.setContentText("Selectionner date de naissance ");
-//            Optional<ButtonType> result = alert.showAndWait(); 
-//        }
-            else {
-        
-        ServiceAdmin sa = new ServiceAdmin();
-        Password pass =new Password ();
-        pass.setPwd(tfpass.getText());
-        sa.AddPasswordAdmin(pass);
-        ad.setPassword_id(pass.getPassword_id());
-        
-        ad.setName(tfnom.getText());
-        ad.setSurname(tfprenom.getText());
-        ad.setEmail(tfemail.getText());
+            Optional<ButtonType> result = alert.showAndWait();
+        } //         else if (tdate.isPressed()){
+        //           
+        //            Alert alert = new Alert(Alert.AlertType.ERROR);
+        //            alert.setTitle("WARNING!");
+        //            alert.setHeaderText(null);
+        //            alert.setContentText("Selectionner date de naissance ");
+        //            Optional<ButtonType> result = alert.showAndWait(); 
+        //        }
+        else {
 
-        ad.setBirthday(Date.valueOf(tdate.getValue()));
-        int nb = Integer.parseInt(tfnumber.getText());
-        ad.setNumber(nb);
-        if (Rmale.isSelected()) {
+            ServiceAdmin sa = new ServiceAdmin();
+            Password pass = new Password();
+            pass.setPwd(tfpass.getText());
+            sa.AddPasswordAdmin(pass);
+            ad.setPassword_id(pass.getPassword_id());
 
-            ad.setSex("Male");
+            ad.setName(tfnom.getText());
+            ad.setSurname(tfprenom.getText());
+            ad.setEmail(tfemail.getText());
+            LocalDate d = tdate.getValue();
+            System.out.println(d);
+            ad.setBirthday(Date.valueOf(d));
 
-        } else {
-            if (Rfemme.isSelected()) {
-                ad.setSex("Femme");
-            }
+            int nb = Integer.parseInt(tfnumber.getText());
+            ad.setNumber(nb);
+            if (Rmale.isSelected()) {
 
-        }
-        int rol=0;
-        if (Radmin.isSelected()) {
+                ad.setSex("Male");
 
-            rol=1;
-
-        } else {
-            if (Rediteur.isSelected()) {
-                rol=2;
             } else {
-                if (Rstore.isSelected()) {
-                    rol=3;
+                if (Rfemme.isSelected()) {
+                    ad.setSex("Femme");
+                }
+
+            }
+            int rol = 0;
+            if (Radmin.isSelected()) {
+
+                rol = 1;
+
+            } else {
+                if (Rediteur.isSelected()) {
+                    rol = 2;
+                } else {
+                    if (Rstore.isSelected()) {
+                        rol = 3;
+                    }
                 }
             }
-        }
-        ad.setRole(rol);
-        System.out.println(ad.toString());
-        sa.AddAdmin(ad); 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            ad.setRole(rol);
+            System.out.println(ad.toString());
+            sa.AddAdmin(ad);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Succes!");
             alert.setHeaderText(null);
             alert.setContentText("Ajout terminer");
-            Optional<ButtonType> result = alert.showAndWait(); 
-            
-    }
-            ServiceAdmin sp =new ServiceAdmin();
-            List <Admin> v =sp.AffichierAdmin();
-        
-        
+            Optional<ButtonType> result = alert.showAndWait();
+
+        }
+        ServiceAdmin sp = new ServiceAdmin();
+        List<Admin> v = sp.AffichierAdmin();
+
         col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
         col_name.setCellValueFactory(new PropertyValueFactory<>("name"));
         col_surname.setCellValueFactory(new PropertyValueFactory<>("surname"));
@@ -224,19 +225,16 @@ public class AjoutAdminController implements Initializable {
         table_ad.setItems(sp.getData());
     }
 
-    
-
     @FXML
     private void DeleteAdmin(ActionEvent event) {
         ServiceAdmin sp = new ServiceAdmin();
-        Admin b =new Admin();
+        Admin b = new Admin();
         b.setId(table_ad.getSelectionModel().getSelectedItem().getId());
 
         sp.DeleteAdmin(b);
-        
-          List <Admin> a =sp.AffichierAdmin();
-        
-        
+
+        List<Admin> a = sp.AffichierAdmin();
+
         col_id.setCellValueFactory(new PropertyValueFactory<>("id"));
         col_name.setCellValueFactory(new PropertyValueFactory<>("name"));
         col_surname.setCellValueFactory(new PropertyValueFactory<>("surname"));
@@ -249,21 +247,15 @@ public class AjoutAdminController implements Initializable {
 
     @FXML
     private void Retour(ActionEvent event) throws IOException {
-           btretour.getScene().getWindow().hide();
-        
-     
+        btretour.getScene().getWindow().hide();
+
         Parent root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
-        
+
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
         stage.setResizable(false);
     }
-
-   
-
-    
-    
 
 }

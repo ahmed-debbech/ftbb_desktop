@@ -7,26 +7,29 @@
             <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/pdev/InscriptionClient.fxml</file>
             <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/Utils/Utilities.java</file>
             <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/pdev/ProfileUtilController.java</file>
-            <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/IService/IServiceAdmin.java</file>
-            <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/pdev/Profile.fxml</file>
-            <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/pdev/ProfileUtil.fxml</file>
-            <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/Utils/AES256.java</file>
             <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/pdev/AjoutAdmin.fxml</file>
-            <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/Service/ServiceClient.java</file>
             <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/IService/IServiceCnx.java</file>
-            <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/Utils/SqlConnection.java</file>
-            <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/Entities/Password.java</file>
             <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/pdev/GestionUtilisateurController.java</file>
-            <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/Service/ServiceCnx.java</file>
-            <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/pdev/GestionUtilisateur.fxml</file>
             <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/pdev/AjoutAdminController.java</file>
             <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/pdev/Pdev.java</file>
-            <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/pdev/CnxController.java</file>
-            <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/pdev/InscriptionClientController.java</file>
             <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/Entities/Client.java</file>
             <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/Entities/Admin.java</file>
             <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/pdev/ProfileController.java</file>
             <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/IService/IServiceClient.java</file>
+            <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/pdev/EditProfileUtilController.java</file>
+            <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/IService/IServiceAdmin.java</file>
+            <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/pdev/Profile.fxml</file>
+            <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/pdev/ProfileUtil.fxml</file>
+            <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/Utils/AES256.java</file>
+            <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/Service/ServiceClient.java</file>
+            <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/Utils/SqlConnection.java</file>
+            <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/Entities/Password.java</file>
+            <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/Service/ServiceCnx.java</file>
+            <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/pdev/GestionUtilisateur.fxml</file>
+            <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/pdev/CnxController.java</file>
+            <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/pdev/InscriptionClientController.java</file>
+            <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/pdev/EditProfileUtil.fxml</file>
+            <file>file:/C:/Users/Yassine/Documents/NetBeansProjects/Pdev/src/Utils/MailUtils.java</file>
         </group>
     </open-files>
 </project-private>
