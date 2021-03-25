@@ -62,4 +62,6 @@ public class Page1Controller implements Initializable {
         stage.setScene(new Scene(root1));  
         stage.show();
     }
+
+    
 }

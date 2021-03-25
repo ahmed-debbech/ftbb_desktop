@@ -143,7 +143,7 @@ public class CommandAdminController implements Initializable {
 		// 5. Add sorted (and filtered) data to the table.
 		lcommand.setItems(sortedData);
     
-        export.setOnAction(event ->{pdf();});
+      
              Command productselected = lcommand.getSelectionModel().getSelectedItem();
 
     }    
@@ -190,21 +190,14 @@ public class CommandAdminController implements Initializable {
     }
 
     @FXML
-    private void pdf() {
-        
-         System.out.println("To Printer!");
-         PrinterJob job = PrinterJob.createPrinterJob();
-           if(job != null){
-             Window primaryStage = null;
-             job.showPrintDialog(primaryStage); 
-            
-             Node root = this.lcommand ;    
-              job.printPage(root);
-              job.endJob();
-            
-       
-
-  }}
+    private void export(ActionEvent event) throws IOException {
+         Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("PdfView.fxml"));/* Exception */
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
+   }
 

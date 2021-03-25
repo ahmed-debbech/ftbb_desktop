@@ -17,6 +17,8 @@ import javafx.stage.StageStyle;
  * @author PC
  */
 public class Gestion_store extends Application {
+    
+     public static final String CURRENCY = "DT";
     @Override
     public void start(Stage stage) throws Exception {
       Parent root = FXMLLoader.load(getClass().getResource("adminhome.fxml"));

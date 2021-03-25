@@ -33,7 +33,7 @@ public class Page2cController implements Initializable {
 
     @FXML
     private void btnstoreclient(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("store.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("market.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         //stage.initStyle(StageStyle.UNDECORATED); 
@@ -53,7 +53,7 @@ public class Page2cController implements Initializable {
 
     @FXML
     private void btncartclient(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("panierClient.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("panier.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         //stage.initStyle(StageStyle.UNDECORATED); 

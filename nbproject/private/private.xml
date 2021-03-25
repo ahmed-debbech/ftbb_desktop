@@ -2,17 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/PC/Documents/NetBeansProjects/gestion_store/src/gestion_store/adminhomeController.java</file>
-            <file>file:/C:/Users/PC/Documents/NetBeansProjects/gestion_store/src/gestion_store/CommandViewController.java</file>
-            <file>file:/C:/Users/PC/Documents/NetBeansProjects/gestion_store/src/gestion_store/PanierClientController.java</file>
-            <file>file:/C:/Users/PC/Documents/NetBeansProjects/gestion_store/src/gestion_store/CommandClientController.java</file>
-            <file>file:/C:/Users/PC/Documents/NetBeansProjects/gestion_store/src/gestion_store/CommandAdminController.java</file>
-            <file>file:/C:/Users/PC/Documents/NetBeansProjects/gestion_store/src/gestion_store/ClienthomeController.java</file>
-            <file>file:/C:/Users/PC/Documents/NetBeansProjects/gestion_store/src/Service/ServiceCommand.java</file>
-            <file>file:/C:/Users/PC/Documents/NetBeansProjects/gestion_store/src/gestion_store/adminhome.fxml</file>
-            <file>file:/C:/Users/PC/Documents/NetBeansProjects/gestion_store/src/gestion_store/Gestion_store.java</file>
-            <file>file:/C:/Users/PC/Documents/NetBeansProjects/gestion_store/src/gestion_store/ProductViewClientController.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

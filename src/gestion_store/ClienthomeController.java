@@ -224,7 +224,7 @@ import javafx.stage.StageStyle;
             try {
                title.setText("Fédération Tunisienne de Basket-Ball"+"-Votre panier");  
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
-            node = (Node)FXMLLoader.load(getClass().getResource("panierClient.fxml"));
+            node = (Node)FXMLLoader.load(getClass().getResource("panier.fxml"));
             linker.getChildren().setAll(node);
 
             } catch (IOException ex) {

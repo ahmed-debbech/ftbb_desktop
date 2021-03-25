@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="700.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.ClienthomeController"> 
+<AnchorPane prefHeight="600.0" prefWidth="700.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_store.ClienthomeController"> 
    <children>
     <AnchorPane fx:id="linker" layoutX="176.0" layoutY="65.0" prefHeight="535.0" prefWidth="526.0" />
       <BorderPane layoutX="114.0" layoutY="54.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -241,16 +241,6 @@
                </children>
             </AnchorPane>
          </left>
-         <center>
-            <ImageView fitHeight="485.0" fitWidth="401.0" opacity="0.1" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-               <image>
-                  <Image url="@../resources/ftbb-logo-stroke-2.png" />
-               </image>
-               <BorderPane.margin>
-                  <Insets right="175.0" />
-               </BorderPane.margin>
-            </ImageView>
-         </center>
       </BorderPane>
    </children>
 </AnchorPane>

@@ -29,9 +29,9 @@
             <Font name="Tahoma Bold" size="24.0" />
          </font>
       </Text>
-      <Text layoutX="30.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STORE" textAlignment="CENTER">
+      <Text fill="RED" layoutX="30.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="STORE" textAlignment="CENTER">
          <font>
-            <Font size="14.0" />
+            <Font name="Tahoma Bold" size="14.0" />
          </font>
       </Text>
       <ScrollPane fx:id="scroller" layoutX="14.0" layoutY="165.0" prefHeight="463.0" prefWidth="874.0">

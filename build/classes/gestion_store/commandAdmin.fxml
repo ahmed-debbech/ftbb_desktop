@@ -14,10 +14,6 @@
          <font>
             <Font name="Tahoma Bold" size="13.0" />
          </font></Button>
-      <Button fx:id="export" layoutX="267.0" layoutY="157.0" mnemonicParsing="false" onAction="#pdf" style="-fx-background-color: trasparent; -fx-background-color: red;" text="print" textFill="WHITE">
-         <font>
-            <Font name="Tahoma Bold" size="13.0" />
-         </font></Button>
       <TextField fx:id="rechercher_command" layoutX="110.0" layoutY="157.0" />
       <Label layoutX="65.0" layoutY="161.0" text="search" />
       <Button fx:id="back" layoutX="636.0" layoutY="40.0" mnemonicParsing="false" onAction="#btnback" style="-fx-background-color: trasparent; -fx-background-color: red;" text="&lt;" textFill="WHITE">
@@ -38,5 +34,6 @@
             <Font name="Tahoma Bold" size="18.0" />
          </font>
       </Label>
+      <Button fx:id="export" layoutX="270.0" layoutY="157.0" mnemonicParsing="false" onAction="#export" text="export" />
    </children>
 </AnchorPane>
