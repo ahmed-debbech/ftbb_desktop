@@ -27,7 +27,9 @@ import utils.Utilities;
  * @author Ahmed
  */
 public class CommentViewController implements Initializable {
-
+   
+    public static String CLIENT_ID = "122";
+    
     @FXML
     private Label client_name;
     @FXML
@@ -70,6 +72,10 @@ public class CommentViewController implements Initializable {
             int x= Integer.parseInt(this.like_number.getText());
             x++;
             this.like_number.setText(String.valueOf(x));
+            /************ SEND AN EMAIL*/
+            ServiceLikes sa = new ServiceLikes();
+            Utilities.sendMail(sa.getClientName(CLIENT_ID), sa.getClientEmail(this.client_id.getText()), content.getText());
+            /******************************/
         }else{
             //else remove it
             sl.remove(l);
@@ -83,7 +89,7 @@ public class CommentViewController implements Initializable {
         this.parent_list = parent;
         this.item_pos.setText(String.valueOf(pos));
          this.client_id.setText(String.valueOf(c.getClient_id()));
-        if(this.client_id.getText().equals("122")){
+        if(this.client_id.getText().equals(CLIENT_ID)){
                 this.delete.setVisible(true);
         }else{
             this.delete.setVisible(false);

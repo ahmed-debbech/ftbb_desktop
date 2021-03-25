@@ -137,5 +137,46 @@ public class ServiceLikes implements IServiceLikes {
         }
         return -1;
     }
-    
+    public String getClientName(String id){
+        if(cnx == null){
+            Utilities.alert("ERROR", "could not connect to database.");
+            return null;
+        }
+        try{
+            Statement stm = this.cnx.createStatement();
+            String query = "select name from client where id="+id+";";
+            ResultSet rst = stm.executeQuery(query);
+            if(rst.next()){
+                 String a = null;
+                 a = rst.getString("name");
+                return a;
+            }else{
+                return null;
+            }
+        }catch(SQLException ex){
+            System.out.println("no name");
+        }
+        return null;
+    }
+    public String getClientEmail(String id){
+        if(cnx == null){
+            Utilities.alert("ERROR", "could not connect to database.");
+            return null;
+        }
+        try{
+            Statement stm = this.cnx.createStatement();
+            String query = "select email from client where id="+id+";";
+            ResultSet rst = stm.executeQuery(query);
+            if(rst.next()){
+                 String a = null;
+                 a = rst.getString("email");
+                return a;
+            }else{
+                return null;
+            }
+        }catch(SQLException ex){
+            System.out.println("no email");
+        }
+        return null;
+    }
 }

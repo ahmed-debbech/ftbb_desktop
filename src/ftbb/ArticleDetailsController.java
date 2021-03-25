@@ -37,7 +37,6 @@ import javafx.scene.layout.VBox;
 import javax.imageio.ImageIO;
 import utils.Passable;
 import utils.Utilities;
-
 /**
  * FXML Controller class
  *
