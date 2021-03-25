@@ -22,7 +22,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.scene.control.ComboBox;
 
 public class PanierController implements Initializable {
     @FXML
@@ -31,8 +34,7 @@ public class PanierController implements Initializable {
     @FXML
     private Label productNameLable;
 
-    private Label productPriceLable;
-
+   
     @FXML
     private ImageView productImg;
 
@@ -47,6 +49,12 @@ public class PanierController implements Initializable {
     private MyListener myListener;
     @FXML
     private Label productPriceLabel;
+    @FXML
+    private ComboBox qtybox;
+    
+    ObservableList<String> list = FXCollections.observableArrayList("1","2","3","4","5");
+    @FXML
+    private Label tprice;
 
     private List<Product> getData() {
         List<Product> products = new ArrayList<>();
@@ -127,15 +135,18 @@ public class PanierController implements Initializable {
 
     private void setChosenProduct(Product product) {
         productNameLable.setText(product.getName());
-        productPriceLable.setText(product.getPrice()+Gestion_store.CURRENCY );
+        productPriceLabel.setText(product.getPrice()+Gestion_store.CURRENCY );
         image = new Image(getClass().getResourceAsStream(product.getPhoto()));
         productImg.setImage(image);
         chosenProductCard.setStyle("-fx-background-color: #" + product.getDetails() + ";\n" +
                 "    -fx-background-radius: 30;");
+          qtybox.setValue("0");
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        qtybox.setValue("0");
+        qtybox.setItems(list);
         products.addAll(getData());
         if (products.size() > 0) {
             setChosenProduct(products.get(0));
@@ -151,7 +162,7 @@ public class PanierController implements Initializable {
         try {
             for (int i = 0; i < products.size(); i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/itempanier.fxml"));
+                fxmlLoader.setLocation(getClass().getResource("itempanier.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
 
                 ItempanierController itempanierController = fxmlLoader.getController();
@@ -182,6 +193,14 @@ public class PanierController implements Initializable {
 
     @FXML
     private void panier(ActionEvent event) {
+    }
+
+    @FXML
+    private void det(ActionEvent event) {
+    }
+
+    @FXML
+    private void passercommande(ActionEvent event) {
     }
 
 }

@@ -15,15 +15,22 @@ import javafx.scene.layout.VBox;
 import gestion_store.Gestion_store;
 import IService.MyListener;
 import Entities.Product;
+import Service.ServiceCart;
+import Service.ServiceProduct;
+import java.io.File;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 
 public class MarketController implements Initializable {
@@ -33,7 +40,7 @@ public class MarketController implements Initializable {
     @FXML
     private Label productNameLable;
 
-    private Label productPriceLable;
+   
 
     @FXML
     private ImageView productImg;
@@ -49,8 +56,14 @@ public class MarketController implements Initializable {
     private MyListener myListener;
     @FXML
     private Label productPriceLabel;
+    @FXML
+    private ComboBox qtybox;
+    
+    ObservableList<String> list = FXCollections.observableArrayList("1","2","3","4","5");
+    @FXML
+    private Label id;
 
-    private List<Product> getData() {
+  /*  private List<Product> getData() {
         List<Product> products = new ArrayList<>();
         Product product;
 
@@ -125,20 +138,23 @@ public class MarketController implements Initializable {
         products.add(product);
 
         return products;
-    }
+    }*/
 
     private void setChosenProduct(Product product) {
         productNameLable.setText(product.getName());
-        productPriceLable.setText(product.getPrice()+Gestion_store.CURRENCY );
+        productPriceLabel.setText(product.getPrice()+Gestion_store.CURRENCY );
         image = new Image(getClass().getResourceAsStream(product.getPhoto()));
         productImg.setImage(image);
-        chosenProductCard.setStyle("-fx-background-color: #" + product.getDetails() + ";\n" +
+        chosenProductCard.setStyle("-fx-background-color: red" + product.getDetails() + ";\n" +
                 "    -fx-background-radius: 30;");
+        qtybox.setValue("0");
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        products.addAll(getData());
+        qtybox.setValue("0");
+        qtybox.setItems(list);
+        //products.set(0, element);
         if (products.size() > 0) {
             setChosenProduct(products.get(0));
             myListener = new MyListener() {
@@ -148,7 +164,30 @@ public class MarketController implements Initializable {
                 }
             };
         }
-        int column = 0;
+
+        grid.getChildren().clear();
+        ServiceProduct sp = new ServiceProduct();
+        List<Product> l = sp.ShowProduct();
+        int row = 1, cl =0;
+            try{
+                for(Product product : l){
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("item.fxml"));
+                    Node postbox = loader.load();
+                    ItemController pc = loader.getController();
+                    pc.setData(product, myListener);
+                    if(cl== 3){
+                         cl= 0;
+                         row++;
+                    }
+                    this.grid.add(postbox, cl++, row);
+                }
+            }catch(IOException e){
+                System.out.println("no load for product in client");
+                   e.printStackTrace();
+            }
+    }
+        /*int column = 0;
         int row = 1;
         try {
             for (int i = 0; i < products.size(); i++) {
@@ -179,8 +218,8 @@ public class MarketController implements Initializable {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }
-    }
+        }*/
+    
 
     @FXML
     private void panier(ActionEvent event) throws IOException {
@@ -191,5 +230,19 @@ public class MarketController implements Initializable {
         stage.setScene(new Scene(root1));  
         stage.show();
     }
+
+    @FXML
+    private void det(ActionEvent event) {
+    }
+
+    @FXML
+    private void AddToCart(ActionEvent event) {
+        ServiceCart s = new ServiceCart();
+        Product p = new Product();
+        p.setRef_product(Integer.parseInt(id.getText()));
+        s.addToCart(2,p);
+    }
+  
+    
 
 }

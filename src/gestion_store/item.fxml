@@ -10,13 +10,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane onMousePressed="#click" stylesheets="@style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_store.ItemController">
+<AnchorPane onMousePressed="#click" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_store.ItemController">
    <children>
-      <VBox alignment="TOP_CENTER" layoutX="63.0" layoutY="8.0" prefHeight="215.0" prefWidth="225.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="TOP_CENTER" layoutX="63.0" layoutY="8.0" prefHeight="250.0" prefWidth="250.0" style="-fx-border-color: grey; -fx-border-width: 1px 1px 1px 1px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox prefHeight="51.0" prefWidth="185.0">
                <children>
-                  <Label fx:id="nameLabel" prefHeight="49.0" prefWidth="137.0" text="koura">
+                  <Label fx:id="nameLabel" prefHeight="49.0" prefWidth="200.0" text="koura">
                      <font>
                         <Font name="Cambria" size="24.0" />
                      </font>
@@ -31,11 +31,12 @@
                   <Insets left="20.0" top="20.0" />
                </VBox.margin>
             </HBox>
-            <ImageView fx:id="img" fitHeight="115.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="img" fitHeight="165.0" fitWidth="157.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../img/koura.jpg" />
+                  <Image url="@../resources/koura.jpg" />
                </image>
             </ImageView>
+            <Label fx:id="id" visible="false" />
          </children>
       </VBox>
    </children>
