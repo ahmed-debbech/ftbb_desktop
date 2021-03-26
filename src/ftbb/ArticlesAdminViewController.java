@@ -30,7 +30,7 @@ import utils.Passable;
  *
  * @author Ahmed
  */
-public class ArticlesViewController implements Initializable {
+public class ArticlesAdminViewController implements Initializable {
 
     @FXML
     private ScrollPane articles_scroller;
@@ -82,9 +82,9 @@ public class ArticlesViewController implements Initializable {
             try{
                 for(Article a : list){
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("FXMLPostsAdmin.fxml"));
+                    loader.setLocation(getClass().getResource("FXMLArticleAdminView.fxml"));
                     Node postbox = loader.load();
-                    PostsAdminController pc = loader.getController();
+                    ArticleAdminViewController pc = loader.getController();
                     pc.setData(a);
                     this.vbox_articles.getChildren().add(postbox);
                 }

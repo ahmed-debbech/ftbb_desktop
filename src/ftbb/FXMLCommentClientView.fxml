@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="108.0" prefWidth="597.0" style="-fx-border-color: #ededed;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.CommentViewController">
+<AnchorPane id="AnchorPane" prefHeight="108.0" prefWidth="597.0" style="-fx-border-color: #ededed;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.CommentClientViewController">
    <children>
       <Label fx:id="comment_id" layoutX="134.0" layoutY="5.0" visible="false" />
       <Label fx:id="client_id" layoutX="143.0" layoutY="5.0" visible="false" />
@@ -31,7 +31,7 @@
             </VBox>
             <VBox prefHeight="108.0" prefWidth="100.0" spacing="15.0">
                <children>
-                  <ImageView fx:id="delete" fitHeight="17.0" fitWidth="36.0" onMouseClicked="#deleteComment" pickOnBounds="true" preserveRatio="true" visible="false">
+                  <ImageView fx:id="delete" fitHeight="17.0" fitWidth="36.0" onMouseClicked="#deleteComment" opacity="0.68" pickOnBounds="true" preserveRatio="true" visible="false">
                      <image>
                         <Image url="@../resources/delete.png" />
                      </image>

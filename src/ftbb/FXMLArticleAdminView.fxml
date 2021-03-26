@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="pane" prefHeight="165.0" prefWidth="635.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.PostsAdminController">
+<AnchorPane id="AnchorPane" fx:id="pane" prefHeight="165.0" prefWidth="635.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.ArticleAdminViewController">
    <children>
       <HBox layoutX="-1.0" layoutY="-2.0" prefHeight="222.0" prefWidth="636.0">
          <children>

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="panecom" prefHeight="588.0" prefWidth="766.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.CommentsController">
+<AnchorPane id="AnchorPane" fx:id="panecom" prefHeight="588.0" prefWidth="766.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.CommentsAdminController">
    <children>
       <VBox prefHeight="589.0" prefWidth="765.0">
          <children>

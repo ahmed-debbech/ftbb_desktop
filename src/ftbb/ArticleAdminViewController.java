@@ -39,7 +39,7 @@ import utils.Utilities;
  *
  * @author Ahmed
  */
-public class PostsAdminController implements Initializable {
+public class ArticleAdminViewController implements Initializable {
 
     private Article ref;
     @FXML
@@ -70,7 +70,7 @@ public class PostsAdminController implements Initializable {
         Passable p = Passable.getInstance();
             p.setTextData(String.valueOf(ref.getArticle_id()));
             FXMLLoader fxmlLoader = new FXMLLoader();
-            Pane root1 =  fxmlLoader.load(getClass().getResource("FXMLComments.fxml").openStream());
+            Pane root1 =  fxmlLoader.load(getClass().getResource("FXMLCommentsAdmin.fxml").openStream());
             Stage stage = new Stage();
             stage.setTitle("Comments of article: " + ref.getArticle_id());
             stage.setScene(new Scene(root1));  

@@ -45,7 +45,7 @@ import utils.Utilities;
  *
  * @author Ahmed
  */
-public class CommentsController implements Initializable {
+public class CommentsAdminController implements Initializable {
 
     @FXML
     private VBox listcomments;

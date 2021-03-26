@@ -26,9 +26,9 @@ import utils.Utilities;
  *
  * @author Ahmed
  */
-public class CommentViewController implements Initializable {
+public class CommentClientViewController implements Initializable {
    
-    public static String CLIENT_ID = "444";
+    public static String CLIENT_ID = "122";
     
     @FXML
     private Label client_name;

@@ -48,7 +48,8 @@ import utils.Utilities;
  * @author Ahmed
  */
 public class ArticleDetailsController implements Initializable {
-
+    public static String CLIENT_ID = "122";
+    
     private Article ref;
     @FXML
     private ImageView image;
@@ -113,7 +114,7 @@ public class ArticleDetailsController implements Initializable {
         this.image.setImage(im);
         
         ServiceLikes sl = new ServiceLikes();
-        if(sl.getLike(ref.getArticle_id(), -1, 122) == true){
+        if(sl.getLike(ref.getArticle_id(), -1, Integer.parseInt(CLIENT_ID)) == true){
             this.like_icon.setImage(new Image("resources/like-press.png"));
         }else{
            this.like_icon.setImage(new Image("resources/like.png"));
@@ -135,9 +136,9 @@ public class ArticleDetailsController implements Initializable {
                 int pos = 0;
                 for(Comment a : list){
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("FXMLCommentView.fxml"));
+                    loader.setLocation(getClass().getResource("FXMLCommentClientView.fxml"));
                     Node postbox = loader.load();
-                    CommentViewController pc = loader.getController();
+                    CommentClientViewController pc = loader.getController();
                     pc.setData(a, pos, this.comlist);
                     this.comlist.getChildren().add(postbox);
                     pos++;
@@ -154,9 +155,9 @@ public class ArticleDetailsController implements Initializable {
                 int pos = 0;
                 for(Comment a : list){
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("FXMLCommentView.fxml"));
+                    loader.setLocation(getClass().getResource("FXMLCommentClientView.fxml"));
                     Node postbox = loader.load();
-                    CommentViewController pc = loader.getController();
+                    CommentClientViewController pc = loader.getController();
                     pc.setData(a, pos, this.comlist);
                     this.comlist.getChildren().add(postbox);
                     pos++;
@@ -172,7 +173,7 @@ public class ArticleDetailsController implements Initializable {
     @FXML
     private void onClickLike(MouseEvent event) {
          ServiceLikes sl = new ServiceLikes();
-        Like l = new Like(ref.getArticle_id(), -1, 122);
+        Like l = new Like(ref.getArticle_id(), -1,Integer.parseInt(CLIENT_ID));
         if(!sl.isExisted(l)){
             // add the like
             sl.add(l);
@@ -195,7 +196,7 @@ public class ArticleDetailsController implements Initializable {
         String comment = this.comment_content.getText();
         ServiceComment sc = new ServiceComment();
         Comment a = new Comment();
-        a.setClient_id(122);
+        a.setClient_id(Integer.parseInt(CLIENT_ID));
         a.setArticle_id(this.ref.getArticle_id());
         a.setContent(comment);
         a.setId(Utilities.generatedId("comment", "id"));

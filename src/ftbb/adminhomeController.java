@@ -113,7 +113,7 @@ import javafx.stage.StageStyle;
             try {
                   title.setText("Fédération Tunisienne de Basket-Ball"+"-Actualié");
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
-            node = (Node)FXMLLoader.load(getClass().getResource("FXMLArticlesView.fxml"));
+            node = (Node)FXMLLoader.load(getClass().getResource("FXMLArticlesAdminView.fxml"));
             linker.getChildren().setAll(node);
 
             } catch (IOException ex) {
