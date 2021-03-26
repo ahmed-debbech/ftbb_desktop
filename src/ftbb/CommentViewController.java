@@ -28,7 +28,7 @@ import utils.Utilities;
  */
 public class CommentViewController implements Initializable {
    
-    public static String CLIENT_ID = "122";
+    public static String CLIENT_ID = "444";
     
     @FXML
     private Label client_name;
@@ -64,7 +64,7 @@ public class CommentViewController implements Initializable {
     @FXML
     private void onClickLike(MouseEvent event) {
         ServiceLikes sl = new ServiceLikes();
-        Like l = new Like(-1, Integer.parseInt(comment_id.getText()), 122);
+        Like l = new Like(-1, Integer.parseInt(comment_id.getText()), Integer.parseInt(CLIENT_ID));
         if(!sl.isExisted(l)){
             // add the like
             sl.add(l);
@@ -74,7 +74,9 @@ public class CommentViewController implements Initializable {
             this.like_number.setText(String.valueOf(x));
             /************ SEND AN EMAIL*/
             ServiceLikes sa = new ServiceLikes();
-            Utilities.sendMail(sa.getClientName(CLIENT_ID), sa.getClientEmail(this.client_id.getText()), content.getText());
+            if(!CLIENT_ID.equals(this.client_id.getText())){
+                Utilities.sendMail(sa.getClientName(CLIENT_ID), sa.getClientEmail(this.client_id.getText()), content.getText());
+            }
             /******************************/
         }else{
             //else remove it
@@ -99,7 +101,7 @@ public class CommentViewController implements Initializable {
         this.date.setText(Utilities.timestampConverter(c.getDate()));
         this.comment_id.setText(String.valueOf(c.getId()));
          ServiceLikes sl = new ServiceLikes();
-        if(sl.getLike(-1, Integer.parseInt(comment_id.getText()), 122) == true){
+        if(sl.getLike(-1, Integer.parseInt(comment_id.getText()), Integer.parseInt(CLIENT_ID)) == true){
             this.like_icon.setImage(new Image("resources/like-press.png"));
         }else{
            this.like_icon.setImage(new Image("resources/like.png"));

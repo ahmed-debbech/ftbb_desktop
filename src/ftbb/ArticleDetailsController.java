@@ -15,7 +15,10 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URI;
 import java.net.URL;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.embed.swing.SwingFXUtils;
@@ -24,6 +27,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -73,6 +77,10 @@ public class ArticleDetailsController implements Initializable {
     private TextField comment_content;
     @FXML
     private ComboBox<String> filter;
+    @FXML
+    private Button sharefb;
+    @FXML
+    private Button sharetw;
     /**
      * Initializes the controller class.
      */
@@ -221,6 +229,45 @@ public class ArticleDetailsController implements Initializable {
                 loadComments(list);
             }
         }
+    }
+
+    @FXML
+    private void shareFacebook(ActionEvent event) {
+         try {
+             String u  = "https://www.facebook.com/dialog/share?" +
+"app_id=1155678251616612" +
+"&display=popup" +
+                     "&quote=" +URLEncoder.encode(this.title.getText(),  StandardCharsets.UTF_8.toString())+ 
+"&href=https%3A%2F%2Fwww.ftbb.org.tn%2F";
+            URI uri= new URI(u);
+
+            java.awt.Desktop.getDesktop().browse(uri);
+             System.out.println("Web page opened in browser");
+
+       } catch (Exception e) {
+
+        e.printStackTrace();
+       }
+    }
+
+    @FXML
+    private void shareTwitter(ActionEvent event) {
+         try {
+             String u  = "https://www.facebook.com/dialog/share?" +
+"app_id=1155678251616612" +
+"&display=popup" +
+                     "&quote=" +URLEncoder.encode(this.title.getText(),  StandardCharsets.UTF_8.toString())+ 
+"&href=https%3A%2F%2Fwww.ftbb.org.tn%2F";
+             String k = "http://twitter.com/share?text="+URLEncoder.encode(this.title.getText(),  StandardCharsets.UTF_8.toString())+"%0A&url=https%3A%2F%2Fwww.ftbb.org.tn%2F";
+            URI uri= new URI(k);
+
+            java.awt.Desktop.getDesktop().browse(uri);
+             System.out.println("Web page opened in browser");
+
+       } catch (Exception e) {
+
+        e.printStackTrace();
+       }
     }
     
 }
