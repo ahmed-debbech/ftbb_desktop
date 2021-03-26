@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="535.0" prefWidth="832.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ClientArticlesController">
+   <children>
+      <VBox prefHeight="542.0" prefWidth="832.0">
+         <children>
+            <HBox prefHeight="70.0" prefWidth="832.0" spacing="10.0">
+               <children>
+                  <TextField fx:id="search" prefHeight="30.0" prefWidth="184.0" promptText="Search..." style="-fx-background-color: #e3e3e3; -fx-background-radius: 30;" />
+                  <ComboBox fx:id="sort" onAction="#onSortSelected" prefHeight="30.0" prefWidth="202.0" style="-fx-background-color: #f79494; -fx-background-radius: 30;" stylesheets="@Style.css" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+            <ScrollPane fx:id="scroller" prefHeight="542.0" prefWidth="832.0">
+               <content>
+                  <GridPane fx:id="article_grid" prefHeight="545.0" prefWidth="818.0">
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
