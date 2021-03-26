@@ -5,7 +5,6 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -13,10 +12,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="739.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.ArticleDetailsController">
+<AnchorPane id="AnchorPane" prefHeight="948.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.ArticleDetailsController">
    <children>
-      <VBox prefHeight="714.0" prefWidth="809.0">
+      <VBox prefHeight="949.0" prefWidth="810.0">
          <children>
             <HBox prefHeight="114.0" prefWidth="555.0">
                <children>
@@ -31,10 +31,24 @@
                   </Label>
                </children>
             </HBox>
-            <TextArea fx:id="text" prefHeight="263.0" prefWidth="810.0" />
-            <HBox prefHeight="49.0" prefWidth="810.0">
+            <ScrollPane prefHeight="473.0" prefWidth="825.0">
+               <content>
+                  <Text fx:id="text" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="788.9457397460938">
+                     <font>
+                        <Font name="Arial" size="16.0" />
+                     </font>
+                  </Text>
+               </content>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </ScrollPane>
+            <HBox prefHeight="60.0" prefWidth="810.0">
                <children>
-                  <HBox fx:id="likes" onMouseClicked="#onClickLike" prefHeight="47.0" prefWidth="137.0">
+                  <HBox fx:id="likes" onMouseClicked="#onClickLike" prefHeight="39.0" prefWidth="63.0">
                      <children>
                         <ImageView fx:id="like_icon" fitHeight="29.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -47,9 +61,9 @@
                            </padding>
                         </Label>
                      </children>
-                     <padding>
-                        <Insets left="50.0" />
-                     </padding>
+                     <HBox.margin>
+                        <Insets right="50.0" />
+                     </HBox.margin>
                   </HBox>
                   <HBox fx:id="comments" onMouseClicked="#passDetails" prefHeight="67.0" prefWidth="122.0">
                      <children>
@@ -84,24 +98,32 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <ComboBox fx:id="filter" onAction="#itemChanged" prefHeight="30.0" prefWidth="117.0" promptText="Filter">
+                  <ComboBox fx:id="filter" onAction="#itemChanged" opacity="0.65" prefHeight="30.0" prefWidth="166.0" promptText="Filter" style="-fx-background-radius: 30;">
                      <HBox.margin>
                         <Insets left="200.0" />
                      </HBox.margin>
                   </ComboBox>
                </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
             </HBox>
-            <ScrollPane fx:id="scroller" prefHeight="233.0" prefWidth="634.0">
+            <ScrollPane fx:id="scroller" prefHeight="240.0" prefWidth="810.0">
                <content>
-                  <VBox fx:id="comlist" prefHeight="236.0" prefWidth="796.0" />
+                  <VBox fx:id="comlist" prefHeight="240.0" prefWidth="790.0" style="-fx-background-color: #f0f0f0;" />
                </content>
             </ScrollPane>
-            <HBox prefHeight="46.0" prefWidth="634.0">
+            <HBox prefHeight="42.0" prefWidth="810.0" spacing="5.0">
                <children>
-                  <Label prefHeight="19.0" prefWidth="105.0" text="Your comment:" />
-                  <TextField fx:id="comment_content" prefHeight="46.0" prefWidth="566.0" />
-                  <Button mnemonicParsing="false" onAction="#comment" prefHeight="86.0" prefWidth="134.0" text="Comment" />
+                  <TextField fx:id="comment_content" prefHeight="31.0" prefWidth="663.0" style="-fx-background-color: #f2f2f2; -fx-border-color: #cfcfcf; -fx-background-radius: 50;" />
+                  <Button mnemonicParsing="false" onAction="#comment" prefHeight="86.0" prefWidth="134.0" style="-fx-background-color: #ffac26; -fx-background-radius: 30;" text="Comment" />
                </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
             </HBox>
          </children>
       </VBox>

@@ -38,6 +38,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javax.imageio.ImageIO;
 import utils.Passable;
 import utils.Utilities;
@@ -54,7 +55,7 @@ public class ArticleDetailsController implements Initializable {
     @FXML
     private Label title;
     @FXML
-    private TextArea text;
+    private Text text;
     @FXML
     private HBox likes;
     @FXML
@@ -120,7 +121,9 @@ public class ArticleDetailsController implements Initializable {
         int nm = sl.countLikes(ref.getArticle_id(), -1);
         this.like_number.setText(String.valueOf(nm));
         this.author.setText(ref.getAuthor());
-        
+        ServiceComment ser = new ServiceComment();
+        int nm_cm = ser.countComments(String.valueOf(ref.getArticle_id()));
+        this.com_number.setText(String.valueOf(nm_cm));
         //**** load comments
         loadComments();
     }    
@@ -253,11 +256,7 @@ public class ArticleDetailsController implements Initializable {
     @FXML
     private void shareTwitter(ActionEvent event) {
          try {
-             String u  = "https://www.facebook.com/dialog/share?" +
-"app_id=1155678251616612" +
-"&display=popup" +
-                     "&quote=" +URLEncoder.encode(this.title.getText(),  StandardCharsets.UTF_8.toString())+ 
-"&href=https%3A%2F%2Fwww.ftbb.org.tn%2F";
+
              String k = "http://twitter.com/share?text="+URLEncoder.encode(this.title.getText(),  StandardCharsets.UTF_8.toString())+"%0A&url=https%3A%2F%2Fwww.ftbb.org.tn%2F";
             URI uri= new URI(k);
 

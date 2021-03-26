@@ -11,11 +11,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="311.0" prefWidth="282.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.PostsController">
+<AnchorPane id="AnchorPane" prefHeight="375.0" prefWidth="336.0" style="-fx-border-color: #e3e3e3;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.PostsController">
    <children>
-      <VBox prefHeight="311.0" prefWidth="282.0" spacing="10.0">
+      <VBox alignment="CENTER" prefHeight="375.0" prefWidth="336.0" spacing="10.0">
          <children>
-            <ImageView fx:id="image" fitHeight="189.0" fitWidth="267.0" onMouseClicked="#passDetails" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="image" fitHeight="186.0" fitWidth="279.0" onMouseClicked="#passDetails" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../resources/default-article.jpg" />
                </image>
@@ -23,20 +23,21 @@
                   <Insets left="3.0" />
                </VBox.margin>
             </ImageView>
-            <Line endX="124.00001525878906" endY="-1.52587890625E-5" startX="-100.0">
+            <Line endX="92.32988739013672" endY="1.0716915312514175E-5" startX="-121.36299133300781" startY="-2.276897475894657E-6">
                <VBox.margin>
                   <Insets left="18.0" />
                </VBox.margin>
             </Line>
-            <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="The tunisian federation wins the cup" wrappingWidth="267.0">
+            <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="The tunisian federation wins the cup" wrappingWidth="306.20001220703125">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
                <VBox.margin>
-                  <Insets left="5.0" />
+                  <Insets />
                </VBox.margin>
             </Text>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox prefHeight="42.0" prefWidth="316.0" />
+            <HBox prefHeight="26.0" prefWidth="316.0">
                <children>
                   <HBox fx:id="likes" onMouseClicked="#onClickLike" prefHeight="32.0" prefWidth="74.0">
                      <children>
@@ -69,9 +70,9 @@
                         </Label>
                      </children>
                   </HBox>
-                  <Label fx:id="date" text="dd/mm/yyyy">
+                  <Label fx:id="date" prefHeight="26.0" prefWidth="129.0" text="dd/mm/yyyy">
                      <font>
-                        <Font name="System Italic" size="12.800000190734863" />
+                        <Font name="System Italic" size="11.0" />
                      </font>
                   </Label>
                   <Label fx:id="article_id" visible="false" />
@@ -79,7 +80,7 @@
             </HBox>
          </children>
          <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </VBox>
    </children>
