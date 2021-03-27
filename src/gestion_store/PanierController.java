@@ -16,6 +16,7 @@ import javafx.scene.layout.VBox;
 import gestion_store.Gestion_store;
 import IService.MyListener;
 import Entities.Product;
+import Service.ServiceProduct;
 
 import java.io.IOException;
 import java.net.URL;
@@ -25,7 +26,10 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 
 public class PanierController implements Initializable {
     @FXML
@@ -49,14 +53,17 @@ public class PanierController implements Initializable {
     private MyListener myListener;
     @FXML
     private Label productPriceLabel;
-    @FXML
-    private ComboBox qtybox;
-    
-    ObservableList<String> list = FXCollections.observableArrayList("1","2","3","4","5");
-    @FXML
+   
+       @FXML
     private Label tprice;
+    @FXML
+    private TextField qty;
+    @FXML
+    private Button plus;
+    @FXML
+    private Button moins;
 
-    private List<Product> getData() {
+   /* private List<Product> getData() {
         List<Product> products = new ArrayList<>();
         Product product;
 
@@ -131,23 +138,24 @@ public class PanierController implements Initializable {
         products.add(product);
 
         return products;
-    }
+    }*/
 
     private void setChosenProduct(Product product) {
         productNameLable.setText(product.getName());
         productPriceLabel.setText(product.getPrice()+Gestion_store.CURRENCY );
+        qty.getText();
         image = new Image(getClass().getResourceAsStream(product.getPhoto()));
         productImg.setImage(image);
         chosenProductCard.setStyle("-fx-background-color: #" + product.getDetails() + ";\n" +
-                "    -fx-background-radius: 30;");
-          qtybox.setValue("0");
+                "-fx-background-radius: 30;");
+         
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        qtybox.setValue("0");
-        qtybox.setItems(list);
-        products.addAll(getData());
+        qty.setText("1");
+      
+        //products.addAll(getData());
         if (products.size() > 0) {
             setChosenProduct(products.get(0));
             myListener = new MyListener() {
@@ -157,7 +165,28 @@ public class PanierController implements Initializable {
                 }
             };
         }
-        int column = 0;
+         grid.getChildren().clear();
+        ServiceProduct sp = new ServiceProduct();
+        List<Product> l = sp.ShowProduct();
+        int row = 1, cl =0;
+            try{
+                for(Product product : l){
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("itempanier.fxml"));
+                    Node postbox = loader.load();
+                    ItempanierController pc = loader.getController();
+                    pc.setData(product, myListener);
+                    if(cl== 3){
+                         cl= 0;
+                         row++;
+                    }
+                    this.grid.add(postbox, cl++, row);
+                }
+            }catch(IOException e){
+                System.out.println("no load for product in client");
+                   e.printStackTrace();
+            }
+      /*  int column = 0;
         int row = 1;
         try {
             for (int i = 0; i < products.size(); i++) {
@@ -188,7 +217,7 @@ public class PanierController implements Initializable {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     @FXML
@@ -201,6 +230,27 @@ public class PanierController implements Initializable {
 
     @FXML
     private void passercommande(ActionEvent event) {
+    }
+
+    @FXML
+    private void increment(ActionEvent event) {
+        String i=qty.getText();
+        int k=Integer.parseInt(i);
+        k++;
+        if(k<100){
+             qty.setText(String.valueOf(k));
+        }
+       
+    }
+
+    @FXML
+    private void decrement(ActionEvent event) {
+        String i=qty.getText();
+        int k=Integer.parseInt(i);
+        k--;
+        if(k>0){
+         qty.setText(String.valueOf(k));
+        }
     }
 
 }

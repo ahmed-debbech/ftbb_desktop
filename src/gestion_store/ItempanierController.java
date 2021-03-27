@@ -12,6 +12,8 @@ import javafx.scene.input.MouseEvent;
 import gestion_store.Gestion_store;
 import IService.MyListener;
 import Entities.Product;
+import java.io.File;
+import javafx.scene.control.TextField;
 
 public class ItempanierController implements Initializable {
     @FXML
@@ -25,9 +27,11 @@ public class ItempanierController implements Initializable {
     @FXML
     private Label stockLable;
     @FXML
-    private Label quantiteLable;
+    private TextField qty;
     @FXML
     private Label totalpriceLable;
+    @FXML
+    private Label id;
 
     @FXML
     private void click(MouseEvent mouseEvent) {
@@ -38,7 +42,7 @@ public class ItempanierController implements Initializable {
     private MyListener myListener;
 
     public void setData(Product product, MyListener myListener) {
-        this.product = product;
+       /* this.product = product;
         this.myListener = myListener;
         nameLabel.setText(product.getName());
         priceLable.setText(product.getPrice()+ Gestion_store.CURRENCY );
@@ -46,11 +50,46 @@ public class ItempanierController implements Initializable {
         //quantiteLable.setText("1");
       //  stockLable.setText(Integer(product.getStock()));
         Image image = new Image(getClass().getResourceAsStream(product.getPhoto()));
-        img.setImage(image);
+        img.setImage(image);*/
+       
+       this.myListener = myListener;
+        this.id.setText(String.valueOf(product.getRef_product()));
+        this.nameLabel.setText(product.getName());
+        priceLable.setText(product.getPrice()+ Gestion_store.CURRENCY );
+        totalpriceLable.setText(String.valueOf(Integer.parseInt(qty.getText())*product.getPrice()));
+        File file = new File(product.getPhoto().replace('/' , '\\'));
+        Image im = null;
+        if(file.exists()){ 
+                 im = new Image(file.toURI().toString());
+        }else{
+            //im = new Image("resources/default-article.jpg"); // this is the defualt photo of the product
+        }
+         this.img.setImage(im);
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+    }
+
+    @FXML
+    private void increment(ActionEvent event) {
+        String i=qty.getText();
+        int k=Integer.parseInt(i);
+        k++;
+        if(k<100){
+             qty.setText(String.valueOf(k));
+        }
+       
+    }
+
+    @FXML
+    private void decrement(ActionEvent event) {
+        String i=qty.getText();
+        int k=Integer.parseInt(i);
+        k--;
+        if(k>0){
+         qty.setText(String.valueOf(k));
+        }
     }
 }
 
