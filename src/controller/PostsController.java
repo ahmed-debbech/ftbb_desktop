@@ -123,7 +123,7 @@ public class PostsController implements Initializable {
     private void passDetails(MouseEvent event) throws IOException {
     Passable p = Passable.getInstance();
             p.setNumberData(Integer.parseInt(this.article_id.getText()));
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLArticleDetails.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/FXMLArticleDetails.fxml"));
             Pane root1 =  fxmlLoader.load();
             Stage stage = new Stage();
             stage.setTitle(this.title.getText());

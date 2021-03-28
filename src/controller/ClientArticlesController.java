@@ -69,7 +69,7 @@ public class ClientArticlesController implements Initializable {
             try{
                 for(Article a : art){
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("FXMLPosts.fxml"));
+                    loader.setLocation(getClass().getResource("/view/FXMLPosts.fxml"));
                     Node postbox = loader.load();
                     PostsController pc = loader.getController();
                     pc.setData(a);

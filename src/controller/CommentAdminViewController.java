@@ -48,7 +48,6 @@ public class CommentAdminViewController implements Initializable {
         // TODO
     }    
     public void setData(Comment c){
-        System.out.println("teser eeee");
         this.comment_id.setText(String.valueOf(c.getId()));
         this.client_name.setText(c.getClient_name());
         this.content.setText(c.getContent());

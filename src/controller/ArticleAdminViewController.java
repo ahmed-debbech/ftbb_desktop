@@ -70,7 +70,7 @@ public class ArticleAdminViewController implements Initializable {
         Passable p = Passable.getInstance();
             p.setTextData(String.valueOf(ref.getArticle_id()));
             FXMLLoader fxmlLoader = new FXMLLoader();
-            Pane root1 =  fxmlLoader.load(getClass().getResource("FXMLCommentsAdmin.fxml").openStream());
+            Pane root1 =  fxmlLoader.load(getClass().getResource("/view/FXMLCommentsAdmin.fxml").openStream());
             Stage stage = new Stage();
             stage.setTitle("Comments of article: " + ref.getArticle_id());
             stage.setScene(new Scene(root1));  
@@ -80,7 +80,7 @@ public class ArticleAdminViewController implements Initializable {
     @FXML
     private void modArticle(ActionEvent event) throws IOException {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            Pane root1 =  fxmlLoader.load(getClass().getResource("FXMLArticlesEditor.fxml").openStream());
+            Pane root1 =  fxmlLoader.load(getClass().getResource("/view/FXMLArticlesEditor.fxml").openStream());
             Passable p = Passable.getInstance();
             p.setAnyData(this.ref);
             p.setNumberData(1);

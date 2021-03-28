@@ -61,7 +61,7 @@ public class ArticlesAdminViewController implements Initializable {
     @FXML
     private void addArticle(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
-            Pane root1 =  fxmlLoader.load(getClass().getResource("FXMLArticlesEditor.fxml").openStream());
+            Pane root1 =  fxmlLoader.load(getClass().getResource("/view/FXMLArticlesEditor.fxml").openStream());
             Passable p = Passable.getInstance();
             p.setNumberData(0);
             Stage stage = new Stage();
@@ -82,7 +82,7 @@ public class ArticlesAdminViewController implements Initializable {
             try{
                 for(Article a : list){
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("../view/FXMLArticleAdminView.fxml"));
+                    loader.setLocation(getClass().getResource("/view/FXMLArticleAdminView.fxml"));
                     Node postbox = loader.load();
                     ArticleAdminViewController pc = loader.getController();
                     pc.setData(a);

@@ -89,7 +89,7 @@ public class CommentsAdminController implements Initializable {
             try{
                 for(Comment a : list){
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("FXMLCommentAdminView.fxml"));
+                    loader.setLocation(getClass().getResource("/view/FXMLCommentAdminView.fxml"));
                     Node postbox = loader.load();
                     CommentAdminViewController pc = loader.getController();
                     pc.setData(a);

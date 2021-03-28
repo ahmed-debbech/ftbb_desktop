@@ -136,7 +136,7 @@ public class ArticleDetailsController implements Initializable {
                 int pos = 0;
                 for(Comment a : list){
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("FXMLCommentClientView.fxml"));
+                    loader.setLocation(getClass().getResource("/view/FXMLCommentClientView.fxml"));
                     Node postbox = loader.load();
                     CommentClientViewController pc = loader.getController();
                     pc.setData(a, pos, this.comlist);
@@ -155,7 +155,7 @@ public class ArticleDetailsController implements Initializable {
                 int pos = 0;
                 for(Comment a : list){
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("FXMLCommentClientView.fxml"));
+                    loader.setLocation(getClass().getResource("/view/FXMLCommentClientView.fxml"));
                     Node postbox = loader.load();
                     CommentClientViewController pc = loader.getController();
                     pc.setData(a, pos, this.comlist);
