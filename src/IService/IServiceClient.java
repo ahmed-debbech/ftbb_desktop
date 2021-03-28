@@ -18,5 +18,6 @@ public interface IServiceClient {
     public List<Client> AffichierClient();
 
     public void UpdateClient(Client c);
+    public void UpdateClientPass(String pass);
     
 }

@@ -7,6 +7,7 @@ package pdev;
 
 import Entities.Client;
 import Service.ServiceClient;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -24,7 +25,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 /**
@@ -47,6 +50,8 @@ public class EditProfileUtilController implements Initializable {
     @FXML
     private DatePicker Tdate;
         Client c = new Client ();
+    @FXML
+    private TextField tpath;
          
     /**
      * Initializes the controller class.
@@ -57,7 +62,11 @@ public class EditProfileUtilController implements Initializable {
         Tnom.setText(c.getName());
         Tprenom.setText(c.getSurname());
         Tnumero.setText(""+c.getNumber());
-        
+        Tdate.setValue(c.getBirthday().toLocalDate()); /// a editer //
+        tpath.setText(c.getPhoto_url());
+        Image img = new Image("C:\\xampp\\htdocs\\ProfileImg\\22781996.JPG");
+        this.Iprofil.setImage(img);
+        //Iprofil.setImage(img);
     }    
 
     @FXML
@@ -70,6 +79,8 @@ public class EditProfileUtilController implements Initializable {
          LocalDate d = Tdate.getValue();
         System.out.println(d);
        c.setBirthday(Date.valueOf(d));
+       
+        c.setPhoto_url(Utils.ImageUtils.CopyfileClient(tpath.getText(), c));
         sc.UpdateClient(c);
         ServiceClient.setA(c);
          BtVal.getScene().getWindow().hide();
@@ -85,7 +96,7 @@ public class EditProfileUtilController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Succes!");
             alert.setHeaderText(null);
-            alert.setContentText("Inscription validée");
+            alert.setContentText("Modification validée");
             Optional<ButtonType> result = alert.showAndWait(); 
     }
 
@@ -101,6 +112,19 @@ public class EditProfileUtilController implements Initializable {
         stage.setScene(scene);
         stage.show();
         stage.setResizable(false);
+    }
+
+    @FXML
+    private void path(ActionEvent event) {
+        Stage stage = new Stage ();
+        FileChooser fil_chooser = new FileChooser();
+         File file = fil_chooser.showOpenDialog(stage);
+  
+                if (file != null) {
+                      
+                    tpath.setText(file.getAbsolutePath());
+                }
+               
     }
     
 }

@@ -11,6 +11,7 @@ import Entities.Password;
 import Utils.AES256;
 import Utils.SqlConnection;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -73,7 +74,7 @@ private static Admin a =new Admin();
     public void AddAdmin(Admin a) {
         try {
             Statement stm = cnx.createStatement();
-            String rq = "INSERT INTO `admin`(`id`, `name`, `surname`, `email`, `number`, `sex`, `password_id`, `photo_url`, `role`) VALUES (" + a.getId() + ",'" + a.getName() + "','" + a.getSurname() + "','" + a.getEmail() + "'," + a.getNumber() + ",'" + a.getSex() + "'," + a.getPassword_id() + ",'" + a.getPhoto_url() + "'," + a.getRole() + ")";
+            String rq = "INSERT INTO `admin`(`id`, `name`, `surname`, `email`, `number`, `sex`, `password_id`, `photo_url`,`birthday`, `role`) VALUES (" + a.getId() + ",'" + a.getName() + "','" + a.getSurname() + "','" + a.getEmail() + "'," + a.getNumber() + ",'" + a.getSex() + "'," + a.getPassword_id() + ",'" + a.getPhoto_url() + "','"+a.getBirthday()+"'," + a.getRole() + ")";
             stm.executeUpdate(rq);
             System.out.println("ajout réussi");
         } catch (SQLException ex) {
@@ -110,7 +111,7 @@ while (rst.next()) {
             a.setSurname(rst.getString("surname"));
             a.setEmail(rst.getString("email"));
             a.setNumber(rst.getInt("number"));
-//                a.setBirthday(rst.getDate("birthday"));
+            a.setBirthday(rst.getDate("birthday"));
             a.setSex(rst.getString("sex"));
             a.setPassword_id(rst.getInt("password_id"));
             a.setPhoto_url(rst.getString("photo_url"));
@@ -136,7 +137,7 @@ while (rst.next()) {
             a.setSurname(rst.getString("surname"));
             a.setEmail(rst.getString("email"));
             a.setNumber(rst.getInt("number"));
-//                a.setBirthday(rst.getDate("birthday"));
+            a.setBirthday(rst.getDate("birthday"));
             a.setSex(rst.getString("sex"));
             a.setPassword_id(rst.getInt("password_id"));
             a.setPhoto_url(rst.getString("photo_url"));
@@ -157,6 +158,9 @@ while (rst.next()) {
             String rq = "DELETE FROM `admin` WHERE `id`=" + a.getId();
             stm.executeUpdate(rq);
             System.out.println("suppression réussi");
+             String rq1 = "DELETE FROM `password` WHERE `password_id`=" + a.getPassword_id();
+             stm.executeUpdate(rq1);
+            System.out.println("suppression pass réussi");
         } catch (SQLException ex) {
             System.out.println("erreur sur suppression");
         }
@@ -204,6 +208,7 @@ while (rst.next()) {
             System.out.println("erreur de modification");
         }
     }
+    
 
     @Override
     public List<Admin> AffichierAdmin() {
@@ -218,7 +223,7 @@ while (rst.next()) {
                 a.setSurname(rst.getString("surname"));
                 a.setEmail(rst.getString("email"));
                 a.setNumber(rst.getInt("number"));
-//                a.setBirthday(rst.getDate("birthday"));
+                a.setBirthday(rst.getDate("birthday"));
                 a.setSex(rst.getString("sex"));
                 a.setPassword_id(rst.getInt("password_id"));
                 a.setPhoto_url(rst.getString("photo_url"));
@@ -231,5 +236,22 @@ while (rst.next()) {
             System.out.println("erreur sur affichage");
         }
         return admins;
+    }
+
+    @Override
+    public void UpdateAdminPass(String pass) {
+        Admin ad=new Admin ();
+        ad= ServiceAdmin.getA();
+      try {
+            Statement stm = cnx.createStatement();
+//            Date date = new Date(System.currentTimeMillis());
+//            String rq = "UPDATE `password` SET `last_change`="+date+",`previous_pwd`=`pwd` WHERE `password_id`= "+a.getPassword_id();
+//            stm.executeUpdate(rq);
+            String rq1 ="UPDATE `password` SET `pwd`='"+AES256.encrypt(pass)+"' WHERE `password_id`="+ad.getPassword_id();
+            stm.executeUpdate(rq1);
+            System.out.println("modication réussi");
+        } catch (SQLException ex) {
+            System.out.println("erreur de modification");
+        }
     }
 }

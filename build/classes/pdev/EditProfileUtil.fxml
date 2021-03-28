@@ -10,16 +10,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: ffebcd;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="pdev.EditProfileUtilController">
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: ffebcd;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pdev.EditProfileUtilController">
    <children>
       <ImageView fx:id="Iprofil" fitHeight="189.0" fitWidth="216.0" layoutX="780.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/user.png" />
-         </image>
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
+         <image>
+            <Image url="@../img/user.png" />
+         </image>
       </ImageView>
       <Label layoutX="178.0" layoutY="194.0" text="Nom:">
          <font>
@@ -52,5 +51,12 @@
       <TextField fx:id="Tprenom" layoutX="467.0" layoutY="269.0" prefHeight="32.0" prefWidth="218.0" />
       <TextField fx:id="Tnumero" layoutX="466.0" layoutY="424.0" prefHeight="32.0" prefWidth="218.0" />
       <DatePicker fx:id="Tdate" layoutX="467.0" layoutY="347.0" prefHeight="32.0" prefWidth="218.0" />
+      <Button layoutX="345.0" layoutY="492.0" mnemonicParsing="false" onAction="#path" prefHeight="32.0" prefWidth="85.0" text="inserer" />
+      <Label layoutX="174.0" layoutY="488.0" text="Photo :">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tpath" layoutX="455.0" layoutY="492.0" prefHeight="32.0" prefWidth="218.0" />
    </children>
 </AnchorPane>

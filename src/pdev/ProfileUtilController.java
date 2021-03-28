@@ -53,7 +53,7 @@ public class ProfileUtilController implements Initializable {
          
         lnom.setText(a.getName()); 
         lprenom.setText(a.getSurname());
-        //lbirth.setText(a.getBirthday().toString()); 
+        lbirth.setText(a.getBirthday().toString()); 
         
         String s=String.valueOf(a.getNumber());
         lnumber.setText(s);

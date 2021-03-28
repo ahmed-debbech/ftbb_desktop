@@ -8,15 +8,19 @@ package IService;
 import Entities.Admin;
 import Entities.Client;
 
-
-
-
 /**
  *
  * @author Yassine
  */
 public interface IServiceCnx {
-   public boolean CheckAdminCnx(String mail,String pwd);
-    public boolean checkPass(int id ,String pwd);
-   public boolean CheckClientCnx(String mail, String pwd);
+
+    public boolean CheckAdminCnx(String mail, String pwd);
+
+    public boolean checkPass(int id, String pwd);
+
+    public boolean CheckClientCnx(String mail, String pwd);
+
+    public boolean CheckClientCnx(String mail);
+
+    public boolean CheckAdminCnx(String mail);
 }

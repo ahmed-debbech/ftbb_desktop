@@ -89,4 +89,45 @@ public class ServiceCnx implements IServiceCnx{
        
       return test;
     }
+     @Override
+    public boolean CheckAdminCnx(String mail) {
+      boolean test=false;
+       Admin a= new Admin ();
+       try{
+      ServiceAdmin sa = new ServiceAdmin();
+      a= sa.SelectAdmin(mail);
+                System.out.println("get info  from mail");
+        
+            
+            if (a.getEmail() != null){
+               test=true;
+              ServiceAdmin.setA(a);
+            }
+            
+        } catch (Exception ex) {
+            System.out.println("erreur sur check");
+        }
+       
+      return test;
+    }
+     @Override
+    public boolean CheckClientCnx(String mail) {
+      boolean test=false;
+       Client a= new Client ();
+       try{
+      ServiceClient sa = new ServiceClient();
+      a= sa.SelectClient(mail);
+                System.out.println("get info  from mail");
+            
+            if (a.getEmail() != null){
+               test=true;
+             ServiceClient.setA(a);
+            }
+            
+        } catch (Exception ex) {
+            System.out.println("erreur sur check");
+        }
+       
+      return test;
+    }
 }

@@ -29,4 +29,5 @@ public interface IServiceAdmin {
     public void BanClient(int id_Client);
     
     public void UpdateClient(Client c) ;
+    public void UpdateAdminPass(String pass);
 }

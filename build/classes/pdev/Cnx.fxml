@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -46,5 +47,10 @@
             <Font size="25.0" />
          </font>
       </Button>
+      <Hyperlink layoutX="305.0" layoutY="570.0" onAction="#ResetPassword" text="mot de passe oublié?">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Hyperlink>
    </children>
 </AnchorPane>

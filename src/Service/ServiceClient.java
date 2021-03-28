@@ -8,6 +8,7 @@ package Service;
 import Entities.Admin;
 import Entities.Client;
 import IService.IServiceClient;
+import Utils.AES256;
 import Utils.SqlConnection;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -72,7 +73,7 @@ public ServiceClient() {
                 a.setSurname(rst.getString("surname"));
                 a.setEmail(rst.getString("email"));
                 a.setNumber(rst.getInt("number"));
-              a.setBirthday(rst.getDate("birthday"));
+                a.setBirthday(rst.getDate("birthday"));
                 a.setSex(rst.getString("sex"));
                 a.setPassword_id(rst.getInt("password_id"));
                 a.setPhoto_url(rst.getString("photo_url"));
@@ -97,8 +98,8 @@ public ServiceClient() {
 
             String rq = "UPDATE `client` SET `name`='" + c.getName() + "',`surname`='" + c.getSurname() + "',`email`='" + c.getEmail() + "',"
                     + "`number`=" + c.getNumber() 
-                  //  + ",`birthday`='" + c.getBirthday() 
-                    + ",`sex`='" + c.getSex() + "',"
+                    + ",`birthday`='" + c.getBirthday() 
+                    + "',`sex`='" + c.getSex() + "',"
                     + "`password_id`=" + c.getPassword_id() + ",`photo_url`='" + c.getPhoto_url() + "',`id_cart`=" + c.getId_cart() + ","
                     + "`status`='" + c.getStatus() + "' WHERE `id`=" + c.getId();
             stm.executeUpdate(rq);
@@ -120,7 +121,7 @@ while (rst.next()) {
             a.setSurname(rst.getString("surname"));
             a.setEmail(rst.getString("email"));
             a.setNumber(rst.getInt("number"));
-          //  a.setBirthday(rst.getDate("birthday"));
+            a.setBirthday(rst.getDate("birthday"));
             a.setSex(rst.getString("sex"));
             a.setPassword_id(rst.getInt("password_id"));
             a.setPhoto_url(rst.getString("photo_url"));
@@ -134,6 +135,22 @@ while (rst.next()) {
             System.out.println("erreur select");
         }
         return a;
+    }
+       @Override
+    public void UpdateClientPass(String pass) {
+        Client ad=new Client ();
+        ad= ServiceClient.getA();
+      try {
+            Statement stm = cnx.createStatement();
+//            Date date = new Date(System.currentTimeMillis());
+//            String rq = "UPDATE `password` SET `last_change`="+date+",`previous_pwd`=`pwd` WHERE `password_id`= "+a.getPassword_id();
+//            stm.executeUpdate(rq);
+            String rq1 ="UPDATE `password` SET `pwd`='"+AES256.encrypt(pass)+"' WHERE `password_id`="+ad.getPassword_id();
+            stm.executeUpdate(rq1);
+            System.out.println("modication réussi");
+        } catch (SQLException ex) {
+            System.out.println("erreur de modification");
+        }
     }
     }
     

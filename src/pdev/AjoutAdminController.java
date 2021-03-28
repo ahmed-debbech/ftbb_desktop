@@ -92,6 +92,8 @@ public class AjoutAdminController implements Initializable {
     private TableView<Admin> table_ad;
     @FXML
     private Button btretour;
+    @FXML
+    private TableColumn<Admin,String> col_date_Birth;
 
     /**
      * Initializes the controller class.
@@ -108,6 +110,7 @@ public class AjoutAdminController implements Initializable {
         col_numero.setCellValueFactory(new PropertyValueFactory<>("number"));
         col_sex.setCellValueFactory(new PropertyValueFactory<>("sex"));
         col_email.setCellValueFactory(new PropertyValueFactory<>("email"));
+        col_date_Birth.setCellValueFactory(new PropertyValueFactory<>("birthday"));
         table_ad.setItems(sp.getData());
     }
 
@@ -222,6 +225,7 @@ public class AjoutAdminController implements Initializable {
         col_numero.setCellValueFactory(new PropertyValueFactory<>("number"));
         col_sex.setCellValueFactory(new PropertyValueFactory<>("sex"));
         col_email.setCellValueFactory(new PropertyValueFactory<>("email"));
+        col_date_Birth.setCellValueFactory(new PropertyValueFactory<>("birthday"));
         table_ad.setItems(sp.getData());
     }
 
@@ -230,7 +234,7 @@ public class AjoutAdminController implements Initializable {
         ServiceAdmin sp = new ServiceAdmin();
         Admin b = new Admin();
         b.setId(table_ad.getSelectionModel().getSelectedItem().getId());
-
+        b= sp.SelectAdmin(b.getId());
         sp.DeleteAdmin(b);
 
         List<Admin> a = sp.AffichierAdmin();
@@ -242,6 +246,7 @@ public class AjoutAdminController implements Initializable {
         col_numero.setCellValueFactory(new PropertyValueFactory<>("number"));
         col_sex.setCellValueFactory(new PropertyValueFactory<>("sex"));
         col_email.setCellValueFactory(new PropertyValueFactory<>("email"));
+        col_date_Birth.setCellValueFactory(new PropertyValueFactory<>("birthday"));
         table_ad.setItems(sp.getData());
     }
 
