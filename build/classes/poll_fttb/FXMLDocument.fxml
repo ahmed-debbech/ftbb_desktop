@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="561.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poll_fttb.FXMLDocumentController">
+    <children>
+      <Label layoutX="25.0" layoutY="51.0" prefHeight="25.0" prefWidth="92.0" text="Description">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="18.0" layoutY="171.0" text="Answer Options">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="PollDescription" layoutX="16.0" layoutY="76.0" prefHeight="88.0" prefWidth="373.0" promptText="What is this Poll about..." style="-fx-background-color: da4646;" />
+      <TextField fx:id="OptionDescription1" layoutX="25.0" layoutY="205.0" promptText="Options..." style="-fx-border-color: da4646;" />
+      <TextField fx:id="OptionDescription2" layoutX="25.0" layoutY="233.0" promptText="Options..." style="-fx-border-color: da4646;" />
+        <Button layoutX="271.0" layoutY="218.0" onAction="#AddPoll" style="-fx-background-color: da4646; -fx-background-radius: 5em;" text="Add Poll" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="448.0" layoutY="218.0" mnemonicParsing="false" onAction="#ViewPoll" prefHeight="25.0" prefWidth="34.0" style="-fx-background-color: da4646; -fx-background-radius: 5em;" text=" ⟳ " textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="18.0" layoutY="528.0" mnemonicParsing="false" onAction="#DeletePoll" style="-fx-background-color: da4646; -fx-background-radius: 5em;" text="Delete Poll" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="253.0" layoutY="528.0" mnemonicParsing="false" onAction="#view1poll" style="-fx-background-color: da4646; -fx-background-radius: 5em;" text="View Poll" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="327.0" layoutY="528.0" mnemonicParsing="false" onAction="#EndPoll" style="-fx-background-color: da4646; -fx-background-radius: 5em;" text="End Poll" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Separator layoutX="204.0" layoutY="169.0" orientation="VERTICAL" prefHeight="98.0" prefWidth="16.0" />
+      <Separator layoutX="405.0" layoutY="8.0" orientation="VERTICAL" prefHeight="546.0" prefWidth="16.0">
+         <effect>
+            <Bloom>
+               <input>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </input>
+            </Bloom>
+         </effect>
+      </Separator>
+      <TableView fx:id="ListPoll" layoutX="16.0" layoutY="270.0" prefHeight="245.0" prefWidth="373.0" style="-fx-border-color: da4646;">
+         <columns>
+            <TableColumn id="t1" fx:id="t1" prefWidth="75.0" style="-fx-background-color: e16b6b;" text="Poll ID" />
+            <TableColumn id="t2" fx:id="t2" prefWidth="150.0" style="-fx-background-color: e16b6b;" text="Description" />
+            <TableColumn id="t3" fx:id="t3" prefWidth="84.0" style="-fx-background-color: e16b6b;" text="Creation Date" />
+            <TableColumn id="t4" fx:id="t4" prefWidth="64.0" style="-fx-background-color: e16b6b;" text="Status" />
+            <TableColumn id="t1" fx:id="t11" minWidth="0.0" prefWidth="74.0" style="-fx-background-color: e16b6b;" text="Poll ID" />
+         </columns></TableView>
+      <TextArea fx:id="Descriptiondisplay" layoutX="423.0" layoutY="189.0" prefHeight="88.0" prefWidth="373.0" promptText="Select a Poll from the table...." style="-fx-background-color: da4646;" />
+      <TextField fx:id="Option1display" layoutX="458.0" layoutY="319.0" prefHeight="25.0" prefWidth="135.0" promptText="Select a Poll...." style="-fx-border-color: da4646;" />
+      <TextField fx:id="Option2display" layoutX="458.0" layoutY="362.0" prefHeight="25.0" prefWidth="135.0" promptText="Select a Poll...." style="-fx-border-color: da4646;" />
+      <Label layoutX="117.0" layoutY="7.0" prefHeight="35.0" prefWidth="170.0" text="Poll Controll-Panel">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="536.0" layoutY="120.0" prefHeight="31.0" prefWidth="115.0" text="Poll Display">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Separator layoutX="25.0" layoutY="40.0" prefHeight="10.0" prefWidth="340.0" />
+      <ProgressBar fx:id="resultbar1" layoutX="610.0" layoutY="323.0" prefHeight="18.0" prefWidth="135.0" progress="0.0" style="-fx-accent: red;" />
+      <ProgressBar fx:id="resultbar2" layoutX="610.0" layoutY="366.0" prefHeight="18.0" prefWidth="135.0" progress="0.0" style="-fx-accent: red;" />
+      <Separator layoutX="465.0" layoutY="298.0" prefHeight="10.0" prefWidth="313.0" />
+      <Label fx:id="result1" layoutX="751.0" layoutY="323.0" prefHeight="17.0" prefWidth="45.0" />
+      <Label fx:id="result2" layoutX="751.0" layoutY="366.0" prefHeight="17.0" prefWidth="45.0" />
+      <Button layoutX="101.0" layoutY="528.0" mnemonicParsing="false" onAction="#DeleteAll" style="-fx-background-color: da4646; -fx-background-radius: 5em;" text="Delete All" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+    </children>
+</AnchorPane>

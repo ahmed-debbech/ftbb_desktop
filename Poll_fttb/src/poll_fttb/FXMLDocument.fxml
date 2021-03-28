@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="544.0" prefWidth="803.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poll_fttb.FXMLDocumentController">
+    <children>
+      <Label layoutX="25.0" layoutY="51.0" prefHeight="25.0" prefWidth="92.0" text="Description">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="18.0" layoutY="171.0" text="Answer Options">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="PollDescription" layoutX="16.0" layoutY="76.0" prefHeight="88.0" prefWidth="373.0" promptText="What is this Poll about..." />
+      <TextField fx:id="OptionDescription1" layoutX="25.0" layoutY="205.0" promptText="Options..." />
+      <TextField fx:id="OptionDescription2" layoutX="25.0" layoutY="233.0" promptText="Options..." />
+        <Button layoutX="238.0" layoutY="218.0" onAction="#AddPoll" text="Add Poll" />
+      <Button layoutX="336.0" layoutY="218.0" mnemonicParsing="false" onAction="#ViewPoll" prefHeight="25.0" prefWidth="34.0" text="⟳ ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="50.0" layoutY="515.0" mnemonicParsing="false" onAction="#DeletePoll" text="Delete Poll" />
+      <Button layoutX="169.0" layoutY="515.0" mnemonicParsing="false" onAction="#view1poll" text="View Poll" />
+      <Button layoutX="290.0" layoutY="515.0" mnemonicParsing="false" onAction="#EndPoll" text="End Poll" />
+      <Separator layoutX="204.0" layoutY="169.0" orientation="VERTICAL" prefHeight="98.0" prefWidth="16.0" />
+      <Separator layoutX="394.0" layoutY="7.0" orientation="VERTICAL" prefHeight="526.0" prefWidth="16.0">
+         <effect>
+            <Bloom>
+               <input>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </input>
+            </Bloom>
+         </effect>
+      </Separator>
+      <TableView fx:id="ListPoll" layoutX="15.0" layoutY="270.0" prefHeight="245.0" prefWidth="373.0">
+         <columns>
+            <TableColumn fx:id="t1" prefWidth="75.0" text="Poll ID" />
+            <TableColumn id="t2" fx:id="t2" prefWidth="150.0" text="Description" />
+            <TableColumn id="t3" fx:id="t3" prefWidth="84.0" text="Creation Date" />
+            <TableColumn id="t4" fx:id="t4" prefWidth="63.0" text="Status" />
+         </columns></TableView>
+      <TextArea fx:id="Descriptiondisplay" layoutX="423.0" layoutY="189.0" prefHeight="88.0" prefWidth="373.0" promptText="Select a Poll from the table...." />
+      <TextField fx:id="Option1display" layoutX="458.0" layoutY="319.0" prefHeight="25.0" prefWidth="135.0" promptText="Select a Poll...." />
+      <TextField fx:id="Option2display" layoutX="458.0" layoutY="362.0" prefHeight="25.0" prefWidth="135.0" promptText="Select a Poll...." />
+      <Label layoutX="124.0" layoutY="14.0" prefHeight="31.0" prefWidth="175.0" text="Poll Controll-Panel">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="525.0" layoutY="127.0" prefHeight="31.0" prefWidth="115.0" text="Poll Display">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Separator layoutX="25.0" layoutY="40.0" prefHeight="10.0" prefWidth="340.0" />
+      <Button layoutX="415.0" layoutY="319.0" mnemonicParsing="false" onAction="#opt1" prefHeight="25.0" prefWidth="28.0" text="✔" />
+      <Button layoutX="415.0" layoutY="362.0" mnemonicParsing="false" onAction="#opt2" text="✔" />
+      <ProgressBar fx:id="resultbar1" layoutX="610.0" layoutY="323.0" prefHeight="18.0" prefWidth="135.0" progress="0.0" />
+      <ProgressBar fx:id="resultbar2" layoutX="610.0" layoutY="366.0" prefHeight="18.0" prefWidth="135.0" progress="0.0" />
+      <Separator layoutX="465.0" layoutY="298.0" prefHeight="10.0" prefWidth="313.0" />
+      <Label fx:id="result1" layoutX="751.0" layoutY="323.0" prefHeight="17.0" prefWidth="45.0" />
+      <Label fx:id="result2" layoutX="751.0" layoutY="366.0" prefHeight="17.0" prefWidth="45.0" />
+    </children>
+</AnchorPane>
