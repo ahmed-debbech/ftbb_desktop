@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +19,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -33,6 +36,8 @@ public class PollAdminViewController implements Initializable {
     private List<Poll> list;
     @FXML
     private VBox adminVbox;
+    @FXML
+    private TextField SearchBar;
    
     
     /**
@@ -42,7 +47,7 @@ public class PollAdminViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
        ServicePoll sa = new ServicePoll();
-        this.adminVbox.getChildren().clear();
+        this.adminVbox.getChildren();
             this.list =  sa.ViewPoll();
             try{
                 for(Poll p : this.list){
@@ -54,6 +59,8 @@ public class PollAdminViewController implements Initializable {
                     pc.setData(p);
                    
                     this.adminVbox.getChildren().add(postbox);
+                    
+                    
                     }
                 }
             }catch(IOException e){

@@ -5,13 +5,14 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="512.0" prefWidth="736.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poll_fttb.PollAdminViewController">
-   <children>
+  <children>
       <HBox prefHeight="49.0" prefWidth="741.0">
          <children>
             <Button mnemonicParsing="false" onAction="#ctrlpanel" prefHeight="28.0" prefWidth="29.0" style="-fx-background-color: da4646; -fx-background-radius: 5em;" text="🔘" textFill="WHITE">
@@ -21,7 +22,7 @@
             </Button>
             <Label prefHeight="17.0" prefWidth="130.0" text="Poll Controll Pannel">
                <HBox.margin>
-                  <Insets right="2.0" top="23.0" />
+                  <Insets top="22.0" />
                </HBox.margin>
                <font>
                   <Font name="System Bold" size="13.0" />
@@ -45,7 +46,7 @@
             </Button>
          </children>
       </HBox>
-      <ScrollPane layoutX="200.0" layoutY="68.0" prefHeight="444.0" prefWidth="736.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="68.0">
+      <ScrollPane layoutX="200.0" layoutY="64.0" prefHeight="444.0" prefWidth="736.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="64.0">
          <content>
             <VBox fx:id="adminVbox" prefHeight="441.0" prefWidth="739.0">
                <children>
@@ -54,5 +55,14 @@
             </VBox>
          </content>
       </ScrollPane>
+      <HBox layoutX="546.0" layoutY="68.0" prefHeight="40.0" prefWidth="195.0">
+         <children>
+            <TextField fx:id="SearchBar" promptText="Search Poll" style="-fx-border-radius: 20px; -fx-background-radius: 20 20 20 20;">
+               <HBox.margin>
+                  <Insets left="20.0" top="10.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

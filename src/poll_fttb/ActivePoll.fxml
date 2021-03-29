@@ -22,7 +22,7 @@
                   <Insets left="40.0" top="15.0" />
                </HBox.margin>
             </Button>
-            <TextField fx:id="option1" prefHeight="25.0" prefWidth="193.0" style="-fx-border-color: da4646;">
+            <TextField fx:id="option1" prefHeight="25.0" prefWidth="193.0" style="-fx-border-color: da4646; -fx-background-radius: 20 20 20 20; -fx-border-radius: 20px;">
                <HBox.margin>
                   <Insets left="20.0" right="40.0" top="15.0" />
                </HBox.margin>
@@ -36,7 +36,7 @@
                   <Insets left="40.0" />
                </HBox.margin>
             </Button>
-            <TextField fx:id="option2" prefHeight="25.0" prefWidth="193.0" style="-fx-border-color: da4646;">
+            <TextField fx:id="option2" prefHeight="25.0" prefWidth="193.0" style="-fx-border-color: da4646; -fx-border-radius: 20px; -fx-background-radius: 20 20 20 20;">
                <HBox.margin>
                   <Insets left="20.0" right="40.0" />
                </HBox.margin>

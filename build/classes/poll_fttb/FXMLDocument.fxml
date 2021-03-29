@@ -28,8 +28,8 @@
          </font>
       </Label>
       <TextArea fx:id="PollDescription" layoutX="16.0" layoutY="76.0" prefHeight="88.0" prefWidth="373.0" promptText="What is this Poll about..." style="-fx-background-color: da4646;" />
-      <TextField fx:id="OptionDescription1" layoutX="25.0" layoutY="205.0" promptText="Options..." style="-fx-border-color: da4646;" />
-      <TextField fx:id="OptionDescription2" layoutX="25.0" layoutY="233.0" promptText="Options..." style="-fx-border-color: da4646;" />
+      <TextField fx:id="OptionDescription1" layoutX="25.0" layoutY="205.0" promptText="Options..." style="-fx-border-color: da4646; -fx-background-radius: 20 20 20 20; -fx-border-radius: 20px;"/>
+      <TextField fx:id="OptionDescription2" layoutX="25.0" layoutY="233.0" promptText="Options..." style="-fx-border-color: da4646; -fx-background-radius: 20 20 20 20; -fx-border-radius: 20px;" />
         <Button layoutX="271.0" layoutY="218.0" onAction="#AddPoll" style="-fx-background-color: da4646; -fx-background-radius: 5em;" text="Add Poll" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -60,7 +60,7 @@
                         <Shadow />
                      </bumpInput>
                      <light>
-                        <Light.Distant />
+                       
                      </light>
                   </Lighting>
                </input>
@@ -76,8 +76,8 @@
             <TableColumn id="t1" fx:id="t11" minWidth="0.0" prefWidth="74.0" style="-fx-background-color: e16b6b;" text="Poll ID" />
          </columns></TableView>
       <TextArea fx:id="Descriptiondisplay" layoutX="423.0" layoutY="189.0" prefHeight="88.0" prefWidth="373.0" promptText="Select a Poll from the table...." style="-fx-background-color: da4646;" />
-      <TextField fx:id="Option1display" layoutX="458.0" layoutY="319.0" prefHeight="25.0" prefWidth="135.0" promptText="Select a Poll...." style="-fx-border-color: da4646;" />
-      <TextField fx:id="Option2display" layoutX="458.0" layoutY="362.0" prefHeight="25.0" prefWidth="135.0" promptText="Select a Poll...." style="-fx-border-color: da4646;" />
+      <TextField fx:id="Option1display" editable="false" layoutX="458.0" layoutY="319.0" prefHeight="25.0" prefWidth="135.0" promptText="Select a Poll...." style="-fx-border-color: da4646; -fx-background-radius: 20 20 20 20; -fx-border-radius: 20px;" />
+      <TextField fx:id="Option2display" editable="false" layoutX="458.0" layoutY="362.0" prefHeight="25.0" prefWidth="135.0" promptText="Select a Poll...." style="-fx-border-color: da4646; -fx-background-radius: 20 20 20 20; -fx-border-radius: 20px;" />
       <Label layoutX="117.0" layoutY="7.0" prefHeight="35.0" prefWidth="170.0" text="Poll Controll-Panel">
          <font>
             <Font name="System Bold" size="19.0" />

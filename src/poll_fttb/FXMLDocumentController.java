@@ -147,6 +147,7 @@ public class FXMLDocumentController implements Initializable {
         List<Poll> p = tp.ViewPoll();
 
         ObservableList<Poll> data =FXCollections.observableArrayList(p);
+        
          ListPoll.setItems(data);   
         TableView<Poll> table;
        tt = p.isEmpty();
