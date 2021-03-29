@@ -5,6 +5,8 @@
  */
 package Utils;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -42,5 +44,15 @@ public class Utilities {
             generated = -1;
         }
         return generated;
+    }
+
+    public static String timestampConverter(String report_date) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    public static String pathToUrl(String str){
+            Path p = Paths.get(str);
+            String file = p.getFileName().toString();
+            String s=(new StringBuilder()).append("http://127.0.0.1/uploads/").append(file).toString();  
+            return s;
     }
 }

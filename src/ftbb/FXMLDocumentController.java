@@ -7,6 +7,7 @@ package ftbb;
 
 import Entites.Galerie;
 import Services.ServiceGalerie;
+import Utils.Utilities;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -86,8 +87,9 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void addphoto(ActionEvent event) {
             Galerie g =new Galerie();
+            String dir = Utilities.pathToUrl(this.tfphotourl.getText());
             g.setPhoto_title(tfphototitle.getText());
-            g.setPhoto_url(tfphotourl.getText());
+            g.setPhoto_url(dir);
             g.setDescription(tfdesc.getText());
             
        if((tfphototitle.getText().equals("")) || (tfphotourl.getText().equals("")) ||(tfdesc.getText().equals("")) ){
@@ -172,6 +174,7 @@ public class FXMLDocumentController implements Initializable {
     private void Browse(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Pick a banner file!");
+        fileChooser.setInitialDirectory(new File("D:\\xampp\\htdocs\\uploads"));
         Stage stage = new Stage();
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("JPG", "*.jpg"),
@@ -181,10 +184,11 @@ public class FXMLDocumentController implements Initializable {
         try {
                 BufferedImage bufferedImage = ImageIO.read(file);
                 Image image = SwingFXUtils.toFXImage(bufferedImage, null);
-                tfphotourl.setText(file.getAbsolutePath());
+                this.tfphotourl.setText(file.getAbsolutePath());
             } catch (IOException ex) {
                 System.out.println("could not get the image");
             }
     }
+    
     
 }
