@@ -7,20 +7,20 @@ package ftbb;
 
 import Entites.Report;
 import Services.ServiceAdminReport;
-import Services.ServiceReport;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -49,9 +49,14 @@ public class AdminReportsController implements Initializable {
     }    
 
     @FXML
-    private void showreports(ActionEvent event) throws SQLException {
+    private void showreports(ActionEvent event)  {
         ServiceAdminReport sr=new ServiceAdminReport();
-        List<Report> r = sr.ShowReport();
+        List<Report> r = null;
+        try {
+            r = sr.ShowReport();
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminReportsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         TableColumn t1 = new TableColumn("Report ID ");
         t1.setCellValueFactory(new PropertyValueFactory<Report, String>("report_id"));
         TableColumn t2 = new TableColumn("Client ID ");
@@ -79,13 +84,19 @@ public class AdminReportsController implements Initializable {
             alert.setContentText("Please select a Report from the list.");
             Optional<ButtonType> result = alert.showAndWait();
         }else{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Respondreport.fxml"));
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Respondreport.fxml"));
+            
             Parent root = loader.load();
+           
             RespondreportController cr = loader.getController();
             cr.pass(r.getEmail());
+            
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
+            
+           
     }
     
 }

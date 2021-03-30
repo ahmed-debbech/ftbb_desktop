@@ -34,18 +34,17 @@ public class ServiceAdminReport implements IServicesAdminReports {
          Statement stm=cnx.createStatement();
         String query="SELECT * FROM report";
         ResultSet rst=stm.executeQuery(query);
-        List<Report>Reports=new ArrayList();
+        List<Report>Reports=new ArrayList<>();
         while(rst.next())
         {
             Report r= new Report();
             r.setReport_id(rst.getInt("report_id"));
             r.setClient_id(rst.getInt("client_id"));
             r.setCommand_id(rst.getInt("command_id"));
-            r.setReport_date(rst.getString("report_date"));
+            r.setReport_date(rst.getDate("report_date").toString());
             r.setEmail(rst.getString("email"));
             r.setDescription(rst.getString("description"));
             Reports.add(r);
-        
         }
         return Reports;
     }

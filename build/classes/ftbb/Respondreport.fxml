@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="478.0" prefWidth="679.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="ftbb.RespondreportController">
+   <children>
+      <Label layoutX="205.0" layoutY="140.0" text="Client Email :" />
+      <TextField fx:id="tfce" layoutX="286.0" layoutY="136.0" />
+      <Label layoutX="205.0" layoutY="204.0" text="Answer :" />
+      <TextArea fx:id="tfan" layoutX="273.0" layoutY="198.0" prefHeight="200.0" prefWidth="284.0" />
+      <Button layoutX="570.0" layoutY="424.0" mnemonicParsing="false" onAction="#respondreport" text="Respond" />
+   </children>
+</AnchorPane>
