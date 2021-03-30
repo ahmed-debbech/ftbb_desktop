@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="728.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CompetitionController">
+     <children>
+      <Label layoutX="36.0" layoutY="43.0" text="Competition" />
+      <Label layoutX="37.0" layoutY="74.0" text="Phase" />
+      <Label layoutX="38.0" layoutY="105.0" text="Week" />
+      <ChoiceBox fx:id="ListCompetition" layoutX="125.0" layoutY="39.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="ListPhase" layoutX="125.0" layoutY="70.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="ListWeek" layoutX="125.0" layoutY="101.0" prefWidth="150.0" />
+      <Button fx:id="btAddCompetition" layoutX="295.0" layoutY="39.0" mnemonicParsing="false" onAction="#AddCompetition" text="Add" />
+      <Button layoutX="295.0" layoutY="70.0" mnemonicParsing="false" onAction="#AddPhase" text="Add" />
+      <Button layoutX="295.0" layoutY="101.0" mnemonicParsing="false" onAction="#AddWeek" text="Add" />
+      <TableView fx:id="table_game" layoutX="26.0" layoutY="185.0" prefHeight="200.0" prefWidth="679.0">
+        <columns>
+          <TableColumn fx:id="logo_home" prefWidth="77.0" text="logo_Home" />
+          <TableColumn fx:id="name_home" prefWidth="73.0" text="Name_home" />
+            <TableColumn fx:id="score_home" prefWidth="75.0" text="Score_home" />
+            <TableColumn fx:id="score_away" prefWidth="75.0" text="Score_Away" />
+            <TableColumn fx:id="name_away" prefWidth="75.0" text="Name_Away" />
+            <TableColumn fx:id="logo_away" prefWidth="75.0" text="logo_away" />
+            <TableColumn fx:id="hall" prefWidth="75.0" text="Hall" />
+            <TableColumn fx:id="time" prefWidth="75.0" text="Time" />
+            <TableColumn fx:id="statuts" prefWidth="75.0" text="Statuts" />
+        </columns>
+      </TableView>
+      <ScrollBar layoutX="698.0" layoutY="185.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="14.0" />
+      <Button layoutX="173.0" layoutY="141.0" mnemonicParsing="false" onAction="#AddGame" prefHeight="34.0" prefWidth="99.0" text="Add_Game" />
+      <Button layoutX="302.0" layoutY="141.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="99.0" text="Classement" />
+      <Button layoutX="431.0" layoutY="141.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="99.0" text="Calendar" />
+      <Button layoutX="562.0" layoutY="141.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="99.0" text="Statistics" />
+      <Button layoutX="45.0" layoutY="141.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="99.0" text="Filrer_Game" />
+      <Button layoutX="351.0" layoutY="39.0" mnemonicParsing="false" onAction="#UpdateCompetition" text="Up" />
+      <Button layoutX="401.0" layoutY="39.0" mnemonicParsing="false" onAction="#DeleteCompetition" text="Del" />
+      <Button layoutX="351.0" layoutY="70.0" mnemonicParsing="false" onAction="#UpdatePhase" text="Up" />
+      <Button layoutX="401.0" layoutY="70.0" mnemonicParsing="false" onAction="#DeletePhase" text="Del" />
+      <Button layoutX="351.0" layoutY="101.0" mnemonicParsing="false" onAction="#UpdateWeek" text="Up" />
+      <Button layoutX="401.0" layoutY="101.0" mnemonicParsing="false" onAction="#DeleteWeek" text="Del" />
+   </children>
+</AnchorPane>

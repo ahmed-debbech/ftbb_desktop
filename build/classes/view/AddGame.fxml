@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddGameController">
+   <children>
+      <Label layoutX="12.0" layoutY="20.0" prefHeight="35.0" prefWidth="97.0" text="Add Game">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="ListTeamHome" layoutX="72.0" layoutY="135.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="ListTeamAway" layoutX="337.0" layoutY="135.0" prefWidth="150.0" />
+      <Label layoutX="99.0" layoutY="94.0" prefHeight="35.0" prefWidth="97.0" text="Team Home" />
+      <Label layoutX="364.0" layoutY="94.0" prefHeight="35.0" prefWidth="97.0" text="Team Away" />
+      <Label layoutX="48.0" layoutY="221.0" prefHeight="35.0" prefWidth="34.0" text="Date" />
+      <DatePicker layoutX="78.0" layoutY="226.0" prefHeight="25.0" prefWidth="140.0" />
+      <Label layoutX="320.0" layoutY="221.0" prefHeight="35.0" prefWidth="34.0" text="Hall" />
+      <TextField layoutX="347.0" layoutY="226.0" />
+      <Button layoutX="174.0" layoutY="296.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="97.0" text="Valider" />
+      <Button layoutX="316.0" layoutY="296.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="97.0" text="Annuler" />
+   </children>
+</AnchorPane>
