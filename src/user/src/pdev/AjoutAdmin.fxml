@@ -50,26 +50,10 @@
             <Font name="Cambria Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="tfnom" layoutX="241.0" layoutY="137.0" prefHeight="30.0" prefWidth="200.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="tfprenom" layoutX="241.0" layoutY="186.0" prefHeight="30.0" prefWidth="200.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="tfemail" layoutX="241.0" layoutY="238.0" prefHeight="30.0" prefWidth="200.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="tfnumber" layoutX="649.0" layoutY="134.0" prefHeight="30.0" prefWidth="200.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
+      <TextField fx:id="tfnom" layoutX="241.0" layoutY="137.0" prefHeight="30.0" prefWidth="200.0" promptText="Nom" style="-fx-background-color: tasparent; -fx-background-color: #F8F9F9; -fx-background-radius: 50;" />
+      <TextField fx:id="tfprenom" layoutX="241.0" layoutY="186.0" prefHeight="30.0" prefWidth="200.0" promptText="Prénom" style="-fx-background-color: tasparent; -fx-background-color: #F8F9F9; -fx-background-radius: 50;" />
+      <TextField fx:id="tfemail" layoutX="241.0" layoutY="238.0" prefHeight="30.0" prefWidth="200.0" promptText="Email" style="-fx-background-color: tasparent; -fx-background-color: #F8F9F9; -fx-background-radius: 50;" />
+      <TextField fx:id="tfnumber" layoutX="649.0" layoutY="134.0" prefHeight="30.0" prefWidth="200.0" promptText="Numero de téléphone" style="-fx-background-color: tasparent; -fx-background-color: #F8F9F9; -fx-background-radius: 50;" />
       <Button layoutX="762.0" layoutY="376.0" mnemonicParsing="false" onAction="#TajoutAdmin" prefHeight="39.0" prefWidth="149.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Ajouter" textFill="WHITE">
          <font>
             <Font name="Cambria Bold" size="18.0" />
@@ -79,28 +63,24 @@
             <Font name="Cambria Bold" size="18.0" />
          </font>
       </Label>
-      <HBox layoutX="541.0" layoutY="256.0" prefHeight="25.0" prefWidth="248.0">
+      <HBox layoutX="541.0" layoutY="256.0" prefHeight="25.0" prefWidth="299.0">
          <children>
-            <RadioButton fx:id="Rmale" mnemonicParsing="false" prefHeight="17.0" prefWidth="117.0" text="Male">
+            <RadioButton fx:id="Rmale" mnemonicParsing="false" prefHeight="17.0" prefWidth="156.0" text="Male">
                <toggleGroup>
                   <ToggleGroup fx:id="sexe" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="Rfemme" mnemonicParsing="false" prefHeight="17.0" prefWidth="70.0" text="Femme" toggleGroup="$sexe" />
+            <RadioButton fx:id="Rfemme" mnemonicParsing="false" prefHeight="17.0" prefWidth="135.0" text="Femme" toggleGroup="$sexe" />
          </children>
       </HBox>
-      <DatePicker fx:id="tdate" layoutX="649.0" layoutY="188.0" prefHeight="30.0" prefWidth="200.0" />
+      <DatePicker fx:id="tdate" layoutX="649.0" layoutY="188.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: trasparent; -fx-background-radius: 50;" />
       <HBox layoutX="181.0" layoutY="441.0" prefHeight="25.0" prefWidth="316.0" />
       <Label layoutX="74.0" layoutY="245.0" text="Email:" textFill="#de020f">
          <font>
             <Font name="Cambria Bold" size="18.0" />
          </font>
       </Label>
-      <PasswordField fx:id="tfpass" layoutX="241.0" layoutY="292.0" prefHeight="30.0" prefWidth="200.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </PasswordField>
+      <PasswordField fx:id="tfpass" layoutX="241.0" layoutY="292.0" prefHeight="30.0" prefWidth="200.0" promptText="Mot de passe" style="-fx-background-color: tasparent; -fx-background-color: #F8F9F9; -fx-background-radius: 50;" />
       <Button layoutX="762.0" layoutY="423.0" mnemonicParsing="false" onAction="#DeleteAdmin" prefHeight="39.0" prefWidth="149.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Supprimer" textFill="WHITE">
          <font>
             <Font name="Cambria Bold" size="18.0" />
