@@ -18,15 +18,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_store.MarketController">
+<AnchorPane fx:id="parent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="955.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_store.MarketController">
    <children>
       <BorderPane layoutX="6.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
-            <VBox prefHeight="200.0" prefWidth="435.0" styleClass="right-bar" stylesheets="@Style.css" BorderPane.alignment="CENTER">
+            <VBox prefHeight="570.0" prefWidth="352.0" styleClass="right-bar" stylesheets="@Style.css" BorderPane.alignment="CENTER">
                <children>
                   <HBox alignment="CENTER" prefHeight="110.0" prefWidth="200.0">
                      <children>
-                        <Label prefHeight="49.0" prefWidth="128.0" text="FTBB" textFill="#878787">
+                        <Label prefHeight="49.0" prefWidth="128.0" text="FTBB" textFill="#de020f">
                            <font>
                               <Font name="Cambria Bold" size="40.0" />
                            </font>
@@ -46,13 +46,13 @@
                      <children>
                         <HBox prefHeight="60.0" prefWidth="335.0">
                            <children>
-                              <Label fx:id="productNameLable" prefHeight="48.0" prefWidth="173.0" textFill="WHITE">
+                              <Label fx:id="productNameLable" prefHeight="48.0" prefWidth="173.0">
                                  <font>
                                     <Font name="Cambria" size="36.0" />
                                  </font>
                               </Label>
                               <Label fx:id="id" prefHeight="17.0" prefWidth="93.0" />
-                              <Label fx:id="productPriceLabel" prefHeight="57.0" prefWidth="171.0" textFill="WHITE">
+                              <Label fx:id="productPriceLabel" prefHeight="57.0" prefWidth="171.0">
                                  <font>
                                     <Font name="Cambria" size="36.0" />
                                  </font>
@@ -72,23 +72,37 @@
                         </ImageView>
                         <HBox alignment="CENTER" prefHeight="53.0" prefWidth="335.0">
                            <children>
-                              <Label prefHeight="42.0" prefWidth="178.0" text="Quantité" textFill="WHITE">
+                              <Label prefHeight="42.0" prefWidth="178.0" text="Quantité" textFill="#de020f">
                                  <font>
                                     <Font name="Cambria" size="24.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="qty" editable="false" prefHeight="67.0" prefWidth="66.0" style="-fx-background-radius: 100;" styleClass="shadow" />
+                              <Button mnemonicParsing="false" onAction="#increment" prefHeight="34.0" prefWidth="13.0" style="-fx-background-color: #DE020F; -fx-background-radius: 50;" textFill="WHITE">
+                                 <font>
+                                    <Font name="Cambria Bold" size="18.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../resources/2203525-512.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <TextField fx:id="qty" editable="false" prefHeight="34.0" prefWidth="150.0" style="-fx-background-radius: 100;" styleClass="shadow" />
                               <VBox prefHeight="50.0" prefWidth="25.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#increment" prefHeight="25.0" prefWidth="36.0" style="-fx-background-color: transparent; -fx-background-color: grey; -fx-background-radius: 100;" text="+">
+                                    <Button mnemonicParsing="false" onAction="#decrement" prefHeight="34.0" prefWidth="0.0" style="-fx-background-color: #DE020F; -fx-background-radius: 50;" textFill="WHITE">
                                        <font>
-                                          <Font name="Cambria Bold" size="14.0" />
+                                          <Font name="Cambria Bold" size="18.0" />
                                        </font>
-                                    </Button>
-                                    <Button mnemonicParsing="false" onAction="#decrement" prefHeight="25.0" prefWidth="37.0" style="-fx-background-color: transparent; -fx-background-color: grey; -fx-background-radius: 100;" text="-">
-                                       <font>
-                                          <Font name="Cambria Bold" size="14.0" />
-                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../resources/2203524-512.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
                                     </Button>
                                  </children>
                               </VBox>
@@ -108,19 +122,19 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="53.0" prefWidth="335.0">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#det" prefHeight="50.0" prefWidth="270.0" styleClass="add-btn" stylesheets="@Style.css" text="DETAILS" textFill="#828282">
+                              <Button mnemonicParsing="false" onAction="#det" prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #DE020F;" styleClass="add-btn" stylesheets="@Style.css" text="DETAILS" textFill="WHITE">
                                  <font>
-                                    <Font name="System Bold" size="18.0" />
+                                    <Font name="Cambria Bold" size="18.0" />
                                  </font>
                               </Button>
                            </children>
                         </HBox>
-                        <Button mnemonicParsing="false" onAction="#AddToCart" prefHeight="50.0" prefWidth="270.0" styleClass="add-btn" stylesheets="@Style.css" text="AJOUTER AU PANIER" textFill="#828282">
+                        <Button mnemonicParsing="false" onAction="#AddToCart" prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: #DE020F;" styleClass="add-btn" stylesheets="@Style.css" text="AJOUTER AU PANIER" textFill="WHITE">
                            <VBox.margin>
                               <Insets bottom="20.0" top="30.0" />
                            </VBox.margin>
                            <font>
-                              <Font name="System Bold" size="18.0" />
+                              <Font name="Cambria Bold" size="18.0" />
                            </font>
                         </Button>
                      </children>
@@ -143,9 +157,9 @@
                      <children>
                         <Pane prefHeight="79.0" prefWidth="641.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <HBox alignment="CENTER" prefHeight="65.0" prefWidth="414.0" stylesheets="@Style.css">
+                              <HBox alignment="CENTER" prefHeight="65.0" prefWidth="483.0" stylesheets="@Style.css">
                                  <children>
-                                    <TextField prefHeight="40.0" prefWidth="235.0" promptText="Rechercher votre article" styleClass="transparent" stylesheets="@Style.css">
+                                    <TextField prefHeight="40.0" prefWidth="289.0" promptText="Rechercher votre article" styleClass="transparent" stylesheets="@Style.css">
                                        <HBox.margin>
                                           <Insets left="20.0" />
                                        </HBox.margin>
@@ -153,7 +167,10 @@
                                           <Font name="Cambria" size="18.0" />
                                        </font>
                                     </TextField>
-                                    <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="search-button" stylesheets="@Style.css" text="Rechercher" textFill="WHITE" />
+                                    <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="142.0" style="-fx-background-color: #DE020F;" styleClass="search-button" stylesheets="@Style.css" text="Rechercher" textFill="WHITE">
+                                       <font>
+                                          <Font name="Cambria Bold" size="18.0" />
+                                       </font></Button>
                                  </children>
                                  <styleClass>
                                     <String fx:value="search-box" />
@@ -167,32 +184,18 @@
                            <HBox.margin>
                               <Insets top="12.0" />
                            </HBox.margin></Pane>
-                        <Label alignment="CENTER" prefHeight="62.0" prefWidth="133.0" text="My Account" textFill="#878787">
-                           <font>
-                              <Font name="Cambria" size="18.0" />
-                           </font>
-                        </Label>
-                        <Button mnemonicParsing="false" onAction="#panier" style="-fx-background-color: transparent; -fx-background-radius: 50; -fx-background-color: pink;">
-                           <graphic>
-                              <ImageView fitHeight="50.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../resources/ic_cart.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
                      </children>
                      <opaqueInsets>
                         <Insets top="20.0" />
                      </opaqueInsets>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="670.0" prefWidth="880.0" VBox.vgrow="ALWAYS">
+                  <HBox alignment="CENTER" prefHeight="521.0" prefWidth="520.0" VBox.vgrow="ALWAYS">
                      <children>
                         <VBox prefHeight="635.0" prefWidth="765.0">
                            <children>
-                              <ScrollPane fx:id="scroll" prefHeight="629.0" prefWidth="765.0" styleClass="transparent" stylesheets="@Style.css">
+                              <ScrollPane fx:id="scroll" prefHeight="421.0" prefWidth="520.0" styleClass="transparent" stylesheets="@Style.css">
                                  <content>
-                                    <GridPane fx:id="grid" prefHeight="615.0" prefWidth="754.0">
+                                    <GridPane fx:id="grid" prefHeight="420.0" prefWidth="589.0">
                                        <rowConstraints>
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" />
                                        </rowConstraints>
@@ -211,5 +214,6 @@
             </VBox>
          </center>
       </BorderPane>
+      <Label fx:id="boy" text="Label" />
    </children>
 </AnchorPane>

@@ -30,6 +30,8 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 
 public class PanierController implements Initializable {
     @FXML
@@ -46,7 +48,7 @@ public class PanierController implements Initializable {
     private ScrollPane scroll;
 
     @FXML
-    private GridPane grid;
+    private VBox grid;
 
     private List<Product> products = new ArrayList<>();
     private Image image;
@@ -62,6 +64,8 @@ public class PanierController implements Initializable {
     private Button plus;
     @FXML
     private Button moins;
+
+    private List<AnchorPane> anchoritems;
 
    /* private List<Product> getData() {
         List<Product> products = new ArrayList<>();
@@ -155,6 +159,7 @@ public class PanierController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         qty.setText("1");
       
+        anchoritems = new ArrayList<AnchorPane>();
         //products.addAll(getData());
         if (products.size() > 0) {
             setChosenProduct(products.get(0));
@@ -168,19 +173,15 @@ public class PanierController implements Initializable {
          grid.getChildren().clear();
         ServiceProduct sp = new ServiceProduct();
         List<Product> l = sp.ShowProduct();
-        int row = 1, cl =0;
             try{
                 for(Product product : l){
                     FXMLLoader loader = new FXMLLoader();
                     loader.setLocation(getClass().getResource("itempanier.fxml"));
                     Node postbox = loader.load();
                     ItempanierController pc = loader.getController();
-                    pc.setData(product, myListener);
-                    if(cl== 3){
-                         cl= 0;
-                         row++;
-                    }
-                    this.grid.add(postbox, cl++, row);
+                    pc.setData(product, myListener, this.chosenProductCard);
+                    this.grid.getChildren().add(postbox);
+                    this.anchoritems.add(pc.getNode());
                 }
             }catch(IOException e){
                 System.out.println("no load for product in client");
@@ -230,6 +231,7 @@ public class PanierController implements Initializable {
 
     @FXML
     private void passercommande(ActionEvent event) {
+        
     }
 
     @FXML
@@ -251,6 +253,19 @@ public class PanierController implements Initializable {
         if(k>0){
          qty.setText(String.valueOf(k));
         }
+    }
+
+    @FXML
+    private void update(MouseEvent event) {
+        int sum = 0;
+        for(AnchorPane ap : anchoritems){
+            VBox v = (VBox)ap.getChildren().get(0);
+            HBox h = (HBox) v.getChildren().get(0);
+            VBox vv = (VBox) h.getChildren().get(4);
+            Label tot = (Label) vv.getChildren().get(1);
+            sum += Integer.parseInt(tot.getText());
+        }
+        tprice.setText("" + sum);
     }
 
 }

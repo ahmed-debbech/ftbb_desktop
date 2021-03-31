@@ -12,17 +12,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane onMousePressed="#click" prefHeight="215.0" prefWidth="600.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_store.ItempanierController">
+<AnchorPane fx:id="parent" onMouseClicked="#onPressed" onMousePressed="#click" prefHeight="215.0" prefWidth="760.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_store.ItempanierController">
    <children>
-      <VBox alignment="TOP_CENTER" layoutX="63.0" layoutY="8.0" prefHeight="215.0" prefWidth="225.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="TOP_CENTER" layoutX="63.0" layoutY="8.0" prefHeight="215.0" prefWidth="760.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox alignment="CENTER" prefHeight="195.0" prefWidth="580.0">
                <children>
-                  <VBox prefHeight="178.0" prefWidth="149.0">
+                  <VBox prefHeight="180.0" prefWidth="184.0">
                      <children>
-                        <Label fx:id="nameLabel" alignment="CENTER" prefHeight="49.0" prefWidth="149.0" style="-fx-background-color: grey;" text="Chaussures" textFill="WHITE">
+                        <Label fx:id="nameLabel" alignment="CENTER" prefHeight="40.0" prefWidth="150.0" text="Chaussures" textFill="#de020f">
                            <font>
-                              <Font name="Cambria" size="24.0" />
+                              <Font name="Cambria Bold" size="16.0" />
                            </font>
                         </Label>
                         <ImageView fx:id="img" fitHeight="126.0" fitWidth="156.0" pickOnBounds="true" preserveRatio="true">
@@ -35,64 +35,87 @@
                         </ImageView>
                      </children>
                   </VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  <VBox prefHeight="180.0" prefWidth="138.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="49.0" prefWidth="100.0" style="-fx-background-color: grey;" text="Stock" textFill="WHITE">
+                        <Label alignment="CENTER" prefHeight="40.0" prefWidth="150.0" text="Stock" textFill="#de020f">
                            <font>
-                              <Font name="Cambria Bold" size="14.0" />
+                              <Font name="Cambria Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="stockLable" alignment="CENTER" prefHeight="50.0" prefWidth="100.0" text="Label" />
+                        <Label fx:id="stockLable" alignment="CENTER" prefHeight="50.0" prefWidth="100.0" text="Label">
+                           <font>
+                              <Font name="Cambria Bold" size="12.0" />
+                           </font></Label>
                      </children>
                   </VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  <VBox alignment="CENTER" prefHeight="180.0" prefWidth="164.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="49.0" prefWidth="100.0" style="-fx-background-color: grey;" text="Quantité" textFill="WHITE">
+                        <Label alignment="CENTER" prefHeight="40.0" prefWidth="150.0" text="Quantité" textFill="#de020f">
+                           <font>
+                              <Font name="Cambria Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Button alignment="CENTER" minHeight="2.0" mnemonicParsing="false" onAction="#increment" prefHeight="30.0" prefWidth="0.0" style="-fx-background-color: transparent; -fx-background-color: red; -fx-background-radius: 100;">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="35.0" top="5.0" />
+                           </VBox.margin>
                            <font>
                               <Font name="Cambria Bold" size="14.0" />
                            </font>
-                        </Label>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#increment" style="-fx-background-color: transparent; -fx-background-color: red; -fx-background-radius: 100;" text="+">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/2203525-512.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <TextField fx:id="qty" editable="false" prefHeight="42.0" prefWidth="120.0" style="-fx-background-radius: 100; -fx-background-color: transparent; -fx-background-color: #E5E7E9;" text="1">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </TextField>
+                        <Button alignment="CENTER" minHeight="2.0" mnemonicParsing="false" onAction="#decrement" prefHeight="32.0" prefWidth="0.0" style="-fx-background-color: transparent; -fx-background-color: red; -fx-background-radius: 100;">
                            <VBox.margin>
                               <Insets left="35.0" top="5.0" />
                            </VBox.margin>
                            <font>
                               <Font name="Cambria Bold" size="14.0" />
                            </font>
-                        </Button>
-                        <TextField fx:id="qty" editable="false" prefHeight="42.0" prefWidth="100.0" style="-fx-background-radius: 100;">
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </TextField>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#decrement" style="-fx-background-color: transparent; -fx-background-color: red; -fx-background-radius: 100;" text="-">
-                           <VBox.margin>
-                              <Insets left="35.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font name="Cambria Bold" size="14.0" />
-                           </font>
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/2203524-512.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                         </Button>
                      </children>
                   </VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  <VBox prefHeight="180.0" prefWidth="118.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="49.0" prefWidth="120.0" style="-fx-background-color: grey;" text="Price" textFill="WHITE">
+                        <Label alignment="CENTER" prefHeight="40.0" prefWidth="150.0" text="Price (DT)" textFill="#de020f">
                            <font>
-                              <Font name="Cambria Bold" size="14.0" />
+                              <Font name="Cambria Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="priceLable" alignment="CENTER" prefHeight="50.0" prefWidth="117.0" text="Label" />
+                        <Label fx:id="priceLable" alignment="CENTER" prefHeight="50.0" prefWidth="117.0" text="Label">
+                           <font>
+                              <Font name="Cambria Bold" size="12.0" />
+                           </font></Label>
                      </children>
                   </VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  <VBox prefHeight="178.0" prefWidth="131.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="49.0" prefWidth="120.0" style="-fx-background-color: grey;" text="Total Price" textFill="WHITE">
+                        <Label alignment="CENTER" prefHeight="40.0" prefWidth="150.0" text="Total Price (DT)" textFill="#de020f">
                            <font>
-                              <Font name="Cambria Bold" size="14.0" />
+                              <Font name="Cambria Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label fx:id="totalpriceLable" alignment="CENTER" prefHeight="50.0" prefWidth="112.0" text="Label" />
+                        <Label fx:id="totalpriceLable" alignment="CENTER" prefHeight="50.0" prefWidth="112.0" text="Label">
+                           <font>
+                              <Font name="Cambria Bold" size="12.0" />
+                           </font></Label>
                      </children>
                   </VBox>
                </children>

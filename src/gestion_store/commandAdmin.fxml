@@ -8,19 +8,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_store.CommandAdminController">
+<AnchorPane id="AnchorPane" prefHeight="570.0" prefWidth="955.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_store.CommandAdminController">
    <children>
-      <Button layoutX="565.0" layoutY="239.0" mnemonicParsing="false" onAction="#onValid" style="-fx-background-color: trasparent; -fx-background-color: red;" text="VALIDATE" textFill="WHITE">
+      <Button layoutX="639.0" layoutY="205.0" mnemonicParsing="false" onAction="#onValid" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Valider la commande" textFill="WHITE">
          <font>
-            <Font name="Tahoma Bold" size="13.0" />
+            <Font name="Cambria Bold" size="18.0" />
          </font></Button>
-      <TextField fx:id="rechercher_command" layoutX="110.0" layoutY="157.0" />
-      <Label layoutX="65.0" layoutY="161.0" text="search" />
-      <Button fx:id="back" layoutX="636.0" layoutY="40.0" mnemonicParsing="false" onAction="#btnback" style="-fx-background-color: trasparent; -fx-background-color: red;" text="&lt;" textFill="WHITE">
+      <TextField fx:id="rechercher_command" layoutX="299.0" layoutY="160.0" prefHeight="30.0" prefWidth="534.0" promptText="..." style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" />
+      <Label layoutX="195.0" layoutY="164.0" text="Rechercher " textFill="#de020f">
          <font>
-            <Font name="Tahoma Bold" size="13.0" />
-         </font></Button>
-      <TableView fx:id="lcommand" layoutX="160.0" layoutY="280.0" prefHeight="149.0" prefWidth="420.0">
+            <Font name="Cambria Bold" size="18.0" />
+         </font></Label>
+      <TableView fx:id="lcommand" layoutX="193.0" layoutY="205.0" prefHeight="160.0" prefWidth="424.0">
          <columns>
             <TableColumn fx:id="colcommandid" prefWidth="86.0" text="Command ID" />
             <TableColumn fx:id="colidclient" prefWidth="85.0" text="ID client" />
@@ -29,11 +28,9 @@
             <TableColumn fx:id="coltotalprice" prefWidth="78.0" text="Total price" />
          </columns>
       </TableView>
-      <Label layoutX="35.0" layoutY="41.0" text="Consultation Commandes  Interface Admin" textFill="RED">
+      <Button fx:id="export" layoutX="560.0" layoutY="404.0" mnemonicParsing="false" onAction="#export" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Exporter en pdf" textFill="WHITE">
          <font>
-            <Font name="Tahoma Bold" size="18.0" />
-         </font>
-      </Label>
-      <Button fx:id="export" layoutX="270.0" layoutY="157.0" mnemonicParsing="false" onAction="#export" text="export" />
+            <Font name="Cambria Bold" size="18.0" />
+         </font></Button>
    </children>
 </AnchorPane>

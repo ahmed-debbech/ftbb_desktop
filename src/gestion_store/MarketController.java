@@ -64,6 +64,10 @@ public class MarketController implements Initializable {
     
      @FXML
     private TextField qty;
+    @FXML
+    private AnchorPane parent;
+    @FXML
+    private Label boy;
 
   /*  private List<Product> getData() {
         List<Product> products = new ArrayList<>();
@@ -147,7 +151,7 @@ public class MarketController implements Initializable {
         loader.setLocation(getClass().getResource("item.fxml"));
         //Node postbox = loader.load();
         ItemController pc = loader.getController();
-        pc.setData(product, myListener);
+        pc.setData(product, myListener, this.chosenProductCard);
         productNameLable.setText(product.getName());
         productPriceLabel.setText(product.getPrice()+Gestion_store.CURRENCY );
         image = new Image(getClass().getResourceAsStream(product.getPhoto()));
@@ -181,7 +185,7 @@ public class MarketController implements Initializable {
                     loader.setLocation(getClass().getResource("item.fxml"));
                     Node postbox = loader.load();
                     ItemController pc = loader.getController();
-                    pc.setData(product, myListener);
+                    pc.setData(product, myListener, this.chosenProductCard);
                     if(cl== 3){
                          cl= 0;
                          row++;

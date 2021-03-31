@@ -14,6 +14,10 @@ import IService.MyListener;
 import Entities.Product;
 import java.io.File;
 import javafx.scene.control.TextField;
+import javafx.scene.input.ContextMenuEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 public class ItempanierController implements Initializable {
     @FXML
@@ -32,7 +36,10 @@ public class ItempanierController implements Initializable {
     private Label totalpriceLable;
     @FXML
     private Label id;
+    @FXML
+    private AnchorPane parent;
 
+    private VBox par;
     @FXML
     private void click(MouseEvent mouseEvent) {
         myListener.onClickListener(product);
@@ -41,7 +48,7 @@ public class ItempanierController implements Initializable {
     private Product product;
     private MyListener myListener;
 
-    public void setData(Product product, MyListener myListener) {
+    public void setData(Product product, MyListener myListener, VBox par) {
        /* this.product = product;
         this.myListener = myListener;
         nameLabel.setText(product.getName());
@@ -51,11 +58,11 @@ public class ItempanierController implements Initializable {
       //  stockLable.setText(Integer(product.getStock()));
         Image image = new Image(getClass().getResourceAsStream(product.getPhoto()));
         img.setImage(image);*/
-       
+       this.par = par;
        this.myListener = myListener;
         this.id.setText(String.valueOf(product.getRef_product()));
         this.nameLabel.setText(product.getName());
-        priceLable.setText(product.getPrice()+ Gestion_store.CURRENCY );
+        priceLable.setText(""+product.getPrice()/*+ Gestion_store.CURRENCY*/ );
         totalpriceLable.setText(String.valueOf(Integer.parseInt(qty.getText())*product.getPrice()));
         File file = new File(product.getPhoto().replace('/' , '\\'));
         Image im = null;
@@ -78,6 +85,11 @@ public class ItempanierController implements Initializable {
         k++;
         if(k<100){
              qty.setText(String.valueOf(k));
+             String price = this.priceLable.getText();
+             int pr = Integer.parseInt(price);    
+            int count = pr * k;
+            System.out.println("count " + count);
+            totalpriceLable.setText(String.valueOf(count));
         }
        
     }
@@ -89,7 +101,29 @@ public class ItempanierController implements Initializable {
         k--;
         if(k>0){
          qty.setText(String.valueOf(k));
+         String price = this.priceLable.getText();
+             int pr = Integer.parseInt(price);    
+            int count = pr * k;
+            System.out.println("count " + count);
+            totalpriceLable.setText(String.valueOf(count));
         }
+    }
+
+    @FXML
+    private void onPressed(MouseEvent event) {
+        HBox l = (HBox)this.par.getChildren().get(0);
+        Label name = (Label)l.getChildren().get(0);
+        Label price = (Label)l.getChildren().get(1);
+        HBox quant = (HBox) this.par.getChildren().get(2);
+        name.setText(this.nameLabel.getText());
+        price.setText(this.priceLable.getText());
+        ImageView im = (ImageView)this.par.getChildren().get(1);
+        im.setImage(this.img.getImage());
+        TextField tx = (TextField) quant.getChildren().get(1);
+        tx.setText(qty.getText());
+    }
+    public AnchorPane getNode(){
+        return parent;
     }
 }
 
