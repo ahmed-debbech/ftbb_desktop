@@ -19,6 +19,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -36,6 +37,7 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import pidev.ClienthomeController;
 import pidev.LoginController;
 import static pidev.Pidev.isSplashLoader;
 import user.src.Entities.Admin;
@@ -87,6 +89,8 @@ public class CnxController implements Initializable {
     private TextField tfnom;
     @FXML
     private TextField tfemail1;
+    @FXML
+    private AnchorPane linker;
     
    
     
@@ -244,16 +248,16 @@ public class CnxController implements Initializable {
 
     @FXML
     private void ResetPassword(ActionEvent event) throws IOException {
-     Blogin.getScene().getWindow().hide();
-        
-     
-        Parent root = FXMLLoader.load(getClass().getResource("/user/src/pdev/ResetPassword.fxml"));
-        
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        stage.setResizable(false);
+        linker.toFront();
+                Node node;
+            try {
+            //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
+            node = (Node)FXMLLoader.load(getClass().getResource("/user/src/pdev/ResetPassword.fxml"));
+            linker.getChildren().setAll(node);
+
+            } catch (IOException ex) {
+            Logger.getLogger(ClienthomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
 
 

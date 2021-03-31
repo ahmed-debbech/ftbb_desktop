@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="panecom" prefHeight="588.0" prefWidth="766.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="news.src.controller.CommentsAdminController">
+   <children>
+      <VBox prefHeight="589.0" prefWidth="765.0">
+         <children>
+            <Label fx:id="title" textFill="#fe4040">
+               <font>
+                  <Font size="26.0" />
+               </font>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </Label>
+            <ScrollPane prefHeight="546.0" prefWidth="737.0">
+               <content>
+                  <VBox fx:id="listcomments" prefHeight="545.0" prefWidth="739.0" />
+               </content>
+            </ScrollPane>
+            <HBox prefHeight="46.0" prefWidth="764.0" spacing="10.0">
+               <children>
+                  <Button fx:id="ban_but" mnemonicParsing="false" onAction="#banComment" text="Ban Comment" />
+                  <Button fx:id="ref_but" mnemonicParsing="false" onAction="#refreshComment" prefHeight="30.0" prefWidth="98.0" text="Refresh" />
+                  <TextField fx:id="filter" promptText="Search for a word" />
+                  <CheckBox fx:id="checks" mnemonicParsing="false" onAction="#onSelectAll" text="Select All">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </CheckBox>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
