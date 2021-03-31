@@ -49,14 +49,12 @@ import static pidev.Pidev.isSplashLoader;
     @Override
     public void initialize(URL location, ResourceBundle resources) 
     {
-        
-       if(!isSplashLoader){
+
             loadSplashScreen();
-       } 
+       
        Exit.setOnMouseClicked(event -> {
             System.exit(0);
         });  
-        
     }
     
     /*@FXML

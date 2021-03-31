@@ -96,7 +96,7 @@ public class EditProfileUtilController implements Initializable {
          LocalDate d = Tdate.getValue();
         System.out.println(d);
        c.setBirthday(Date.valueOf(d));
-       
+        System.out.println("path " +ImageUtils.CopyfileClient(tpath.getText(), c).toString());
         c.setPhoto_url(ImageUtils.CopyfileClient(tpath.getText(), c));
         sc.UpdateClient(c);
         ServiceClient.setA(c);
@@ -109,19 +109,7 @@ public class EditProfileUtilController implements Initializable {
             Optional<ButtonType> result = alert.showAndWait(); 
     }
 
-    @FXML
-    private void Retour(ActionEvent event) throws IOException {
-        BtVal.getScene().getWindow().hide();
-        
-     
-        Parent root = FXMLLoader.load(getClass().getResource("/user/src/pdev/ProfileUtil.fxml"));
-        
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        stage.setResizable(false);
-    }
+
 
     @FXML
     private void path(ActionEvent event) {

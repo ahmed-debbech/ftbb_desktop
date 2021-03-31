@@ -96,13 +96,14 @@ public class CnxController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
        if(!isSplashLoader){
             loadSplashScreen();
        } 
        Exit.setOnMouseClicked(event -> {
             System.exit(0);
         });  
-        
+         root.setBackground(Background.EMPTY);
     }    
 
     @FXML
