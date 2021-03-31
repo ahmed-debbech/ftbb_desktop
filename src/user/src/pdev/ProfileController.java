@@ -9,17 +9,23 @@ package user.src.pdev;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.stage.Stage;
+import news.src.utils.Passable;
+import pidev.AdminhomeController;
 import user.src.Entities.Admin;
 import user.src.Service.ServiceAdmin;
 
@@ -95,30 +101,32 @@ public class ProfileController implements Initializable {
 
     @FXML
     private void BajoutAdmin(ActionEvent event) throws IOException {
-         BAjout.getScene().getWindow().hide();
-        
-     
-        Parent root = FXMLLoader.load(getClass().getResource("AjoutAdmin.fxml"));
-        
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        stage.setResizable(false);
+        Node node;
+            try {
+            //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
+            node = (Node)FXMLLoader.load(getClass().getResource("/user/src/pdev/AjoutAdmin.fxml"));
+            AnchorPane root = (AnchorPane) Passable.getInstance().getAnyData();
+                System.out.println("node " + root.toString());
+            root.getChildren().setAll(node);
+
+            } catch (IOException ex) {
+            Logger.getLogger(AdminhomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
 
     @FXML
     private void GestionUtil(ActionEvent event) throws IOException {
-        BAjout.getScene().getWindow().hide();
-        
-     
-        Parent root = FXMLLoader.load(getClass().getResource("GestionUtilisateur.fxml"));
-        
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        stage.setResizable(false);
+        Node node;
+            try {
+            //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
+            node = (Node)FXMLLoader.load(getClass().getResource("/user/src/pdev/GestionUtilisateur.fxml"));
+            AnchorPane root = (AnchorPane) Passable.getInstance().getAnyData();
+                System.out.println("node " + root.toString());
+            root.getChildren().setAll(node);
+
+            } catch (IOException ex) {
+            Logger.getLogger(AdminhomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
 
     @FXML

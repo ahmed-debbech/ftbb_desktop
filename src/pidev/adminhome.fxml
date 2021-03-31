@@ -146,7 +146,7 @@
                         <Image url="@../resources/sstore.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="46.0" fitWidth="32.0" opacity="0.3" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="46.0" fitWidth="32.0" onMouseClicked="#btngestion" opacity="0.3" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../resources/Profile-ICon1%20(2).png" />
                      </image>

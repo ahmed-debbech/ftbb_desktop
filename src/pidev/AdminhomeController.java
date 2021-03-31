@@ -22,10 +22,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.SplitPane;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import news.src.utils.Passable;
 
 /**
  * FXML Controller class
@@ -72,20 +74,25 @@ public class AdminhomeController implements Initializable {
         fadeTransition.play();
         
         TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(0.5),pane2);
-        translateTransition.setByX(-600);
+        translateTransition.setByX(-1200);
         translateTransition.play();
         
         menu.setOnMouseClicked(event -> {
-            pane1.setVisible(true);
+            FadeTransition fadeTransition1 = new FadeTransition(Duration.seconds(0.5),pane1);
+            fadeTransition1.setFromValue(0);
+            fadeTransition1.setToValue(0.15);
+            fadeTransition1.play();
+            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5),pane2);
+            if(pane2.getTranslateX() == -1200.0){
+                translateTransition1.setByX(+1200);
+            }else{
+                if(pane2.getTranslateX() == 0.0){
+                    translateTransition1.setByX(-1200);
+                }
+            }
+             translateTransition1.play();
             
-        FadeTransition fadeTransition1 = new FadeTransition(Duration.seconds(0.5),pane1);
-        fadeTransition1.setFromValue(0);
-        fadeTransition1.setToValue(0.15);
-        fadeTransition1.play();
-        
-        TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5),pane2);
-        translateTransition1.setByX(+600);
-        translateTransition1.play();
+
         });
         
         pane1.setOnMouseClicked(event ->{
@@ -113,21 +120,26 @@ public class AdminhomeController implements Initializable {
         fadeTransition1.play();
         
         TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5),pane3);
-        translateTransition1.setByX(-1200);
+        translateTransition1.setByX(-2400);
         translateTransition1.play();
         
         parametre.setOnMouseClicked(event2 -> {
-            pane1.setVisible(true);
-            
+             TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5),pane3);
+             if(pane3.getTranslateX() == -2400.0){
+                translateTransition2.setByX(+2400.0);
+             }else{
+                 if(pane2.getTranslateX() == 0.0){
+                    translateTransition2.setByX(-2400.0);
+                 }
+             }
+        translateTransition2.play();
+        
         FadeTransition fadeTransition2 = new FadeTransition(Duration.seconds(0.5),pane1);
         fadeTransition2.setFromValue(0);
         fadeTransition2.setToValue(0.15);
         fadeTransition2.play();
-        
-        TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5),pane3);
-        translateTransition2.setByX(+1200);
-        translateTransition2.play();
         });
+        
         
         pane1.setOnMouseClicked(event2 ->{
         FadeTransition fadeTransition2 = new FadeTransition(Duration.seconds(0.5),pane1);
@@ -144,6 +156,7 @@ public class AdminhomeController implements Initializable {
         });
         
         
+        Passable.getInstance().setAnyData(linker);
     }    
 
     @FXML
@@ -229,11 +242,12 @@ public class AdminhomeController implements Initializable {
          Node node;
             try {
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
-            node = (Node)FXMLLoader.load(getClass().getResource("/user/src/pdev/AjoutAdmin.fxml"));
+            linker.getChildren().clear();
+            node = (Node)FXMLLoader.load(getClass().getResource("/user/src/pdev/Profile.fxml"));
             linker.getChildren().setAll(node);
 
             } catch (IOException ex) {
-            Logger.getLogger(AdminhomeController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AdminhomeController.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
 
@@ -272,6 +286,20 @@ public class AdminhomeController implements Initializable {
 
             } catch (IOException ex) {
             Logger.getLogger(AdminhomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+
+    @FXML
+    private void btngestion(MouseEvent event) {
+         Node node;
+            try {
+            //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
+            linker.getChildren().clear();
+            node = (Node)FXMLLoader.load(getClass().getResource("/user/src/pdev/AjoutAdmin.fxml"));
+            linker.getChildren().setAll(node);
+
+            } catch (IOException ex) {
+                Logger.getLogger(AdminhomeController.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
 
