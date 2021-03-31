@@ -18,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -31,6 +32,8 @@ public class EndedPollClientViewController implements Initializable {
     @FXML
     private VBox adminVbox;
     private List<Poll> list;
+    @FXML
+    private TextField SearchBar;
 
     /**
      * Initializes the controller class.
@@ -52,7 +55,32 @@ public class EndedPollClientViewController implements Initializable {
                 }}
             }catch(IOException e){
                    e.printStackTrace();
-    }    
+    }   
+            
+             SearchBar.textProperty().addListener((observable, oldValue, newValue) -> {
+            ServicePoll s = new ServicePoll();
+            List<Poll> l ;
+            l =  s.searchPoll(newValue);
+             this.adminVbox.getChildren().clear();
+            this.list =  sa.ViewPoll();
+            try{
+                for(Poll a : l){
+                    if(a.getStatus().equals("Ended")){
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("EndedPoll.fxml"));
+                    Node postbox = loader.load();
+                    EndedPollController pc = loader.getController();
+                    pc.setData(a);
+                    this.adminVbox.getChildren().add(postbox);
+                    
+                    
+                    }
+              
+                }
+            }catch(IOException e){
+                   e.printStackTrace();
+            }
+        });
     } 
 
   

@@ -126,6 +126,29 @@ public class ServicePoll implements IServicePoll{
      }
     }
 
+    @Override
+    public List<Poll> searchPoll(String Text) {
+        List<Poll> list = new ArrayList<>();
+        try{
+            Statement stm = this.cnx.createStatement();
+             String query = "SELECT * from poll WHERE Description like '%"+Text+"%';";
+            ResultSet rst = stm.executeQuery(query);
+            while(rst.next()){
+                
+                Poll p = new Poll();
+                    p.setPoll_id(rst.getInt("poll_id"));
+                    p.setDescription(rst.getString("description"));
+                    p.setCreation_date(rst.getTimestamp("creation_date"));
+                    p.setStatus(rst.getString("status"));
+                    list.add(p);
+            }
+            
+        }catch(SQLException ex){
+            System.out.println("Could not show comments");
+        }
+        return list;
+    }
+
    
 
   public static class SortByDate implements Comparator<Poll> {

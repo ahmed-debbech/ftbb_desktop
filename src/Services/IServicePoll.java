@@ -22,6 +22,7 @@ public interface IServicePoll {
     public void DeletePoll(Poll p);
      public void DeleteAll ();
     public void swapstatus(int poll_id);
+    public List<Poll> searchPoll(String Text);
     
     
     

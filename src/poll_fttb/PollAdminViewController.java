@@ -62,10 +62,38 @@ public class PollAdminViewController implements Initializable {
                     
                     
                     }
+              
                 }
             }catch(IOException e){
                    e.printStackTrace();
             }
+            
+            SearchBar.textProperty().addListener((observable, oldValue, newValue) -> {
+            ServicePoll s = new ServicePoll();
+            List<Poll> l ;
+            l =  s.searchPoll(newValue);
+             this.adminVbox.getChildren().clear();
+            this.list =  s.ViewPoll();
+            try{
+                for(Poll p : l){
+                    if(p.getStatus().equals("Active")){
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("ActivePoll.fxml"));
+                    Node postbox = loader.load();
+                    ActivePollController pc = loader.getController();
+                    pc.setData(p);
+                   
+                    this.adminVbox.getChildren().add(postbox);
+                    
+                    
+                    }
+              
+                }
+            }catch(IOException e){
+                   e.printStackTrace();
+            }
+        });
+        
     }    
 
     @FXML
