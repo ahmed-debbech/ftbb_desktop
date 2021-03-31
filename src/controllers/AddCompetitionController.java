@@ -6,7 +6,9 @@
 package controllers;
 
 import Entites.Competition;
+import Entites.Team;
 import Service.ServiceCompetition;
+import Service.ServiceTeam;
 import static com.sun.javaws.ui.SplashScreen.hide;
 import java.net.URL;
 import java.sql.SQLException;
@@ -85,5 +87,4 @@ public class AddCompetitionController implements Initializable {
         
          
     }
-    
 }

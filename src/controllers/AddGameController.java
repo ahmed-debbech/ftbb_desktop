@@ -6,9 +6,15 @@
 package controllers;
 
 import Entites.Competition;
+import Entites.Game;
 import Entites.Team;
+import Service.ServiceCompetition;
+import Service.ServiceGame;
+import Service.ServicePhase;
 import Service.ServiceTeam;
+import Service.ServiceWeek;
 import java.net.URL;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -16,8 +22,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -33,6 +46,14 @@ public class AddGameController implements Initializable {
     
     private  ServiceTeam serviceTeam = new ServiceTeam();
   ArrayList<Team> teams = new ArrayList<Team>(); // Create an ArrayList object
+    @FXML
+    private DatePicker ftDate;
+    @FXML
+    private TextField ftHall;
+    @FXML
+    private Button btValider;
+    @FXML
+    private Button btAnnuler;
 
     /**
      * Initializes the controller class.
@@ -40,8 +61,8 @@ public class AddGameController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        ListTeamHome.setOnAction(this::selectedTeam);
-        ListTeamAway.setOnAction(this::selectedTeam);
+        ListTeamHome.setOnAction(this::selectedTeamH);
+        ListTeamAway.setOnAction(this::selectedTeamW);
      
         
         try {
@@ -59,18 +80,82 @@ public class AddGameController implements Initializable {
         }
     }    
     
-    @FXML
-    private void selectedTeam(ActionEvent event) {
-        System.out.println("tttt");
-           Team c = new Team();
-           Team d = new Team();
-        ServiceTeam sc = new ServiceTeam();
-        c= ListTeamHome.getValue();
-        d= ListTeamHome.getValue();
-        System.out.println(c.getName());
-        System.out.println(d.getName());
-        ServiceTeam.setCom(c);
-        ServiceTeam.setCom(d);
-        System.out.println(c.getName());
+    
+    
+    private void AddGame() throws Exception {
+        
+        ServiceGame sg = new ServiceGame();
+        Game g = new Game ();
+        int idc = ServiceCompetition.getCom().getId();
+        int idp =ServicePhase.getCom().getId();
+        int idw =ServiceWeek.getCom().getId();
+        g.setId_competition(idc);
+        g.setId_phase(idp);
+        g.setId_week(idw);
+        g.setId_team_home(ListTeamHome.getValue().getId());
+        g.setId_team_away(ListTeamAway.getValue().getId());
+        g.setSalle(ftHall.getText());
+        //g.setTime((Date) ftDate.getDayCellFactory());
+        sg.AddGame(g);
+        
+        FXMLLoader fxmlLoader = new FXMLLoader();
+            Pane root1 =  fxmlLoader.load(getClass().getResource("/view/competition.fxml").openStream());
+            Stage stage = new Stage();
+            stage.setTitle("Competition");
+            stage.setScene(new Scene(root1));  
+            stage.show();
+        
+         
     }
+    private void selectedTeamH(ActionEvent event) {
+        System.out.println("tttt");
+           Team th = new Team();
+           
+        ServiceTeam st = new ServiceTeam();
+        th= ListTeamHome.getValue();
+        
+        System.out.println(th.getName());
+        
+        ServiceTeam.setCom(th);
+        
+        System.out.println(th.getName());
+        
+    
+}
+    private void selectedTeamW(ActionEvent event) {
+        System.out.println("tttt");
+           
+           Team tw = new Team();
+        ServiceTeam st = new ServiceTeam();
+        
+        tw= ListTeamAway.getValue();
+        
+        System.out.println(tw.getName());
+        
+        ServiceTeam.setCom(tw);
+        
+        System.out.println(tw.getName());
+    
+}
+    @FXML    
+    private void handleButtonAction (ActionEvent event) throws SQLException, Exception{
+        if ( event.getSource()== btValider ){
+            AddGame();
+            btValider.getScene().getWindow().hide();
+          
+        }
+        else if (event.getSource()== btAnnuler){
+        
+         FXMLLoader fxmlLoader = new FXMLLoader();
+            Pane root1 =  fxmlLoader.load(getClass().getResource("/view/competition.fxml").openStream());
+            Stage stage = new Stage();
+            stage.setTitle("Competition");
+            stage.setScene(new Scene(root1));  
+            stage.show();
+            btValider.getScene().getWindow().hide();
+        
+        }
+    
+    }
+    
 }

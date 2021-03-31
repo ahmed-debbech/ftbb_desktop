@@ -20,10 +20,10 @@
       <Label layoutX="99.0" layoutY="94.0" prefHeight="35.0" prefWidth="97.0" text="Team Home" />
       <Label layoutX="364.0" layoutY="94.0" prefHeight="35.0" prefWidth="97.0" text="Team Away" />
       <Label layoutX="48.0" layoutY="221.0" prefHeight="35.0" prefWidth="34.0" text="Date" />
-      <DatePicker layoutX="78.0" layoutY="226.0" prefHeight="25.0" prefWidth="140.0" />
+      <DatePicker fx:id="ftDate" layoutX="78.0" layoutY="226.0" prefHeight="25.0" prefWidth="140.0" />
       <Label layoutX="320.0" layoutY="221.0" prefHeight="35.0" prefWidth="34.0" text="Hall" />
-      <TextField layoutX="347.0" layoutY="226.0" />
-      <Button layoutX="174.0" layoutY="296.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="97.0" text="Valider" />
-      <Button layoutX="316.0" layoutY="296.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="97.0" text="Annuler" />
+      <TextField fx:id="ftHall" layoutX="347.0" layoutY="226.0" />
+      <Button fx:id="btValider" layoutX="174.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="35.0" prefWidth="97.0" text="Valider" />
+      <Button fx:id="btAnnuler" layoutX="316.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="35.0" prefWidth="97.0" text="Annuler" />
    </children>
 </AnchorPane>

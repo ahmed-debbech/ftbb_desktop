@@ -41,16 +41,17 @@ public class ServiceGame implements IServiceGame {
         
     }
     @Override
-    public void AddGame(Game g) {
-//        try {
-//            Statement stm = cnx.createStatement();
-//            
-//        
-//        String query="INSERT INTO `game`(`id`, `id_competition`, `id_phase`, `id_week`, `id_team_home`, `id_team_away`, `score_home`, `score_away`, `id_statistique`, `status`, `salle`, `time`) VALUES ("")";
-//        stm.executeUpdate(query);
-//        } catch (SQLException ex) {
-//            Logger.getLogger(ServiceCompetition.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+    public void AddGame(Game g) throws SQLException {
+                
+      
+        
+        try {
+            Statement stm = cnx.createStatement();
+            String query = "insert into game (`id_competition`, `id_phase`, `id_week`, `id_team_home`, `id_team_away`, `salle`,`score_home`,`score_away`,`status`) values ('" + g.getId_competition()+"','" + g.getId_phase()+"','" + g.getId_week() +"','" + g.getId_team_home() +"','" + g.getId_team_away() +"','" + g.getSalle() +"',0,0,0)";
+            stm.executeUpdate(query);
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceCompetition.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
