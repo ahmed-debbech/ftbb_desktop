@@ -18,6 +18,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
 import javafx.stage.Stage;
 import user.src.Entities.Admin;
 import user.src.Service.ServiceAdmin;
@@ -125,8 +126,9 @@ public class ProfileController implements Initializable {
         BAjout.getScene().getWindow().hide();
         
      
-        Parent root = FXMLLoader.load(getClass().getResource("Cnx.fxml"));
-        
+        Parent root = FXMLLoader.load(getClass().getResource("/pidev/Login.fxml"));
+                
+
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);

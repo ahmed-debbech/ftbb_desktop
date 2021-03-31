@@ -85,15 +85,14 @@ public class ProfileUtilController implements Initializable {
     @FXML
     private void Updateinfo(ActionEvent event) throws IOException {
              
-        /*Parent root = FXMLLoader.load(getClass().getResource("/user/src/pdev/EditProfileUtil.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/user/src/pdev/EditProfileUtil.fxml"));
         
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
-        stage.setResizable(false);*/
-    ClienthomeController qc =new ClienthomeController();
-    qc.test("/user/src/pdev/EditProfileUtil.fxml");
+        stage.setResizable(false);
+   
     }
 
     @FXML
@@ -101,7 +100,7 @@ public class ProfileUtilController implements Initializable {
     BtModif.getScene().getWindow().hide();
         
      
-        Parent root = FXMLLoader.load(getClass().getResource("/user/src/pdev/Cnx.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/pidev/Login.fxml"));
         
         Scene scene = new Scene(root);
         Stage stage = new Stage();

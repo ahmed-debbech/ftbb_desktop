@@ -35,7 +35,7 @@
                   <DatePicker fx:id="tdate" layoutX="192.0" layoutY="302.0" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: transpaent; -fx-background-radius: 1em;" />
                   <TextField fx:id="tfnom" layoutX="33.0" layoutY="72.0" prefHeight="40.0" prefWidth="301.0" promptText="Nom" style="-fx-background-color: transparent; -fx-background-radius: 50; -fx-background-color: #F8F9F9;" AnchorPane.bottomAnchor="288.0" />
                   <TextField fx:id="tfprenom" layoutX="33.0" layoutY="117.0" prefHeight="40.0" prefWidth="301.0" promptText="Prénom" style="-fx-background-color: transparent; -fx-background-radius: 50; -fx-background-color: #F8F9F9;" />
-                  <Button layoutX="121.0" layoutY="372.0" mnemonicParsing="false" onAction="#Inscription" prefHeight="28.0" prefWidth="124.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="S'inscrir" textFill="WHITE">
+                  <Button layoutX="121.0" layoutY="367.0" mnemonicParsing="false" onAction="#Inscription" prefHeight="28.0" prefWidth="124.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="S'inscrir" textFill="WHITE">
                      <font>
                         <Font name="Cambria Bold" size="14.0" />
                      </font>

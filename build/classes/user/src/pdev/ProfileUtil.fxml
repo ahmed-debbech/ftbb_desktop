@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="578.0" prefWidth="956.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user.src.pdev.ProfileUtilController">
+<AnchorPane id="AnchorPane" prefHeight="570.0" prefWidth="955.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user.src.pdev.ProfileUtilController">
    <children>
       <ImageView fx:id="Iprofil" fitHeight="244.0" fitWidth="218.0" layoutX="105.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -45,27 +45,27 @@
       </Label>
       <Label fx:id="lnom" layoutX="583.0" layoutY="141.0">
          <font>
-            <Font size="22.0" />
+            <Font name="Cambria Bold" size="20.0" />
          </font>
       </Label>
       <Label fx:id="lprenom" layoutX="583.0" layoutY="185.0">
          <font>
-            <Font size="22.0" />
+            <Font name="Cambria Bold" size="20.0" />
          </font>
       </Label>
       <Label fx:id="lbirth" layoutX="583.0" layoutY="235.0">
          <font>
-            <Font size="22.0" />
+            <Font name="Cambria Bold" size="20.0" />
          </font>
       </Label>
       <Label fx:id="lnumber" layoutX="583.0" layoutY="285.0">
          <font>
-            <Font size="22.0" />
+            <Font name="Cambria Bold" size="20.0" />
          </font>
       </Label>
       <Label fx:id="lsex" layoutX="583.0" layoutY="338.0">
          <font>
-            <Font size="22.0" />
+            <Font name="Cambria Bold" size="20.0" />
          </font>
       </Label>
       <Button fx:id="BtModif" layoutX="651.0" layoutY="434.0" mnemonicParsing="false" onAction="#Updateinfo" prefHeight="50.0" prefWidth="145.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Modifier" textFill="WHITE">

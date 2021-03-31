@@ -255,14 +255,9 @@ public class ClienthomeController implements Initializable {
     @FXML
     private void btnretour(ActionEvent event) {
          Node node;
-            try {
-            //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
-            node = (Node)FXMLLoader.load(getClass().getResource("ena.fxml"));
-            linker.getChildren().setAll(node);
-
-            } catch (IOException ex) {
-            Logger.getLogger(ClienthomeController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+         //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek
+         node = null;
+         linker.getChildren().clear();
     }
 
     @FXML
@@ -284,15 +279,5 @@ public class ClienthomeController implements Initializable {
     }
 
    
-public void test (String str) {
-         Node node;
-            try {
-            //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
-            node = (Node)FXMLLoader.load(getClass().getResource("/user/src/pdev/ProfileUtil.fxml"));
-            linker.getChildren().setAll(node);
 
-            } catch (IOException ex) {
-            Logger.getLogger(ClienthomeController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-    }
 }
