@@ -7,14 +7,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #FFEBCD;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user.src.pdev.GestionUtilisateurController">
+<AnchorPane id="AnchorPane" prefHeight="570.0" prefWidth="955.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user.src.pdev.GestionUtilisateurController">
    <children>
-      <Label layoutX="376.0" layoutY="47.0" prefHeight="37.0" prefWidth="248.0" text="Gestion D'utilisateurs">
+      <Label layoutX="351.0" layoutY="55.0" prefHeight="38.0" prefWidth="314.0" text="Gestion D'utilisateurs" textFill="#de020f">
          <font>
-            <Font size="24.0" />
+            <Font name="Cambria Bold" size="30.0" />
          </font>
       </Label>
-      <TableView fx:id="table_ad" layoutX="31.0" layoutY="127.0" prefHeight="415.0" prefWidth="925.0">
+      <TableView fx:id="table_ad" layoutX="14.0" layoutY="119.0" prefHeight="333.0" prefWidth="927.0">
          <columns>
             <TableColumn fx:id="col_id" prefWidth="75.0" text="id" />
             <TableColumn fx:id="col_name" prefWidth="75.0" text="Nom" />
@@ -27,8 +27,13 @@
             <TableColumn fx:id="col_status" prefWidth="71.0" text="status" />
          </columns>
       </TableView>
-      <Button layoutX="83.0" layoutY="619.0" mnemonicParsing="false" onAction="#BanUser" prefHeight="39.0" prefWidth="104.0" text="Ban" />
-      <Button layoutX="83.0" layoutY="682.0" mnemonicParsing="false" onAction="#unBanUser" prefHeight="39.0" prefWidth="104.0" text="Unban" />
-      <Button fx:id="btretour" layoutX="858.0" layoutY="682.0" mnemonicParsing="false" onAction="#Retour" prefHeight="39.0" prefWidth="104.0" text="Retour" />
+      <Button layoutX="556.0" layoutY="468.0" mnemonicParsing="false" onAction="#BanUser" prefHeight="39.0" prefWidth="166.0" style="-fx-background-color: trasparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Ban" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font></Button>
+      <Button layoutX="740.0" layoutY="468.0" mnemonicParsing="false" onAction="#unBanUser" prefHeight="39.0" prefWidth="166.0" style="-fx-background-color: trasparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Unban" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font></Button>
    </children>
 </AnchorPane>
