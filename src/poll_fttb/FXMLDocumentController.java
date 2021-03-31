@@ -34,6 +34,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javax.mail.MessagingException;
+import utils.JavaMailUtil;
 import utils.Utilities;
 
 
@@ -107,7 +109,7 @@ public class FXMLDocumentController implements Initializable {
     }    
 
     @FXML
-    private void AddPoll(ActionEvent event) {
+    private void AddPoll(ActionEvent event) throws Exception {
         ServicePoll sp = new ServicePoll();
             ServiceOption so = new ServiceOption();
                 ServiceVote sv = new ServiceVote();
@@ -135,6 +137,7 @@ public class FXMLDocumentController implements Initializable {
                 sv.AddVote(vt,op.getOption_id());
                 
                 ViewPoll(null);
+                JavaMailUtil.Send("antikito0@gmail.com",PollDescription.getText(),OptionDescription1.getText(),OptionDescription2.getText());
         }
     }
         
@@ -231,7 +234,7 @@ public class FXMLDocumentController implements Initializable {
     
 
     @FXML
-    private void EndPoll(ActionEvent event) {
+    private void EndPoll(ActionEvent event) throws MessagingException {
         
         Poll p = ListPoll.getSelectionModel().getSelectedItem();
                 
@@ -271,9 +274,15 @@ public class FXMLDocumentController implements Initializable {
 //        System.out.println(so.displayoption(ListPoll.getSelectionModel().getSelectedItem().getPoll_id()));
        Option1display.setText(so.displayoption(ListPoll.getSelectionModel().getSelectedItem().getPoll_id(),0));
        Option2display.setText(so.displayoption(ListPoll.getSelectionModel().getSelectedItem().getPoll_id(),1));
-        
-        
+       
         sp.swapstatus(ListPoll.getSelectionModel().getSelectedItem().getPoll_id());
+        
+        JavaMailUtil.SendA("antikito0@gmail.com",
+                ListPoll.getSelectionModel().getSelectedItem().getDescription(),
+                so.displayoption(ListPoll.getSelectionModel().getSelectedItem().getPoll_id(),0),
+                so.displayoption(ListPoll.getSelectionModel().getSelectedItem().getPoll_id(),1)
+                );
+        
         view1poll(null);
         ViewPoll(null);
         
