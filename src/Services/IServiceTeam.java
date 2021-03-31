@@ -17,5 +17,6 @@ public interface IServiceTeam {
     public void AddTeam (Team c) throws SQLException;
   public void UpdateTeam (Team c) throws SQLException ;
   public List<Team> AfficherTeam()throws SQLException ;
+  public Team GetTeamById (int id )throws SQLException ;
     
 }

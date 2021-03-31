@@ -118,5 +118,22 @@ System.out.println("select ss");
             Logger.getLogger(ServiceCompetition.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @Override
+    public Team GetTeamById(int id) throws SQLException {
+        Statement stm = cnx.createStatement();
+        
+       
+       String query = "select `id`, `name`, `id_competition`, `logo` from `team` where id="+id+";";
+       ResultSet rst = stm.executeQuery(query);
+       Team t = new Team();
+       while (rst.next()) {
+       t.setId(rst.getInt("id"));
+       t.setName(rst.getString("name"));
+       t.setLogo(rst.getString("logo"));
+       }
+                   
+        return  t;
+    }
     
 }

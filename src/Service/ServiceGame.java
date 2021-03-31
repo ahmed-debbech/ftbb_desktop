@@ -5,6 +5,7 @@
  */
 package Service;
 import Entites.Game;
+import Entites.Gamef;
 import Services.IServiceGame;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -24,9 +25,15 @@ import utils.Maconnexion;
 public class ServiceGame implements IServiceGame {
     Connection cnx;
     private ObservableList<Game> data = FXCollections.observableArrayList();
-
+    public ObservableList<Gamef> data1 = FXCollections.observableArrayList();  
+    
     public ObservableList<Game> getData() {
         return data;
+    }
+    
+
+    public ObservableList<Gamef> getData1() {
+        return data1;
     }
 
     public ServiceGame() {
@@ -167,7 +174,7 @@ public class ServiceGame implements IServiceGame {
                 G.setId_team_away(rst.getInt("id_team_away"));
                 G.setScore_home(rst.getInt("score_home"));
                 G.setScore_away(rst.getInt("score_away"));
-                
+                G.setStatus(rst.getInt("status"));
                 G.setSalle(rst.getString("salle"));
 
                 games.add(G);

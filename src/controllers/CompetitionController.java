@@ -14,11 +14,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import Entites.Competition;
 import Entites.Game;
+import Entites.Gamef;
 import Entites.Phase;
 import Entites.Week;
 import Service.ServiceCompetition;
 import Service.ServiceGame;
 import Service.ServicePhase;
+import Service.ServiceTeam;
 import Service.ServiceWeek;
 import java.awt.List;
 import java.io.File;
@@ -29,6 +31,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -49,7 +53,10 @@ public class CompetitionController implements Initializable {
     
 
     ArrayList <Game> listGame= new ArrayList<Game>();
+    ArrayList <Gamef> listGamef= new ArrayList<Gamef>();
     ServiceGame sg = new ServiceGame();
+    ServiceTeam st = new ServiceTeam();
+
     
     @FXML
     private ChoiceBox<Competition> ListCompetition = new ChoiceBox<Competition>();
@@ -70,19 +77,19 @@ public class CompetitionController implements Initializable {
    private  ServiceGame serviceGame = new ServiceGame();
   ArrayList<Game> games = new ArrayList<Game>(); // Create an ArrayList object
     @FXML
-    private TableView<Game> table_game = new TableView<Game>();
+    private TableView<Gamef> table_game = new TableView<Gamef>();
     @FXML
-    private TableColumn<Game, String> name_home = new TableColumn<>("");;
+    private TableColumn<Gamef, String> name_home = new TableColumn<>("");;
     @FXML
-    private TableColumn<Game, String> score_home;
+    private TableColumn<Gamef, String> score_home;
     @FXML
-    private TableColumn<Game, String> score_away;
+    private TableColumn<Gamef, String> score_away;
     @FXML
-    private TableColumn<Game, String> name_away;
+    private TableColumn<Gamef, String> name_away;
     @FXML
-    private TableColumn<Game, String> hall;
+    private TableColumn<Gamef, String> hall;
     @FXML
-    private TableColumn<Game, String> statuts;
+    private TableColumn<Gamef, String> statuts;
     @FXML
     private TableColumn<?, ?> logo_home;
     @FXML
@@ -146,6 +153,7 @@ public class CompetitionController implements Initializable {
     
 
 public void affichertable (){
+   
         int idc = ServiceCompetition.getCom().getId();
         int idp =ServicePhase.getCom().getId();
         int idw =ServiceWeek.getCom().getId();
@@ -154,14 +162,44 @@ public void affichertable (){
         
         
         try {
+           
             games = (ArrayList<Game>) sg.AfficherGame(idc, idp, idw);
-            name_home.setCellValueFactory(new PropertyValueFactory<>("id_team_home"));
-            name_away.setCellValueFactory(new PropertyValueFactory<>("id_team_away"));
+            
+            try {
+            for (Game g : games) {
+           Gamef gf = new Gamef();
+           
+           
+           
+           gf.setId(g.getId());
+           gf.setTeam_home(st.GetTeamById(g.getId_team_home()).getName());
+           gf.setTeam_away(st.GetTeamById(g.getId_team_away()).getName());
+           gf.setScore_home(g.getScore_home());
+           gf.setScore_away(g.getScore_away());
+           
+           listGamef.add(gf);
+           sg.data1.add(gf);
+           
+           System.out.println(gf.getTeam_home());
+           System.out.println(gf.getTeam_away());
+           
+            
+                
+            
+        }
+                
+        } catch (SQLException ex) {
+            Logger.getLogger(CompetitionController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+            
+            name_home.setCellValueFactory(new PropertyValueFactory<>("team_home"));
+            name_away.setCellValueFactory(new PropertyValueFactory<>("team_away"));
             score_home.setCellValueFactory(new PropertyValueFactory<>("score_home"));
             score_away.setCellValueFactory(new PropertyValueFactory<>("score_away"));
             hall.setCellValueFactory(new PropertyValueFactory<>("salle"));
             statuts.setCellValueFactory(new PropertyValueFactory<>("statuts"));
-            table_game.setItems(sg.getData());
+            table_game.setItems(sg.getData1());
             
             
             
