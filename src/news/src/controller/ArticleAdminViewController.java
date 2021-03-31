@@ -11,11 +11,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -29,8 +32,9 @@ import news.src.Enitity.Article;
 import news.src.Service.ServiceArticle;
 import news.src.Service.ServiceComment;
 import news.src.Service.ServiceLikes;
-import news.src.utils.Passable;
+import utils.Passable;
 import news.src.utils.Utilities;
+import pidev.AdminhomeController;
 
 
 /**
@@ -78,16 +82,19 @@ public class ArticleAdminViewController implements Initializable {
 
     @FXML
     private void modArticle(ActionEvent event) throws IOException {
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            Pane root1 =  fxmlLoader.load(getClass().getResource("/news/src/view/FXMLArticlesEditor.fxml").openStream());
-            System.out.println("eruoer");
-            Passable p = Passable.getInstance();
-            p.setAnyData(this.ref);
-            p.setNumberData(1);
-            Stage stage = new Stage();
-            stage.setTitle("Article Editor");
-            stage.setScene(new Scene(root1));  
-            stage.show();
+            Node node;
+            try {
+            //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
+            Passable.getInstance().setNumberData(1);
+                    Passable.getInstance().setAnyData(ref);
+
+            node = (Node)FXMLLoader.load(getClass().getResource("/news/src/view/FXMLArticlesEditor.fxml"));
+            AnchorPane pane = (AnchorPane)Passable.getInstance().getContainer();
+            pane.getChildren().setAll(node);
+
+            } catch (IOException ex) {
+            Logger.getLogger(AdminhomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
 
     @FXML

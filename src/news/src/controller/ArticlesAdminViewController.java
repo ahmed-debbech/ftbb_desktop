@@ -27,7 +27,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import news.src.Enitity.Article;
 import news.src.Service.ServiceArticle;
-import news.src.utils.Passable;
+import utils.Passable;
 import pidev.AdminhomeController;
 
 
@@ -67,12 +67,11 @@ public class ArticlesAdminViewController implements Initializable {
     @FXML
     private void addArticle(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
-        Passable p = Passable.getInstance();
-            p.setNumberData(0);
+        Passable.getInstance().setNumberData(0);
             Node node;
             try {
             node = (Node)FXMLLoader.load(getClass().getResource("/news/src/view/FXMLArticlesEditor.fxml"));
-            AnchorPane pane = (AnchorPane) Passable.getInstance().getAnyData();
+            AnchorPane pane = (AnchorPane) Passable.getInstance().getContainer();
             pane.getChildren().setAll(node);
 
             } catch (IOException ex) {

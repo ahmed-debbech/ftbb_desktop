@@ -27,7 +27,7 @@ import javax.imageio.ImageIO;
 import news.src.Enitity.Article;
 import news.src.Service.ServiceArticle;
 import news.src.Service.UploadService;
-import news.src.utils.Passable;
+import utils.Passable;
 import news.src.utils.Utilities;
 
 
@@ -61,10 +61,14 @@ public class ArticleEditorController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        this.whatToMod = (Article) Passable.getInstance().getAnyData();
         this.mode = Passable.getInstance().getNumberData();
+        if(this.mode == 1){
+            this.whatToMod = (Article) Passable.getInstance().getAnyData();
+        }else{
+            this.whatToMod = null;
+        }
+        
         System.out.println("mode ==" + Passable.getInstance().getNumberData());
-        Passable.getInstance().erase();
         category.getItems().add(Article.toStringCatTypes(Article.getBREAKING_NEWS()));
         category.getItems().add(Article.toStringCatTypes(Article.getHOT()));
         category.getItems().add(Article.toStringCatTypes(Article.getANNOUNCE()));
@@ -73,9 +77,7 @@ public class ArticleEditorController implements Initializable {
             this.add_but.setText("Add New");
         }else{
             this.add_but.setText("Change");
-            if(whatToMod == null){
-                    Utilities.alert("WARNING!", "Please select an article from the list!");
-                }else{
+            if(whatToMod != null){
                     article_id.setText(String.valueOf(whatToMod.getArticle_id()));
                     text.setText(whatToMod.getText());
                     title.setText(whatToMod.getTitle());

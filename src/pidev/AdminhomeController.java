@@ -27,7 +27,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import news.src.utils.Passable;
+import utils.Passable;
 
 /**
  * FXML Controller class
@@ -156,7 +156,7 @@ public class AdminhomeController implements Initializable {
         });
         
         
-        Passable.getInstance().setAnyData(linker);
+        Passable.getInstance().setContainer(linker);
     }    
 
     @FXML

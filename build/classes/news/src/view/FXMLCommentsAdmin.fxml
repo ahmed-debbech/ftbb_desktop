@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="panecom" prefHeight="588.0" prefWidth="766.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="news.src.controller.CommentsAdminController">
+<AnchorPane id="AnchorPane" fx:id="panecom" prefHeight="570.0" prefWidth="955.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="news.src.controller.CommentsAdminController">
    <children>
-      <VBox prefHeight="589.0" prefWidth="765.0">
+      <VBox prefHeight="570.0" prefWidth="955.0">
          <children>
             <Label fx:id="title" textFill="#fe4040">
                <font>
@@ -23,20 +23,32 @@
                   <Insets left="15.0" />
                </padding>
             </Label>
-            <ScrollPane prefHeight="546.0" prefWidth="737.0">
+            <ScrollPane prefHeight="450.0" prefWidth="955.0">
                <content>
-                  <VBox fx:id="listcomments" prefHeight="545.0" prefWidth="739.0" />
+                  <VBox fx:id="listcomments" prefHeight="448.0" prefWidth="943.0" />
                </content>
             </ScrollPane>
-            <HBox prefHeight="46.0" prefWidth="764.0" spacing="10.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="83.0" prefWidth="955.0" spacing="10.0">
                <children>
-                  <Button fx:id="ban_but" mnemonicParsing="false" onAction="#banComment" text="Ban Comment" />
-                  <Button fx:id="ref_but" mnemonicParsing="false" onAction="#refreshComment" prefHeight="30.0" prefWidth="98.0" text="Refresh" />
-                  <TextField fx:id="filter" promptText="Search for a word" />
-                  <CheckBox fx:id="checks" mnemonicParsing="false" onAction="#onSelectAll" text="Select All">
+                  <Button fx:id="ban_but" mnemonicParsing="false" onAction="#banComment" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Ban Comment" textFill="WHITE">
+                     <font>
+                        <Font name="Cambria Bold" size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin></Button>
+                  <Button fx:id="ref_but" mnemonicParsing="false" onAction="#refreshComment" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Refresh" textFill="WHITE">
+                     <font>
+                        <Font name="Cambria Bold" size="18.0" />
+                     </font></Button>
+                  <TextField fx:id="filter" prefHeight="30.0" prefWidth="300.0" promptText="Search for a word" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" />
+                  <CheckBox fx:id="checks" mnemonicParsing="false" onAction="#onSelectAll" prefHeight="30.0" prefWidth="190.0" text="Select All" textFill="#de020f">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
+                     <font>
+                        <Font name="Cambria Bold" size="15.0" />
+                     </font>
                   </CheckBox>
                </children>
                <padding>
