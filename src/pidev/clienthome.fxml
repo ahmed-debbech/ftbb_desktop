@@ -11,6 +11,66 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidev.ClienthomeController">
    <children>
+      <AnchorPane prefHeight="51.0" prefWidth="1000.0" style="-fx-background-color: #C80101;">
+         <children>
+            <ImageView fx:id="Exit" fitHeight="32.0" fitWidth="32.0" layoutX="960.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/exit.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="menu" fitHeight="46.0" fitWidth="32.0" layoutX="7.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/menu.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="44.0" layoutY="51.0" prefHeight="620.0" prefWidth="956.0" style="-fx-background-color: white;">
+         <children>
+            <AnchorPane prefHeight="51.0" prefWidth="956.0" style="-fx-background-color: white;">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#btncart" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="896.0" AnchorPane.topAnchor="2.0">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="50.0" opacity="0.3" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/cart11.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#btnprofil" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="857.0" AnchorPane.topAnchor="2.0">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="94.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/admin.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#btnaide" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="820.0" AnchorPane.topAnchor="2.0">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/help.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <ComboBox fx:id="box" prefWidth="150.0" style="-fx-background-color: transparent; -fx-background-radius: 100; -fx-background-color: #9e9e9e;" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="670.0" AnchorPane.topAnchor="6.0" />
+                  <Button mnemonicParsing="false" onAction="#btnretour" prefHeight="38.0" prefWidth="40.0" style="-fx-background-color: transparent; -fx-border-color: grey; -fx-border-radius: 50;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="2.0">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                           <image>
+                              <Image url="@../resources/return.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="linker" layoutY="50.0" prefHeight="570.0" prefWidth="955.0" style="-fx-background-color: white;" />
+         </children>
+      </AnchorPane>
       <AnchorPane fx:id="pane1" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <AnchorPane layoutY="51.0" prefHeight="569.0" prefWidth="44.0" style="-fx-background-color: #D7DBDD;">
          <children>
@@ -216,66 +276,6 @@
                   </Button>
                </children>
             </VBox>
-         </children>
-      </AnchorPane>
-      <AnchorPane prefHeight="51.0" prefWidth="1000.0" style="-fx-background-color: #C80101;">
-         <children>
-            <ImageView fx:id="Exit" fitHeight="32.0" fitWidth="32.0" layoutX="960.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/exit.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="menu" fitHeight="46.0" fitWidth="32.0" layoutX="7.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/menu.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="44.0" layoutY="51.0" prefHeight="620.0" prefWidth="956.0" style="-fx-background-color: white;">
-         <children>
-            <AnchorPane prefHeight="51.0" prefWidth="956.0" style="-fx-background-color: white;">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#btncart" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="896.0" AnchorPane.topAnchor="2.0">
-                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="50.0" opacity="0.3" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../resources/cart11.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#btnprofil" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="857.0" AnchorPane.topAnchor="2.0">
-                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="94.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../resources/admin.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#btnaide" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="820.0" AnchorPane.topAnchor="2.0">
-                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../resources/help.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <ComboBox fx:id="box" prefWidth="150.0" style="-fx-background-color: transparent; -fx-background-radius: 100; -fx-background-color: #9e9e9e;" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="670.0" AnchorPane.topAnchor="6.0" />
-                  <Button mnemonicParsing="false" onAction="#btnretour" prefHeight="38.0" prefWidth="40.0" style="-fx-background-color: transparent; -fx-border-color: grey; -fx-border-radius: 50;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="2.0">
-                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
-                           <image>
-                              <Image url="@../resources/return.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-               </children>
-            </AnchorPane>
-            <AnchorPane fx:id="linker" layoutY="50.0" prefHeight="570.0" prefWidth="955.0" style="-fx-background-color: white;" />
          </children>
       </AnchorPane>
    </children>

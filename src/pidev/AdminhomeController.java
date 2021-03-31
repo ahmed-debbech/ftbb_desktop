@@ -229,7 +229,7 @@ public class AdminhomeController implements Initializable {
          Node node;
             try {
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
-            node = (Node)FXMLLoader.load(getClass().getResource("/user/src/pdev/Profile.fxml"));
+            node = (Node)FXMLLoader.load(getClass().getResource("/user/src/pdev/AjoutAdmin.fxml"));
             linker.getChildren().setAll(node);
 
             } catch (IOException ex) {
@@ -240,15 +240,7 @@ public class AdminhomeController implements Initializable {
 
     @FXML
     private void btnretour(ActionEvent event) {
-         Node node;
-            try {
-            //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
-            node = (Node)FXMLLoader.load(getClass().getResource("enaadmin.fxml"));
-            linker.getChildren().setAll(node);
-
-            } catch (IOException ex) {
-            Logger.getLogger(AdminhomeController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+         linker.getChildren().clear();
     }
 
 

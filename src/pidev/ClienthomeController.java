@@ -71,20 +71,25 @@ public class ClienthomeController implements Initializable {
         fadeTransition.play();
         
         TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(0.5),pane2);
-        translateTransition.setByX(-600);
+        translateTransition.setByX(-1200);
         translateTransition.play();
         
         menu.setOnMouseClicked(event -> {
-            pane1.setVisible(true);
+            FadeTransition fadeTransition1 = new FadeTransition(Duration.seconds(0.5),pane1);
+            fadeTransition1.setFromValue(0);
+            fadeTransition1.setToValue(0.15);
+            fadeTransition1.play();
+            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5),pane2);
+            if(pane2.getTranslateX() == -1200.0){
+                translateTransition1.setByX(+1200);
+            }else{
+                if(pane2.getTranslateX() == 0.0){
+                    translateTransition1.setByX(-1200);
+                }
+            }
+             translateTransition1.play();
             
-        FadeTransition fadeTransition1 = new FadeTransition(Duration.seconds(0.5),pane1);
-        fadeTransition1.setFromValue(0);
-        fadeTransition1.setToValue(0.15);
-        fadeTransition1.play();
-        
-        TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5),pane2);
-        translateTransition1.setByX(+600);
-        translateTransition1.play();
+
         });
         
         pane1.setOnMouseClicked(event ->{
@@ -112,20 +117,24 @@ public class ClienthomeController implements Initializable {
         fadeTransition1.play();
         
         TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(0.5),pane3);
-        translateTransition1.setByX(-1200);
+        translateTransition1.setByX(-2400);
         translateTransition1.play();
         
         parametre.setOnMouseClicked(event2 -> {
-            pane1.setVisible(true);
-            
+             TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5),pane3);
+             if(pane3.getTranslateX() == -2400.0){
+                translateTransition2.setByX(+2400.0);
+             }else{
+                 if(pane2.getTranslateX() == 0.0){
+                    translateTransition2.setByX(-2400.0);
+                 }
+             }
+        translateTransition2.play();
+        
         FadeTransition fadeTransition2 = new FadeTransition(Duration.seconds(0.5),pane1);
         fadeTransition2.setFromValue(0);
         fadeTransition2.setToValue(0.15);
         fadeTransition2.play();
-        
-        TranslateTransition translateTransition2 = new TranslateTransition(Duration.seconds(0.5),pane3);
-        translateTransition2.setByX(+1200);
-        translateTransition2.play();
         });
         
         pane1.setOnMouseClicked(event2 ->{
