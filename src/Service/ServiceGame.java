@@ -53,6 +53,62 @@ public class ServiceGame implements IServiceGame {
         
        String query ="select * from `game` ";
        ResultSet rst = stm.executeQuery(query);
+       ArrayList <Game>games = new ArrayList<> ();
+            while (rst.next()){
+                Game G = new Game ();
+                G.setId(rst.getInt("id"));
+                G.setId_team_home(rst.getInt("id_team_home"));
+                G.setId_team_away(rst.getInt("id_team_away"));
+                G.setScore_home(rst.getInt("score_home"));
+                G.setScore_away(rst.getInt("score_away"));
+                
+                G.setSalle(rst.getString("salle"));
+
+                games.add(G);
+                data.add(G);
+            }
+       
+        return  games;
+    }
+
+    @Override
+    public List<Game> GetGameByIdCompetition(int id) throws SQLException {
+        
+        Statement stm = cnx.createStatement();
+        
+       
+       String query = "select * from `game` where id_competition="+id+";";
+       ResultSet rst = stm.executeQuery(query);
+       List <Game>games = new ArrayList<> ();
+            while (rst.next()){
+                Game G = new Game ();
+                G.setId(rst.getInt("id"));
+                G.setId_team_home(rst.getInt("id_team_home"));
+                G.setId_team_away(rst.getInt("id_team_away"));
+                G.setScore_home(rst.getInt("score_home"));
+                G.setScore_away(rst.getInt("score_away"));
+                
+                G.setSalle(rst.getString("salle"));
+
+                games.add(G);
+                data.add(G);
+            }
+       
+        return (ArrayList<Game>) games;
+        
+        
+        
+        
+    }
+
+    @Override
+    public List<Game> GetGameByIdPhase(int id) throws SQLException {
+        
+        Statement stm = cnx.createStatement();
+        
+       
+       String query = "select * from `game` where id_phase="+id+";";
+       ResultSet rst = stm.executeQuery(query);
        List <Game>games = new ArrayList<> ();
             while (rst.next()){
                 Game G = new Game ();
@@ -70,5 +126,57 @@ public class ServiceGame implements IServiceGame {
        
         return (ArrayList<Game>) games;
     }
+
+    @Override
+    public List<Game> GetGameByIdWeek(int id) throws SQLException {
+        Statement stm = cnx.createStatement();
+        
+       
+       String query = "select * from `game` where id_week="+id+";";
+       ResultSet rst = stm.executeQuery(query);
+       List <Game>games = new ArrayList<> ();
+            while (rst.next()){
+                Game G = new Game ();
+                G.setId(rst.getInt("id"));
+                G.setId_team_home(rst.getInt("id_team_home"));
+                G.setId_team_away(rst.getInt("id_team_away"));
+                G.setScore_home(rst.getInt("score_home"));
+                G.setScore_away(rst.getInt("score_away"));
+                
+                G.setSalle(rst.getString("salle"));
+
+                games.add(G);
+                data.add(G);
+            }
+       
+        return (ArrayList<Game>) games;
+    }
+
+    @Override
+    public List<Game> AfficherGame(int idc, int idp, int idw) throws SQLException {
+        Statement stm = cnx.createStatement();
+        
+       
+       String query = "select * from `game` where id_week='" + idw + "'and id_phase='" + idp + "'and id_competition='" + idc + "'";
+       ResultSet rst = stm.executeQuery(query);
+       List <Game>games = new ArrayList<> ();
+            while (rst.next()){
+                Game G = new Game ();
+                G.setId(rst.getInt("id"));
+                G.setId_team_home(rst.getInt("id_team_home"));
+                G.setId_team_away(rst.getInt("id_team_away"));
+                G.setScore_home(rst.getInt("score_home"));
+                G.setScore_away(rst.getInt("score_away"));
+                
+                G.setSalle(rst.getString("salle"));
+
+                games.add(G);
+                data.add(G);
+            }
+       
+        return (ArrayList<Game>) games;
+    
+    
    
+}
 }

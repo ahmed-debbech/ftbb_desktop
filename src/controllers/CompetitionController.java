@@ -46,7 +46,11 @@ import javafx.stage.Stage;
  * @author Lenovo
  */
 public class CompetitionController implements Initializable {
+    
 
+    ArrayList <Game> listGame= new ArrayList<Game>();
+    ServiceGame sg = new ServiceGame();
+    
     @FXML
     private ChoiceBox<Competition> ListCompetition = new ChoiceBox<Competition>();
     @FXML
@@ -104,6 +108,9 @@ public class CompetitionController implements Initializable {
             ListCompetition.getItems().add(c);
          ListCompetition.getValue();
         }
+                ListCompetition.getSelectionModel().selectFirst();
+                
+                               
         } catch (SQLException ex) {
             Logger.getLogger(CompetitionController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -115,6 +122,7 @@ public class CompetitionController implements Initializable {
             ListPhase.getItems().add(p);
             ListPhase.getValue();
         }
+                ListPhase.getSelectionModel().selectFirst();
         } catch (SQLException ex) {
             Logger.getLogger(CompetitionController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -126,14 +134,27 @@ public class CompetitionController implements Initializable {
             ListWeek.getItems().add(w);
             ListWeek.getValue();
         }
+                ListWeek.getSelectionModel().selectFirst();
         } catch (SQLException ex) {
             Logger.getLogger(CompetitionController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+       affichertable();
+        
+        
+    }    
+    
+
+public void affichertable (){
+        int idc = ServiceCompetition.getCom().getId();
+        int idp =ServicePhase.getCom().getId();
+        int idw =ServiceWeek.getCom().getId();
         
         ServiceGame sg = new ServiceGame ();
+        
+        
         try {
-            games = sg.AfficherGame();
+            games = (ArrayList<Game>) sg.AfficherGame(idc, idp, idw);
             name_home.setCellValueFactory(new PropertyValueFactory<>("id_team_home"));
             name_away.setCellValueFactory(new PropertyValueFactory<>("id_team_away"));
             score_home.setCellValueFactory(new PropertyValueFactory<>("score_home"));
@@ -150,11 +171,7 @@ public class CompetitionController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(CompetitionController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-    }    
-    
-
-
+        }
 
 
 
@@ -294,6 +311,18 @@ public class CompetitionController implements Initializable {
         System.out.println(c.getName());
         ServiceCompetition.setCom(c);
         System.out.println(c.getName());
+           ServiceGame sg = new ServiceGame ();
+           int idc = ServiceCompetition.getCom().getId();
+        int idp =ServicePhase.getCom().getId();
+        int idw =ServiceWeek.getCom().getId();
+        try {
+            games = (ArrayList<Game>) sg.AfficherGame(idc, idp, idw);
+        } catch (SQLException ex) {
+            Logger.getLogger(CompetitionController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+       affichertable(); 
+        
     }
     
     @FXML
@@ -301,9 +330,19 @@ public class CompetitionController implements Initializable {
         System.out.println("tttt");
            Phase c = new Phase();
         ServicePhase sc = new ServicePhase();
-        c= ListPhase.getValue();
+        c = ListPhase.getValue();
         ServicePhase.setCom(c);
         System.out.println(c.getName());
+        int idc = ServiceCompetition.getCom().getId();
+        int idp =ServicePhase.getCom().getId();
+        int idw =ServiceWeek.getCom().getId();
+           ServiceGame sg = new ServiceGame ();
+        try {
+            games = (ArrayList<Game>) sg.AfficherGame(idc, idp, idw);
+        } catch (SQLException ex) {
+            Logger.getLogger(CompetitionController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        affichertable();
     }
     @FXML
     private void selectedWeek(ActionEvent event) {
@@ -313,6 +352,17 @@ public class CompetitionController implements Initializable {
         c= ListWeek.getValue();
         ServiceWeek.setCom(c);
         System.out.println(c.getName_week());
+           ServiceGame sg = new ServiceGame ();
+           int idc = ServiceCompetition.getCom().getId();
+        int idp =ServicePhase.getCom().getId();
+        int idw =ServiceWeek.getCom().getId();
+        try {
+            games = (ArrayList<Game>) sg.AfficherGame(idc, idp, idw);
+        } catch (SQLException ex) {
+            Logger.getLogger(CompetitionController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        affichertable();
+        
     }
 
 

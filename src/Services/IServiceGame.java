@@ -17,4 +17,8 @@ import java.util.List;
 public interface IServiceGame {
      public void AddGame(Game g);
   public List<Game> AfficherGame()throws SQLException ;
+  public List<Game> AfficherGame(int idc, int idp , int idw)throws SQLException ;
+  public List<Game> GetGameByIdCompetition(int id )throws SQLException ;
+  public List<Game> GetGameByIdPhase(int id )throws SQLException ;
+  public List<Game> GetGameByIdWeek(int id )throws SQLException ;
 }
