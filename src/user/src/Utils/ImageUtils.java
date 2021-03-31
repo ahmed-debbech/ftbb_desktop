@@ -19,7 +19,7 @@ public static String CopyfileClient (String a,Client c) throws IOException {
   
   FileInputStream in = new FileInputStream(a);
   String str = c.getId()+".JPG";
-  FileOutputStream ou = new FileOutputStream("C:\\xampp\\htdocs\\ProfileImg\\"+c.getId()+".JPG");
+  FileOutputStream ou = new FileOutputStream("C:\\xampp\\htdocs\\uploads\\"+c.getId()+".JPG");
   BufferedInputStream bin = new BufferedInputStream(in);
   BufferedOutputStream bou = new BufferedOutputStream(ou);
   int b=0;

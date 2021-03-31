@@ -6,13 +6,16 @@
 package user.src.pdev;
 
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,6 +31,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javax.imageio.ImageIO;
 import user.src.Entities.Client;
 import user.src.Service.ServiceClient;
 import user.src.Utils.ImageUtils;
@@ -66,9 +70,20 @@ public class EditProfileUtilController implements Initializable {
         Tnumero.setText(""+c.getNumber());
         Tdate.setValue(c.getBirthday().toLocalDate()); /// a editer //
         tpath.setText(c.getPhoto_url());
-        Image img = new Image("C:\\xampp\\htdocs\\ProfileImg\\22781996.JPG");
-        this.Iprofil.setImage(img);
+        //Image img = new Image("C:\\xampp\\htdocs\\ProfileImg\\22781996.JPG");
+       // this.Iprofil.setImage(img);
         //Iprofil.setImage(img);
+        Image im = null;
+        try {
+            URL imageUrl = new URL("http://127.0.0.1/uploads/"+ c.getPhoto_url());
+            InputStream in = imageUrl.openStream();
+            BufferedImage image = ImageIO.read(in);
+            im = SwingFXUtils.toFXImage(image, null);
+            in.close();
+        }catch (IOException ioe) {
+           im = new Image("img/user.png");
+        }
+        this.Iprofil.setImage(im);
     }    
 
     @FXML
@@ -88,7 +103,7 @@ public class EditProfileUtilController implements Initializable {
          BtVal.getScene().getWindow().hide();
         
      
-        Parent root = FXMLLoader.load(getClass().getResource("ProfileUtil.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/user/src/pdev/ProfileUtil.fxml"));
         
         Scene scene = new Scene(root);
         Stage stage = new Stage();
@@ -107,7 +122,7 @@ public class EditProfileUtilController implements Initializable {
         BtVal.getScene().getWindow().hide();
         
      
-        Parent root = FXMLLoader.load(getClass().getResource("ProfileUtil.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/user/src/pdev/ProfileUtil.fxml"));
         
         Scene scene = new Scene(root);
         Stage stage = new Stage();

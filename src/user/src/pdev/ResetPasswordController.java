@@ -118,7 +118,7 @@ public class ResetPasswordController implements Initializable {
     private void Retour(ActionEvent event) throws IOException {
          BTValidEmail.getScene().getWindow().hide();      
      
-        Parent root = FXMLLoader.load(getClass().getResource("Cnx.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/user/src/pdev/Cnx.fxml"));
         
         Scene scene = new Scene(root);
         Stage stage = new Stage();

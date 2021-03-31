@@ -126,7 +126,7 @@ public class GestionUtilisateurController implements Initializable {
     private void Retour(ActionEvent event) throws IOException {
         btretour.getScene().getWindow().hide();
 
-        Parent root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/user/src/pdev/Profile.fxml"));
 
         Scene scene = new Scene(root);
         Stage stage = new Stage();

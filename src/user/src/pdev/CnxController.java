@@ -67,7 +67,7 @@ public class CnxController implements Initializable {
                     Blogin.getScene().getWindow().hide();
         
      
-        Parent root = FXMLLoader.load(getClass().getResource("Profile.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/user/src/pdev/Profile.fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
@@ -91,7 +91,7 @@ public class CnxController implements Initializable {
             Blogin.getScene().getWindow().hide();
         
      
-        Parent root = FXMLLoader.load(getClass().getResource("ProfileUtil.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/user/src/pdev/ProfileUtil.fxml"));
         
         Scene scene = new Scene(root);
         Stage stage = new Stage();
@@ -112,7 +112,7 @@ public class CnxController implements Initializable {
          Blogin.getScene().getWindow().hide();
         
      
-        Parent root = FXMLLoader.load(getClass().getResource("InscriptionClient.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/user/src/pdev/InscriptionClient.fxml"));
         
         Scene scene = new Scene(root);
         Stage stage = new Stage();
@@ -126,7 +126,7 @@ public class CnxController implements Initializable {
      Blogin.getScene().getWindow().hide();
         
      
-        Parent root = FXMLLoader.load(getClass().getResource("ResetPassword.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/user/src/pdev/ResetPassword.fxml"));
         
         Scene scene = new Scene(root);
         Stage stage = new Stage();

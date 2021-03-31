@@ -19,7 +19,7 @@ public class Pidev extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/user/src/pdev/Cnx.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/news/src/view/FXMLArticlesAdminView.fxml"));
         
         Scene scene = new Scene(root);
         

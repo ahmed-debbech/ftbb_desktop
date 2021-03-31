@@ -157,7 +157,7 @@ public class InscriptionClientController implements Initializable {
     private void RetourCnx(ActionEvent event) throws IOException {
          Btretour.getScene().getWindow().hide();      
      
-        Parent root = FXMLLoader.load(getClass().getResource("Cnx.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/user/src/pdev/Cnx.fxml"));
         
         Scene scene = new Scene(root);
         Stage stage = new Stage();
