@@ -8,26 +8,36 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="464.0" prefWidth="668.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="news.src.controller.ArticlesAdminViewController">
+<AnchorPane id="AnchorPane" prefHeight="570.0" prefWidth="955.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="news.src.controller.ArticlesAdminViewController">
    <children>
-      <VBox maxWidth="1.7976931348623157E308" prefHeight="462.0" prefWidth="668.0">
+      <VBox maxWidth="1.7976931348623157E308" prefHeight="570.0" prefWidth="955.0">
          <children>
-            <ScrollPane fx:id="articles_scroller" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="467.0" prefWidth="667.0">
+            <ScrollPane fx:id="articles_scroller" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="467.0" prefWidth="733.0">
                <content>
-                  <VBox fx:id="vbox_articles" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="466.0" prefWidth="653.0" />
+                  <VBox fx:id="vbox_articles" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="466.0" prefWidth="941.0" />
                </content>
             </ScrollPane>
-            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="69.0" prefWidth="668.0" spacing="10.0">
+            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="58.0" prefWidth="955.0" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#addArticle" text="Add a new article" />
-                  <Button lineSpacing="5.0" mnemonicParsing="false" onAction="#refreshArticle" prefHeight="30.0" prefWidth="116.0" text="Refresh" />
-                  <TextField fx:id="filter" promptText="Search..." />
-                  <ComboBox fx:id="sort" onAction="#onSelected" prefHeight="30.0" prefWidth="228.0" />
+                  <Button mnemonicParsing="false" onAction="#addArticle" prefHeight="40.0" prefWidth="230.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Add a new article" textFill="WHITE">
+                     <font>
+                        <Font name="Cambria Bold" size="18.0" />
+                     </font></Button>
+                  <Button lineSpacing="5.0" mnemonicParsing="false" onAction="#refreshArticle" prefHeight="40.0" prefWidth="230.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Refresh" textFill="WHITE">
+                     <font>
+                        <Font name="Cambria Bold" size="18.0" />
+                     </font></Button>
+                  <TextField fx:id="filter" prefHeight="40.0" prefWidth="230.0" promptText="Search..." style="-fx-background-radius: 50; -fx-background-color: transparent; -fx-background-color: #E5E7E9;" />
+                  <ComboBox fx:id="sort" onAction="#onSelected" prefHeight="40.0" prefWidth="220.0" style="-fx-background-radius: 50; -fx-background-color: transparent; -fx-background-color: #E5E7E9;" />
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
             </HBox>
          </children>
       </VBox>
