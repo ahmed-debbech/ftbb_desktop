@@ -10,6 +10,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,10 +22,20 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import pidev.LoginController;
+import static pidev.Pidev.isSplashLoader;
 import user.src.Entities.Admin;
 import user.src.Entities.Client;
 import user.src.Service.ServiceAdmin;
@@ -43,14 +56,56 @@ public class CnxController implements Initializable {
     @FXML
     private Button Blogin;
     @FXML
-    private Button BInsc;
+    private AnchorPane root;
+    @FXML
+    private AnchorPane root1;
+    @FXML
+    private AnchorPane pn_signup;
+    @FXML
+    private ImageView Exit;
+    @FXML
+    private AnchorPane pn_signin;
+    @FXML
+    private DatePicker tdate;
+    @FXML
+    private TextField tfprenom;
+    @FXML
+    private TextField tfnumber;
+    @FXML
+    private PasswordField tfpass;
+    @FXML
+    private RadioButton Rmale;
+    @FXML
+    private ToggleGroup sexe;
+    @FXML
+    private RadioButton Rfemme;
+    @FXML
+    private TextField tfnom;
+    @FXML
+    private TextField tfemail1;
     
    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
+       if(!isSplashLoader){
+            loadSplashScreen();
+       } 
+       Exit.setOnMouseClicked(event -> {
+            System.exit(0);
+        });  
+        
     }    
+
+    @FXML
+    private void signin(ActionEvent event) {
+        pn_signin.toFront();
+    }
+
+    @FXML
+    private void signup(ActionEvent event) {
+        pn_signup.toFront();
+    }
 
     @FXML
     private void Login(ActionEvent event) throws IOException {
@@ -67,7 +122,7 @@ public class CnxController implements Initializable {
                     Blogin.getScene().getWindow().hide();
         
      
-        Parent root = FXMLLoader.load(getClass().getResource("/user/src/pdev/Profile.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource(""));
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
@@ -91,7 +146,7 @@ public class CnxController implements Initializable {
             Blogin.getScene().getWindow().hide();
         
      
-        Parent root = FXMLLoader.load(getClass().getResource("/user/src/pdev/ProfileUtil.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/pidev/clienthome.fxml"));
         
         Scene scene = new Scene(root);
         Stage stage = new Stage();
@@ -121,7 +176,6 @@ public class CnxController implements Initializable {
         stage.setResizable(false);
     }
 
-    @FXML
     private void ResetPassword(ActionEvent event) throws IOException {
      Blogin.getScene().getWindow().hide();
         
@@ -134,5 +188,60 @@ public class CnxController implements Initializable {
         stage.show();
         stage.setResizable(false);
     }
-    
+
+
+    @FXML
+    private void signup_google(ActionEvent event) {
+    }
+
+    @FXML
+    private void signup_fb(ActionEvent event) {
+    }
+
+    @FXML
+    private void signin_google(ActionEvent event) {
+    }
+
+    @FXML
+    private void signin_fb(ActionEvent event) {
+    }
+
+    private void loadSplashScreen(){
+        try {
+            
+            isSplashLoader = true;
+            
+            StackPane pane = FXMLLoader.load(getClass().getResource("/pidev/splash.fxml"));
+            root.getChildren().setAll(pane);
+
+            FadeTransition fadeIn = new FadeTransition(Duration.seconds(3),pane);
+            fadeIn.setFromValue(0);
+            fadeIn.setToValue(1);
+            fadeIn.setCycleCount(1);
+            
+            FadeTransition fadeOut = new FadeTransition(Duration.seconds(3),pane);
+            fadeOut.setFromValue(1);
+            fadeOut.setToValue(0);
+            fadeOut.setCycleCount(1);
+            
+            fadeIn.play();
+            
+           fadeIn.setOnFinished((e)->{
+                fadeOut.play();
+            });
+            
+            fadeOut.setOnFinished((e)->{
+                try {
+                    AnchorPane parentContent = FXMLLoader.load(getClass().getResource("/pidev/Login.fxml"));
+                    root.setBackground(Background.EMPTY);
+                    root.getChildren().setAll(parentContent);
+                } catch (IOException ex) {
+                    Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            });
+            
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
