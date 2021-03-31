@@ -3,23 +3,38 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/pidev/adminhome.fxml</file>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/pidev/SplashController.java</file>
             <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/news/src/utils/Utilities.java</file>
             <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/user/src/pdev/ResetPassword.fxml</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/user/src/Service/ServiceClient.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/user/src/pdev/ProfileController.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/user/src/pdev/GestionUtilisateurController.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/utils/Passable.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/user/src/pdev/Cnx.fxml</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/news/src/utils/SqlConnection.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/user/src/pdev/CnxController.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/user/src/pdev/AjoutAdminController.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/user/src/pdev/InscriptionClient.fxml</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/news/src/controller/ArticleAdminViewController.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/pidev/adminhome.fxml</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/pidev/SplashController.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/news/src/view/FXMLArticleAdminView.fxml</file>
             <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/pidev/LoginController.java</file>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/pidev/AdminhomeController.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/user/src/pdev/Profile.fxml</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/user/src/pdev/EditProfileUtilController.java</file>
             <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/user/src/pdev/ProfileUtilController.java</file>
             <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/pidev/clienthome.fxml</file>
             <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/pidev/ClienthomeController.java</file>
             <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/user/src/pdev/ResetPasswordController.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/user/src/pdev/AjoutAdmin.fxml</file>
             <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/pidev/Login.fxml</file>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/user/src/pdev/Cnx.fxml</file>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/news/src/utils/SqlConnection.java</file>
             <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/pidev/Pidev.java</file>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/user/src/pdev/CnxController.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/pidev/Logini.fxml</file>
             <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/user/src/pdev/InscriptionClientController.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/user/src/pdev/ProfileUtil.fxml</file>
             <file>file:/C:/Users/DELL/Desktop/integ/pidev/nbproject/jfx-impl.xml</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/user/src/Utils/ImageUtils.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/user/src/pdev/EditProfileUtil.fxml</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/news/src/controller/ArticlesAdminViewController.java</file>
         </group>
     </open-files>
 </project-private>

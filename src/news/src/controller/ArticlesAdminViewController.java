@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,12 +21,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import news.src.Enitity.Article;
 import news.src.Service.ServiceArticle;
 import news.src.utils.Passable;
+import pidev.AdminhomeController;
 
 
 /**
@@ -63,13 +67,17 @@ public class ArticlesAdminViewController implements Initializable {
     @FXML
     private void addArticle(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader();
-            Pane root1 =  fxmlLoader.load(getClass().getResource("/news/src/view/FXMLArticlesEditor.fxml").openStream());
-            Passable p = Passable.getInstance();
+        Passable p = Passable.getInstance();
             p.setNumberData(0);
-            Stage stage = new Stage();
-            stage.setTitle("Article Editor");
-            stage.setScene(new Scene(root1));  
-            stage.show();
+            Node node;
+            try {
+            node = (Node)FXMLLoader.load(getClass().getResource("/news/src/view/FXMLArticlesEditor.fxml"));
+            AnchorPane pane = (AnchorPane) Passable.getInstance().getAnyData();
+            pane.getChildren().setAll(node);
+
+            } catch (IOException ex) {
+            Logger.getLogger(AdminhomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
 
     @FXML

@@ -80,6 +80,7 @@ public class ArticleAdminViewController implements Initializable {
     private void modArticle(ActionEvent event) throws IOException {
             FXMLLoader fxmlLoader = new FXMLLoader();
             Pane root1 =  fxmlLoader.load(getClass().getResource("/news/src/view/FXMLArticlesEditor.fxml").openStream());
+            System.out.println("eruoer");
             Passable p = Passable.getInstance();
             p.setAnyData(this.ref);
             p.setNumberData(1);
