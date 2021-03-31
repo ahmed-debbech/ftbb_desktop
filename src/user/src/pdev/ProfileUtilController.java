@@ -25,8 +25,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
+import utils.Passable;
 import pidev.AdminhomeController;
 import pidev.ClienthomeController;
 import user.src.Entities.Client;
@@ -85,13 +87,16 @@ public class ProfileUtilController implements Initializable {
     @FXML
     private void Updateinfo(ActionEvent event) throws IOException {
              
-        Parent root = FXMLLoader.load(getClass().getResource("/user/src/pdev/EditProfileUtil.fxml"));
-        
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        stage.setResizable(false);
+        Node node;
+            try {
+            //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
+            node = (Node)FXMLLoader.load(getClass().getResource("/user/src/pdev/EditProfileUtil.fxml"));
+            AnchorPane linker  = (AnchorPane) Passable.getInstance().getContainer();
+            linker.getChildren().setAll(node);
+
+            } catch (IOException ex) {
+            Logger.getLogger(AdminhomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
    
     }
 

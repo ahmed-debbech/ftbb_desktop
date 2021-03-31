@@ -40,7 +40,7 @@ import news.src.Enitity.Like;
 import news.src.Service.ServiceArticle;
 import news.src.Service.ServiceComment;
 import news.src.Service.ServiceLikes;
-import news.src.utils.Passable;
+import utils.Passable;
 import news.src.utils.Utilities;
 
 /**
@@ -111,6 +111,7 @@ public class ArticleDetailsController implements Initializable {
             im = SwingFXUtils.toFXImage(image, null);
             in.close();
         }catch (IOException ioe) {
+            System.out.println("edeed");
            im = new Image("/news/src/resources/default-article.jpg");
         }
         this.image.setImage(im);

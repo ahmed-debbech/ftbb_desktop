@@ -24,10 +24,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import utils.Passable;
 
 /**
  * FXML Controller class
@@ -59,6 +61,7 @@ public class ClienthomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        System.out.println("bbbbbbb");
            
         Exit.setOnMouseClicked(event -> {
             System.exit(0);
@@ -69,10 +72,11 @@ public class ClienthomeController implements Initializable {
         fadeTransition.setFromValue(1);
         fadeTransition.setToValue(0);
         fadeTransition.play();
-        
+        System.out.println("vvvvv");
         TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(0.5),pane2);
         translateTransition.setByX(-1200);
         translateTransition.play();
+        System.out.println("555555");
         
         menu.setOnMouseClicked(event -> {
             FadeTransition fadeTransition1 = new FadeTransition(Duration.seconds(0.5),pane1);
@@ -92,6 +96,7 @@ public class ClienthomeController implements Initializable {
 
         });
         
+        System.out.println("eeeeewwww");
         pane1.setOnMouseClicked(event ->{
         FadeTransition fadeTransition1 = new FadeTransition(Duration.seconds(0.5),pane1);
         fadeTransition1.setFromValue(0.15);
@@ -150,10 +155,10 @@ public class ClienthomeController implements Initializable {
         translateTransition2.setByX(-1200);
         translateTransition2.play();
         });
-        
         //hedhy ta3 el combobox ta3 el client illi fil menu mil fou9
         box.setValue("Bonjour CLIENT !");
         box.setItems(list);
+        Passable.getInstance().setContainer(linker);
     }    
 
     @FXML
@@ -161,7 +166,7 @@ public class ClienthomeController implements Initializable {
          Node node;
             try {
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
-            node = (Node)FXMLLoader.load(getClass().getResource("ahmed.fxml"));
+            node = (Node)FXMLLoader.load(getClass().getResource("/news/src/view/FXMLClientArticles.fxml"));
             linker.getChildren().setAll(node);
 
             } catch (IOException ex) {
@@ -285,6 +290,10 @@ public class ClienthomeController implements Initializable {
 
     @FXML
     private void btnparametre(ActionEvent event) {
+    }
+
+    @FXML
+    private void btngestion(MouseEvent event) {
     }
 
    

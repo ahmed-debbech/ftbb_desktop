@@ -24,7 +24,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.stage.Stage;
-import news.src.utils.Passable;
+import utils.Passable;
 import pidev.AdminhomeController;
 import user.src.Entities.Admin;
 import user.src.Service.ServiceAdmin;
@@ -105,7 +105,7 @@ public class ProfileController implements Initializable {
             try {
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
             node = (Node)FXMLLoader.load(getClass().getResource("/user/src/pdev/AjoutAdmin.fxml"));
-            AnchorPane root = (AnchorPane) Passable.getInstance().getAnyData();
+            AnchorPane root = (AnchorPane) Passable.getInstance().getContainer();
                 System.out.println("node " + root.toString());
             root.getChildren().setAll(node);
 
@@ -120,7 +120,7 @@ public class ProfileController implements Initializable {
             try {
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
             node = (Node)FXMLLoader.load(getClass().getResource("/user/src/pdev/GestionUtilisateur.fxml"));
-            AnchorPane root = (AnchorPane) Passable.getInstance().getAnyData();
+            AnchorPane root = (AnchorPane) Passable.getInstance().getContainer();
                 System.out.println("node " + root.toString());
             root.getChildren().setAll(node);
 

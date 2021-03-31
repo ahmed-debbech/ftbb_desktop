@@ -150,7 +150,6 @@ public class CnxController implements Initializable {
            } else {
             
            
-           
                
             Blogin.getScene().getWindow().hide();
         

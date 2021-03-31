@@ -11,15 +11,19 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -29,7 +33,7 @@ import news.src.Enitity.Article;
 import news.src.Enitity.Like;
 import news.src.Service.ServiceComment;
 import news.src.Service.ServiceLikes;
-import news.src.utils.Passable;
+import utils.Passable;
 import news.src.utils.Utilities;
 
 
@@ -122,12 +126,16 @@ public class PostsController implements Initializable {
     private void passDetails(MouseEvent event) throws IOException {
     Passable p = Passable.getInstance();
             p.setNumberData(Integer.parseInt(this.article_id.getText()));
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/news/src/view/FXMLArticleDetails.fxml"));
-            Pane root1 =  fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setTitle(this.title.getText());
-            stage.setScene(new Scene(root1));  
-            stage.show();
+         Node node;
+            try {
+            //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
+            node = (Node)FXMLLoader.load(getClass().getResource("/news/src/view/FXMLArticleDetails.fxml"));
+            AnchorPane linker = (AnchorPane) Passable.getInstance().getContainer();
+            linker.getChildren().setAll(node);
+
+            } catch (IOException ex) {
+            Logger.getLogger(pidev.ClienthomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
     
 }
