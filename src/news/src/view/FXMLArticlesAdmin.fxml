@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="pane" prefHeight="165.0" prefWidth="635.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="news.src.controller.ArticlesAdminViewController">
+<AnchorPane id="AnchorPane" fx:id="pane" prefHeight="165.0" prefWidth="930.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="news.src.controller.ArticlesAdminViewController">
    <children>
-      <HBox layoutX="-1.0" layoutY="-2.0" prefHeight="222.0" prefWidth="636.0">
+      <HBox layoutX="-1.0" layoutY="-2.0" prefHeight="241.0" prefWidth="930.0">
          <children>
             <HBox prefHeight="222.0" prefWidth="138.0">
                <children>
@@ -21,39 +21,48 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </HBox>
-            <VBox prefHeight="220.0" prefWidth="402.0">
+            <VBox prefHeight="241.0" prefWidth="762.0">
                <children>
-                  <Label fx:id="title" alignment="TOP_LEFT" prefHeight="70.0" prefWidth="390.0" text="Title">
+                  <Label fx:id="title" alignment="TOP_LEFT" prefHeight="69.0" prefWidth="582.0" text="Title" textFill="#de020f">
                      <font>
-                        <Font name="System Bold" size="12.800000190734863" />
+                        <Font name="Cambria Bold" size="18.0" />
                      </font>
                      <padding>
                         <Insets left="10.0" top="15.0" />
                      </padding>
                   </Label>
-                  <Label fx:id="text" alignment="TOP_LEFT" prefHeight="174.0" prefWidth="365.0" text="text">
+                  <Label fx:id="text" alignment="TOP_LEFT" prefHeight="173.0" prefWidth="587.0" text="text">
                      <padding>
                         <Insets left="10.0" />
                      </padding>
+                     <font>
+                        <Font name="Cambria Bold" size="15.0" />
+                     </font>
                   </Label>
                </children>
             </VBox>
-            <VBox prefHeight="222.0" prefWidth="149.0" spacing="10.0">
+            <VBox prefHeight="241.0" prefWidth="373.0" spacing="10.0">
                <children>
-                  <Button fx:id="com_but" mnemonicParsing="false" onAction="#showComments" prefHeight="36.0" prefWidth="98.0" text="0 Comments">
+                  <Button fx:id="com_but" mnemonicParsing="false" onAction="#showComments" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="0 Comments" textFill="WHITE">
                      <font>
-                        <Font size="9.0" />
+                        <Font name="Cambria Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#modArticle" prefHeight="31.0" prefWidth="99.0" text="Modify" />
-                  <Button mnemonicParsing="false" onAction="#delArticle" prefHeight="34.0" prefWidth="98.0" style="-fx-background-color: ff9e99;" text="Delete" />
-                  <Label fx:id="num_likes" prefHeight="19.0" prefWidth="98.0" text="0 likes" textFill="#ffa229">
+                  <Button mnemonicParsing="false" onAction="#modArticle" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Modify" textFill="WHITE">
                      <font>
-                        <Font name="System Bold Italic" size="17.0" />
+                        <Font name="Cambria Bold" size="18.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" onAction="#delArticle" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Delete" textFill="WHITE">
+                     <font>
+                        <Font name="Cambria Bold" size="18.0" />
+                     </font></Button>
+                  <Label fx:id="num_likes" alignment="CENTER" prefHeight="22.0" prefWidth="165.0" text="0 likes" textFill="#de020f">
+                     <font>
+                        <Font name="Cambria Bold" size="18.0" />
                      </font></Label>
-                  <Label fx:id="date" prefHeight="19.0" prefWidth="97.0" text="dd/mm/yyyy">
+                  <Label fx:id="date" alignment="CENTER" prefHeight="22.0" prefWidth="163.0" text="dd/mm/yyyy" textAlignment="CENTER">
                      <font>
-                        <Font name="System Italic" size="8.0" />
+                        <Font name="Cambria Bold" size="18.0" />
                      </font></Label>
                </children>
                <padding>
