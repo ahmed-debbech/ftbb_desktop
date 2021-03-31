@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #FFEBCD;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user.src.pdev.ProfileUtilController">
+<AnchorPane id="AnchorPane" prefHeight="578.0" prefWidth="956.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user.src.pdev.ProfileUtilController">
    <children>
-      <ImageView fx:id="Iprofil" fitHeight="189.0" fitWidth="216.0" layoutX="780.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Iprofil" fitHeight="244.0" fitWidth="218.0" layoutX="105.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/user.png" />
          </image>
@@ -18,62 +18,70 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </ImageView>
-      <Label layoutX="358.0" layoutY="194.0" text="Nom:">
+      <Label layoutX="360.0" layoutY="141.0" text="Nom:" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="360.0" layoutY="185.0" text="Prenom:" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="360.0" layoutY="235.0" text="Date de naissance:" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="360.0" layoutY="285.0" text="Numero:" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="360.0" layoutY="338.0" text="Sexe:" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lnom" layoutX="583.0" layoutY="141.0">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="358.0" layoutY="238.0" text="Prenom:">
+      <Label fx:id="lprenom" layoutX="583.0" layoutY="185.0">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="358.0" layoutY="288.0" text="Date de naissance:">
+      <Label fx:id="lbirth" layoutX="583.0" layoutY="235.0">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="358.0" layoutY="338.0" text="Numero:">
+      <Label fx:id="lnumber" layoutX="583.0" layoutY="285.0">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="358.0" layoutY="391.0" text="Sexe:">
+      <Label fx:id="lsex" layoutX="583.0" layoutY="338.0">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label fx:id="lnom" layoutX="581.0" layoutY="194.0">
+      <Button fx:id="BtModif" layoutX="651.0" layoutY="434.0" mnemonicParsing="false" onAction="#Updateinfo" prefHeight="50.0" prefWidth="145.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Modifier" textFill="WHITE">
          <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <Label fx:id="lprenom" layoutX="581.0" layoutY="238.0">
+            <Font name="Cambria Bold" size="18.0" />
+         </font></Button>
+      <Button layoutX="821.0" layoutY="46.0" mnemonicParsing="false" onAction="#deconnexion" prefHeight="60.0" prefWidth="50.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" textFill="WHITE">
          <font>
-            <Font size="22.0" />
+            <Font name="Cambria Bold" size="18.0" />
          </font>
-      </Label>
-      <Label fx:id="lbirth" layoutX="581.0" layoutY="288.0">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <Label fx:id="lnumber" layoutX="581.0" layoutY="338.0">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <Label fx:id="lsex" layoutX="581.0" layoutY="391.0">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <Button fx:id="BtModif" layoutX="608.0" layoutY="549.0" mnemonicParsing="false" onAction="#Updateinfo" prefHeight="41.0" prefWidth="107.0" text="Modifier" />
-      <ImageView fitHeight="104.0" fitWidth="67.0" layoutX="911.0" layoutY="678.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../img/ftbb-logo-stroke.png" />
-         </image>
-      </ImageView>
-      <Button layoutX="51.0" layoutY="45.0" mnemonicParsing="false" onAction="#deconnexion" prefHeight="41.0" prefWidth="129.0" text="Se deconnecter" />
+         <graphic>
+            <ImageView fitHeight="48.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../resources/log.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
    </children>
 </AnchorPane>

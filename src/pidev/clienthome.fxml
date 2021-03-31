@@ -234,7 +234,7 @@
       </AnchorPane>
       <AnchorPane layoutX="44.0" layoutY="51.0" prefHeight="620.0" prefWidth="956.0" style="-fx-background-color: white;">
          <children>
-            <AnchorPane prefHeight="38.0" prefWidth="956.0" style="-fx-background-color: white;">
+            <AnchorPane prefHeight="51.0" prefWidth="956.0" style="-fx-background-color: white;">
                <children>
                   <Button mnemonicParsing="false" onAction="#btncart" style="-fx-background-color: transparent;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="896.0" AnchorPane.topAnchor="2.0">
                      <graphic>
@@ -275,7 +275,7 @@
                   </Button>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="linker" layoutY="42.0" prefHeight="578.0" prefWidth="956.0" style="-fx-background-color: grey;" />
+            <AnchorPane fx:id="linker" layoutY="50.0" prefHeight="570.0" prefWidth="955.0" style="-fx-background-color: white;" />
          </children>
       </AnchorPane>
    </children>

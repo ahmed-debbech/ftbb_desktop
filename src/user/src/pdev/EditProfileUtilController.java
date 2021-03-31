@@ -81,7 +81,7 @@ public class EditProfileUtilController implements Initializable {
             im = SwingFXUtils.toFXImage(image, null);
             in.close();
         }catch (IOException ioe) {
-           im = new Image("img/user.png");
+           im = new Image("/user/src/img/user.png");
         }
         this.Iprofil.setImage(im);
     }    
@@ -101,15 +101,7 @@ public class EditProfileUtilController implements Initializable {
         sc.UpdateClient(c);
         ServiceClient.setA(c);
          BtVal.getScene().getWindow().hide();
-        
-     
-        Parent root = FXMLLoader.load(getClass().getResource("/user/src/pdev/ProfileUtil.fxml"));
-        
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        stage.setResizable(false);
+
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Succes!");
             alert.setHeaderText(null);
