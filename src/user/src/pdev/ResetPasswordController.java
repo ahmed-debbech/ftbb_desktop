@@ -114,25 +114,14 @@ public class ResetPasswordController implements Initializable {
         }
     }
 
-    @FXML
-    private void Retour(ActionEvent event) throws IOException {
-         BTValidEmail.getScene().getWindow().hide();      
-     
-        Parent root = FXMLLoader.load(getClass().getResource("/user/src/pdev/Cnx.fxml"));
-        
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        stage.setResizable(false);
-    }
+    
 
     @FXML
     private void ValiderNouveauPw(ActionEvent event) throws IOException {
         if (test==1) {
             ServiceAdmin ad =new ServiceAdmin(); 
             ad.UpdateAdminPass(TfNvpass.getText());
-            this.Retour(event);
+            
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Success!");
             alert.setHeaderText(null);
@@ -141,7 +130,7 @@ public class ResetPasswordController implements Initializable {
         } else {
             ServiceClient cl =new ServiceClient(); 
             cl.UpdateClientPass(TfNvpass.getText());
-            this.Retour(event);
+         
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Success!");
             alert.setHeaderText(null);

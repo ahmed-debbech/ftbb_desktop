@@ -230,7 +230,7 @@ public class ClienthomeController implements Initializable {
          Node node;
             try {
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
-            node = (Node)FXMLLoader.load(getClass().getResource("yassine.fxml"));
+            node = (Node)FXMLLoader.load(getClass().getResource("/user/src/pdev/ProfileUtil.fxml"));
             linker.getChildren().setAll(node);
 
             } catch (IOException ex) {
