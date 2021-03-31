@@ -30,7 +30,7 @@ public class PostViewController implements Initializable {
     @FXML
     private Label title;
     @FXML
-    private TextArea desc;
+    private Label desc;
     @FXML
     private ImageView image;
 

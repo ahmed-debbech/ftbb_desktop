@@ -4,13 +4,20 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="479.0" prefWidth="671.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.RespondfeedbackController">
    <children>
-      <Label fx:id="clem" layoutX="216.0" layoutY="126.0" />
-      <Label layoutX="128.0" layoutY="188.0" text="Description :" />
+      <Label fx:id="clem" layoutX="232.0" layoutY="126.0" text="ce" />
+      <Label layoutX="118.0" layoutY="188.0" text="Description :" textFill="RED">
+         <font>
+            <Font name="Gill Sans Ultra Bold" size="11.0" />
+         </font></Label>
       <TextArea fx:id="tfdesc" layoutX="209.0" layoutY="197.0" prefHeight="200.0" prefWidth="375.0" />
-      <Button layoutX="584.0" layoutY="425.0" mnemonicParsing="false" onAction="#respondfeedback" text="Respond" />
-      <Label layoutX="128.0" layoutY="126.0" text="Client Email :" />
+      <Button layoutX="584.0" layoutY="425.0" mnemonicParsing="false" onAction="#respondfeedback" style="-fx-background-color: red; -fx-background-radius: 50;" text="Respond" textFill="WHITE" />
+      <Label layoutX="113.0" layoutY="126.0" text="Client Email :" textFill="RED">
+         <font>
+            <Font name="Gill Sans Ultra Bold" size="12.0" />
+         </font></Label>
    </children>
 </AnchorPane>

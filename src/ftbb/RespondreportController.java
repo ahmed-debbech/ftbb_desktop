@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javax.mail.Message;
@@ -35,7 +36,7 @@ import javax.mail.Authenticator;
 public class RespondreportController implements Initializable {
 
     @FXML
-    private TextField tfce;
+    private Label tfce;
     @FXML
     private TextArea tfan;
 

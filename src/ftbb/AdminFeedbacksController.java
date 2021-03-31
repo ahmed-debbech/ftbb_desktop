@@ -40,8 +40,6 @@ public class AdminFeedbacksController implements Initializable {
 
     @FXML
     private TableView<Feedback> listfeedbacks;
-    @FXML
-    private Label clem;
 
 
     /**

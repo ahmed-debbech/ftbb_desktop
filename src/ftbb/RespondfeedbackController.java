@@ -5,6 +5,7 @@
  */
 package ftbb;
 
+import Utils.Utilities;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -41,6 +42,7 @@ public class RespondfeedbackController implements Initializable {
     
     @FXML
     private void respondfeedback(ActionEvent event) {
+        Utilities.sendMail("x", this.clem.getText(), this.tfdesc.getText());
         
     }
     

@@ -6,25 +6,53 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="231.0" prefWidth="751.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.FXMLreportviewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="231.0" prefWidth="751.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.FXMLreportviewController">
    <children>
-      <Label fx:id="command_id" layoutX="83.0" layoutY="14.0" />
-      <Label fx:id="report_id" layoutX="133.0" layoutY="14.0" />
-      <Label fx:id="mail" layoutX="250.0" layoutY="12.0" />
-      <HBox layoutX="-2.0" layoutY="-3.0" prefHeight="238.0" prefWidth="758.0">
+      <Label fx:id="command_id" layoutX="416.0" layoutY="14.0" text="cmdid">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="report_id" layoutX="206.0" layoutY="14.0" text="report id ">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="mail" layoutX="577.0" layoutY="13.0" text="mail">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <HBox layoutX="-2.0" layoutY="17.0" prefHeight="218.0" prefWidth="758.0">
          <children>
             <VBox prefHeight="238.0" prefWidth="506.0">
                <children>
-                  <Label fx:id="client_id" text="Client id" />
-                  <Label fx:id="descr" prefHeight="176.0" prefWidth="502.0" style="-fx-background-color: red;" text="Description" />
+                  <Label fx:id="client_id" text="Client id">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
+                  <Label fx:id="descr" prefHeight="176.0" prefWidth="502.0" style="-fx-background-color: white;" text="Description">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Label>
                </children>
             </VBox>
-            <Label fx:id="date" prefHeight="18.0" prefWidth="208.0" text="dd/mm/yy" />
+            <Label fx:id="date" contentDisplay="CENTER" prefHeight="18.0" prefWidth="208.0" text="                dd/mm/yy">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font></Label>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#onDelete" prefHeight="26.0" prefWidth="66.0" text="Delete" />
-                  <Button mnemonicParsing="false" onAction="#ModifyReports" prefHeight="26.0" prefWidth="119.0" text="modify" />
+                  <Button mnemonicParsing="false" onAction="#onDelete" prefHeight="26.0" prefWidth="66.0" style="-fx-background-color: red; -fx-background-radius: 50;" text="Delete" textFill="WHITE">
+                     <font>
+                        <Font name="Gill Sans Ultra Bold" size="12.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" onAction="#ModifyReports" prefHeight="26.0" prefWidth="119.0" style="-fx-background-color: red; -fx-background-radius: 50;" text="modify" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets top="100.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Gill Sans Ultra Bold" size="11.0" />
+                     </font></Button>
                </children>
             </VBox>
          </children>
@@ -32,6 +60,26 @@
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </padding>
       </HBox>
+      <Label layoutX="308.0" layoutY="15.0" text="Command ID :" textFill="RED">
+         <font>
+            <Font name="Gill Sans Ultra Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="108.0" layoutY="14.0" text="Report ID :" textFill="RED">
+         <font>
+            <Font name="Gill Sans Ultra Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="12.0" layoutY="15.0" text="Client ID" textFill="RED">
+         <font>
+            <Font name="Gill Sans Ultra Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="519.0" layoutY="14.0" text="Email :" textFill="RED">
+         <font>
+            <Font name="Gill Sans Ultra Bold" size="12.0" />
+         </font>
+      </Label>
    </children>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
