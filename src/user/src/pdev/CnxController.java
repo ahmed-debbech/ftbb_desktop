@@ -130,7 +130,7 @@ public class CnxController implements Initializable {
                     Blogin.getScene().getWindow().hide();
         
      
-        Parent root = FXMLLoader.load(getClass().getResource(""));
+        Parent root = FXMLLoader.load(getClass().getResource("/pidev/adminhome.fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);

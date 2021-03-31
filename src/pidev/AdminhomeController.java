@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ftbb;
+package pidev;
 
 import java.io.IOException;
 import java.net.URL;
@@ -229,7 +229,7 @@ public class AdminhomeController implements Initializable {
          Node node;
             try {
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
-            node = (Node)FXMLLoader.load(getClass().getResource("yassineadmin.fxml"));
+            node = (Node)FXMLLoader.load(getClass().getResource("/user/src/pdev/Profile.fxml"));
             linker.getChildren().setAll(node);
 
             } catch (IOException ex) {
