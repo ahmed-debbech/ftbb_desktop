@@ -56,7 +56,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <ComboBox fx:id="box" prefWidth="150.0" style="-fx-background-color: transparent; -fx-background-radius: 100; -fx-background-color: #9e9e9e;" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="670.0" AnchorPane.topAnchor="6.0" />
+                  <ComboBox fx:id="box" onAction="#onChoose" prefWidth="150.0" style="-fx-background-color: transparent; -fx-background-radius: 100; -fx-background-color: #9e9e9e;" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="670.0" AnchorPane.topAnchor="6.0" />
                   <Button mnemonicParsing="false" onAction="#btnretour" prefHeight="38.0" prefWidth="40.0" style="-fx-background-color: transparent; -fx-border-color: grey; -fx-border-radius: 50;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="2.0">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">

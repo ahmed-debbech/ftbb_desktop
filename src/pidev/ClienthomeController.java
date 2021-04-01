@@ -258,7 +258,7 @@ public class ClienthomeController implements Initializable {
          Node node;
             try {
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
-            node = (Node)FXMLLoader.load(getClass().getResource("ena.fxml"));
+            node = (Node)FXMLLoader.load(getClass().getResource("/store/src/gestion_store/panier.fxml"));
             linker.getChildren().setAll(node);
 
             } catch (IOException ex) {
@@ -294,6 +294,22 @@ public class ClienthomeController implements Initializable {
 
     @FXML
     private void btngestion(MouseEvent event) {
+    }
+
+    @FXML
+    private void onChoose(ActionEvent event) {
+        int selected = this.box.getSelectionModel().getSelectedIndex();
+        if(selected == 1){
+            Node node;
+            try {
+            //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
+            node = (Node)FXMLLoader.load(getClass().getResource("/store/src/gestion_store/commandClient.fxml"));
+            linker.getChildren().setAll(node);
+
+            } catch (IOException ex) {
+            Logger.getLogger(ClienthomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 
    

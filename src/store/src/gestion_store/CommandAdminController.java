@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -28,9 +30,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import store.src.Entities.Command;
 import store.src.Service.ServiceCommand;
+import utils.Passable;
 
 /**
  * FXML Controller class
@@ -185,12 +189,16 @@ public class CommandAdminController implements Initializable {
 
     @FXML
     private void export(ActionEvent event) throws IOException {
-         Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("/store/src/gestion_store/PdfView.fxml"));/* Exception */
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+         Node node;
+            try {
+            //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
+            node = (Node)FXMLLoader.load(getClass().getResource("/store/src/gestion_store/PdfView.fxml"));
+            AnchorPane linker = (AnchorPane) Passable.getInstance().getContainer();
+            linker.getChildren().setAll(node);
+
+            } catch (IOException ex) {
+            Logger.getLogger(pidev.ClienthomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
 
    }

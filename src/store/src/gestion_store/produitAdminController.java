@@ -504,7 +504,6 @@ public class produitAdminController implements Initializable {
     private void afficherEvents(InputMethodEvent event) {
     }
     
-    @FXML
     private void btnback(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/store/src/gestion_store/page1.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();

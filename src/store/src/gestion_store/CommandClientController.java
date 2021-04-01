@@ -18,6 +18,8 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import store.src.Entities.Command;
 import store.src.Service.ServiceCommand;
+import user.src.Entities.Client;
+import user.src.Service.ServiceClient;
 
 /**
  * FXML Controller class
@@ -38,7 +40,9 @@ public class CommandClientController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         this.listpro.getChildren().clear();
             ServiceCommand sc = new ServiceCommand();
-            List<Command> l =  sc.showClientCommands(2);
+            ServiceClient ss  =new ServiceClient();
+            Client c = ss.getA();
+            List<Command> l =  sc.showClientCommands(c.getId());
             try{
                 for(Command a : l){
                     FXMLLoader loader = new FXMLLoader();

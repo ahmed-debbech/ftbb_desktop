@@ -28,6 +28,8 @@ import store.src.Entities.Product;
 import store.src.IService.MyListener;
 import store.src.Service.ServiceCart;
 import store.src.Service.ServiceCommand;
+import user.src.Entities.Client;
+import user.src.Service.ServiceClient;
 
 public class PanierController implements Initializable {
     @FXML
@@ -78,7 +80,7 @@ public class PanierController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         qty.setText("1");
-      
+      tprice.setText("-Click here-");
         anchoritems = new ArrayList<AnchorPane>();
         //products.addAll(getData());
         if (products.size() > 0) {
@@ -92,7 +94,9 @@ public class PanierController implements Initializable {
         }
          grid.getChildren().clear();
        ServiceCart sc = new ServiceCart();
-            List<Product> l =  sc.getCartProducts(2);
+       ServiceClient ss =new ServiceClient();
+       Client c = ss.getA();
+            List<Product> l =  sc.getCartProducts(c.getId());
             try{
                 for(Product product : l){
                     FXMLLoader loader = new FXMLLoader();
@@ -114,15 +118,28 @@ public class PanierController implements Initializable {
     private void det(ActionEvent event) {
     }
 
+    private int parse(String text){
+        String count = "";
+        for(int i=0; i<= text.length()-1; i++){
+                if((text.charAt(i) <= '9')  && (text.charAt(i) >= '0')){
+                   count += text.charAt(i);
+                }
+        }
+        System.out.println("parse : " + count);
+        return Integer.parseInt(count);
+    }
     @FXML
     private void passercommande(ActionEvent event) {
         ServiceCart sc = new ServiceCart();
-        List<Product> list = sc.getCartProducts(2);
+        ServiceClient ss = new ServiceClient();
+        Client c = ss.getA();
+        List<Product> list = sc.getCartProducts(c.getId());
         ServiceCommand scom = new ServiceCommand();
         int rans = Utilities.generatedId("command", "command_id");
-        scom.addCommand(2, Integer.parseInt(this.tprice.getText()), rans);
-        scom.transProduct(list, 2, rans);
-        sc.removeAll(2);
+        System.out.println("eirh;g");
+        scom.addCommand(c.getId(), parse(tprice.getText()), rans);
+        scom.transProduct(list, c.getId(), rans);
+        sc.removeAll(c.getId());
     }
 
     @FXML
@@ -156,7 +173,7 @@ public class PanierController implements Initializable {
             Label tot = (Label) vv.getChildren().get(1);
             sum += Integer.parseInt(tot.getText());
         }
-        tprice.setText("" + sum);
+        tprice.setText("Total Price: " + sum+ "DT");
     }
 
 }

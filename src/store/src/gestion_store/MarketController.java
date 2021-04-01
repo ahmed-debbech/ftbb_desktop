@@ -27,6 +27,8 @@ import store.src.Entities.Product;
 import store.src.IService.MyListener;
 import store.src.Service.ServiceCart;
 import store.src.Service.ServiceProduct;
+import user.src.Entities.Client;
+import user.src.Service.ServiceClient;
 
 public class MarketController implements Initializable {
     
@@ -137,7 +139,9 @@ public class MarketController implements Initializable {
         ServiceCart s = new ServiceCart();
         Product p = new Product();
         p.setRef_product(Integer.parseInt(id.getText()));
-        s.addToCart(2,p);
+        ServiceClient sss  = new ServiceClient();
+        Client c = sss.getA();
+        s.addToCart(c.getId(),p);
     }
   
     @FXML
