@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="309.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poll.src.poll_fttb.EndedPollController">
+   <children>
+      <TextArea fx:id="polldescription" prefHeight="106.0" prefWidth="454.0" style="-fx-background-color: #E5E7E9;">
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </VBox.margin>
+         <font>
+            <Font name="Cambria Bold" size="15.0" />
+         </font>
+      </TextArea>
+      <HBox prefHeight="59.0" prefWidth="512.0" style="-fx-accent: da4646;">
+         <children>
+            <TextField fx:id="option1" prefHeight="27.0" prefWidth="222.0" style="-fx-background-color: #E5E7E9; -fx-background-radius: 50;">
+               <HBox.margin>
+                  <Insets left="60.0" right="40.0" top="15.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Cambria Bold" size="15.0" />
+               </font>
+            </TextField>
+            <ProgressBar fx:id="loadbar1" prefHeight="18.0" prefWidth="163.0" progress="0.0" style="-fx-accent: #de020f;">
+               <HBox.margin>
+                  <Insets left="-15.0" top="18.0" />
+               </HBox.margin>
+            </ProgressBar>
+            <Label fx:id="percent1" text="0%">
+               <HBox.margin>
+                  <Insets left="5.0" top="18.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="88.0" prefWidth="650.0">
+         <children>
+            <TextField fx:id="option2" prefHeight="27.0" prefWidth="223.0" style="-fx-background-color: #E5E7E9; -fx-background-radius: 50;">
+               <HBox.margin>
+                  <Insets left="60.0" right="40.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Cambria Bold" size="15.0" />
+               </font>
+            </TextField>
+            <ProgressBar fx:id="loadbar2" prefHeight="18.0" prefWidth="163.0" progress="0.0">
+               <HBox.margin>
+                  <Insets left="-15.0" top="5.0" />
+               </HBox.margin>
+            </ProgressBar>
+            <Label fx:id="percent2" text="0%">
+               <HBox.margin>
+                  <Insets left="5.0" top="4.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <Separator prefWidth="200.0" />
+   </children>
+</VBox>
