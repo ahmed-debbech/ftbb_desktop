@@ -94,6 +94,7 @@ public class AdminFeedbacksController implements Initializable {
             Node node;
             try {
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
+            Passable.getInstance().setTextData(f.getEmail());
             node = (Node)FXMLLoader.load(getClass().getResource("/report_galerie/src/ftbb/respondfeedback.fxml"));
             AnchorPane linker = (AnchorPane) Passable.getInstance().getContainer();
             linker.getChildren().setAll(node);

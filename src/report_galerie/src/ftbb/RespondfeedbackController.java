@@ -5,8 +5,8 @@
  */
 package report_galerie.src.ftbb;
 
-
-//import java.net.Authenticator;
+import utils.Passable;
+import report_galerie.src.Utils.Utilities;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -14,40 +14,38 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import report_galerie.src.Utils.Utilities;
-import utils.Passable;
-
 
 /**
  * FXML Controller class
  *
  * @author narug
  */
-public class RespondreportController implements Initializable {
+public class RespondfeedbackController implements Initializable {
 
     @FXML
-    private Label tfce;
+    private TextArea tfdesc;
     @FXML
-    private TextArea tfan;
+    private Label clem;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         tfce.setText(Passable.getInstance().getTextData());
+        // TODO
+        clem.setText(Passable.getInstance().getTextData());
     }    
     
-     public void pass(String x){
+    public void pass(String x){
        
     
     }
-
-        
-
+   
+    
     @FXML
-    private void respondreport(ActionEvent event) {
-       Utilities.sendMail( this.tfce.getText(), this.tfan.getText());
+    private void respondfeedback(ActionEvent event) {
+        Utilities.sendMail( this.clem.getText(), this.tfdesc.getText());
+        
     }
     
 }

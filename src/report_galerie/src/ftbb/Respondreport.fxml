@@ -30,7 +30,7 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Label fx:id="tfce" layoutX="230.0" layoutY="122.0" text="ce" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="120.0">
+      <Label fx:id="tfce" layoutX="230.0" layoutY="122.0" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="120.0">
          <font>
             <Font name="Cambria Bold" size="15.0" />
          </font></Label>

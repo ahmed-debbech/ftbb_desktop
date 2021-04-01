@@ -24,6 +24,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import news.src.utils.Utilities;
 import report_galerie.src.Entites.Feedback;
 import report_galerie.src.Services.ServiceFeedback;
 
@@ -62,7 +63,7 @@ public class FeedbackController implements Initializable {
         
         this.listfeedbacks.getChildren().clear();
         ServiceFeedback sf = new ServiceFeedback();
-           List<Feedback> list =  sf.ShowFeedback();
+           List<Feedback> list =  sf.ShowFeedback(Utilities.getClient().getId());
             try{
                 
                 for(Feedback f : list){

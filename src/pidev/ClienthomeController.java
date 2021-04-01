@@ -309,6 +309,18 @@ public class ClienthomeController implements Initializable {
             } catch (IOException ex) {
             Logger.getLogger(ClienthomeController.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }else{
+            if(selected == 2){
+                     Node node;
+                    try {
+                    //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
+                    node = (Node)FXMLLoader.load(getClass().getResource("/report_galerie/src/ftbb/feedback.fxml"));
+                    linker.getChildren().setAll(node);
+
+                    } catch (IOException ex) {
+                    Logger.getLogger(ClienthomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            }
         }
     }
 

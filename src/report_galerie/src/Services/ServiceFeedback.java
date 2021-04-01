@@ -51,7 +51,26 @@ public class ServiceFeedback {
         }
         return Feedbacks;
     }
-
+ public List<Feedback> ShowFeedback(int client) throws SQLException {
+        Statement stm=cnx.createStatement();
+        String query="SELECT * FROM feedback where client_id=" +client+ ";";
+        ResultSet rst=stm.executeQuery(query);
+        List<Feedback>Feedbacks=new ArrayList();
+        while(rst.next())
+        {
+            Feedback f= new Feedback();
+            f.setFeedback_id(rst.getInt("feedback_id"));
+            f.setClient_id(rst.getInt("client_id"));
+            f.setFeedback_date(rst.getString("feedback_date"));
+            f.setEmail(rst.getString("email"));
+            f.setTopic(rst.getString("topic"));
+            f.setText(rst.getString("text"));
+            f.setType(rst.getString("type"));
+            Feedbacks.add(f);
+        
+        }
+        return Feedbacks;
+    }
     public void AddFeedback(Feedback f) {
         try {
             Statement stm=cnx.createStatement();
