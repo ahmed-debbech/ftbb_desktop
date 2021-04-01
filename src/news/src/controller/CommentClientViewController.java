@@ -30,7 +30,7 @@ import news.src.utils.Utilities;
  */
 public class CommentClientViewController implements Initializable {
    
-    public static String CLIENT_ID = "122";
+    public static String CLIENT_ID = String.valueOf(Utilities.getClient().getId());
     
     @FXML
     private Label client_name;

@@ -29,6 +29,8 @@ import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import user.src.Entities.Client;
+import user.src.Service.ServiceClient;
 
 /**
  *
@@ -132,5 +134,10 @@ public class Utilities {
         } catch (MessagingException ex) {
                 System.out.println("Could not send email!");
         }
+    }
+    public static Client getClient(){
+        ServiceClient si = new ServiceClient();
+        Client  ccc = si.getA();
+        return ccc;
     }
 }

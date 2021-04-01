@@ -42,6 +42,8 @@ import news.src.Service.ServiceComment;
 import news.src.Service.ServiceLikes;
 import utils.Passable;
 import news.src.utils.Utilities;
+import user.src.Entities.Client;
+import user.src.Service.ServiceClient;
 
 /**
  * FXML Controller class
@@ -49,7 +51,8 @@ import news.src.utils.Utilities;
  * @author Ahmed
  */
 public class ArticleDetailsController implements Initializable {
-    public static String CLIENT_ID = "122";
+    
+    public static String CLIENT_ID = String.valueOf(Utilities.getClient().getId());
     
     private Article ref;
     @FXML

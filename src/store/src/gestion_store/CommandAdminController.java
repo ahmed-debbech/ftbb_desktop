@@ -34,6 +34,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import store.src.Entities.Command;
 import store.src.Service.ServiceCommand;
+import user.src.Entities.Client;
+import user.src.Service.ServiceClient;
 import utils.Passable;
 
 /**
@@ -168,7 +170,9 @@ public class CommandAdminController implements Initializable {
         alert.showAndWait();
         
         sc.updateCommand(c, 1);
-        sc.sendEmail(2);
+        ServiceClient ss = new ServiceClient();
+        Client cc = ss.getA();
+        sc.sendEmail(c.getCommand_id(), cc.getId());
         this.refreshButton(null);
         
         

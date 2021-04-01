@@ -135,20 +135,29 @@ public class ServiceCommand implements IServiceCommand{
     
     // mailiiiing 
     
-    public void sendEmail(int Command_id) {
+    public void sendEmail(int Command_id, int client) {
         System.out.println("aaaaaaaa");
        // Sender's email ID needs to be mentioned
       String from = "ftbb.store@gmail.com";
       final String username = "ftbb.store@gmail.com";//change accordingly
       final String password = "ftbbstore123";//change accordingly
        
-       Statement stm ;
-       ResultSet rst;
        try{ System.out.println("bbbbbb");
       System.out.println("ccccc");
-               // Recipient's email ID needs to be mentioned.
-                String to = "onskechrid1999@gmail.com";
-                  //  String to = "arij.mazigh92@gmail.com";
+      int i=0;
+      String to = "";
+       String query = "select email from client where id_client = "+client+");";
+       Statement stm ;
+       ResultSet rst;
+       try{
+           stm = cnx.createStatement();
+           rst = stm.executeQuery(query);
+           while (rst.next())
+            {
+                to = rst.getString("email");
+                i++;
+                      // Recipient's email ID needs to be mentioned.
+                                  //  String to = "arij.mazigh92@gmail.com";
                    // Assuming you are sending email through relay.jangosmtp.net
       String host = "smtp.gmail.com";
       Properties props = new Properties();
@@ -195,6 +204,14 @@ public class ServiceCommand implements IServiceCommand{
       } catch (MessagingException e) {
          throw new RuntimeException(e);
       }
+            }
+           
+           }
+       catch(Exception ex)
+       {
+           ex.printStackTrace();
+       }
+         
                 
             }
            

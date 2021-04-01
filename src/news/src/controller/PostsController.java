@@ -18,16 +18,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import javax.imageio.ImageIO;
 import news.src.Enitity.Article;
 import news.src.Enitity.Like;
@@ -35,6 +32,8 @@ import news.src.Service.ServiceComment;
 import news.src.Service.ServiceLikes;
 import utils.Passable;
 import news.src.utils.Utilities;
+import user.src.Entities.Client;
+import user.src.Service.ServiceClient;
 
 
 /**
@@ -88,7 +87,9 @@ public class PostsController implements Initializable {
         }
         this.image.setImage(im);
         ServiceLikes sl = new ServiceLikes();
-        if(sl.getLike(Integer.parseInt(article_id.getText()), -1, 122) == true){
+        ServiceClient si = new ServiceClient();
+        Client  ccc = si.getA();
+        if(sl.getLike(Integer.parseInt(article_id.getText()), -1, ccc.getId()) == true){
             this.like_icon.setImage(new Image("/news/src/resources/like-press.png"));
         }else{
            this.like_icon.setImage(new Image("/news/src/resources/like.png"));
@@ -102,8 +103,10 @@ public class PostsController implements Initializable {
 
     @FXML
     private void onClickLike(MouseEvent event) {     
+        ServiceClient si = new ServiceClient();
+        Client  ccc = si.getA();
         ServiceLikes sl = new ServiceLikes();
-        Like l = new Like(Integer.parseInt(article_id.getText()), -1, 122);
+        Like l = new Like(Integer.parseInt(article_id.getText()), -1, ccc.getId());
         if(!sl.isExisted(l)){
             // add the like
             sl.add(l);
