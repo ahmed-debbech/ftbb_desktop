@@ -49,7 +49,7 @@ public class EndedPollClientViewController implements Initializable {
                 for(Poll a : this.list){
                     if(a.getStatus().equals("Ended")){
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/poll/src/poll_ftbb/EndedPoll.fxml"));
+                    loader.setLocation(getClass().getResource("/poll/src/poll_fttb/EndedPoll.fxml"));
                     Node postbox = loader.load();
                     EndedPollController pc = loader.getController();
                     pc.setData(a);
@@ -69,7 +69,7 @@ public class EndedPollClientViewController implements Initializable {
                 for(Poll a : l){
                     if(a.getStatus().equals("Ended")){
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/poll/src/poll_ftbb/EndedPoll.fxml"));
+                    loader.setLocation(getClass().getResource("/poll/src/poll_fttb/EndedPoll.fxml"));
                     Node postbox = loader.load();
                     EndedPollController pc = loader.getController();
                     pc.setData(a);
@@ -89,7 +89,7 @@ public class EndedPollClientViewController implements Initializable {
 
     @FXML
     private void EndedPoll(ActionEvent event) throws IOException {
-        Parent root1 =  FXMLLoader.load(getClass().getResource("/poll/src/poll_ftbb/EndedPollClientView.fxml"));
+        Parent root1 =  FXMLLoader.load(getClass().getResource("/poll/src/poll_fttb/EndedPollClientView.fxml"));
             Scene scene = new Scene(root1);
             
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -100,7 +100,7 @@ public class EndedPollClientViewController implements Initializable {
 
     @FXML
     private void ActivePoll(ActionEvent event) throws IOException {
-         Parent root1 =  FXMLLoader.load(getClass().getResource("/poll/src/poll_ftbb/PollCientView.fxml"));
+         Parent root1 =  FXMLLoader.load(getClass().getResource("/poll/src/poll_fttb/PollCientView.fxml"));
             Scene scene = new Scene(root1);
             
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
