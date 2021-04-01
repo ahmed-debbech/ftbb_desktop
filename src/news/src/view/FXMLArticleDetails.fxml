@@ -18,178 +18,185 @@
 
 <AnchorPane id="AnchorPane" prefHeight="570.0" prefWidth="955.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="news.src.controller.ArticleDetailsController">
    <children>
-      <VBox prefHeight="932.0" prefWidth="955.0">
-         <children>
-            <HBox prefHeight="114.0" prefWidth="555.0">
+      <ScrollPane prefHeight="570.0" prefWidth="955.0">
+         <content>
+            <VBox prefHeight="932.0" prefWidth="955.0">
                <children>
-                  <ImageView fx:id="image" fitHeight="117.0" fitWidth="330.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label fx:id="title" prefHeight="118.0" prefWidth="482.0" text="TITLE" textAlignment="CENTER" textFill="#de020f">
-                     <font>
-                        <Font name="Cambria Bold" size="30.0" />
-                     </font>
+                  <HBox prefHeight="114.0" prefWidth="555.0">
+                     <children>
+                        <ImageView fx:id="image" fitHeight="117.0" fitWidth="330.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="title" prefHeight="118.0" prefWidth="482.0" text="TITLE" textAlignment="CENTER" textFill="#de020f">
+                           <font>
+                              <Font name="Cambria Bold" size="30.0" />
+                           </font>
+                           <padding>
+                              <Insets left="15.0" />
+                           </padding>
+                        </Label>
+                     </children>
                      <padding>
-                        <Insets left="15.0" />
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
-                  </Label>
-               </children>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-            </HBox>
-            <ScrollPane prefHeight="473.0" prefWidth="825.0" style="-fx-background-color: #e6e6e6;">
-               <content>
-                  <Text fx:id="text" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="788.9457397460938">
+                  </HBox>
+                  <ScrollPane prefHeight="473.0" prefWidth="825.0" style="-fx-background-color: #e6e6e6;">
+                     <content>
+                        <Text fx:id="text" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="788.9457397460938">
+                           <font>
+                              <Font name="Cambria Bold" size="18.0" />
+                           </font>
+                        </Text>
+                     </content>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </ScrollPane>
+                  <HBox prefHeight="60.0" prefWidth="810.0">
+                     <children>
+                        <HBox fx:id="likes" onMouseClicked="#onClickLike" prefHeight="46.0" prefWidth="76.0">
+                           <children>
+                              <ImageView fx:id="like_icon" fitHeight="52.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/like.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets top="5.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label fx:id="like_number" alignment="CENTER" prefHeight="44.0" prefWidth="32.0" text="0" textFill="#0059ff">
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="Cambria Bold" size="15.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets top="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets right="50.0" />
+                           </HBox.margin>
+                        </HBox>
+                        <HBox fx:id="comments" onMouseClicked="#passDetails" prefHeight="52.0" prefWidth="76.0">
+                           <children>
+                              <ImageView fitHeight="66.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../resources/comment.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets right="2.0" top="5.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label fx:id="com_number" prefHeight="50.0" prefWidth="26.0" text="0" textFill="#3994b9">
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="Cambria Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="42.0" prefWidth="200.0">
+                           <children>
+                              <Label fx:id="author" prefHeight="30.0" prefWidth="199.0" text="Author" textFill="#de020f">
+                                 <font>
+                                    <Font name="Cambria Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="date" prefHeight="21.0" prefWidth="200.0" text="date" textFill="#de020f">
+                                 <font>
+                                    <Font name="Cambria Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <HBox prefHeight="52.0" prefWidth="109.0" spacing="2.0">
+                           <children>
+                              <Button fx:id="sharefb" mnemonicParsing="false" onAction="#shareFacebook" prefHeight="52.0" prefWidth="49.0" style="-fx-background-color: transparent; -fx-background-radius: 30;" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.800000190734863" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="42.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../resources/fb.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="sharetw" mnemonicParsing="false" onAction="#shareTwitter" prefHeight="52.0" prefWidth="43.0" style="-fx-background-color: transparent; -fx-background-radius: 30;" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="44.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../resources/twitter.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </HBox>
+                        <ComboBox fx:id="filter" onAction="#itemChanged" opacity="0.85" prefHeight="45.0" prefWidth="295.0" promptText="Filter" style="-fx-background-radius: 30; -fx-background-color: #E5E7E9;">
+                           <HBox.margin>
+                              <Insets left="100.0" />
+                           </HBox.margin>
+                           <effect>
+                              <Blend mode="LIGHTEN" opacity="0.57" />
+                           </effect>
+                        </ComboBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="20.0" right="5.0" top="10.0" />
+                     </padding>
+                  </HBox>
+                  <TitledPane fx:id="tiledpane" animated="false" style="-fx-text-fill: #de020f;" text="Comments">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ScrollPane fx:id="scroller" prefHeight="187.0" prefWidth="955.0">
+                                 <content>
+                                    <VBox fx:id="comlist" prefHeight="183.0" prefWidth="935.0" style="-fx-background-color: #f0f0f0;" />
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
                      <font>
-                        <Font name="Cambria Bold" size="18.0" />
+                        <Font name="Cambria Bold" size="13.0" />
                      </font>
-                  </Text>
-               </content>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </ScrollPane>
-            <HBox prefHeight="60.0" prefWidth="810.0">
-               <children>
-                  <HBox fx:id="likes" onMouseClicked="#onClickLike" prefHeight="46.0" prefWidth="76.0">
+                  </TitledPane>
+                  <HBox prefHeight="42.0" prefWidth="810.0" spacing="5.0">
                      <children>
-                        <ImageView fx:id="like_icon" fitHeight="52.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../resources/like.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets top="5.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label fx:id="like_number" alignment="CENTER" prefHeight="44.0" prefWidth="32.0" text="0" textFill="#0059ff">
-                           <padding>
-                              <Insets left="5.0" />
-                           </padding>
+                        <TextField fx:id="comment_content" prefHeight="31.0" prefWidth="804.0" promptText="Your comment..." style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 100;" />
+                        <Button mnemonicParsing="false" onAction="#comment" prefHeight="86.0" prefWidth="134.0" style="-fx-background-color: #DE020F; -fx-background-radius: 50;" text="Comment" textFill="WHITE">
                            <font>
-                              <Font name="Cambria Bold" size="15.0" />
+                              <Font name="Cambria Bold" size="18.0" />
                            </font>
-                           <HBox.margin>
-                              <Insets top="5.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                     <HBox.margin>
-                        <Insets right="50.0" />
-                     </HBox.margin>
-                  </HBox>
-                  <HBox fx:id="comments" onMouseClicked="#passDetails" prefHeight="52.0" prefWidth="76.0">
-                     <children>
-                        <ImageView fitHeight="66.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../resources/comment.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets right="2.0" top="5.0" />
-                           </HBox.margin>
-                        </ImageView>
-                        <Label fx:id="com_number" prefHeight="50.0" prefWidth="26.0" text="0" textFill="#3994b9">
-                           <padding>
-                              <Insets left="5.0" />
-                           </padding>
-                           <font>
-                              <Font name="Cambria Bold" size="15.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <VBox prefHeight="42.0" prefWidth="200.0">
-                     <children>
-                        <Label fx:id="author" prefHeight="30.0" prefWidth="199.0" text="Author" textFill="#de020f">
-                           <font>
-                              <Font name="Cambria Bold" size="15.0" />
-                           </font></Label>
-                        <Label fx:id="date" prefHeight="21.0" prefWidth="200.0" text="date" textFill="#de020f">
-                           <font>
-                              <Font name="Cambria Bold" size="15.0" />
-                           </font></Label>
-                     </children>
-                     <HBox.margin>
-                        <Insets left="30.0" />
-                     </HBox.margin>
-                  </VBox>
-                  <HBox prefHeight="52.0" prefWidth="109.0" spacing="2.0">
-                     <children>
-                        <Button fx:id="sharefb" mnemonicParsing="false" onAction="#shareFacebook" prefHeight="52.0" prefWidth="49.0" style="-fx-background-color: transparent; -fx-background-radius: 30;" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="12.800000190734863" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="42.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../resources/fb.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button fx:id="sharetw" mnemonicParsing="false" onAction="#shareTwitter" prefHeight="52.0" prefWidth="43.0" style="-fx-background-color: transparent; -fx-background-radius: 30;" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="44.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../resources/twitter.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
                         </Button>
                      </children>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
                   </HBox>
-                  <ComboBox fx:id="filter" onAction="#itemChanged" opacity="0.85" prefHeight="45.0" prefWidth="295.0" promptText="Filter" style="-fx-background-radius: 30; -fx-background-color: #E5E7E9;">
-                     <HBox.margin>
-                        <Insets left="100.0" />
-                     </HBox.margin>
-                     <effect>
-                        <Blend mode="LIGHTEN" opacity="0.57" />
-                     </effect>
-                  </ComboBox>
                </children>
-               <padding>
-                  <Insets bottom="5.0" left="20.0" right="5.0" top="10.0" />
-               </padding>
-            </HBox>
-            <TitledPane fx:id="tiledpane" animated="false" style="-fx-text-fill: #de020f;" text="Comments">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <ScrollPane fx:id="scroller" prefHeight="187.0" prefWidth="955.0">
-                           <content>
-                              <VBox fx:id="comlist" prefHeight="183.0" prefWidth="935.0" style="-fx-background-color: #f0f0f0;" />
-                           </content>
-                        </ScrollPane>
-                     </children>
-                  </AnchorPane>
-              </content>
-               <font>
-                  <Font name="Cambria Bold" size="13.0" />
-               </font>
-            </TitledPane>
-            <HBox prefHeight="42.0" prefWidth="810.0" spacing="5.0">
-               <children>
-                  <TextField fx:id="comment_content" prefHeight="31.0" prefWidth="804.0" promptText="Your comment..." style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 100;" />
-                  <Button mnemonicParsing="false" onAction="#comment" prefHeight="86.0" prefWidth="134.0" style="-fx-background-color: #DE020F; -fx-background-radius: 50;" text="Comment" textFill="WHITE">
-                     <font>
-                        <Font name="Cambria Bold" size="18.0" />
-                     </font></Button>
-               </children>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </HBox>
-         </children>
-      </VBox>
+            </VBox>
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

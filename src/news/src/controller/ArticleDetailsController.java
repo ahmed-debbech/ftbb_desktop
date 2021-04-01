@@ -94,7 +94,6 @@ public class ArticleDetailsController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         ServiceArticle sa = new ServiceArticle();
         int id= Passable.getInstance().getNumberData();
-        Passable.getInstance().erase();
          this.ref = sa.getArticle(id);
          System.out.println("ldld" + this.ref.getArticle_id());
            this.title.setText(ref.getTitle());
