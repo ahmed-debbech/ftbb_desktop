@@ -19,7 +19,7 @@ public class Poll_fttb extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("PollAdminView.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("PollCientView.fxml"));
         
         Scene scene = new Scene(root);
         

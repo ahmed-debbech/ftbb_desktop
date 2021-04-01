@@ -137,7 +137,7 @@ public class FXMLDocumentController implements Initializable {
                 sv.AddVote(vt,op.getOption_id());
                 
                 ViewPoll(null);
-                JavaMailUtil.Send("antikito0@gmail.com",PollDescription.getText(),OptionDescription1.getText(),OptionDescription2.getText());
+                JavaMailUtil.Send("slim.jaafoura@esprit.tn",PollDescription.getText(),OptionDescription1.getText(),OptionDescription2.getText());
         }
     }
         
@@ -277,7 +277,7 @@ public class FXMLDocumentController implements Initializable {
        
         sp.swapstatus(ListPoll.getSelectionModel().getSelectedItem().getPoll_id());
         
-        JavaMailUtil.SendA("antikito0@gmail.com",
+        JavaMailUtil.SendA("slim.jaafoura@esprit.tn",
                 ListPoll.getSelectionModel().getSelectedItem().getDescription(),
                 so.displayoption(ListPoll.getSelectionModel().getSelectedItem().getPoll_id(),0),
                 so.displayoption(ListPoll.getSelectionModel().getSelectedItem().getPoll_id(),1)
