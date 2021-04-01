@@ -11,56 +11,59 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="512.0" prefWidth="736.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poll_fttb.PollAdminViewController">
+<AnchorPane id="AnchorPane" prefHeight="570.0" prefWidth="955.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poll_fttb.PollAdminViewController">
   <children>
-      <HBox prefHeight="49.0" prefWidth="741.0">
+      <HBox alignment="CENTER_RIGHT" layoutX="28.0" prefHeight="54.0" prefWidth="895.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#ctrlpanel" prefHeight="28.0" prefWidth="29.0" style="-fx-background-color: da4646; -fx-background-radius: 5em;" text="🔘" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#ctrlpanel" prefHeight="28.0" prefWidth="29.0" style="-fx-background-color: #DE020F; -fx-background-radius: 50;" text="🔘" textFill="WHITE">
                <HBox.margin>
-                  <Insets left="30.0" right="10.0" top="18.0" />
+                  <Insets left="30.0" right="10.0" top="20.0" />
                </HBox.margin>
             </Button>
-            <Label prefHeight="17.0" prefWidth="130.0" text="Poll Controll Pannel">
+            <Label prefHeight="22.0" prefWidth="195.0" text="Poll Controll Pannel" textFill="#de020f">
                <HBox.margin>
-                  <Insets top="22.0" />
+                  <Insets right="110.0" top="20.0" />
                </HBox.margin>
                <font>
-                  <Font name="System Bold" size="13.0" />
+                  <Font name="Cambria Bold" size="18.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" onAction="#ActivePoll" prefWidth="116.0" style="-fx-background-color: da4646; -fx-background-radius: 5em;" text="ActivePoll" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#ActivePoll" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="ActivePoll" textFill="WHITE">
                <HBox.margin>
-                  <Insets left="280.0" top="20.0" />
+                  <Insets left="100.0" top="20.0" />
                </HBox.margin>
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Cambria Bold" size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#EndedPoll" prefWidth="116.0" style="-fx-background-color: da4646; -fx-background-radius: 5em;" text="EndedPoll" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#EndedPoll" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="EndedPoll" textFill="WHITE">
                <HBox.margin>
                   <Insets left="10.0" top="20.0" />
                </HBox.margin>
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Cambria Bold" size="18.0" />
                </font>
             </Button>
          </children>
       </HBox>
-      <ScrollPane layoutX="200.0" layoutY="64.0" prefHeight="444.0" prefWidth="736.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="64.0">
+      <ScrollPane layoutX="200.0" layoutY="64.0" prefHeight="477.0" prefWidth="955.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="70.0">
          <content>
-            <VBox fx:id="adminVbox" prefHeight="441.0" prefWidth="739.0">
+            <VBox fx:id="adminVbox" prefHeight="480.0" prefWidth="670.0">
                <children>
                   <Separator prefWidth="200.0" />
                </children>
             </VBox>
          </content>
       </ScrollPane>
-      <HBox layoutX="546.0" layoutY="68.0" prefHeight="40.0" prefWidth="195.0">
+      <HBox alignment="CENTER_RIGHT" layoutX="685.0" layoutY="68.0" prefHeight="40.0" prefWidth="226.0">
          <children>
-            <TextField fx:id="SearchBar" promptText="Search Poll" style="-fx-border-radius: 20px; -fx-background-radius: 20 20 20 20;">
+            <TextField fx:id="SearchBar" prefHeight="30.0" prefWidth="200.0" promptText="Search Poll" style="-fx-background-radius: 50; -fx-background-color: trabparent; -fx-background-color: #E5E7E9;">
                <HBox.margin>
                   <Insets left="20.0" top="10.0" />
                </HBox.margin>
+               <font>
+                  <Font name="Cambria Bold" size="15.0" />
+               </font>
             </TextField>
          </children>
       </HBox>
