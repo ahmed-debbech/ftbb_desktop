@@ -6,10 +6,10 @@
 
 <AnchorPane id="AnchorPane" prefHeight="570.0" prefWidth="955.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_store.CommandClientController">
    <children>
-      <VBox fx:id="listpro" layoutX="20.0" layoutY="61.0" prefHeight="485.0" prefWidth="920.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="61.0">
-         <children>
-            <ScrollPane fx:id="scroller" prefHeight="485.0" prefWidth="920.0" />
-         </children>
-      </VBox>
+      <ScrollPane fx:id="scroller" prefHeight="570.0" prefWidth="955.0">
+         <content>
+            <VBox fx:id="listpro" prefHeight="595.0" prefWidth="938.0" />
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

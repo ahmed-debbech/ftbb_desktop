@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="570.0" prefWidth="955.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="news.src.controller.ClientArticlesController">
+   <children>
+      <VBox prefHeight="570.0" prefWidth="950.0">
+         <children>
+            <HBox prefHeight="70.0" prefWidth="950.0" spacing="10.0">
+               <children>
+                  <TextField fx:id="search" prefHeight="40.0" prefWidth="480.0" promptText="Search..." style="-fx-background-color: #E5E7E9; -fx-background-radius: 30;">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin></TextField>
+                  <ComboBox fx:id="sort" onAction="#onSortSelected" prefHeight="40.0" prefWidth="480.0" style="-fx-background-color: #E5E7E9; -fx-background-radius: 30;" stylesheets="@Style.css">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin></ComboBox>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+            <ScrollPane fx:id="scroller" prefHeight="482.0" prefWidth="950.0">
+               <content>
+                  <GridPane fx:id="article_grid" prefHeight="480.0" prefWidth="938.0">
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

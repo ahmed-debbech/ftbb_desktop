@@ -36,6 +36,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class MarketController implements Initializable {
+    
     @FXML
     private VBox chosenProductCard;
 
@@ -178,6 +179,7 @@ public class MarketController implements Initializable {
         grid.getChildren().clear();
         ServiceProduct sp = new ServiceProduct();
         List<Product> l = sp.ShowProduct();
+        System.out.println("items " + l.toString());
         int row = 1, cl =0;
             try{
                 for(Product product : l){

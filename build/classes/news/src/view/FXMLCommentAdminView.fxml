@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="anchor" prefHeight="82.0" prefWidth="938.0" style="-fx-border-color: green;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="news.src.controller.CommentAdminViewController">
+   <children>
+      <HBox prefHeight="84.0" prefWidth="938.0">
+         <children>
+            <VBox prefHeight="82.0" prefWidth="802.0">
+               <children>
+                  <Label fx:id="client_name" prefHeight="19.0" prefWidth="146.0" text="client_name" textFill="#de020f">
+                     <VBox.margin>
+                        <Insets left="15.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="content" alignment="TOP_LEFT" prefHeight="72.0" prefWidth="746.0" text="content">
+                     <VBox.margin>
+                        <Insets left="15.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Cambria Bold" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="91.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="likes" prefHeight="43.0" prefWidth="178.0" text="0 Likes" textFill="#de020f">
+                     <font>
+                        <Font name="Cambria Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="date" prefHeight="45.0" prefWidth="178.0" text="Date" textFill="#9a9a9a" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Cambria Bold" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <CheckBox fx:id="ban" mnemonicParsing="false" prefHeight="48.0" prefWidth="178.0" text="Ban" textFill="#de020f">
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                     <font>
+                        <Font name="Cambria Bold" size="15.0" />
+                     </font></CheckBox>
+                  <Label fx:id="comment_id" visible="false" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

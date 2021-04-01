@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="570.0" prefWidth="955.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user.src.pdev.ProfileController">
+   <children>
+      <ImageView fx:id="Iprofil" fitHeight="207.0" fitWidth="207.0" layoutX="98.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/user.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </ImageView>
+      <Label layoutX="347.0" layoutY="141.0" text="Nom:" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="347.0" layoutY="185.0" text="Prenom:" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="347.0" layoutY="235.0" text="Date de naissance:" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="347.0" layoutY="285.0" text="Numero:" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="347.0" layoutY="338.0" text="Sexe:" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lnom" layoutX="570.0" layoutY="141.0" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lprenom" layoutX="570.0" layoutY="185.0" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbirth" layoutX="570.0" layoutY="235.0" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lnumber" layoutX="570.0" layoutY="285.0" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lsex" layoutX="570.0" layoutY="338.0" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="347.0" layoutY="384.0" text="Role:" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lrole" layoutX="570.0" layoutY="384.0" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="592.0" layoutY="452.0" mnemonicParsing="false" onAction="#Updateinfo" prefHeight="41.0" prefWidth="248.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Modifier" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font></Button>
+      <Button fx:id="BAjout" layoutX="335.0" layoutY="452.0" mnemonicParsing="false" onAction="#BajoutAdmin" prefHeight="41.0" prefWidth="248.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="GestionDesAdmins" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font></Button>
+      <Button layoutX="76.0" layoutY="452.0" mnemonicParsing="false" onAction="#GestionUtil" prefHeight="41.0" prefWidth="248.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="GestionDesUtilisateurs" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font></Button>
+      <Button layoutX="840.0" layoutY="38.0" mnemonicParsing="false" onAction="#deconnexion" prefHeight="49.0" prefWidth="54.0" style="-fx-background-color: transpranent; -fx-background-color: #DE020F; -fx-background-radius: 50;">
+         <graphic>
+            <ImageView fitHeight="41.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../resources/log.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+   </children>
+</AnchorPane>

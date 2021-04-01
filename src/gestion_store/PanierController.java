@@ -16,6 +16,8 @@ import javafx.scene.layout.VBox;
 import gestion_store.Gestion_store;
 import IService.MyListener;
 import Entities.Product;
+import Service.ServiceCart;
+import Service.ServiceCommand;
 import Service.ServiceProduct;
 
 import java.io.IOException;
@@ -32,6 +34,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import user.src.Utils.Utilities;
 
 public class PanierController implements Initializable {
     @FXML
@@ -67,82 +70,6 @@ public class PanierController implements Initializable {
 
     private List<AnchorPane> anchoritems;
 
-   /* private List<Product> getData() {
-        List<Product> products = new ArrayList<>();
-        Product product;
-
-        product = new Product();
-        product.setName("Koura");
-        product.setPrice(2);
-        product.setPhoto("/resources/koura.jpg");
-        product.setDetails("6A7324");
-        products.add(product);
-
-        product = new Product();
-        product.setName("tenue");
-        product.setPrice(3);
-        product.setPhoto("/resources/tenue.jpg");
-        product.setDetails("A7745B");
-        products.add(product);
-
-        product = new Product();
-        product.setName("chaussures");
-        product.setPrice(1);
-        product.setPhoto("/resources/chaussures.jpg");
-        product.setDetails("F16C31");
-        products.add(product);
-
-        product = new Product();
-        product.setName("pa");
-        product.setPrice(2);
-        product.setPhoto("/resources/pa.jpg");
-        product.setDetails("291D36");
-        products.add(product);
-
-        product = new Product();
-        product.setName("panier");
-        product.setPrice(4);
-        product.setPhoto("/resources/panier.jpg");
-        product.setDetails("22371D");
-        products.add(product);
-
-        product = new Product();
-        product.setName("maillot");
-        product.setPrice(2);
-        product.setPhoto("/resources/maillot.jpg");
-        product.setDetails("FB5D03");
-        products.add(product);
-
-        product = new Product();
-        product.setName("pull");
-        product.setPrice(5);
-        product.setPhoto("/resources/pull.jpg");
-        product.setDetails("80080C");
-        products.add(product);
-
-        product = new Product();
-        product.setName("pull");
-        product.setPrice(5);
-        product.setPhoto("/resources/pull.jpg");
-        product.setDetails("FFB605");
-        products.add(product);
-
-        product = new Product();
-        product.setName("bavette");
-        product.setPrice(6);
-        product.setPhoto("/resources/bavette.jpg");
-        product.setDetails("5F060E");
-        products.add(product);
-
-        product = new Product();
-        product.setName("pa");
-        product.setPrice(1);
-        product.setPhoto("/resources/pa.jpg");
-        product.setDetails("E7C00F");
-        products.add(product);
-
-        return products;
-    }*/
 
     private void setChosenProduct(Product product) {
         productNameLable.setText(product.getName());
@@ -171,8 +98,8 @@ public class PanierController implements Initializable {
             };
         }
          grid.getChildren().clear();
-        ServiceProduct sp = new ServiceProduct();
-        List<Product> l = sp.ShowProduct();
+       ServiceCart sc = new ServiceCart();
+            List<Product> l =  sc.getCartProducts(2);
             try{
                 for(Product product : l){
                     FXMLLoader loader = new FXMLLoader();
@@ -187,43 +114,8 @@ public class PanierController implements Initializable {
                 System.out.println("no load for product in client");
                    e.printStackTrace();
             }
-      /*  int column = 0;
-        int row = 1;
-        try {
-            for (int i = 0; i < products.size(); i++) {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("itempanier.fxml"));
-                AnchorPane anchorPane = fxmlLoader.load();
-
-                ItempanierController itempanierController = fxmlLoader.getController();
-                itempanierController.setData(products.get(i),myListener);
-
-                if (column == 3) {
-                    column = 0;
-                    row++;
-                }
-
-                grid.add(anchorPane, column++, row); //(child,column,row)
-                //set grid width
-                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
-                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
-                grid.setMaxWidth(Region.USE_PREF_SIZE);
-
-                //set grid height
-                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
-                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
-                grid.setMaxHeight(Region.USE_PREF_SIZE);
-
-                GridPane.setMargin(anchorPane, new Insets(10));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
     }
 
-    @FXML
-    private void panier(ActionEvent event) {
-    }
 
     @FXML
     private void det(ActionEvent event) {
@@ -231,7 +123,13 @@ public class PanierController implements Initializable {
 
     @FXML
     private void passercommande(ActionEvent event) {
-        
+        ServiceCart sc = new ServiceCart();
+        List<Product> list = sc.getCartProducts(2);
+        ServiceCommand scom = new ServiceCommand();
+        int rans = Utilities.generatedId("command", "command_id");
+        scom.addCommand(2, Integer.parseInt(this.tprice.getText()), rans);
+        scom.transProduct(list, 2, rans);
+        sc.removeAll(2);
     }
 
     @FXML

@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  * @author PC
  */
 public class SqlConnection {
-    final static String URL ="jdbc:mysql://127.0.0.1:3306/ftbb";
+    final static String URL ="jdbc:mysql://127.0.0.1:3306/ftbb-integ";
     final static String LOGIN ="root";
     final static String PWD ="";
     static SqlConnection instance =null;

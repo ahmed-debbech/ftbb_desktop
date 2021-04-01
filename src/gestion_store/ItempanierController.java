@@ -119,7 +119,7 @@ public class ItempanierController implements Initializable {
         price.setText(this.priceLable.getText());
         ImageView im = (ImageView)this.par.getChildren().get(1);
         im.setImage(this.img.getImage());
-        TextField tx = (TextField) quant.getChildren().get(1);
+        TextField tx = (TextField) quant.getChildren().get(0);
         tx.setText(qty.getText());
     }
     public AnchorPane getNode(){

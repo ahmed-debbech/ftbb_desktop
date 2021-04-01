@@ -66,13 +66,13 @@ public class ItemController {
 
     @FXML
     private void onPressed(MouseEvent event) {
-        System.out.println("kkkkkkk");
         HBox l = (HBox)this.parent.getChildren().get(0);
         Label name = (Label)l.getChildren().get(0);
         Label price = (Label)l.getChildren().get(2);
-        System.out.println("oooooooo");
+        Label id = (Label) l.getChildren().get(1);
         name.setText(this.nameLabel.getText());
         price.setText(this.priceLable.getText());
+        id.setText(this.id.getText());
         ImageView im = (ImageView)this.parent.getChildren().get(1);
         im.setImage(this.img.getImage());
     }

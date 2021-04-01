@@ -44,14 +44,14 @@
                      <children>
                         <HBox prefHeight="60.0" prefWidth="335.0">
                            <children>
-                              <Label fx:id="productNameLable" prefHeight="48.0" prefWidth="276.0">
+                              <Label fx:id="productNameLable" prefHeight="48.0" prefWidth="276.0" text="name">
                                  <font>
-                                    <Font name="Cambria Bold" size="35.0" />
+                                    <Font name="Cambria Bold" size="16.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="productPriceLabel" prefHeight="57.0" prefWidth="171.0">
+                              <Label fx:id="productPriceLabel" prefHeight="57.0" prefWidth="171.0" text="price">
                                  <font>
-                                    <Font name="Cambria Bold" size="35.0" />
+                                    <Font name="Cambria Bold" size="16.0" />
                                  </font>
                               </Label>
                            </children>

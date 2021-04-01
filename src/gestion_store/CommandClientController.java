@@ -30,23 +30,10 @@ import javafx.scene.layout.VBox;
  */
 public class CommandClientController implements Initializable {
 
+    @FXML
     private VBox listpro;
     @FXML
-    private AnchorPane parent;
-    @FXML
-    private Label nameLabel;
-    @FXML
-    private ImageView img;
-    @FXML
-    private Label stockLable;
-    @FXML
-    private TextField qty;
-    @FXML
-    private Label priceLable;
-    @FXML
-    private Label totalpriceLable;
-    @FXML
-    private Label id;
+    private ScrollPane scroller;
 
     /**
      * Initializes the controller class.
@@ -70,12 +57,5 @@ public class CommandClientController implements Initializable {
             }
     }    
 
-    @FXML
-    private void increment(ActionEvent event) {
-    }
-
-    @FXML
-    private void decrement(ActionEvent event) {
-    }
     
 }

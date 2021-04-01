@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import user.src.Utils.Utilities;
 
 /**
  *
@@ -28,17 +29,38 @@ Connection cnx;
         cnx=SqlConnection.getInstance().getConnection();
     }
     
+    private boolean checkProdAdded(int client, int product){
+        try {
+            ResultSet rst;
+            Statement stm = cnx.createStatement();
+            String query = "";
+            query = "select * from cart where id_client="+client+" and ref_product="+product+";";
+            rst = stm.executeQuery(query);         
+            if(rst.next()){
+                return true;
+            }
+        } catch (SQLException ex) {
+            System.out.println("Could not generate an id due to the loss of connection.");
+        }
+        return false;
+    }
     @Override
     public void addToCart(int client, Product p) {
-        try {
-            Statement stm=cnx.createStatement();
-            String query="INSERT INTO `cart`(`cart_id`, `id_client`, `num_products`, `total_price`, `ref_product`) VALUES ("+client+", "+client+", "+1+", "+p.getPrice()+", "+p.getRef_product()+");";
-            stm.executeUpdate(query);
-        } 
-        catch (SQLException ex) 
-         {
-             Logger.getLogger(ServiceProduct.class.getName()).log(Level.SEVERE, null, ex);
-         }  
+        if(checkProdAdded(client, p.getRef_product()) == false){
+            System.out.println("not there");
+            try {
+                Statement stm=cnx.createStatement();
+                String query="INSERT INTO `cart`(`cart_id`, `id_client`, `num_products`, `total_price`, `ref_product`, `addition_id`) VALUES ("+client+", "+client+", "+1+", "+p.getPrice()+", "+p.getRef_product()+", " +Utilities.generatedId("cart", "addition_id")+");";
+
+                stm.executeUpdate(query);
+            } 
+            catch (SQLException ex) 
+             {
+                 Logger.getLogger(ServiceProduct.class.getName()).log(Level.SEVERE, null, ex);
+             }  
+        }else{
+            System.out.println("dont add tio cart");
+        }
     }
 
     @Override
@@ -64,7 +86,6 @@ Connection cnx;
                  p.setAdd_date(rst.getDate("add_date"));
                  p.setPhoto(rst.getString("photo"));
                  
-                         System.out.println("hani");
 
                  products.add(p);
              }
@@ -73,5 +94,14 @@ Connection cnx;
         }
         return products;
     }
-    
+    public void removeAll(int client){
+        try {
+            Statement stm = cnx.createStatement();
+            String query = "DELETE FROM `cart` WHERE id_client="+client+"";
+            stm.executeUpdate(query);
+           
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceProduct.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="607.0" prefWidth="711.0" style="-fx-background-color: #FFEBCD;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user.src.pdev.CnxController">
+   <children>
+      <Label layoutX="230.0" layoutY="177.0" text="Email">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="230.0" layoutY="286.0" text="Mot De Passe">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfemail" layoutX="230.0" layoutY="223.0" promptText="Saisir votre adresse email">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="tfpwd" layoutX="230.0" layoutY="334.0" promptText="Saisir votre mot de passe">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </PasswordField>
+      <Button fx:id="Blogin" layoutX="310.0" layoutY="446.0" mnemonicParsing="false" onAction="#Login" prefHeight="54.0" prefWidth="151.0" text="Login">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="150.0" fitWidth="140.0" layoutX="339.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/ftbb-logo-stroke.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="BInsc" layoutX="310.0" layoutY="514.0" mnemonicParsing="false" onAction="#Inscription" text="Inscription">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <Hyperlink layoutX="305.0" layoutY="570.0" onAction="#ResetPassword" text="mot de passe oublié?">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Hyperlink>
+   </children>
+</AnchorPane>

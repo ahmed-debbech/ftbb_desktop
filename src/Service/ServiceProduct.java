@@ -76,6 +76,7 @@ public class ServiceProduct implements IServiceProduct{
                  
                  products.add(p);
              }
+             System.out.println("ress " + products.toString());
         }catch(SQLException s){
             System.out.println("not showed");
         }

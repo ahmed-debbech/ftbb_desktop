@@ -16,6 +16,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -23,6 +25,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import user.src.Utils.Utilities;
 /**
  *
  * @author PC
@@ -34,6 +37,34 @@ public class ServiceCommand implements IServiceCommand{
         cnx=SqlConnection.getInstance().getConnection();
     }
     
+    public void addCommand(int client, int total, int commandid){
+         try {
+                Statement stm=cnx.createStatement();
+                String query="INSERT INTO `command` (`command_id`, `id_client`, `date_command`, `status`, `total_price`) VALUES (" +
+                        commandid+", "+client+", NOW(), "+0+", "+total+");";
+
+                stm.executeUpdate(query);
+             
+            } 
+            catch (SQLException ex) 
+             {
+                 Logger.getLogger(ServiceProduct.class.getName()).log(Level.SEVERE, null, ex);
+             }  
+    }
+    public void transProduct(List<Product> list, int client, int commandid){
+         try {
+             for(Product p : list){
+                Statement stm=cnx.createStatement();
+                String query="INSERT INTO `command_product` (`id_cp`, `ref_product`, `id_client`, `command_id`) VALUES ("+Utilities.generatedId("command_product", "id_cp")+", " +p.getRef_product()+", "+client+", "+commandid+");";
+
+                stm.executeUpdate(query);
+             }
+            } 
+            catch (SQLException ex) 
+             {
+                 Logger.getLogger(ServiceProduct.class.getName()).log(Level.SEVERE, null, ex);
+             }  
+    }
 
     @Override
     public List<Command> showCommand() {
@@ -109,14 +140,10 @@ public class ServiceCommand implements IServiceCommand{
       final String username = "ftbb.store@gmail.com";//change accordingly
       final String password = "ftbbstore123";//change accordingly
        
-       String query = "select email from client";
        Statement stm ;
        ResultSet rst;
        try{ System.out.println("bbbbbb");
-           stm = cnx.createStatement();
-           rst = stm.executeQuery(query);
-           while (rst.next())
-            {   System.out.println("ccccc");
+      System.out.println("ccccc");
                // Recipient's email ID needs to be mentioned.
                 String to = "onskechrid1999@gmail.com";
                   //  String to = "arij.mazigh92@gmail.com";
@@ -169,7 +196,7 @@ public class ServiceCommand implements IServiceCommand{
                 
             }
            
-           }
+           
        
        
        catch(Exception ex)
@@ -207,5 +234,30 @@ public class ServiceCommand implements IServiceCommand{
        return null;
     }
 
+    public List<Product> getProductCommand(int command_id, int id_client) {
+       List<Product> list = new ArrayList<>() ;
+       String query = "SELECT product.* FROM `command_product` inner join product on product.ref_product=command_product.ref_product where command_id="+command_id+";";
+       Statement stm ;
+       ResultSet rst;
+       try{
+           stm = cnx.createStatement();
+           rst = stm.executeQuery(query);
+           while (rst.next())
+            {
+                Product c = new Product();
+                c.setName(rst.getString("name"));
+                c.setPrice(rst.getInt("price"));
+                c.setDetails(rst.getString("details"));
+                list.add(c);
+            }
+           return list;
+           }
+       catch(SQLException ex)
+       {
+           System.out.println("could not retreive user commands");
+       }
+       return null;
+    }
+    
    
 }
