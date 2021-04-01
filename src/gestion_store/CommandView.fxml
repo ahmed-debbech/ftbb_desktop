@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -8,48 +9,68 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="158.0" prefWidth="666.0" style="-fx-border-color: black; -fx-border-width: 2px 2px 2px 2px;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_store.CommandViewController">
+<AnchorPane fx:id="parent" prefHeight="52.0" prefWidth="910.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_store.CommandClientController">
+   <styleClass>
+      <String fx:value="product-item" />
+      <String fx:value="shadow" />
+   </styleClass>
    <children>
-      <HBox prefHeight="170.0" prefWidth="681.0">
+      <HBox prefHeight="100.0" prefWidth="910.0" />
+      <VBox prefHeight="100.0" prefWidth="663.0">
          <children>
-            <VBox alignment="CENTER" prefHeight="173.0" prefWidth="399.0" style="-fx-background-color: #E5E7E9;">
-               <children>
-                  <Label prefHeight="41.0" prefWidth="127.0" text="ID commande" textAlignment="RIGHT">
-                     <font>
-                        <Font name="Tahoma Bold" size="12.0" />
-                     </font></Label>
-                  <Label fx:id="id" />
-                  <Label prefHeight="38.0" prefWidth="105.0" text="ID client" textAlignment="RIGHT">
-                     <font>
-                        <Font name="Tahoma Bold" size="12.0" />
-                     </font></Label>
-                  <Label fx:id="id_client" />
-               </children>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="170.0" prefWidth="155.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#detailsPressed" style="-fx-background-color: transparent; -fx-background-color: red;" text="Détails" textFill="WHITE">
-                     <font>
-                        <Font name="Tahoma Bold" size="12.0" />
-                     </font></Button>
-               </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="170.0" prefWidth="135.0" style="-fx-background-color: #E5E7E9;">
-               <children>
-                  <Label fx:id="status" prefHeight="38.0" prefWidth="80.0" text="STATUS" textAlignment="CENTER">
-                     <font>
-                        <Font name="Tahoma Bold" size="12.0" />
-                     </font></Label>
-                  <Label fx:id="date" />
-               </children>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </VBox>
+            <Label text="id commande">
+               <font>
+                  <Font name="Cambria Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="50.0" top="5.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="id client">
+               <font>
+                  <Font name="Cambria Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="50.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="status">
+               <font>
+                  <Font name="Cambria Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="50.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="total price">
+               <font>
+                  <Font name="Cambria Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="50.0" />
+               </VBox.margin>
+            </Label>
          </children>
-      </HBox>
+      </VBox>
+      <VBox alignment="CENTER" layoutX="663.0" prefHeight="100.0" prefWidth="247.0">
+         <children>
+            <Label text="date de commande">
+               <font>
+                  <Font name="Cambria Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+            <Button mnemonicParsing="false" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Détails" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Cambria Bold" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
