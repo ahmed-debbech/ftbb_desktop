@@ -6,20 +6,20 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="271.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.PostViewController">
+<AnchorPane id="AnchorPane" prefHeight="271.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.PostViewController">
    <children>
-      <VBox layoutX="14.0" layoutY="8.0" prefHeight="247.0" prefWidth="246.0">
+      <VBox layoutX="14.0" layoutY="8.0" prefHeight="252.0" prefWidth="294.0">
          <children>
-            <Label fx:id="title" text="TITLE" textFill="#e20e0e">
+            <Label fx:id="title" prefHeight="31.0" prefWidth="85.0" text="TITLE" textFill="#de020f">
                <font>
-                  <Font name="Gill Sans Ultra Bold" size="15.0" />
+                  <Font name="Cambria Bold" size="20.0" />
                </font></Label>
-            <ImageView fx:id="image" fitHeight="228.0" fitWidth="242.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image" fitHeight="223.0" fitWidth="295.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </VBox>
-      <Label fx:id="desc" alignment="TOP_LEFT" layoutX="336.0" layoutY="9.0" prefHeight="228.0" prefWidth="184.0" text="desc">
+      <Label fx:id="desc" alignment="TOP_LEFT" layoutX="336.0" layoutY="9.0" prefHeight="244.0" prefWidth="551.0" text="desc" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="Cambria Bold" size="15.0" />
          </font>
       </Label>
    </children>

@@ -1,52 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="parent" prefHeight="663.0" prefWidth="938.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.ReportController">
+<AnchorPane id="AnchorPane" fx:id="parent" prefHeight="570.0" prefWidth="955.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.ReportController">
    <children>
-      <Button layoutX="859.0" layoutY="605.0" mnemonicParsing="false" onAction="#ShowReports" style="-fx-background-color: red; -fx-background-radius: 50;" text="show" textFill="WHITE">
+      <Button layoutX="863.0" layoutY="189.0" mnemonicParsing="false" onAction="#ShowReports" prefHeight="34.0" prefWidth="0.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" textFill="WHITE">
          <font>
-            <Font name="Gill Sans Ultra Bold" size="14.0" />
+            <Font name="Cambria Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../pidev/src/resources/3671905-512.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Label layoutX="40.0" layoutY="58.0" text="Command ID" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font></Label>
+      <TextField fx:id="tfcmd" layoutX="179.0" layoutY="57.0" prefHeight="30.0" prefWidth="175.0" promptText="Command id" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" />
+      <Label layoutX="41.0" layoutY="116.0" text="Email " textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font></Label>
+      <TextField fx:id="tfemail" layoutX="179.0" layoutY="111.0" prefHeight="30.0" prefWidth="175.0" promptText="Email" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" />
+      <Label layoutX="383.0" layoutY="58.0" text="Description" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font></Label>
+      <TextArea fx:id="tfdesc" layoutX="501.0" layoutY="54.0" prefHeight="130.0" prefWidth="346.0" promptText="..." style="-fx-background-color: transparent; -fx-background-color: #E5E7E9;" />
+      <Button layoutX="861.0" layoutY="53.0" mnemonicParsing="false" onAction="#subdes" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="submit" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
          </font></Button>
-      <Label layoutX="39.0" layoutY="81.0" text="Command ID:" textFill="RED">
+      <Button layoutX="753.0" layoutY="188.0" mnemonicParsing="false" onAction="#addreport" prefHeight="37.0" prefWidth="32.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" textFill="WHITE" AnchorPane.rightAnchor="90.0">
          <font>
-            <Font name="Gill Sans Ultra Bold" size="12.0" />
+            <Font name="Cambria Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../pidev/src/resources/3669476-512.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Label fx:id="rld" layoutX="179.0" layoutY="170.0" prefHeight="30.0" prefWidth="175.0" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
          </font></Label>
-      <TextField fx:id="tfcmd" layoutX="144.0" layoutY="77.0" />
-      <Label layoutX="39.0" layoutY="141.0" text="Email :" textFill="RED">
+      <Label layoutX="40.0" layoutY="173.0" text="Report ID " textFill="#de020f">
          <font>
-            <Font name="Gill Sans Ultra Bold" size="11.0" />
+            <Font name="Cambria Bold" size="20.0" />
          </font></Label>
-      <TextField fx:id="tfemail" layoutX="116.0" layoutY="136.0" prefHeight="26.0" prefWidth="231.0" />
-      <Label layoutX="383.0" layoutY="49.0" text="Description:" textFill="RED">
-         <font>
-            <Font name="Gill Sans Ultra Bold" size="12.0" />
-         </font></Label>
-      <TextArea fx:id="tfdesc" layoutX="479.0" layoutY="48.0" prefHeight="125.0" prefWidth="346.0" />
-      <Button layoutX="841.0" layoutY="53.0" mnemonicParsing="false" onAction="#subdes" style="-fx-background-color: red; -fx-background-radius: 50;" text="submit" textFill="WHITE">
-         <font>
-            <Font name="Gill Sans Ultra Bold" size="14.0" />
-         </font></Button>
-      <Button layoutX="802.0" layoutY="197.0" mnemonicParsing="false" onAction="#addreport" style="-fx-background-color: red; -fx-background-radius: 50;" text="Add" textFill="WHITE">
-         <font>
-            <Font name="Gill Sans Ultra Bold" size="14.0" />
-         </font></Button>
-      <Label fx:id="rld" layoutX="513.0" layoutY="188.0" />
-      <Label layoutX="422.0" layoutY="188.0" text="Report ID :" textFill="RED">
-         <font>
-            <Font name="Gill Sans Ultra Bold" size="12.0" />
-         </font></Label>
-      <ScrollPane layoutX="24.0" layoutY="234.0" prefHeight="346.0" prefWidth="898.0">
+      <ScrollPane layoutX="24.0" layoutY="234.0" prefHeight="314.0" prefWidth="942.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
          <content>
-            <VBox fx:id="listreport" prefHeight="342.0" prefWidth="888.0" />
+            <VBox fx:id="listreport" prefHeight="306.0" prefWidth="889.0" />
          </content>
       </ScrollPane>
    </children>
+   <padding>
+      <Insets right="5.0" />
+   </padding>
 </AnchorPane>

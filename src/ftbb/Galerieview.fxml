@@ -4,11 +4,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="520.0" prefWidth="838.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.GalerieviewController">
+<AnchorPane id="AnchorPane" prefHeight="570.0" prefWidth="955.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.GalerieviewController">
    <children>
-      <ScrollPane layoutX="14.0" layoutY="14.0" prefHeight="492.0" prefWidth="806.0">
+      <ScrollPane layoutX="14.0" layoutY="14.0" prefHeight="492.0" prefWidth="930.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
          <content>
-            <VBox fx:id="galview" prefHeight="494.0" prefWidth="788.0" />
+            <VBox fx:id="galview" prefHeight="527.0" prefWidth="913.0" />
          </content>
       </ScrollPane>
    </children>

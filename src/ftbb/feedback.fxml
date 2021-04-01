@@ -5,52 +5,71 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="parent" prefHeight="725.0" prefWidth="989.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.FeedbackController">
+<AnchorPane id="AnchorPane" fx:id="parent" prefHeight="570.0" prefWidth="955.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.FeedbackController">
    <children>
-      <Button layoutX="922.0" layoutY="686.0" mnemonicParsing="false" onAction="#ShowFeedbacks" style="-fx-background-color: red; -fx-background-radius: 50;" text="show" textFill="WHITE">
+      <Button layoutX="864.0" layoutY="268.0" mnemonicParsing="false" onAction="#ShowFeedbacks" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" textFill="WHITE">
          <font>
             <Font name="Gill Sans Ultra Bold" size="14.0" />
-         </font></Button>
-      <Label layoutX="27.0" layoutY="85.0" text="E-mail:" textFill="RED">
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../pidev/src/resources/3671905-512.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Label layoutX="40.0" layoutY="113.0" text="E-mail" textFill="#de020f">
          <font>
-            <Font name="Gill Sans Ultra Bold" size="19.0" />
+            <Font name="Cambria Bold" size="20.0" />
          </font></Label>
-      <TextField fx:id="tfemail" layoutX="123.0" layoutY="82.0" prefHeight="26.0" prefWidth="166.0" />
-      <Label layoutX="392.0" layoutY="80.0" text="Text :" textFill="RED">
+      <TextField fx:id="tfemail" layoutX="181.0" layoutY="110.0" prefHeight="30.0" prefWidth="200.0" promptText="Email" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" />
+      <Label layoutX="411.0" layoutY="63.0" text="Text " textFill="#de020f">
          <font>
-            <Font name="Gill Sans Ultra Bold" size="19.0" />
+            <Font name="Cambria Bold" size="20.0" />
          </font></Label>
-      <Label layoutX="27.0" layoutY="244.0" text="Topic :" textFill="RED">
+      <Label layoutX="41.0" layoutY="166.0" text="Topic " textFill="#de020f">
          <font>
-            <Font name="Gill Sans Ultra Bold" size="19.0" />
+            <Font name="Cambria Bold" size="20.0" />
          </font></Label>
-      <TextField fx:id="tftopic" layoutX="124.0" layoutY="241.0" prefHeight="26.0" prefWidth="166.0" />
-      <Label layoutX="390.0" layoutY="244.0" text="Type :" textFill="RED">
+      <TextField fx:id="tftopic" layoutX="181.0" layoutY="166.0" prefHeight="30.0" prefWidth="200.0" promptText="Topic" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" />
+      <Label layoutX="44.0" layoutY="217.0" text="Type " textFill="#de020f">
          <font>
-            <Font name="Gill Sans Ultra Bold" size="19.0" />
+            <Font name="Cambria Bold" size="20.0" />
          </font></Label>
-      <TextField fx:id="tftype" layoutX="465.0" layoutY="241.0" prefHeight="26.0" prefWidth="194.0" />
-      <Button layoutX="861.0" layoutY="288.0" mnemonicParsing="false" onAction="#addfeed" style="-fx-background-color: red; -fx-background-radius: 50;" text="Add" textFill="WHITE">
+      <TextField fx:id="tftype" layoutX="181.0" layoutY="217.0" prefHeight="30.0" prefWidth="200.0" promptText="Type" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" />
+      <Button layoutX="805.0" layoutY="268.0" mnemonicParsing="false" onAction="#addfeed" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" textFill="WHITE">
          <font>
             <Font name="Gill Sans Ultra Bold" size="14.0" />
-         </font></Button>
-      <Button layoutX="874.0" layoutY="78.0" mnemonicParsing="false" onAction="#sub" style="-fx-background-color: red; -fx-background-radius: 50;" text="submit" textFill="WHITE">
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../pidev/src/resources/3669476-512.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button layoutX="832.0" layoutY="99.0" mnemonicParsing="false" onAction="#sub" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="submit" textFill="WHITE">
          <font>
-            <Font name="Gill Sans Ultra Bold" size="14.0" />
+            <Font name="Cambria Bold" size="18.0" />
          </font></Button>
-      <TextArea fx:id="tftext" layoutX="465.0" layoutY="80.0" prefHeight="154.0" prefWidth="394.0" />
-      <Label fx:id="fdb" layoutX="403.0" layoutY="24.0" />
-      <Label layoutX="218.0" layoutY="20.0" text="Feedback ID :" textFill="RED">
+      <TextArea fx:id="tftext" layoutX="411.0" layoutY="101.0" prefHeight="154.0" prefWidth="413.0" promptText=".." style="-fx-background-color: transparent; -fx-background-color: #E5E7E9;" />
+      <Label fx:id="fdb" layoutX="181.0" layoutY="60.0" prefHeight="30.0" prefWidth="200.0">
          <font>
-            <Font name="Gill Sans Ultra Bold" size="19.0" />
+            <Font name="Cambria Bold" size="15.0" />
          </font></Label>
-      <ScrollPane layoutX="16.0" layoutY="342.0" prefHeight="330.0" prefWidth="954.0">
+      <Label layoutX="39.0" layoutY="63.0" text="Feedback ID " textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font></Label>
+      <ScrollPane layoutX="40.0" layoutY="314.0" prefHeight="231.0" prefWidth="890.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
          <content>
-            <VBox fx:id="listfeedbacks" prefHeight="315.0" prefWidth="954.0" />
+            <VBox fx:id="listfeedbacks" prefHeight="229.0" prefWidth="873.0" />
          </content>
       </ScrollPane>
    </children>
