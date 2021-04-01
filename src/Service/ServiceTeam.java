@@ -69,7 +69,7 @@ public ObservableList<Team> getData() {
             data.add(C);
         }
 
-        return (ArrayList<Team>) teams;
+        return   (ArrayList<Team>) teams;
     }
     
    @Override
@@ -124,7 +124,7 @@ System.out.println("select ss");
             query = "DELETE FROM `team` WHERE `id`=" + c.getId();
             stm.executeUpdate(query);
             
-            System.out.println(c.getId());
+           
         } catch (SQLException ex) {
             Logger.getLogger(ServiceTeam.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -147,9 +147,26 @@ System.out.println("select ss");
                    
         return  t;
     }
+    @Override
+    public Team GetTeamByName(String str) throws SQLException {
+        Statement stm = cnx.createStatement();
+        
+       
+       String query = "select `id`, `name`, `id_competition`, `logo` from `team` where name="+str+";";
+       ResultSet rst = stm.executeQuery(query);
+       Team t = new Team();
+       while (rst.next()) {
+       t.setId(rst.getInt("id"));
+       t.setName(rst.getString("name"));
+       t.setLogo(rst.getString("logo"));
+       t.setId_competition(rst.getInt("id_competition"));
+       }
+                   
+        return  t;
+    }
     
     @Override
-    public List<Team> AfficherTeam(int idc) throws SQLException {
+    public ArrayList<Team> AfficherTeam(int idc) throws SQLException {
         Statement stm = cnx.createStatement();
         
        
@@ -168,6 +185,6 @@ System.out.println("select ss");
             data.add(C);
         }
 
-        return (ArrayList<Team>) teams;
+        return  (ArrayList<Team>) teams;
 }
 }

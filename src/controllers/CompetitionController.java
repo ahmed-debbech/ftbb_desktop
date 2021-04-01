@@ -149,6 +149,7 @@ public class CompetitionController implements Initializable {
         }
         
        affichertable();
+       table_game.getSelectionModel().selectFirst();
         
         
     }    
@@ -272,9 +273,10 @@ public void affichertable (){
         ServiceCompetition sc = new ServiceCompetition();
         sc.DeleteCompetition(ServiceCompetition.getCom());
       
-            competitions = serviceCompetition.AfficherCompetition();
+            
             
              ListCompetition.getItems().remove(ServiceCompetition.getCom());
+             competitions = serviceCompetition.AfficherCompetition();
             
 //        Stage stage = new Stage ();
 //         URL url = new File("C:\\Users\\Lenovo\\Documents\\ftbb\\src\\view\\DeleteCompetition.fxml").toURI().toURL();

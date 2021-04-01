@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="327.0" prefWidth="484.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="controllers.UpdateTeamController">
+   <children>
+      <Label layoutX="24.0" layoutY="24.0" prefHeight="35.0" prefWidth="97.0" text="Edit Team">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="ListCompetition" layoutX="146.0" layoutY="143.0" prefWidth="150.0" />
+      <Label layoutX="40.0" layoutY="138.0" prefHeight="35.0" prefWidth="97.0" text="Competition" />
+      <Label layoutX="40.0" layoutY="96.0" prefHeight="35.0" prefWidth="97.0" text="Name" />
+      <Label layoutX="40.0" layoutY="184.0" prefHeight="35.0" prefWidth="97.0" text="Logo" />
+      <Button fx:id="btValider" layoutX="123.0" layoutY="253.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="35.0" prefWidth="97.0" text="Valider" />
+      <Button fx:id="btAnnuler" layoutX="265.0" layoutY="253.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="35.0" prefWidth="97.0" text="Annuler" />
+      <TextField fx:id="ftName" layoutX="146.0" layoutY="101.0" prefHeight="25.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>

@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,6 +40,8 @@ import javafx.stage.Stage;
  * @author Lenovo
  */
 public class TeamController implements Initializable {
+    
+    
     ArrayList <Team >listTeam= new ArrayList<Team>();
     ServiceTeam st = new ServiceTeam();
     @FXML
@@ -56,7 +60,7 @@ public class TeamController implements Initializable {
   private  ServiceCompetition serviceCompetition = new ServiceCompetition();
   ArrayList<Competition> competitions = new ArrayList<Competition>(); // Create an ArrayList object
     @FXML
-    private TableView<Team> table_team;
+    private TableView<Team> table_team= new TableView<>();
     @FXML
     private TableColumn<Team, String> logo_team;
     @FXML
@@ -83,6 +87,7 @@ public class TeamController implements Initializable {
         }
         
         affichertable();
+        table_team.getSelectionModel().selectFirst();
         
         
         
@@ -151,7 +156,11 @@ public class TeamController implements Initializable {
 
     }
     
+    @FXML
     private void UpdateTeam(ActionEvent event) throws IOException {
+        
+        Team t=table_team.getSelectionModel().getSelectedItems().get(0);
+         ServiceTeam.setCom(t);
          Stage stage = new Stage ();
          URL url = new File("C:\\Users\\Lenovo\\Documents\\ftbb\\src\\view\\UpdateTeam.fxml").toURI().toURL();
         Parent root =  FXMLLoader.load(url);
@@ -163,15 +172,32 @@ public class TeamController implements Initializable {
     }
     @FXML
     private void DeleteTeam(ActionEvent event) throws IOException, SQLException {
-       
-        ServiceTeam st = new ServiceTeam();
-        int idc = ServiceCompetition.getCom().getId();
-        st.DeleteTeam(ServiceTeam.getCom());
       
-            listTeam = (ArrayList<Team>) st.AfficherTeam(idc);
+        
+        ServiceTeam sc = new ServiceTeam();
+        Team t = new Team();
+      ObservableList allTeam,Single;
+      allTeam=table_team.getItems();
+      Single=table_team.getSelectionModel().getSelectedItems();
+      t=table_team.getSelectionModel().getSelectedItems().get(0);
+      sc.DeleteTeam(t);
+        System.out.println(t);
+        System.out.println(Single);
+      Single.forEach(allTeam::remove);
             
-             ListCompetition.getItems().remove(ServiceCompetition.getCom());
-    
+            
+//             ListCompetition.getItems().remove(ServiceCompetition.getCom());
+//             competitions = serviceCompetition.AfficherCompetition();
+        
+        
+      
+            
+        
+        
+      
+
+             
+             
     }
     
     

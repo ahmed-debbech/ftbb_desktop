@@ -35,7 +35,7 @@
          </font>
       </Label>
       <Button fx:id="btDeleteTeam" layoutX="482.0" layoutY="140.0" mnemonicParsing="false" onAction="#DeleteTeam" text="Delete" />
-      <Button fx:id="btEditTeam" layoutX="421.0" layoutY="140.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0" text="Edit" />
+      <Button fx:id="btEditTeam" layoutX="421.0" layoutY="140.0" mnemonicParsing="false" onAction="#UpdateTeam" prefHeight="25.0" prefWidth="50.0" text="Edit" />
       <Button fx:id="btAddTeam" layoutX="361.0" layoutY="140.0" mnemonicParsing="false" onAction="#AddTeam" prefHeight="25.0" prefWidth="50.0" text="Add" />
       <Button fx:id="btDashboard" layoutX="460.0" layoutY="84.0" mnemonicParsing="false" onAction="#Back" text="Dashboard" />
    </children>

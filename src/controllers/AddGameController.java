@@ -17,6 +17,7 @@ import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -45,7 +46,7 @@ public class AddGameController implements Initializable {
     private ChoiceBox<Team> ListTeamAway = new ChoiceBox<Team>();
     
     private  ServiceTeam serviceTeam = new ServiceTeam();
-  ArrayList<Team> teams = new ArrayList<Team>(); // Create an ArrayList object
+  List<Team> teams = new ArrayList<Team>(); // Create an ArrayList object
     @FXML
     private DatePicker ftDate;
     @FXML
@@ -67,7 +68,7 @@ public class AddGameController implements Initializable {
         
         try {
             int idc = ServiceCompetition.getCom().getId();
-            teams = (ArrayList<Team>) serviceTeam.AfficherTeam(idc);
+            teams =serviceTeam.AfficherTeam(idc);
             
                 for (Team c : teams) {
            
@@ -119,7 +120,7 @@ public class AddGameController implements Initializable {
         System.out.println(th.getName());
         
         ServiceTeam.setCom(th);
-        
+        ListTeamAway.getItems().remove(th);
         System.out.println(th.getName());
         
     
@@ -135,7 +136,7 @@ public class AddGameController implements Initializable {
         System.out.println(tw.getName());
         
         ServiceTeam.setCom(tw);
-        
+        ListTeamHome.getItems().remove(tw);
         System.out.println(tw.getName());
     
 }

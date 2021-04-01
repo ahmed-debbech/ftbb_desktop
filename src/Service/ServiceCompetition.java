@@ -129,5 +129,26 @@ private static Competition com = new Competition();
         }
     }
     
+    public Competition GetCompetitionById (int idc) throws SQLException{
+    Statement stm = cnx.createStatement();
+        
+       
+       String query = "select `id`, `name`, `calendar` from `competition` where id="+idc+";";
+       ResultSet rst = stm.executeQuery(query);
+       Competition c = new Competition();
+            while (rst.next()){
+                
+                c.setId(rst.getInt("id"));
+                c.setName(rst.getString("name"));
+                c.setCalendar(rst.getString("calendar"));
+                
+
+                ;
+            }
+       
+        return c;
     
+    
+    
+    }
 }
