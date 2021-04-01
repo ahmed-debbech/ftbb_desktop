@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="570.0" prefWidth="955.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="store.src.gestion_store.CommandClientController">
+   <children>
+      <ScrollPane fx:id="scroller" prefHeight="570.0" prefWidth="955.0">
+         <content>
+            <VBox fx:id="listpro" prefHeight="595.0" prefWidth="938.0" />
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

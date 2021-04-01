@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_store.Page2cController">
+   <children>
+      <Button layoutX="250.0" layoutY="192.0" mnemonicParsing="false" onAction="#btnstoreclient" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: trasparent; -fx-background-color: red;" text="STORE" textFill="WHITE">
+         <font>
+            <Font name="Tahoma Bold" size="14.0" />
+         </font></Button>
+      <Button layoutX="250.0" layoutY="251.0" mnemonicParsing="false" onAction="#btncommandclient" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: trasparent; -fx-background-color: red;" text="COMMANDS" textFill="WHITE">
+         <font>
+            <Font name="Tahoma Bold" size="14.0" />
+         </font></Button>
+      <Button layoutX="250.0" layoutY="312.0" mnemonicParsing="false" onAction="#btncartclient" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: trasparent; -fx-background-color: red;" text="CART" textFill="WHITE">
+         <font>
+            <Font name="Tahoma Bold" size="14.0" />
+         </font></Button>
+      <Button layoutX="620.0" layoutY="38.0" mnemonicParsing="false" onAction="#btnback" text="&lt;-" />
+   </children>
+</AnchorPane>

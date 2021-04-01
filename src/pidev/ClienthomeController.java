@@ -231,7 +231,7 @@ public class ClienthomeController implements Initializable {
          Node node;
             try {
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
-            node = (Node)FXMLLoader.load(getClass().getResource("ena.fxml"));
+            node = (Node)FXMLLoader.load(getClass().getResource("/store/src/gestion_store/market.fxml"));
             linker.getChildren().setAll(node);
 
             } catch (IOException ex) {
