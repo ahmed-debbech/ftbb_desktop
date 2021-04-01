@@ -16,6 +16,7 @@ import Entites.Competition;
 import Entites.Game;
 import Entites.Gamef;
 import Entites.Phase;
+import Entites.Team;
 import Entites.Week;
 import Service.ServiceCompetition;
 import Service.ServiceGame;
@@ -100,6 +101,8 @@ public class CompetitionController implements Initializable {
     private Button btAddCompetition;
     @FXML
     private Button btDashboard;
+    @FXML
+    private Button Classement;
     /**
      * Initializes the controller class.
      */
@@ -406,7 +409,19 @@ public void affichertable (){
     }
 
     @FXML
-    private void UpdateScore(ActionEvent event) {
+    private void UpdateScore(ActionEvent event) throws IOException {
+        Gamef t = new Gamef();
+        t=table_game.getSelectionModel().getSelectedItems().get(0);
+        serviceGame.setCom(t);
+       
+        
+        btDashboard.getScene().getWindow().hide();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+            Pane root1 =  fxmlLoader.load(getClass().getResource("/view/EditScore.fxml").openStream());
+            Stage stage = new Stage();
+            stage.setTitle("Edit Score");
+            stage.setScene(new Scene(root1));  
+            stage.show();
     }
 
     @FXML
@@ -419,6 +434,20 @@ public void affichertable (){
             stage.setScene(new Scene(root1));  
             stage.show();
             
+    }
+
+    @FXML
+    private void Classement(ActionEvent event) throws IOException {
+              
+        
+        btDashboard.getScene().getWindow().hide();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+            Pane root1 =  fxmlLoader.load(getClass().getResource("/view/Classement.fxml").openStream());
+            Stage stage = new Stage();
+            stage.setTitle("Edit Score");
+            stage.setScene(new Scene(root1));  
+            stage.show();
+        
     }
 
 

@@ -34,7 +34,7 @@
       </TableView>
       <ScrollBar layoutX="698.0" layoutY="185.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="14.0" />
       <Button layoutX="173.0" layoutY="141.0" mnemonicParsing="false" onAction="#AddGame" prefHeight="34.0" prefWidth="99.0" text="Add_Game" />
-      <Button layoutX="302.0" layoutY="141.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="99.0" text="Classement" />
+      <Button fx:id="Classement" layoutX="302.0" layoutY="141.0" mnemonicParsing="false" onAction="#Classement" prefHeight="34.0" prefWidth="99.0" text="Classement" />
       <Button layoutX="431.0" layoutY="141.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="99.0" text="Calendar" />
       <Button layoutX="562.0" layoutY="141.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="99.0" text="Statistics" />
       <Button layoutX="45.0" layoutY="141.0" mnemonicParsing="false" onAction="#UpdateScore" prefHeight="34.0" prefWidth="99.0" text="Edit_score" />

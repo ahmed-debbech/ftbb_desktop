@@ -187,4 +187,41 @@ public class ServiceGame implements IServiceGame {
     
    
 }
+    
+    
+    private static Gamef com = new Gamef();
+
+    public static Gamef getCom() {
+        return com;
+    }
+
+    public static void setCom(Gamef com) {
+        ServiceGame.com = com;
+    }
+    private static Game comf = new Game();
+
+    public static Game getComf() {
+        return comf;
+    }
+
+    public static void setComf(Game com) {
+        ServiceGame.comf = com;
+    }
+    
+    
+    
+    public void UpdateScore(Gamef g) throws SQLException {
+
+        try {
+
+            Statement stm = cnx.createStatement();
+            String query;
+            query = "UPDATE `game` SET `score_home`='" + g.getScore_home()+ "',`score_away`='" + g.getScore_away()+ "' WHERE `id`= " + g.getId();
+            stm.executeUpdate(query);
+            System.out.println("valide");
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceCompetition.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
 }

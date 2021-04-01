@@ -5,10 +5,16 @@
  */
 package Services;
 
+import Entites.Classement;
+import java.sql.SQLException;
+import java.util.List;
+
 /**
  *
  * @author Lenovo
  */
 public interface IServiceClassement {
-    
+    public void AddClassement(Classement c)throws SQLException;
+    public List<Classement> AfficherClassement(int idc, int idp)throws SQLException ;
+    public List<Classement> AfficherClassement()throws SQLException ;
 }

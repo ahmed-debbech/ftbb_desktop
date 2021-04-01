@@ -85,6 +85,13 @@ public class Gamef {
         this.time = time;
     }
 
+    
+    public String toString(int str) {
+        return "str";
+    }
+
+    
+
     public Gamef() {
     }
     private int id,score_home,score_away,status;

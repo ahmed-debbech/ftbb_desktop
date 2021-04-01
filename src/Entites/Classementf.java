@@ -5,11 +5,18 @@
  */
 package Entites;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  *
  * @author Lenovo
  */
-public class Classement {
+
+public class Classementf implements Serializable {
 
     public int getId() {
         return id;
@@ -17,30 +24,6 @@ public class Classement {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getId_phase() {
-        return id_phase;
-    }
-
-    public void setId_phase(int id_phase) {
-        this.id_phase = id_phase;
-    }
-
-    public int getId_competition() {
-        return id_competition;
-    }
-
-    public void setId_competition(int id_competition) {
-        this.id_competition = id_competition;
-    }
-
-    public int getId_team() {
-        return id_team;
-    }
-
-    public void setId_team(int id_team) {
-        this.id_team = id_team;
     }
 
     public int getNbr_pts_P() {
@@ -75,6 +58,29 @@ public class Classement {
         this.pts_diff = pts_diff;
     }
 
+    public String getName_team() {
+        return name_team;
+    }
+
+    public void setName_team(String name_team) {
+        this.name_team = name_team;
+    }
+
+    public String getLogo_team() {
+        return logo_team;
+    }
+
+    public void setLogo_team(String logo_team) {
+        this.logo_team = logo_team;
+    }
+
+    
+
+    public Classementf() {
+    }
+    private int id,nbr_pts_P,nbr_pts_G,nbr_pts_D,pts_diff,nbr_pts ;
+    private String name_team,logo_team;
+
     public int getNbr_pts() {
         return nbr_pts;
     }
@@ -82,8 +88,6 @@ public class Classement {
     public void setNbr_pts(int nbr_pts) {
         this.nbr_pts = nbr_pts;
     }
-
-    public Classement() {
-    }
-    private int id,id_phase,id_competition,id_team,nbr_pts_P,nbr_pts_G,nbr_pts_D,pts_diff,nbr_pts ;
+    
+    
 }

@@ -13,8 +13,8 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="ftNamePhase" layoutX="14.0" layoutY="84.0" prefHeight="31.0" prefWidth="199.0" />
-      <Button fx:id="btValider" layoutX="37.0" layoutY="183.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="77.0" text="Update" />
-      <Button fx:id="btAnnuler" layoutX="123.0" layoutY="183.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="77.0" text="Annuler" />
+      <TextField fx:id="ftNamePhase" layoutX="47.0" layoutY="86.0" prefHeight="31.0" prefWidth="168.0" />
+      <Button fx:id="btValider" layoutX="41.0" layoutY="183.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="77.0" text="Update" />
+      <Button fx:id="btAnnuler" layoutX="136.0" layoutY="183.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="77.0" text="Annuler" />
    </children>
 </AnchorPane>
