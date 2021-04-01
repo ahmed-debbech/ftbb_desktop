@@ -6,6 +6,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -30,17 +32,24 @@
             </ScrollPane>
             <HBox alignment="CENTER_LEFT" prefHeight="83.0" prefWidth="955.0" spacing="10.0">
                <children>
-                  <Button fx:id="ban_but" mnemonicParsing="false" onAction="#banComment" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Ban Comment" textFill="WHITE">
+                  <Button fx:id="ban_but" mnemonicParsing="false" onAction="#banComment" prefHeight="42.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Ban Comment" textFill="WHITE">
                      <font>
                         <Font name="Cambria Bold" size="18.0" />
                      </font>
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin></Button>
-                  <Button fx:id="ref_but" mnemonicParsing="false" onAction="#refreshComment" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Refresh" textFill="WHITE">
+                  <Button fx:id="ref_but" mnemonicParsing="false" onAction="#refreshComment" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" textFill="WHITE">
                      <font>
                         <Font name="Cambria Bold" size="18.0" />
-                     </font></Button>
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/1564533-512.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
                   <TextField fx:id="filter" prefHeight="30.0" prefWidth="300.0" promptText="Search for a word" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" />
                   <CheckBox fx:id="checks" mnemonicParsing="false" onAction="#onSelectAll" prefHeight="30.0" prefWidth="190.0" text="Select All" textFill="#de020f">
                      <HBox.margin>

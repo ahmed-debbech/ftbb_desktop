@@ -27,11 +27,11 @@
             <TableColumn fx:id="col_status" prefWidth="71.0" text="status" />
          </columns>
       </TableView>
-      <Button layoutX="556.0" layoutY="468.0" mnemonicParsing="false" onAction="#BanUser" prefHeight="39.0" prefWidth="166.0" style="-fx-background-color: trasparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Ban" textFill="WHITE">
+      <Button layoutX="531.0" layoutY="468.0" mnemonicParsing="false" onAction="#BanUser" prefHeight="39.0" prefWidth="200.0" style="-fx-background-color: trasparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Ban" textFill="WHITE">
          <font>
             <Font name="Cambria Bold" size="18.0" />
          </font></Button>
-      <Button layoutX="740.0" layoutY="468.0" mnemonicParsing="false" onAction="#unBanUser" prefHeight="39.0" prefWidth="166.0" style="-fx-background-color: trasparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Unban" textFill="WHITE">
+      <Button layoutX="740.0" layoutY="468.0" mnemonicParsing="false" onAction="#unBanUser" prefHeight="39.0" prefWidth="200.0" style="-fx-background-color: trasparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Unban" textFill="WHITE">
          <font>
             <Font name="Cambria Bold" size="18.0" />
          </font></Button>
