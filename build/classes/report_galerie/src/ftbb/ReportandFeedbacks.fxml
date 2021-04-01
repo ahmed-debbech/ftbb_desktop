@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="570.0" prefWidth="955.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="report_galerie.src.ftbb.ReportandFeedbacksController">
+   <children>
+      <Button layoutX="199.0" layoutY="205.0" mnemonicParsing="false" onAction="#ShowReports" prefHeight="96.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" textFill="WHITE" AnchorPane.bottomAnchor="225.0" AnchorPane.leftAnchor="199.0" AnchorPane.rightAnchor="479.0" AnchorPane.topAnchor="225.0">
+         <font>
+            <Font name="Cambria Bold" size="25.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/1291748-512.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button layoutX="478.0" layoutY="198.0" mnemonicParsing="false" onAction="#ShowFeedbacks" prefHeight="96.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" textFill="WHITE" AnchorPane.bottomAnchor="225.0" AnchorPane.leftAnchor="478.0" AnchorPane.rightAnchor="199.0" AnchorPane.topAnchor="225.0">
+         <font>
+            <Font name="Cambria Bold" size="25.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/2932345-512.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+   </children>
+</AnchorPane>

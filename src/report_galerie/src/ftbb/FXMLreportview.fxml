@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="231.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="report_galerie.src.ftbb.FXMLreportviewController">
+   <children>
+      <Label fx:id="command_id" layoutX="525.0" layoutY="26.0" prefHeight="30.0" prefWidth="100.0" text="cmdid" AnchorPane.leftAnchor="540.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font name="Cambria Bold" size="15.0" />
+         </font></Label>
+      <Label fx:id="report_id" layoutX="340.0" layoutY="45.0" prefHeight="30.0" prefWidth="106.0" text="report id " AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font name="Cambria Bold" size="15.0" />
+         </font></Label>
+      <Label fx:id="mail" layoutX="756.0" layoutY="45.0" prefHeight="30.0" prefWidth="112.0" text="mail" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font name="Cambria Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="460.0" layoutY="45.0" prefHeight="30.0" prefWidth="112.0" text="Command ID " textFill="#de020f" AnchorPane.leftAnchor="420.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="240.0" layoutY="45.0" prefHeight="30.0" prefWidth="87.0" text="Report ID " textFill="#de020f" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="45.0" prefHeight="30.0" prefWidth="80.0" text="Client ID" textFill="#de020f" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="690.0" layoutY="45.0" prefHeight="30.0" prefWidth="66.0" text="Email " textFill="#de020f" AnchorPane.leftAnchor="650.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="client_id" layoutX="120.0" layoutY="25.0" prefHeight="30.0" prefWidth="100.0" text="Client id" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font name="Cambria Bold" size="15.0" />
+         </font>
+      </Label>
+      <HBox layoutX="50.0" layoutY="82.0" prefHeight="159.0" prefWidth="810.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="62.0">
+         <children>
+            <VBox prefHeight="98.0" prefWidth="632.0">
+               <children>
+                  <Label fx:id="descr" prefHeight="89.0" prefWidth="630.0" style="-fx-background-color: white;" text="Description">
+                     <font>
+                        <Font name="Cambria Bold" size="15.0" />
+                     </font></Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="73.0" prefWidth="157.0">
+               <children>
+                  <Label fx:id="date" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="157.0" text="dd/mm/yy">
+                     <font>
+                        <Font name="Cambria Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Button mnemonicParsing="false" onAction="#onDelete" prefHeight="35.0" prefWidth="43.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" textFill="WHITE">
+                     <font>
+                        <Font name="Cambria Bold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/326606-512.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button mnemonicParsing="false" onAction="#ModifyReports" prefHeight="39.0" prefWidth="43.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Cambria Bold" size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="27.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/5402373-512.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</AnchorPane>

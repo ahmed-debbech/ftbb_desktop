@@ -205,7 +205,7 @@ public class ClienthomeController implements Initializable {
          Node node;
             try {
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
-            node = (Node)FXMLLoader.load(getClass().getResource("amine.fxml"));
+            node = (Node)FXMLLoader.load(getClass().getResource("/report_galerie/src/ftbb/report.fxml"));
             linker.getChildren().setAll(node);
 
             } catch (IOException ex) {
@@ -218,7 +218,7 @@ public class ClienthomeController implements Initializable {
          Node node;
             try {
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
-            node = (Node)FXMLLoader.load(getClass().getResource("amine.fxml"));
+            node = (Node)FXMLLoader.load(getClass().getResource("/report_galerie/src/ftbb/Galerieview.fxml"));
             linker.getChildren().setAll(node);
 
             } catch (IOException ex) {

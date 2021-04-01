@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="570.0" prefWidth="955.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.RespondfeedbackController">
+   <children>
+      <Label fx:id="clem" layoutX="232.0" layoutY="126.0" text="ce" AnchorPane.topAnchor="130.0">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font></Label>
+      <Label layoutX="118.0" layoutY="188.0" text="Description " textFill="#de020f" AnchorPane.leftAnchor="100.0">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font></Label>
+      <TextArea fx:id="tfdesc" layoutX="100.0" layoutY="212.0" prefHeight="200.0" prefWidth="754.0" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9;" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" />
+      <Button layoutX="641.0" layoutY="421.0" mnemonicParsing="false" onAction="#respondfeedback" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" textFill="WHITE" AnchorPane.rightAnchor="114.0">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/4295560-512.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Label layoutX="113.0" layoutY="126.0" text="Client Email " textFill="#de020f" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="130.0">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font></Label>
+   </children>
+</AnchorPane>
