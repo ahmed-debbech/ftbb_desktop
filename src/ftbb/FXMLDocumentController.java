@@ -79,7 +79,7 @@ public class FXMLDocumentController implements Initializable {
         //stage1.show();
         
         
-        
+        btCompetition.getScene().getWindow().hide();
         FXMLLoader fxmlLoader = new FXMLLoader();
             Pane root1 =  fxmlLoader.load(getClass().getResource("/view/competition.fxml").openStream());
             Stage stage = new Stage();
@@ -91,7 +91,14 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    private void ListTeam(ActionEvent event) {
+    private void ListTeam(ActionEvent event) throws IOException {
+        btTeam.getScene().getWindow().hide();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+            Pane root2 =  fxmlLoader.load(getClass().getResource("/view/team.fxml").openStream());
+            Stage stage = new Stage();
+            stage.setTitle("Team");
+            stage.setScene(new Scene(root2));  
+            stage.show();
     }
 
     @FXML

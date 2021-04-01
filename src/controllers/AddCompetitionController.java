@@ -44,7 +44,7 @@ public class AddCompetitionController implements Initializable {
     
     @FXML    
     private void handleButtonAction (ActionEvent event) throws SQLException, Exception{
-        if ( event.getSource()== btValider ){
+        if ( event.getSource()==btValider ){
             AddCompetition();
             btValider.getScene().getWindow().hide();
           

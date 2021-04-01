@@ -98,6 +98,8 @@ public class CompetitionController implements Initializable {
     private TableColumn<?, ?> time;
     @FXML
     private Button btAddCompetition;
+    @FXML
+    private Button btDashboard;
     /**
      * Initializes the controller class.
      */
@@ -249,6 +251,7 @@ public void affichertable (){
         stage.setScene(new Scene(root));
         stage.setTitle("AddGame");
         stage.show();
+        btAddCompetition.getScene().getWindow().hide();
     }
 
     @FXML
@@ -340,7 +343,6 @@ public void affichertable (){
 
     }
 
-    @FXML
     private void selectedCompetition(ActionEvent event) {
         System.out.println("tttt");
            Competition c = new Competition();
@@ -363,7 +365,6 @@ public void affichertable (){
         
     }
     
-    @FXML
     private void selectedPhase(ActionEvent event) {
         System.out.println("tttt");
            Phase c = new Phase();
@@ -382,7 +383,6 @@ public void affichertable (){
         }
         affichertable();
     }
-    @FXML
     private void selectedWeek(ActionEvent event) {
         System.out.println("tttt");
            Week c = new Week();
@@ -401,6 +401,22 @@ public void affichertable (){
         }
         affichertable();
         
+    }
+
+    @FXML
+    private void UpdateScore(ActionEvent event) {
+    }
+
+    @FXML
+    private void Back(ActionEvent event) throws IOException {
+        btDashboard.getScene().getWindow().hide();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+            Pane root1 =  fxmlLoader.load(getClass().getResource("/ftbb/Ftbb.fxml").openStream());
+            Stage stage = new Stage();
+            stage.setTitle("FTBB Application");
+            stage.setScene(new Scene(root1));  
+            stage.show();
+            
     }
 
 

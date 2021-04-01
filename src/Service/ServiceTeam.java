@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import utils.Maconnexion;
 
 /**
@@ -24,7 +26,10 @@ import utils.Maconnexion;
  */
 public class ServiceTeam implements IServiceTeam {
     Connection cnx;
-
+private ObservableList<Team> data = FXCollections.observableArrayList();
+public ObservableList<Team> getData() {
+        return data;
+    }
     public ServiceTeam() {
         cnx = Maconnexion.getInstance().getConnection();
 
@@ -32,7 +37,7 @@ public class ServiceTeam implements IServiceTeam {
     @Override
     public void AddTeam(Team c) throws SQLException {
         String query;
-        query = "INSERT INTO `team`(`name`) VALUES('" + c.getName() + "')";
+        query = "INSERT INTO `team`(`name`,`id_competition`) VALUES('" + c.getName() + "','" + c.getId_competition() + "')";
         try {
 
             Statement stm = cnx.createStatement();
@@ -55,10 +60,13 @@ public class ServiceTeam implements IServiceTeam {
         while (rst.next()) {
             Team C = new Team();
             C.setId(rst.getInt("id"));
+            C.setLogo(rst.getString("logo"));
             C.setName(rst.getString("name"));
+            C.setId_competition(rst.getInt("id_competition"));
             
 
             teams.add(C);
+            data.add(C);
         }
 
         return (ArrayList<Team>) teams;
@@ -88,6 +96,8 @@ public class ServiceTeam implements IServiceTeam {
 while (rst.next()) {
         c.setId(rst.getInt("id"));
         c.setName(rst.getString("name"));
+        c.setLogo(rst.getString("logo"));
+        c.setId_competition(rst.getInt("id_competition"));
        
         
 }
@@ -113,9 +123,10 @@ System.out.println("select ss");
             String query;
             query = "DELETE FROM `team` WHERE `id`=" + c.getId();
             stm.executeUpdate(query);
-            System.out.println("validesp");
+            
+            System.out.println(c.getId());
         } catch (SQLException ex) {
-            Logger.getLogger(ServiceCompetition.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServiceTeam.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -131,9 +142,32 @@ System.out.println("select ss");
        t.setId(rst.getInt("id"));
        t.setName(rst.getString("name"));
        t.setLogo(rst.getString("logo"));
+       t.setId_competition(rst.getInt("id_competition"));
        }
                    
         return  t;
     }
     
+    @Override
+    public List<Team> AfficherTeam(int idc) throws SQLException {
+        Statement stm = cnx.createStatement();
+        
+       
+       String query = "select * from `team` where id_competition='" + idc + "'";
+       ResultSet rst = stm.executeQuery(query);
+          List<Team> teams = new ArrayList<>();
+        while (rst.next()) {
+            Team C = new Team();
+            C.setId(rst.getInt("id"));
+            C.setLogo(rst.getString("logo"));
+            C.setName(rst.getString("name"));
+            C.setId_competition(rst.getInt("id_competition"));
+            
+
+            teams.add(C);
+            data.add(C);
+        }
+
+        return (ArrayList<Team>) teams;
+}
 }

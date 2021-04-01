@@ -37,12 +37,13 @@
       <Button layoutX="302.0" layoutY="141.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="99.0" text="Classement" />
       <Button layoutX="431.0" layoutY="141.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="99.0" text="Calendar" />
       <Button layoutX="562.0" layoutY="141.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="99.0" text="Statistics" />
-      <Button layoutX="45.0" layoutY="141.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="99.0" text="Filrer_Game" />
+      <Button layoutX="45.0" layoutY="141.0" mnemonicParsing="false" onAction="#UpdateScore" prefHeight="34.0" prefWidth="99.0" text="Edit_score" />
       <Button layoutX="351.0" layoutY="39.0" mnemonicParsing="false" onAction="#UpdateCompetition" text="Up" />
       <Button layoutX="401.0" layoutY="39.0" mnemonicParsing="false" onAction="#DeleteCompetition" text="Del" />
       <Button layoutX="351.0" layoutY="70.0" mnemonicParsing="false" onAction="#UpdatePhase" text="Up" />
       <Button layoutX="401.0" layoutY="70.0" mnemonicParsing="false" onAction="#DeletePhase" text="Del" />
       <Button layoutX="351.0" layoutY="101.0" mnemonicParsing="false" onAction="#UpdateWeek" text="Up" />
       <Button layoutX="401.0" layoutY="101.0" mnemonicParsing="false" onAction="#DeleteWeek" text="Del" />
+      <Button fx:id="btDashboard" layoutX="562.0" layoutY="35.0" mnemonicParsing="false" onAction="#Back" prefHeight="34.0" prefWidth="99.0" text="Dashboard" />
    </children>
 </AnchorPane>

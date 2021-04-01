@@ -66,7 +66,8 @@ public class AddGameController implements Initializable {
      
         
         try {
-            teams = serviceTeam.AfficherTeam();
+            int idc = ServiceCompetition.getCom().getId();
+            teams = (ArrayList<Team>) serviceTeam.AfficherTeam(idc);
             
                 for (Team c : teams) {
            
@@ -97,7 +98,8 @@ public class AddGameController implements Initializable {
         g.setSalle(ftHall.getText());
         //g.setTime((Date) ftDate.getDayCellFactory());
         sg.AddGame(g);
-        
+        btValider.getScene().getWindow().hide();
+
         FXMLLoader fxmlLoader = new FXMLLoader();
             Pane root1 =  fxmlLoader.load(getClass().getResource("/view/competition.fxml").openStream());
             Stage stage = new Stage();
