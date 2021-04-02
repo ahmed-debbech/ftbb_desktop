@@ -108,7 +108,8 @@ public class CompetitionController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+                System.out.println("333333333333333333333333333");
+
         ListCompetition.setOnAction(this::selectedCompetition);
         ListPhase.setOnAction(this::selectedPhase);
         ListWeek.setOnAction(this::selectedWeek);
@@ -150,7 +151,6 @@ public class CompetitionController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(CompetitionController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
        affichertable();
        table_game.getSelectionModel().selectFirst();
         
