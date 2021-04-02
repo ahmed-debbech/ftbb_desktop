@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -31,6 +31,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -40,7 +41,7 @@ import javafx.stage.Stage;
  * @author Lenovo
  */
 public class TeamController implements Initializable {
-    
+    private final ObservableList<Team> dataList = FXCollections.observableArrayList();
     
     ArrayList <Team >listTeam= new ArrayList<Team>();
     ServiceTeam st = new ServiceTeam();
@@ -65,6 +66,8 @@ public class TeamController implements Initializable {
     private TableColumn<Team, String> logo_team;
     @FXML
     private TableColumn<Team, String> name_team;
+    @FXML
+    private ImageView logo;
     /**
      * Initializes the controller class.
      */
@@ -124,12 +127,11 @@ public class TeamController implements Initializable {
            
             listTeam = (ArrayList<Team>) st.AfficherTeam(idc);
             
+            
             name_team.setCellValueFactory(new PropertyValueFactory<>("name"));
             logo_team.setCellValueFactory(new PropertyValueFactory<>("logo"));
             
             table_team.setItems(st.getData());
-            
-            
             
             
             

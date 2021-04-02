@@ -18,6 +18,10 @@ import Service.ServiceWeek;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import static java.time.temporal.TemporalQueries.localDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -82,6 +86,9 @@ public class AddGameController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(CompetitionController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
+        
     }    
     
     
@@ -99,6 +106,8 @@ public class AddGameController implements Initializable {
         g.setId_team_home(ListTeamHome.getValue().getId());
         g.setId_team_away(ListTeamAway.getValue().getId());
         g.setSalle(ftHall.getText());
+        
+       // g.setTime(localDate().ftDate.getValue());
         //g.setTime((Date) ftDate.getDayCellFactory());
         sg.AddGame(g);
         System.out.println(g.getId_team_home());

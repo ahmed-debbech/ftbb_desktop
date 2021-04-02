@@ -13,6 +13,8 @@ import Service.ServiceGame;
 import Service.ServicePhase;
 import Service.ServiceTeam;
 import Service.ServiceWeek;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -66,6 +68,8 @@ ArrayList <Classement> listclassement= new ArrayList<Classement>();
     private Label ftPhase;
     @FXML
     private Button btDashboard;
+    @FXML
+    private Button btPDF;
     /**
      * Initializes the controller class.
      */
@@ -156,5 +160,42 @@ ArrayList <Classement> listclassement= new ArrayList<Classement>();
             stage.setScene(new Scene(root1));  
             stage.show();
             
+    }
+
+//    @FXML
+//    private void SavePDF(ActionEvent event) {
+//        String path="";
+//        JFileChooser j = new JFileChooser();
+//        j.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+//        int x=j.showSaveDialog(j);
+//        if (x==JFileChooser.APPROVE_OPTION){
+//        path=j.getSelectedFile().getPath();
+//        }
+//       
+//        Document doc = new DefaultStyledDocument();
+//    try {
+//        PdfWriter.getInstance(doc,new FileOutputStream(path+"abc.pdf"));
+//        doc.open();
+//           PdfTable tb1= new PdfTable(3);
+//           tb1.addCell("test1");
+//           tb1.addCell("test2");
+//           tb1.addCell("test3");
+//        for (int i = 0; i < table_classement.getRowFactory(); i++) {
+//            
+//        }
+//        
+//    } catch (FileNotFoundException ex) {
+//        Logger.getLogger(ClassementController.class.getName()).log(Level.SEVERE, null, ex);
+//    }
+//         
+//        
+//        
+//        
+//        
+//        
+//    }
+
+    @FXML
+    private void SavePDF(ActionEvent event) {
     }
 }

@@ -47,5 +47,6 @@
          </font>
       </Label>
       <Button fx:id="btDashboard" layoutX="544.0" layoutY="14.0" mnemonicParsing="false" onAction="#Back" text="Back" />
+      <Button fx:id="btPDF" layoutX="492.0" layoutY="14.0" mnemonicParsing="false" onAction="#SavePDF" text="PDF" />
    </children>
 </AnchorPane>
