@@ -5,25 +5,53 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddGameController">
+<AnchorPane id="AnchorPane" prefHeight="570.0" prefWidth="955.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddGameController">
    <children>
-      <Label layoutX="12.0" layoutY="20.0" prefHeight="35.0" prefWidth="97.0" text="Add Game">
+      <Label alignment="CENTER" layoutX="385.0" layoutY="87.0" prefHeight="38.0" prefWidth="208.0" text="Add Game" textFill="#de020f">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Cambria Bold" size="30.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="ListTeamHome" layoutX="72.0" layoutY="135.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="ListTeamAway" layoutX="337.0" layoutY="135.0" prefWidth="150.0" />
-      <Label layoutX="99.0" layoutY="94.0" prefHeight="35.0" prefWidth="97.0" text="Team Home" />
-      <Label layoutX="364.0" layoutY="94.0" prefHeight="35.0" prefWidth="97.0" text="Team Away" />
-      <Label layoutX="48.0" layoutY="221.0" prefHeight="35.0" prefWidth="34.0" text="Date" />
-      <DatePicker fx:id="ftDate" layoutX="78.0" layoutY="226.0" prefHeight="25.0" prefWidth="140.0" />
-      <Label layoutX="320.0" layoutY="221.0" prefHeight="35.0" prefWidth="34.0" text="Hall" />
-      <TextField fx:id="ftHall" layoutX="347.0" layoutY="226.0" />
-      <Button fx:id="btValider" layoutX="174.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="35.0" prefWidth="97.0" text="Valider" />
-      <Button fx:id="btAnnuler" layoutX="316.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="35.0" prefWidth="97.0" text="Annuler" />
+      <ChoiceBox fx:id="ListTeamHome" layoutX="258.0" layoutY="220.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" />
+      <ChoiceBox fx:id="ListTeamAway" layoutX="628.0" layoutY="220.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" />
+      <Label layoutX="127.0" layoutY="225.0" prefHeight="35.0" prefWidth="122.0" text="Team Home" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font></Label>
+      <Label layoutX="489.0" layoutY="225.0" prefHeight="35.0" prefWidth="112.0" text="Team Away" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font></Label>
+      <Label layoutX="127.0" layoutY="313.0" prefHeight="35.0" prefWidth="49.0" text="Date" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font></Label>
+      <DatePicker fx:id="ftDate" layoutX="258.0" layoutY="310.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9;" />
+      <Label layoutX="496.0" layoutY="313.0" prefHeight="35.0" prefWidth="49.0" text="Hall" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font></Label>
+      <TextField fx:id="ftHall" layoutX="628.0" layoutY="311.0" prefHeight="40.0" prefWidth="200.0" promptText="Hall" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" />
+      <Button fx:id="btValider" layoutX="289.0" layoutY="419.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: trasnparent; -fx-background-color: #DE020F; -fx-background-radius: 50;">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/5402431-512.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btAnnuler" layoutX="493.0" layoutY="419.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="35.0" prefWidth="200.0" style="-fx-background-color: trasnparent; -fx-background-color: #DE020F; -fx-background-radius: 50;">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/5402366-512.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
    </children>
 </AnchorPane>

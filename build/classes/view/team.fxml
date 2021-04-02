@@ -6,39 +6,68 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.TeamController">
+<AnchorPane id="AnchorPane" prefHeight="570.0" prefWidth="955.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.TeamController">
    <children>
-      <TableView fx:id="table_team" layoutX="68.0" layoutY="176.0" prefHeight="200.0" prefWidth="270.0">
+      <TableView fx:id="table_team" layoutX="223.0" layoutY="294.0" prefHeight="200.0" prefWidth="248.0">
         <columns>
           <TableColumn fx:id="logo_team" prefWidth="60.0" text="logo" />
           <TableColumn fx:id="name_team" minWidth="5.0" prefWidth="185.0" text="name" />
         </columns>
       </TableView>
-      <Label layoutX="276.0" layoutY="23.0" text="Team">
+      <Label layoutX="439.0" layoutY="69.0" text="Team" textFill="#de020f">
          <font>
-            <Font name="Impact" size="22.0" />
+            <Font name="Cambria Bold" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="75.0" layoutY="88.0" prefHeight="18.0" prefWidth="85.0" text="Competition">
+      <Label layoutX="224.0" layoutY="186.0" prefHeight="24.0" prefWidth="148.0" text="Competition" textFill="#de020f">
          <font>
-            <Font name="Corbel Italic" size="15.0" />
+            <Font name="Cambria Bold" size="20.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="ListCompetition" layoutX="160.0" layoutY="84.0" prefWidth="150.0" />
-      <TextField fx:id="ftSearch" layoutX="161.0" layoutY="131.0" />
-      <Label layoutX="105.0" layoutY="135.0" text="Search :">
+      <ChoiceBox fx:id="ListCompetition" layoutX="407.0" layoutY="178.0" prefHeight="40.0" prefWidth="328.0" style="-fx-background-color: trasparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" />
+      <TextField fx:id="ftSearch" layoutX="407.0" layoutY="230.0" prefHeight="40.0" prefWidth="328.0" promptText="..." style="-fx-background-color: trasparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" />
+      <Label layoutX="223.0" layoutY="238.0" prefHeight="24.0" prefWidth="148.0" text="Search " textFill="#de020f">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Cambria Bold" size="20.0" />
          </font>
       </Label>
-      <Button fx:id="btDeleteTeam" layoutX="482.0" layoutY="140.0" mnemonicParsing="false" onAction="#DeleteTeam" text="Delete" />
-      <Button fx:id="btEditTeam" layoutX="421.0" layoutY="140.0" mnemonicParsing="false" onAction="#UpdateTeam" prefHeight="25.0" prefWidth="50.0" text="Edit" />
-      <Button fx:id="btAddTeam" layoutX="361.0" layoutY="140.0" mnemonicParsing="false" onAction="#AddTeam" prefHeight="25.0" prefWidth="50.0" text="Add" />
-      <Button fx:id="btDashboard" layoutX="460.0" layoutY="84.0" mnemonicParsing="false" onAction="#Back" text="Dashboard" />
-      <ImageView fx:id="logo" fitHeight="114.0" fitWidth="110.0" layoutX="391.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="btDeleteTeam" layoutX="684.0" layoutY="388.0" mnemonicParsing="false" onAction="#DeleteTeam" style="-fx-background-color: trasparent; -fx-background-color: #DE020F; -fx-background-radius: 50;">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/326606-512.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btEditTeam" layoutX="682.0" layoutY="341.0" mnemonicParsing="false" onAction="#UpdateTeam" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: trasparent; -fx-background-color: #DE020F; -fx-background-radius: 50;">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/5402373-512.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btAddTeam" layoutX="682.0" layoutY="294.0" mnemonicParsing="false" onAction="#AddTeam" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: trasparent; -fx-background-color: #DE020F; -fx-background-radius: 50;">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/add.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btDashboard" layoutX="802.0" layoutY="69.0" mnemonicParsing="false" onAction="#Back" style="-fx-background-color: trasparent; -fx-background-color: #DE020F; -fx-background-radius: 50;">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/dash.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <ImageView fx:id="logo" fitHeight="200.0" fitWidth="193.0" layoutX="484.0" layoutY="294.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

@@ -5,8 +5,13 @@
         <group>
             <file>file:/C:/Users/Lenovo/Documents/ftbb/src/controllers/ClassementController.java</file>
             <file>file:/C:/Users/Lenovo/Documents/ftbb/src/controllers/CompetitionController.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/ftbb/src/Entites/Gamef.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/ftbb/src/controllers/TeamController.java</file>
             <file>file:/C:/Users/Lenovo/Documents/ftbb/src/controllers/AddGameController.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/ftbb/src/Service/ServiceGame.java</file>
             <file>file:/C:/Users/Lenovo/Documents/ftbb/src/Service/ServiceClassement.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/ftbb/src/Entites/Game.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/ftbb/src/Service/ServiceTeam.java</file>
             <file>file:/C:/Users/Lenovo/Documents/ftbb/src/controllers/EditScoreController.java</file>
         </group>
     </open-files>
