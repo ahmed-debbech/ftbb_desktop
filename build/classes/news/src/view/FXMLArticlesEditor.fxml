@@ -5,15 +5,24 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="570.0" prefWidth="955.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="news.src.controller.ArticleEditorController">
    <children>
-      <Button fx:id="add_but" layoutX="617.0" layoutY="477.0" onAction="#modArticle" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Add New " textFill="WHITE">
+      <Button fx:id="add_but" layoutX="617.0" layoutY="477.0" onAction="#modArticle" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" textFill="WHITE">
          <font>
             <Font name="Cambria Bold" size="18.0" />
-         </font></Button>
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/add.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
       <Label layoutX="51.0" layoutY="38.0" prefHeight="22.0" prefWidth="74.0" text="Title" textFill="#de020f">
          <font>
             <Font name="Cambria Bold" size="18.0" />

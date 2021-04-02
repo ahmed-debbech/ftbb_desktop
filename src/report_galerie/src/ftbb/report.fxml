@@ -21,7 +21,7 @@
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../pidev/src/resources/3671905-512.png" />
+                  <Image url="@../resources/3671905-512.png" />
                </image>
             </ImageView>
          </graphic></Button>
@@ -51,7 +51,7 @@
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../pidev/src/resources/3669476-512.png" />
+                  <Image url="@../resources/add.png" />
                </image>
             </ImageView>
          </graphic></Button>

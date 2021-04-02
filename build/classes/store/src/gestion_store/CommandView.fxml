@@ -24,7 +24,7 @@
                <children>
                   <VBox prefHeight="100.0" prefWidth="663.0">
                      <children>
-                        <Label fx:id="id" text="id commande">
+                        <Label fx:id="id" text="- L'identifiant de la commande est " textFill="#de020f">
                            <font>
                               <Font name="Cambria Bold" size="18.0" />
                            </font>
@@ -32,7 +32,7 @@
                               <Insets left="50.0" top="5.0" />
                            </VBox.margin>
                         </Label>
-                        <Label fx:id="id_client" text="id client">
+                        <Label fx:id="id_client" text="- L'identifiant du client est " textFill="#de020f">
                            <font>
                               <Font name="Cambria Bold" size="18.0" />
                            </font>
@@ -40,7 +40,7 @@
                               <Insets left="50.0" />
                            </VBox.margin>
                         </Label>
-                        <Label fx:id="status" text="status">
+                        <Label fx:id="status" text="- L'etat de la commande est " textFill="#de020f">
                            <font>
                               <Font name="Cambria Bold" size="18.0" />
                            </font>
@@ -48,7 +48,7 @@
                               <Insets left="50.0" />
                            </VBox.margin>
                         </Label>
-                        <Label fx:id="total" text="total price">
+                        <Label fx:id="total" text="- Le prix total est " textFill="#de020f">
                            <font>
                               <Font name="Cambria Bold" size="18.0" />
                            </font>

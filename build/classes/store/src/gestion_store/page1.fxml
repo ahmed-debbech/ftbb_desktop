@@ -4,19 +4,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="store.src.gestion_store.Page1Controller">
+<AnchorPane id="AnchorPane" prefHeight="570.0" prefWidth="955.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="store.src.gestion_store.Page1Controller">
    <children>
-      <Button layoutX="238.0" layoutY="225.0" mnemonicParsing="false" onAction="#buttonaddp" prefHeight="70.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-background-color: red;" text="ADD PRODUCT" textFill="WHITE">
+      <Button layoutX="314.0" layoutY="203.0" mnemonicParsing="false" onAction="#buttonaddp" prefHeight="80.0" prefWidth="328.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Ajouter un produit" textFill="WHITE" AnchorPane.leftAnchor="314.0" AnchorPane.rightAnchor="313.0">
          <font>
-            <Font name="Tahoma Bold" size="18.0" />
+            <Font name="Cambria Bold" size="25.0" />
          </font></Button>
-      <Button layoutX="238.0" layoutY="308.0" mnemonicParsing="false" onAction="#buttoncc" prefHeight="70.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-background-color: red;" text="SHOW COMMANDS" textFill="WHITE">
+      <Button layoutX="314.0" layoutY="290.0" mnemonicParsing="false" onAction="#buttoncc" prefHeight="80.0" prefWidth="328.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Consulter les commandes" textFill="WHITE" AnchorPane.leftAnchor="314.0" AnchorPane.rightAnchor="313.0">
          <font>
-            <Font name="Tahoma Bold" size="18.0" />
-         </font></Button>
-      <Button layoutX="615.0" layoutY="31.0" mnemonicParsing="false" onAction="#btnback" style="-fx-background-color: transparent; -fx-background-color: red;" text="&lt;" textFill="WHITE">
-         <font>
-            <Font name="Tahoma Bold" size="13.0" />
+            <Font name="Cambria Bold" size="25.0" />
          </font></Button>
    </children>
 </AnchorPane>
