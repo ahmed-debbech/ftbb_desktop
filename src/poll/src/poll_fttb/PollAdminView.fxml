@@ -15,7 +15,7 @@
   <children>
       <HBox alignment="CENTER_RIGHT" layoutX="28.0" prefHeight="54.0" prefWidth="895.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#ctrlpanel" prefHeight="28.0" prefWidth="29.0" style="-fx-background-color: #DE020F; -fx-background-radius: 50;" text="🔘" textFill="WHITE">
+            <Button mnemonicParsing="false" onAction="#ctrlpanel" prefHeight="30.0" prefWidth="36.0" style="-fx-background-color: #DE020F; -fx-background-radius: 50;" text="🔘" textFill="WHITE">
                <HBox.margin>
                   <Insets left="30.0" right="10.0" top="20.0" />
                </HBox.margin>

@@ -47,7 +47,7 @@
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resources/add.png" />
+                  <Image url="@../resources/add.png" />
                </image>
             </ImageView>
          </graphic></Button>
@@ -62,7 +62,7 @@
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resources/326606-512.png" />
+                  <Image url="@../resources/326606-512.png" />
                </image>
             </ImageView>
          </graphic></Button>
@@ -73,7 +73,7 @@
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resources/3671905-512.png" />
+                  <Image url="@../resources/3671905-512.png" />
                </image>
             </ImageView>
          </graphic></Button>
@@ -84,7 +84,7 @@
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resources/3671771-512.png" />
+                  <Image url="@../resources/3671771-512.png" />
                </image>
             </ImageView>
          </graphic></Button>
@@ -116,11 +116,11 @@
          <font>
             <Font name="Cambria Bold" size="15.0" />
          </font></TextArea>
-      <TextField fx:id="Option1display" editable="false" layoutX="511.0" layoutY="309.0" prefHeight="35.0" prefWidth="260.0" promptText="Select a Poll...." style="-fx-background-color: #E5E7E9; -fx-background-radius: 50;">
+      <TextField fx:id="Option1display" editable="false" layoutX="511.0" layoutY="309.0" prefHeight="35.0" prefWidth="226.0" promptText="Select a Poll...." style="-fx-background-color: #E5E7E9; -fx-background-radius: 50;">
          <font>
             <Font name="Cambria Bold" size="13.0" />
          </font></TextField>
-      <TextField fx:id="Option2display" editable="false" layoutX="511.0" layoutY="371.0" prefHeight="35.0" prefWidth="260.0" promptText="Select a Poll...." style="-fx-background-color: #E5E7E9; -fx-background-radius: 50;">
+      <TextField fx:id="Option2display" editable="false" layoutX="511.0" layoutY="371.0" prefHeight="35.0" prefWidth="226.0" promptText="Select a Poll...." style="-fx-background-color: #E5E7E9; -fx-background-radius: 50;">
          <font>
             <Font name="Cambria Bold" size="13.0" />
          </font></TextField>
@@ -134,11 +134,11 @@
             <Font name="Cambria Bold" size="20.0" />
          </font>
       </Label>
-      <ProgressBar fx:id="resultbar1" layoutX="787.0" layoutY="317.0" prefHeight="20.0" prefWidth="135.0" progress="0.0" style="-fx-accent: red;" />
-      <ProgressBar fx:id="resultbar2" layoutX="787.0" layoutY="379.0" prefHeight="20.0" prefWidth="135.0" progress="0.0" style="-fx-accent: red;" />
+      <ProgressBar fx:id="resultbar1" layoutX="751.0" layoutY="317.0" prefHeight="20.0" prefWidth="135.0" progress="0.0" style="-fx-accent: red;" />
+      <ProgressBar fx:id="resultbar2" layoutX="751.0" layoutY="379.0" prefHeight="20.0" prefWidth="135.0" progress="0.0" style="-fx-accent: red;" />
       <Separator layoutX="560.0" layoutY="267.0" prefHeight="10.0" prefWidth="313.0" />
-      <Label fx:id="result1" layoutX="751.0" layoutY="323.0" prefHeight="17.0" prefWidth="45.0" />
-      <Label fx:id="result2" layoutX="751.0" layoutY="366.0" prefHeight="17.0" prefWidth="45.0" />
+      <Label fx:id="result1" layoutX="899.0" layoutY="317.0" prefHeight="17.0" prefWidth="45.0" />
+      <Label fx:id="result2" layoutX="899.0" layoutY="379.0" prefHeight="17.0" prefWidth="45.0" />
       <Button layoutX="357.0" layoutY="296.0" mnemonicParsing="false" onAction="#DeleteAll" style="-fx-background-color: #DE020F; -fx-background-radius: 5em;" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -146,7 +146,7 @@
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../resources/5875983-512.png" />
+                  <Image url="@../resources/5875983-512.png" />
                </image>
             </ImageView>
          </graphic>
