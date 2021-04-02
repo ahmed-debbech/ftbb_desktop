@@ -6,20 +6,62 @@
 <?import javafx.scene.control.ScrollBar?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="728.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CompetitionController">
+<AnchorPane id="AnchorPane" prefHeight="570.0" prefWidth="955.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CompetitionController">
      <children>
-      <Label layoutX="36.0" layoutY="43.0" text="Competition" />
-      <Label layoutX="37.0" layoutY="74.0" text="Phase" />
-      <Label layoutX="38.0" layoutY="105.0" text="Week" />
-      <ChoiceBox fx:id="ListCompetition" layoutX="125.0" layoutY="39.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="ListPhase" layoutX="125.0" layoutY="70.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="ListWeek" layoutX="125.0" layoutY="101.0" prefWidth="150.0" />
-      <Button fx:id="btAddCompetition" layoutX="295.0" layoutY="39.0" mnemonicParsing="false" onAction="#AddCompetition" text="Add" />
-      <Button layoutX="295.0" layoutY="70.0" mnemonicParsing="false" onAction="#AddPhase" text="Add" />
-      <Button layoutX="295.0" layoutY="101.0" mnemonicParsing="false" onAction="#AddWeek" text="Add" />
-      <TableView fx:id="table_game" layoutX="26.0" layoutY="185.0" prefHeight="200.0" prefWidth="679.0">
+      <Label layoutX="154.0" layoutY="79.0" text="Competition" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font></Label>
+      <Label layoutX="154.0" layoutY="129.0" text="Phase" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font></Label>
+      <Label layoutX="155.0" layoutY="185.0" text="Week" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font></Label>
+      <ChoiceBox fx:id="ListCompetition" layoutX="299.0" layoutY="72.0" prefHeight="40.0" prefWidth="300.0" style="-fx-background-radius: 50; -fx-background-color: transparent; -fx-background-color: #E5E7E9;" />
+      <ChoiceBox fx:id="ListPhase" layoutX="299.0" layoutY="121.0" prefHeight="40.0" prefWidth="300.0" style="-fx-background-radius: 50; -fx-background-color: transparent; -fx-background-color: #E5E7E9;" />
+      <ChoiceBox fx:id="ListWeek" layoutX="299.0" layoutY="172.0" prefHeight="40.0" prefWidth="300.0" style="-fx-background-radius: 50; -fx-background-color: transparent; -fx-background-color: #E5E7E9;" />
+      <Button fx:id="btAddCompetition" layoutX="648.0" layoutY="71.0" mnemonicParsing="false" onAction="#AddCompetition" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" textFill="WHITE" AnchorPane.leftAnchor="650.0">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/add.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button layoutX="651.0" layoutY="120.0" mnemonicParsing="false" onAction="#AddPhase" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" textFill="WHITE" AnchorPane.leftAnchor="650.0">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/add.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button layoutX="648.0" layoutY="171.0" mnemonicParsing="false" onAction="#AddWeek" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" textFill="WHITE" AnchorPane.leftAnchor="650.0">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/add.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <TableView fx:id="table_game" layoutX="141.0" layoutY="300.0" prefHeight="200.0" prefWidth="679.0" AnchorPane.leftAnchor="131.0" AnchorPane.rightAnchor="131.0">
         <columns>
           <TableColumn fx:id="logo_home" prefWidth="77.0" text="logo_Home" />
           <TableColumn fx:id="name_home" prefWidth="73.0" text="Name_home" />
@@ -32,18 +74,103 @@
             <TableColumn fx:id="statuts" prefWidth="75.0" text="Statuts" />
         </columns>
       </TableView>
-      <ScrollBar layoutX="698.0" layoutY="185.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="14.0" />
-      <Button layoutX="173.0" layoutY="141.0" mnemonicParsing="false" onAction="#AddGame" prefHeight="34.0" prefWidth="99.0" text="Add_Game" />
-      <Button fx:id="Classement" layoutX="302.0" layoutY="141.0" mnemonicParsing="false" onAction="#Classement" prefHeight="34.0" prefWidth="99.0" text="Classement" />
-      <Button layoutX="431.0" layoutY="141.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="99.0" text="Calendar" />
-      <Button layoutX="562.0" layoutY="141.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="99.0" text="Statistics" />
-      <Button layoutX="45.0" layoutY="141.0" mnemonicParsing="false" onAction="#UpdateScore" prefHeight="34.0" prefWidth="99.0" text="Edit_score" />
-      <Button layoutX="351.0" layoutY="39.0" mnemonicParsing="false" onAction="#UpdateCompetition" text="Up" />
-      <Button layoutX="401.0" layoutY="39.0" mnemonicParsing="false" onAction="#DeleteCompetition" text="Del" />
-      <Button layoutX="351.0" layoutY="70.0" mnemonicParsing="false" onAction="#UpdatePhase" text="Up" />
-      <Button layoutX="401.0" layoutY="70.0" mnemonicParsing="false" onAction="#DeletePhase" text="Del" />
-      <Button layoutX="351.0" layoutY="101.0" mnemonicParsing="false" onAction="#UpdateWeek" text="Up" />
-      <Button layoutX="401.0" layoutY="101.0" mnemonicParsing="false" onAction="#DeleteWeek" text="Del" />
-      <Button fx:id="btDashboard" layoutX="562.0" layoutY="35.0" mnemonicParsing="false" onAction="#Back" prefHeight="34.0" prefWidth="99.0" text="Dashboard" />
+      <ScrollBar layoutX="806.0" layoutY="300.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="19.0" />
+      <Button layoutX="268.0" layoutY="251.0" mnemonicParsing="false" onAction="#AddGame" prefHeight="35.0" prefWidth="130.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Add_Game" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font></Button>
+      <Button fx:id="Classement" layoutX="413.0" layoutY="251.0" mnemonicParsing="false" onAction="#Classement" prefHeight="35.0" prefWidth="130.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Classement" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font></Button>
+      <Button layoutX="554.0" layoutY="251.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="130.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Calendar" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font></Button>
+      <Button layoutX="694.0" layoutY="251.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="130.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Statistics" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font></Button>
+      <Button layoutX="131.0" layoutY="251.0" mnemonicParsing="false" onAction="#UpdateScore" prefHeight="35.0" prefWidth="130.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Edit_score" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font></Button>
+      <Button layoutX="710.0" layoutY="71.0" mnemonicParsing="false" onAction="#UpdateCompetition" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" textFill="WHITE" AnchorPane.leftAnchor="710.0">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/1564533-512.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button layoutX="760.0" layoutY="71.0" mnemonicParsing="false" onAction="#DeleteCompetition" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" textFill="WHITE" AnchorPane.leftAnchor="770.0">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/326606-512.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button layoutX="707.0" layoutY="120.0" mnemonicParsing="false" onAction="#UpdatePhase" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" textFill="WHITE" AnchorPane.leftAnchor="710.0">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/1564533-512.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button layoutX="757.0" layoutY="120.0" mnemonicParsing="false" onAction="#DeletePhase" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" textFill="WHITE" AnchorPane.leftAnchor="770.0">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/326606-512.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button layoutX="704.0" layoutY="171.0" mnemonicParsing="false" onAction="#UpdateWeek" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" textFill="WHITE" AnchorPane.leftAnchor="710.0">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/1564533-512.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button layoutX="754.0" layoutY="171.0" mnemonicParsing="false" onAction="#DeleteWeek" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" textFill="WHITE" AnchorPane.leftAnchor="770.0" AnchorPane.rightAnchor="131.0">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/326606-512.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btDashboard" layoutX="863.0" layoutY="23.0" mnemonicParsing="false" onAction="#Back" prefHeight="42.0" prefWidth="54.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/dash.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
    </children>
 </AnchorPane>
