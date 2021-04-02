@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="570.0" prefWidth="955.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ftbb.RespondfeedbackController">
+<AnchorPane id="AnchorPane" prefHeight="570.0" prefWidth="955.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="report_galerie.src.ftbb.RespondfeedbackController">
    <children>
-      <Label fx:id="clem" layoutX="232.0" layoutY="126.0" text="ce" AnchorPane.topAnchor="130.0">
+      <Label fx:id="clem" layoutX="232.0" layoutY="126.0" AnchorPane.topAnchor="130.0">
          <font>
             <Font name="Cambria Bold" size="18.0" />
          </font></Label>

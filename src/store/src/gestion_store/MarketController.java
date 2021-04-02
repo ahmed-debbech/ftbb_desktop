@@ -17,12 +17,15 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import store.src.Entities.Command;
 import store.src.Entities.Product;
 import store.src.IService.MyListener;
 import store.src.Service.ServiceCart;
@@ -63,7 +66,7 @@ public class MarketController implements Initializable {
     @FXML
     private AnchorPane parent;
     @FXML
-    private Label boy;
+    private Button rechercher_command;
 
 
     private void setChosenProduct(Product product) {
@@ -120,7 +123,6 @@ public class MarketController implements Initializable {
     }
   
 
-    @FXML
     private void panier(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/store/src/gestion_store/panier.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
@@ -163,6 +165,10 @@ public class MarketController implements Initializable {
         if(k>0){
          qty.setText(String.valueOf(k));
         }
+    }
+
+    @FXML
+    private void search(ActionEvent event) {
     }
 
 }

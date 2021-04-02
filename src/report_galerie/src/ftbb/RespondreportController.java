@@ -14,7 +14,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import news.src.utils.Utilities;
+import report_galerie.src.Utils.Utilities;
+import utils.Passable;
 
 
 /**
@@ -34,11 +35,11 @@ public class RespondreportController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+         tfce.setText(Passable.getInstance().getTextData());
     }    
     
      public void pass(String x){
-        tfce.setText(x);
+       
     
     }
 
@@ -46,7 +47,7 @@ public class RespondreportController implements Initializable {
 
     @FXML
     private void respondreport(ActionEvent event) {
-       Utilities.sendMail("x", this.tfce.getText(), this.tfan.getText());
+       Utilities.sendMail( this.tfce.getText(), this.tfan.getText());
     }
     
 }

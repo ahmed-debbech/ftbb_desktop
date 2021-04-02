@@ -65,7 +65,7 @@ public class Utilities {
             return s;
     }
    
-    public static void sendMail(String name, String receiver_email, String comment){
+    public static void sendMail( String receiver_email, String comment){
         System.out.println("Preparing to send email");
         Properties properties = new Properties();
 
@@ -97,7 +97,7 @@ public class Utilities {
              message.setFrom(new InternetAddress(myAccountEmail));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(receiver_email));
             message.setSubject("Report answer!");
-             String htmlCode = "<h1><b> "+name+" </b> </h1> <h2>Admin answered you : </h2> </br> <b>"+comment+"</b>";
+             String htmlCode = " <h2>Admin answered you : </h2> </br> <b>"+comment+"</b>";
             message.setContent(htmlCode, "text/html");
         } catch (MessagingException ex) {
             Logger.getLogger(Utilities.class.getName()).log(Level.SEVERE, null, ex);
