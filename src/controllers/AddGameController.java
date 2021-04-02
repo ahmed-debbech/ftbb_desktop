@@ -5,9 +5,11 @@
  */
 package controllers;
 
+import Entites.Classement;
 import Entites.Competition;
 import Entites.Game;
 import Entites.Team;
+import Service.ServiceClassement;
 import Service.ServiceCompetition;
 import Service.ServiceGame;
 import Service.ServicePhase;
@@ -99,6 +101,51 @@ public class AddGameController implements Initializable {
         g.setSalle(ftHall.getText());
         //g.setTime((Date) ftDate.getDayCellFactory());
         sg.AddGame(g);
+        System.out.println(g.getId_team_home());
+        System.out.println(g.getId_team_away());
+        
+        
+         ServiceClassement serviceClassement = new ServiceClassement();
+          List<Classement> classementstest = new ArrayList<Classement>(); // Create an ArrayList object
+        classementstest =serviceClassement.AfficherClassement(idc, idp);
+        
+        for (Classement c: classementstest){
+            if (c.getId_team()==g.getId_team_home()){
+                System.out.println("usm local");
+            }
+            else if (c.getId_team()==g.getId_team_away()){
+            System.out.println("usm etranger");}
+            else System.out.println("usm not here");
+            }
+//        for (Classement c : classements) {
+//           if ( c.getId_team()!= g.getId_team_home()){
+//           Classement cn = new Classement();
+//           cn.setId_competition(idc);
+//           cn.setId_phase(idp);
+//           cn.setId_team(g.getId_team_home());
+//           serviceClassement.AddClassement(cn);
+//           
+//                  }
+//           
+//            if (c.getId_team()!= g.getId_team_away()){
+//           Classement cn1 = new Classement();
+//           cn1.setId_competition(idc);
+//           cn1.setId_phase(idp);
+//           cn1.setId_team(g.getId_team_away());
+//           serviceClassement.AddClassement(cn1);
+//           
+//           
+//           }
+//           else System.out.println("trouve");
+//            
+//        }
+//        
+        
+        
+        
+        
+        
+        
         btValider.getScene().getWindow().hide();
 
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -111,33 +158,33 @@ public class AddGameController implements Initializable {
          
     }
     private void selectedTeamH(ActionEvent event) {
-        System.out.println("tttt");
+        
            Team th = new Team();
            
         ServiceTeam st = new ServiceTeam();
         th= ListTeamHome.getValue();
         
-        System.out.println(th.getName());
+        
         
         ServiceTeam.setCom(th);
         ListTeamAway.getItems().remove(th);
-        System.out.println(th.getName());
+        
         
     
 }
     private void selectedTeamW(ActionEvent event) {
-        System.out.println("tttt");
+        
            
            Team tw = new Team();
         ServiceTeam st = new ServiceTeam();
         
         tw= ListTeamAway.getValue();
         
-        System.out.println(tw.getName());
+       
         
         ServiceTeam.setCom(tw);
         ListTeamHome.getItems().remove(tw);
-        System.out.println(tw.getName());
+        
     
 }
     @FXML    

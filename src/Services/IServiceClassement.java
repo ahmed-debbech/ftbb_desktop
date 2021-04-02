@@ -15,6 +15,7 @@ import java.util.List;
  */
 public interface IServiceClassement {
     public void AddClassement(Classement c)throws SQLException;
+    public void UpdateClassement(Classement c)throws SQLException;
     public List<Classement> AfficherClassement(int idc, int idp)throws SQLException ;
     public List<Classement> AfficherClassement()throws SQLException ;
 }

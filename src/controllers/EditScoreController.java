@@ -5,12 +5,18 @@
  */
 package controllers;
 
+import Entites.Classement;
 import Entites.Game;
 import Entites.Gamef;
+import Service.ServiceClassement;
+import Service.ServiceCompetition;
 import Service.ServiceGame;
+import Service.ServicePhase;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -87,13 +93,53 @@ public class EditScoreController implements Initializable {
 
     
     private void UpdateScore() throws SQLException {
-        
+       int idc = ServiceCompetition.getCom().getId();
+        int idp =ServicePhase.getCom().getId();
         ServiceGame st = new ServiceGame();
         Gamef g = new Gamef();
         g=ServiceGame.getCom();
         g.setScore_home(Integer.valueOf(ftScoreHome.getText()));
         g.setScore_away(Integer.valueOf(ftScoreAway.getText()));
         st.UpdateScore(g);
+                
+        
+        ServiceClassement serviceClassement = new ServiceClassement();
+          List<Classement> classementstest = new ArrayList<Classement>(); // Create an ArrayList object
+        classementstest =serviceClassement.AfficherClassement(idc,idp);
+        
+        for (Classement c: classementstest){
+            if (c.getId_team()==g.getId_team_home()){
+                if(g.getScore_home()>g.getScore_away()){
+                c.setNbr_pts(c.getNbr_pts()+2);
+                c.setNbr_pts_P(c.getNbr_pts_P()+1);
+                c.setNbr_pts_G(c.getNbr_pts_G()+1);
+                serviceClassement.UpdateClassement(c);
+                }
+                if(g.getScore_home()<g.getScore_away()){
+                c.setNbr_pts(c.getNbr_pts()+1);
+                c.setNbr_pts_P(c.getNbr_pts_P()+1);
+                c.setNbr_pts_D(c.getNbr_pts_D()+1);
+                serviceClassement.UpdateClassement(c);
+                }
+            }
+            else if (c.getId_team()==g.getId_team_away()){
+                if(g.getScore_home()>g.getScore_away()){
+                    c.setNbr_pts(c.getNbr_pts()+1);
+                c.setNbr_pts_P(c.getNbr_pts_P()+1);
+                c.setNbr_pts_D(c.getNbr_pts_D()+1);
+                    serviceClassement.UpdateClassement(c);
+               
+                }
+                if(g.getScore_home()<g.getScore_away()){
+                 c.setNbr_pts(c.getNbr_pts()+2);
+                c.setNbr_pts_P(c.getNbr_pts_P()+1);
+                c.setNbr_pts_G(c.getNbr_pts_G()+1);
+                serviceClassement.UpdateClassement(c);
+                }
+                
+            System.out.println("usm etranger");}
+            else System.out.println("usm not here");
+            }
         
     }
 }

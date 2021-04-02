@@ -108,7 +108,7 @@ ArrayList <Classement> listclassement= new ArrayList<Classement>();
            
            listclassementf.add(cf);
            sc.data1.add(cf);
-                System.out.println(sc.data1);
+                
            
            
             
@@ -132,8 +132,11 @@ ArrayList <Classement> listclassement= new ArrayList<Classement>();
             
             
             table_classement.setItems(sc.getData1());
+            //table_classement.getSortOrder().add(pts);
             
-            
+            pts.setSortType(TableColumn.SortType.DESCENDING);
+            table_classement.getSortOrder().add(pts);
+            table_classement.sort();
             
             
             

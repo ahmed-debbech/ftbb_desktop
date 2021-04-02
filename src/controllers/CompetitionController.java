@@ -96,7 +96,7 @@ public class CompetitionController implements Initializable {
     @FXML
     private TableColumn<?, ?> logo_away;
     @FXML
-    private TableColumn<?, ?> time;
+    private TableColumn<Gamef, String> time;
     @FXML
     private Button btAddCompetition;
     @FXML
@@ -182,12 +182,15 @@ public void affichertable (){
            gf.setTeam_away(st.GetTeamById(g.getId_team_away()).getName());
            gf.setScore_home(g.getScore_home());
            gf.setScore_away(g.getScore_away());
-           
+           gf.setSalle(g.getSalle());
+           gf.setTime(g.getTime());
+           gf.setStatus(g.getStatus());
+           gf.setId_team_home(g.getId_team_home());
+           gf.setId_team_away(g.getId_team_away());
            listGamef.add(gf);
            sg.data1.add(gf);
            
-           System.out.println(gf.getTeam_home());
-           System.out.println(gf.getTeam_away());
+          
            
             
                 
@@ -204,7 +207,8 @@ public void affichertable (){
             score_home.setCellValueFactory(new PropertyValueFactory<>("score_home"));
             score_away.setCellValueFactory(new PropertyValueFactory<>("score_away"));
             hall.setCellValueFactory(new PropertyValueFactory<>("salle"));
-            statuts.setCellValueFactory(new PropertyValueFactory<>("statuts"));
+            statuts.setCellValueFactory(new PropertyValueFactory<>(String.valueOf("statuts")));
+            time.setCellValueFactory(new PropertyValueFactory<>("time"));
             table_game.setItems(sg.getData1());
             
             
@@ -349,13 +353,13 @@ public void affichertable (){
     }
 
     private void selectedCompetition(ActionEvent event) {
-        System.out.println("tttt");
+        
            Competition c = new Competition();
         ServiceCompetition sc = new ServiceCompetition();
         c= ListCompetition.getValue();
-        System.out.println(c.getName());
+        
         ServiceCompetition.setCom(c);
-        System.out.println(c.getName());
+        
            ServiceGame sg = new ServiceGame ();
            int idc = ServiceCompetition.getCom().getId();
         int idp =ServicePhase.getCom().getId();
@@ -371,12 +375,12 @@ public void affichertable (){
     }
     
     private void selectedPhase(ActionEvent event) {
-        System.out.println("tttt");
+        
            Phase c = new Phase();
         ServicePhase sc = new ServicePhase();
         c = ListPhase.getValue();
         ServicePhase.setCom(c);
-        System.out.println(c.getName());
+        
         int idc = ServiceCompetition.getCom().getId();
         int idp =ServicePhase.getCom().getId();
         int idw =ServiceWeek.getCom().getId();
@@ -389,12 +393,12 @@ public void affichertable (){
         affichertable();
     }
     private void selectedWeek(ActionEvent event) {
-        System.out.println("tttt");
+       
            Week c = new Week();
         ServiceWeek sc = new ServiceWeek();
         c= ListWeek.getValue();
         ServiceWeek.setCom(c);
-        System.out.println(c.getName_week());
+       
            ServiceGame sg = new ServiceGame ();
            int idc = ServiceCompetition.getCom().getId();
         int idp =ServicePhase.getCom().getId();
@@ -411,9 +415,10 @@ public void affichertable (){
     @FXML
     private void UpdateScore(ActionEvent event) throws IOException {
         Gamef t = new Gamef();
+        
         t=table_game.getSelectionModel().getSelectedItems().get(0);
         serviceGame.setCom(t);
-       
+        
         
         btDashboard.getScene().getWindow().hide();
         FXMLLoader fxmlLoader = new FXMLLoader();

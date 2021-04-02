@@ -127,4 +127,23 @@ public class ServiceClassement implements IServiceClassement {
     public static void setCom(Classementf com) {
         ServiceClassement.com = com;
     }
+    
+    
+    @Override
+    public void UpdateClassement(Classement c) throws SQLException {
+
+        try {
+
+            Statement stm = cnx.createStatement();
+            String query;
+            
+            query = "UPDATE `classement` SET `nbr_pts_P`='" + c.getNbr_pts_P()+"',`nbr_pts_G`='"+c.getNbr_pts_G()+"',`nbr_pts_D`='"+c.getNbr_pts_D()+"',`nbr_pts`='"+c.getNbr_pts()+  "' WHERE `id`= " + c.getId();
+            stm.executeUpdate(query);
+            System.out.println("valide");
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceCompetition.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
 }

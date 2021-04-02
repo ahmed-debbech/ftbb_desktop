@@ -94,7 +94,23 @@ public class Gamef {
 
     public Gamef() {
     }
-    private int id,score_home,score_away,status;
+    private int id,score_home,score_away,status,id_team_home,id_team_away;
+
+    public int getId_team_home() {
+        return id_team_home;
+    }
+
+    public void setId_team_home(int id_team_home) {
+        this.id_team_home = id_team_home;
+    }
+
+    public int getId_team_away() {
+        return id_team_away;
+    }
+
+    public void setId_team_away(int id_team_away) {
+        this.id_team_away = id_team_away;
+    }
     private String team_home,team_away,salle,statistique;
     private Date time ;
     
