@@ -190,7 +190,7 @@ public class AdminhomeController implements Initializable {
          Node node;
             try {
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
-            node = (Node)FXMLLoader.load(getClass().getResource("aliadmin.fxml"));
+            node = (Node)FXMLLoader.load(getClass().getResource("/compit/src/ftbb/Ftbb.fxml"));
             linker.getChildren().setAll(node);
 
             } catch (IOException ex) {

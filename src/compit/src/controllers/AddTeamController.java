@@ -25,15 +25,19 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.WritableImage;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
+import pidev.AdminhomeController;
+import utils.Passable;
 
 
 /**
@@ -88,13 +92,16 @@ public class AddTeamController implements Initializable {
         
         else if (event.getSource()== btAnnuler){
         
-         FXMLLoader fxmlLoader = new FXMLLoader();
-            Pane root1 =  fxmlLoader.load(getClass().getResource("/compit/src/view/team.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("team");
-            stage.setScene(new Scene(root1));  
-            stage.show();
-            btValider.getScene().getWindow().hide();
+         Node node;
+            try {
+            //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
+            node = (Node)FXMLLoader.load(getClass().getResource("/compit/src/view/team.fxml"));
+            AnchorPane linker = (AnchorPane) Passable.getInstance().getContainer();
+            linker.getChildren().setAll(node);
+
+            } catch (IOException ex) {
+            Logger.getLogger(AdminhomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         
         }
     

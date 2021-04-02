@@ -28,6 +28,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -38,9 +39,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
+import pidev.AdminhomeController;
+import utils.Passable;
 
 /**
  * FXML Controller class
@@ -253,13 +257,16 @@ public class TeamController implements Initializable {
 
     @FXML
     private void Back(ActionEvent event) throws IOException {
-        btDashboard.getScene().getWindow().hide();
-        FXMLLoader fxmlLoader = new FXMLLoader();
-            Pane root1 =  fxmlLoader.load(getClass().getResource("/compit/src/ftbb/Ftbb.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("FTBB Application");
-            stage.setScene(new Scene(root1));  
-            stage.show();
+        Node node;
+            try {
+            //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
+            node = (Node)FXMLLoader.load(getClass().getResource("/compit/src/ftbb/Ftbb.fxml"));
+            AnchorPane linker = (AnchorPane) Passable.getInstance().getContainer();
+            linker.getChildren().setAll(node);
+
+            } catch (IOException ex) {
+            Logger.getLogger(AdminhomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
     }
         

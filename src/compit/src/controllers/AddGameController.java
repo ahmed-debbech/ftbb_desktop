@@ -15,6 +15,7 @@ import compit.src.Service.ServiceGame;
 import compit.src.Service.ServicePhase;
 import compit.src.Service.ServiceTeam;
 import compit.src.Service.ServiceWeek;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -29,6 +30,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -36,8 +38,11 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import pidev.AdminhomeController;
+import utils.Passable;
 
 /**
  * FXML Controller class
@@ -162,14 +167,17 @@ public class AddGameController implements Initializable {
         
         
         
-        btValider.getScene().getWindow().hide();
 
-        FXMLLoader fxmlLoader = new FXMLLoader();
-            Pane root1 =  fxmlLoader.load(getClass().getResource("/compit/src/view/competition.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("Competition");
-            stage.setScene(new Scene(root1));  
-            stage.show();
+        Node node;
+            try {
+            //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
+            node = (Node)FXMLLoader.load(getClass().getResource("/compit/src/view/competition.fxml"));
+            AnchorPane linker = (AnchorPane) Passable.getInstance().getContainer();
+            linker.getChildren().setAll(node);
+
+            } catch (IOException ex) {
+            Logger.getLogger(AdminhomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         
          
     }

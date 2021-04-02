@@ -31,14 +31,18 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import pidev.AdminhomeController;
+import utils.Passable;
 /**
  * FXML Controller class
  *
@@ -223,53 +227,62 @@ public void affichertable (){
 
     @FXML
     private void AddPhase(ActionEvent event) throws MalformedURLException, IOException {
-          URL url;
-        url = new File("C:\\Users\\Lenovo\\Documents\\ftbb\\src\\view\\AddPhase.fxml").toURI().toURL();
-        Stage stage = new Stage ();
-        Parent root =  FXMLLoader.load(url);
-        stage.setScene(new Scene(root));
-        stage.setTitle("AddPhase");
-        stage.show();
-        btAddCompetition.getScene().getWindow().hide();
+        Node node;
+            try {
+            //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
+            node = (Node)FXMLLoader.load(getClass().getResource("/compit/src/view/AddPhase.fxml"));
+            AnchorPane linker = (AnchorPane) Passable.getInstance().getContainer();
+            linker.getChildren().setAll(node);
+
+            } catch (IOException ex) {
+            Logger.getLogger(AdminhomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         
         
     }
 
     @FXML
     private void AddWeek(ActionEvent event) throws MalformedURLException, IOException {
-          URL url;
-        url = new File("C:\\Users\\Lenovo\\Documents\\ftbb\\src\\view\\AddWeek.fxml").toURI().toURL();
-        Stage stage = new Stage ();
-        Parent root =  FXMLLoader.load(url);
-        stage.setScene(new Scene(root));
-        stage.setTitle("AddWeek");
-        stage.show();
-        btAddCompetition.getScene().getWindow().hide();
+          Node node;
+            try {
+            //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
+            node = (Node)FXMLLoader.load(getClass().getResource("/compit/src/view/AddWeek.fxml"));
+            AnchorPane linker = (AnchorPane) Passable.getInstance().getContainer();
+            linker.getChildren().setAll(node);
+
+            } catch (IOException ex) {
+            Logger.getLogger(AdminhomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         
         
     }
 
     @FXML
     private void AddGame(ActionEvent event) throws IOException {
-        Stage stage = new Stage ();
-         URL url = new File("C:\\Users\\Lenovo\\Documents\\ftbb\\src\\view\\AddGame.fxml").toURI().toURL();
-        Parent root =  FXMLLoader.load(url);
-        stage.setScene(new Scene(root));
-        stage.setTitle("AddGame");
-        stage.show();
-        btAddCompetition.getScene().getWindow().hide();
+        Node node;
+            try {
+            //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
+            node = (Node)FXMLLoader.load(getClass().getResource("/compit/src/view/AddGame.fxml"));
+            AnchorPane linker = (AnchorPane) Passable.getInstance().getContainer();
+            linker.getChildren().setAll(node);
+
+            } catch (IOException ex) {
+            Logger.getLogger(AdminhomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
 
     @FXML
     private void UpdateCompetition(ActionEvent event) throws IOException {
-         Stage stage = new Stage ();
-         URL url = new File("C:\\Users\\Lenovo\\Documents\\ftbb\\src\\view\\UpdateCompetition.fxml").toURI().toURL();
-        Parent root =  FXMLLoader.load(url);
-        stage.setScene(new Scene(root));
-        stage.setTitle("Update Competition");
-        stage.show();
-         btAddCompetition.getScene().getWindow().hide();
+        Node node;
+            try {
+            //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
+            node = (Node)FXMLLoader.load(getClass().getResource("/compit/src/view/UpdateCompetition.fxml"));
+            AnchorPane linker = (AnchorPane) Passable.getInstance().getContainer();
+            linker.getChildren().setAll(node);
 
+            } catch (IOException ex) {
+            Logger.getLogger(AdminhomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
 
     @FXML
@@ -293,13 +306,16 @@ public void affichertable (){
 
     @FXML
     private void UpdatePhase(ActionEvent event) throws IOException {
-         Stage stage = new Stage ();
-         URL url = new File("C:\\Users\\DELL\\Desktop\\integ\\pidev\\src\\view\\UpdatePhase.fxml").toURI().toURL();
-        Parent root =  FXMLLoader.load(url);
-        stage.setScene(new Scene(root));
-        stage.setTitle("Update Phase");
-        stage.show();
-         btAddCompetition.getScene().getWindow().hide();
+         Node node;
+            try {
+            //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
+            node = (Node)FXMLLoader.load(getClass().getResource("/compit/src/view/UpdatePhase.fxml"));
+            AnchorPane linker = (AnchorPane) Passable.getInstance().getContainer();
+            linker.getChildren().setAll(node);
+
+            } catch (IOException ex) {
+            Logger.getLogger(AdminhomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
     }
 
@@ -316,13 +332,16 @@ public void affichertable (){
 
     @FXML
     private void UpdateWeek(ActionEvent event) throws IOException {
-         Stage stage = new Stage ();
-         URL url = new File("C:\\Users\\DELL\\Desktop\\integ\\pidev\\src\\view\\UpdateWeek.fxml").toURI().toURL();
-        Parent root =  FXMLLoader.load(url);
-        stage.setScene(new Scene(root));
-        stage.setTitle("Update Week");
-        stage.show();
-         btAddCompetition.getScene().getWindow().hide();
+         Node node;
+            try {
+            //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
+            node = (Node)FXMLLoader.load(getClass().getResource("/compit/src/view/UpdateWeek.fxml"));
+            AnchorPane linker = (AnchorPane) Passable.getInstance().getContainer();
+            linker.getChildren().setAll(node);
+
+            } catch (IOException ex) {
+            Logger.getLogger(AdminhomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
     }
 
@@ -338,15 +357,16 @@ public void affichertable (){
 
     @FXML
     private void AddCompetition(ActionEvent event)throws IOException {
-        
-        URL url;
-        url = new File("C:\\Users\\DELL\\Desktop\\integ\\pidev\\src\\view\\AddCompetition.fxml").toURI().toURL();
-        Stage stage = new Stage ();
-        Parent root =  FXMLLoader.load(url);
-        stage.setScene(new Scene(root));
-        stage.setTitle("Add Competition");
-        stage.show();
-        btAddCompetition.getScene().getWindow().hide();
+        Node node;
+            try {
+            //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
+            node = (Node)FXMLLoader.load(getClass().getResource("/compit/src/view/AddCompetition.fxml"));
+            AnchorPane linker = (AnchorPane) Passable.getInstance().getContainer();
+            linker.getChildren().setAll(node);
+
+            } catch (IOException ex) {
+            Logger.getLogger(AdminhomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
     }
 
@@ -418,13 +438,16 @@ public void affichertable (){
         serviceGame.setCom(t);
         
         
-        btDashboard.getScene().getWindow().hide();
-        FXMLLoader fxmlLoader = new FXMLLoader();
-            Pane root1 =  fxmlLoader.load(getClass().getResource("/compit/src/view/EditScore.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("Edit Score");
-            stage.setScene(new Scene(root1));  
-            stage.show();
+        Node node;
+            try {
+            //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
+            node = (Node)FXMLLoader.load(getClass().getResource("/compit/src/view/EditScore.fxml"));
+            AnchorPane linker = (AnchorPane) Passable.getInstance().getContainer();
+            linker.getChildren().setAll(node);
+
+            } catch (IOException ex) {
+            Logger.getLogger(AdminhomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
 
     @FXML
@@ -443,13 +466,16 @@ public void affichertable (){
     private void Classement(ActionEvent event) throws IOException {
               
         
-        btDashboard.getScene().getWindow().hide();
-        FXMLLoader fxmlLoader = new FXMLLoader();
-            Pane root1 =  fxmlLoader.load(getClass().getResource("/compit/src/view/Classement.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("Edit Score");
-            stage.setScene(new Scene(root1));  
-            stage.show();
+       Node node;
+            try {
+            //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
+            node = (Node)FXMLLoader.load(getClass().getResource("/compit/src/view/Classement.fxml"));
+            AnchorPane linker = (AnchorPane) Passable.getInstance().getContainer();
+            linker.getChildren().setAll(node);
+
+            } catch (IOException ex) {
+            Logger.getLogger(AdminhomeController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         
     }
 
