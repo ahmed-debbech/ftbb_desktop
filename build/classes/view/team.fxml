@@ -6,15 +6,16 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.TeamController">
    <children>
-      <TableView fx:id="table_team" layoutX="68.0" layoutY="176.0" prefHeight="200.0" prefWidth="465.0">
+      <TableView fx:id="table_team" layoutX="68.0" layoutY="176.0" prefHeight="200.0" prefWidth="270.0">
         <columns>
           <TableColumn fx:id="logo_team" prefWidth="60.0" text="logo" />
-          <TableColumn fx:id="name_team" minWidth="5.0" prefWidth="404.0" text="name" />
+          <TableColumn fx:id="name_team" minWidth="5.0" prefWidth="185.0" text="name" />
         </columns>
       </TableView>
       <Label layoutX="276.0" layoutY="23.0" text="Team">
@@ -38,5 +39,6 @@
       <Button fx:id="btEditTeam" layoutX="421.0" layoutY="140.0" mnemonicParsing="false" onAction="#UpdateTeam" prefHeight="25.0" prefWidth="50.0" text="Edit" />
       <Button fx:id="btAddTeam" layoutX="361.0" layoutY="140.0" mnemonicParsing="false" onAction="#AddTeam" prefHeight="25.0" prefWidth="50.0" text="Add" />
       <Button fx:id="btDashboard" layoutX="460.0" layoutY="84.0" mnemonicParsing="false" onAction="#Back" text="Dashboard" />
+      <ImageView fx:id="logo" fitHeight="114.0" fitWidth="110.0" layoutX="391.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

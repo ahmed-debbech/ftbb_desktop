@@ -47,7 +47,7 @@ public class ServiceGame implements IServiceGame {
         
         try {
             Statement stm = cnx.createStatement();
-            String query = "insert into game (`id_competition`, `id_phase`, `id_week`, `id_team_home`, `id_team_away`, `salle`,`score_home`,`score_away`,`status`) values ('" + g.getId_competition()+"','" + g.getId_phase()+"','" + g.getId_week() +"','" + g.getId_team_home() +"','" + g.getId_team_away() +"','" + g.getSalle() +"',0,0,0)";
+            String query = "insert into game (`id_competition`, `id_phase`, `id_week`, `id_team_home`, `id_team_away`, `salle`,`score_home`,`score_away`,`status`, `time`) values ('" + g.getId_competition()+"','" + g.getId_phase()+"','" + g.getId_week() +"','" + g.getId_team_home() +"','" + g.getId_team_away() +"','" + g.getSalle() +"',0,0,0, '"+g.getTime()+"')";
             stm.executeUpdate(query);
         } catch (SQLException ex) {
             Logger.getLogger(ServiceCompetition.class.getName()).log(Level.SEVERE, null, ex);
@@ -69,9 +69,9 @@ public class ServiceGame implements IServiceGame {
                 G.setId_team_away(rst.getInt("id_team_away"));
                 G.setScore_home(rst.getInt("score_home"));
                 G.setScore_away(rst.getInt("score_away"));
-                
+                G.setTime(rst.getDate("time"));
                 G.setSalle(rst.getString("salle"));
-
+                G.setStatus(rst.getInt("status"));
                 games.add(G);
                 data.add(G);
             }
@@ -95,9 +95,9 @@ public class ServiceGame implements IServiceGame {
                 G.setId_team_away(rst.getInt("id_team_away"));
                 G.setScore_home(rst.getInt("score_home"));
                 G.setScore_away(rst.getInt("score_away"));
-                
+                G.setTime(rst.getDate("time"));
                 G.setSalle(rst.getString("salle"));
-
+G.setStatus(rst.getInt("status"));
                 games.add(G);
                 data.add(G);
             }
@@ -125,7 +125,7 @@ public class ServiceGame implements IServiceGame {
                 G.setId_team_away(rst.getInt("id_team_away"));
                 G.setScore_home(rst.getInt("score_home"));
                 G.setScore_away(rst.getInt("score_away"));
-                
+                G.setStatus(rst.getInt("status"));
                 G.setSalle(rst.getString("salle"));
 
                 games.add(G);
@@ -150,7 +150,7 @@ public class ServiceGame implements IServiceGame {
                 G.setId_team_away(rst.getInt("id_team_away"));
                 G.setScore_home(rst.getInt("score_home"));
                 G.setScore_away(rst.getInt("score_away"));
-                
+                G.setStatus(rst.getInt("status"));
                 G.setSalle(rst.getString("salle"));
 
                 games.add(G);
@@ -177,7 +177,7 @@ public class ServiceGame implements IServiceGame {
                 G.setScore_away(rst.getInt("score_away"));
                 G.setStatus(rst.getInt("status"));
                 G.setSalle(rst.getString("salle"));
-
+                G.setTime(rst.getDate("time"));
                 games.add(G);
                 data.add(G);
             }
@@ -216,7 +216,7 @@ public class ServiceGame implements IServiceGame {
 
             Statement stm = cnx.createStatement();
             String query;
-            query = "UPDATE `game` SET `score_home`='" + g.getScore_home()+ "',`score_away`='" + g.getScore_away()+ "' WHERE `id`= " + g.getId();
+            query = "UPDATE `game` SET `status` = 1, `score_home`='" + g.getScore_home()+ "',`score_away`='" + g.getScore_away()+ "' WHERE `id`= " + g.getId();
             stm.executeUpdate(query);
             System.out.println("valide");
         } catch (SQLException ex) {

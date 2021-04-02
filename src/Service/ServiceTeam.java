@@ -37,7 +37,7 @@ public ObservableList<Team> getData() {
     @Override
     public void AddTeam(Team c) throws SQLException {
         String query;
-        query = "INSERT INTO `team`(`name`,`id_competition`) VALUES('" + c.getName() + "','" + c.getId_competition() + "')";
+        query = "INSERT INTO `team`(`name`,`id_competition`, `logo`) VALUES('" + c.getName() + "','" + c.getId_competition() + "', '"+c.getLogo()+"')";
         try {
 
             Statement stm = cnx.createStatement();
@@ -171,6 +171,28 @@ System.out.println("select ss");
         
        
        String query = "select * from `team` where id_competition='" + idc + "'";
+       ResultSet rst = stm.executeQuery(query);
+          List<Team> teams = new ArrayList<>();
+        while (rst.next()) {
+            Team C = new Team();
+            C.setId(rst.getInt("id"));
+            C.setLogo(rst.getString("logo"));
+            C.setName(rst.getString("name"));
+            C.setId_competition(rst.getInt("id_competition"));
+            
+
+            teams.add(C);
+            data.add(C);
+        }
+
+        return  (ArrayList<Team>) teams;
+}
+    
+    public ArrayList<Team> searchTeam(int idc, String value) throws SQLException {
+        Statement stm = cnx.createStatement();
+        
+       
+       String query = "select * from `team` where id_competition='" + idc + "' and name like '"+value+"%';";
        ResultSet rst = stm.executeQuery(query);
           List<Team> teams = new ArrayList<>();
         while (rst.next()) {

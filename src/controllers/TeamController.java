@@ -9,16 +9,21 @@ import Entites.Competition;
 import Entites.Team;
 import Service.ServiceCompetition;
 import Service.ServiceTeam;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,8 +37,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javax.imageio.ImageIO;
 
 /**
  * FXML Controller class
@@ -73,6 +80,43 @@ public class TeamController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        ftSearch.textProperty().addListener((observable, oldValue, newValue) -> {
+            List<Team> l ;
+            int idc = ServiceCompetition.getCom().getId();
+            try {
+                if(!newValue.equals("")){
+                    table_team.getItems().clear();
+                    System.out.println("ewqrfewqrf");
+                    l =  st.searchTeam(idc, newValue);
+                                
+
+                }else{
+                    table_team.getItems().clear();
+                    listTeam = (ArrayList<Team>) st.AfficherTeam(idc);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(TeamController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           
+             table_team.setItems(st.getData());
+        });
+       table_team.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                WritableImage im = null;
+        try {
+            URL imageUrl = new URL(newSelection.getLogo());
+            InputStream in = imageUrl.openStream();
+            BufferedImage image = ImageIO.read(in);
+            im = SwingFXUtils.toFXImage(image, null);
+            in.close();
+            this.logo.setImage(im);
+        }catch (IOException ioe) {
+            System.out.println("no imAGE FOUND!");
+        }
+            }
+        });
+
+
         ListCompetition.setOnAction(this::selectedCompetition);
         try {
             competitions = serviceCompetition.AfficherCompetition();

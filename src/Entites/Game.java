@@ -13,6 +13,8 @@ import java.sql.Date;
  */
 public class Game {
 
+    public static String NOT_FINISHED = "not finished";
+    public static String FINISHED = "finished";
     public int getId() {
         return id;
     }

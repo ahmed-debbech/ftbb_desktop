@@ -6,7 +6,6 @@
 package controllers;
 
 import Entites.Classement;
-import Entites.Competition;
 import Entites.Game;
 import Entites.Team;
 import Service.ServiceClassement;
@@ -18,12 +17,10 @@ import Service.ServiceWeek;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
-import java.time.Instant;
 import java.time.LocalDate;
-import java.time.ZoneId;
-import static java.time.temporal.TemporalQueries.localDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,7 +29,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -70,8 +69,14 @@ public class AddGameController implements Initializable {
         // TODO
         ListTeamHome.setOnAction(this::selectedTeamH);
         ListTeamAway.setOnAction(this::selectedTeamW);
-     
-        
+     Team vv = new Team();
+     vv.setName("Select --");
+        ListTeamHome.getItems().add(vv);
+        Team v2v = new Team();
+     v2v.setName("Select --");
+        ListTeamAway.getItems().add(v2v);
+        ListTeamHome.getSelectionModel().selectFirst();
+        ListTeamAway.getSelectionModel().selectFirst();
         try {
             int idc = ServiceCompetition.getCom().getId();
             teams =serviceTeam.AfficherTeam(idc);
@@ -106,8 +111,9 @@ public class AddGameController implements Initializable {
         g.setId_team_home(ListTeamHome.getValue().getId());
         g.setId_team_away(ListTeamAway.getValue().getId());
         g.setSalle(ftHall.getText());
-        
-       // g.setTime(localDate().ftDate.getValue());
+        LocalDate d = ftDate.getValue();
+        System.out.println(d);
+       g.setTime(Date.valueOf(d));
         //g.setTime((Date) ftDate.getDayCellFactory());
         sg.AddGame(g);
         System.out.println(g.getId_team_home());
@@ -199,8 +205,19 @@ public class AddGameController implements Initializable {
     @FXML    
     private void handleButtonAction (ActionEvent event) throws SQLException, Exception{
         if ( event.getSource()== btValider ){
-            AddGame();
-            btValider.getScene().getWindow().hide();
+            if((ListTeamHome.getSelectionModel().getSelectedIndex() != 0) 
+                    && (ListTeamAway.getSelectionModel().getSelectedIndex() != 0)
+                    && (!ftHall.getText().equals(""))){
+                AddGame();
+                            btValider.getScene().getWindow().hide();
+
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("WARNING!");
+            alert.setHeaderText(null);
+            alert.setContentText("Please select !.");
+            Optional<ButtonType> result = alert.showAndWait();
+            }
           
         }
         else if (event.getSource()== btAnnuler){

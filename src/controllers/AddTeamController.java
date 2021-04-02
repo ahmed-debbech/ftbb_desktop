@@ -9,12 +9,17 @@ import Entites.Competition;
 import Entites.Team;
 import Service.ServiceCompetition;
 import Service.ServiceTeam;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,8 +28,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javax.imageio.ImageIO;
+import utils.Utilities;
 
 /**
  * FXML Controller class
@@ -42,6 +51,8 @@ public class AddTeamController implements Initializable {
     private Button btAnnuler;
     @FXML
     private TextField ftName;
+    @FXML
+    private TextField path;
 
     /**
      * Initializes the controller class.
@@ -88,13 +99,13 @@ public class AddTeamController implements Initializable {
     
     }
     
-    @FXML
     private void AddTeam() throws Exception {
         
         ServiceTeam st = new ServiceTeam();
         Team t = new Team ();
         t.setName(ftName.getText());
         t.setId_competition(ListCompetition.getValue().getId());
+        t.setLogo(Utilities.pathToUrl(path.getText()));
         st.AddTeam(t);
         btValider.getScene().getWindow().hide();
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -122,5 +133,25 @@ public class AddTeamController implements Initializable {
         
     
 }
+
+    @FXML
+    private void onBrowse(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Pick a banner file!");
+        fileChooser.setInitialDirectory(new File("C:\\xampp\\htdocs\\uploads"));
+        Stage stage = new Stage();
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+                new FileChooser.ExtensionFilter("PNG", "*.png")
+            );
+        File file = fileChooser.showOpenDialog(stage);
+        try {
+                BufferedImage bufferedImage = ImageIO.read(file);
+                WritableImage image = SwingFXUtils.toFXImage(bufferedImage, null);
+                path.setText(file.getAbsolutePath());
+            } catch (IOException ex) {
+                System.out.println("could not get the image");
+            }
+    }
     
 }

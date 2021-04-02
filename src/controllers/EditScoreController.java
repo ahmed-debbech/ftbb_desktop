@@ -100,9 +100,9 @@ public class EditScoreController implements Initializable {
         g=ServiceGame.getCom();
         g.setScore_home(Integer.valueOf(ftScoreHome.getText()));
         g.setScore_away(Integer.valueOf(ftScoreAway.getText()));
-        st.UpdateScore(g);
-                
-        
+       
+                st.UpdateScore(g);
+
         ServiceClassement serviceClassement = new ServiceClassement();
           List<Classement> classementstest = new ArrayList<Classement>(); // Create an ArrayList object
         classementstest =serviceClassement.AfficherClassement(idc,idp);
@@ -140,6 +140,5 @@ public class EditScoreController implements Initializable {
             System.out.println("usm etranger");}
             else System.out.println("usm not here");
             }
-        
     }
 }

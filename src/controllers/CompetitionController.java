@@ -90,7 +90,7 @@ public class CompetitionController implements Initializable {
     @FXML
     private TableColumn<Gamef, String> hall;
     @FXML
-    private TableColumn<Gamef, String> statuts;
+    private TableColumn<Gamef, Integer> statuts;
     @FXML
     private TableColumn<?, ?> logo_home;
     @FXML
@@ -184,7 +184,11 @@ public void affichertable (){
            gf.setScore_away(g.getScore_away());
            gf.setSalle(g.getSalle());
            gf.setTime(g.getTime());
-           gf.setStatus(g.getStatus());
+           if(g.getStatus() == 1){
+           gf.setStatus(Game.FINISHED);
+           }else{
+               gf.setStatus(Game.NOT_FINISHED);
+           }
            gf.setId_team_home(g.getId_team_home());
            gf.setId_team_away(g.getId_team_away());
            listGamef.add(gf);
@@ -207,7 +211,7 @@ public void affichertable (){
             score_home.setCellValueFactory(new PropertyValueFactory<>("score_home"));
             score_away.setCellValueFactory(new PropertyValueFactory<>("score_away"));
             hall.setCellValueFactory(new PropertyValueFactory<>("salle"));
-            statuts.setCellValueFactory(new PropertyValueFactory<>(String.valueOf("statuts")));
+            statuts.setCellValueFactory(new PropertyValueFactory<>("status"));
             time.setCellValueFactory(new PropertyValueFactory<>("time"));
             table_game.setItems(sg.getData1());
             

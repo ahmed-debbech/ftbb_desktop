@@ -37,11 +37,11 @@ public class Gamef {
         this.score_away = score_away;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -94,7 +94,7 @@ public class Gamef {
 
     public Gamef() {
     }
-    private int id,score_home,score_away,status,id_team_home,id_team_away;
+    private int id,score_home,score_away,id_team_home,id_team_away;
 
     public int getId_team_home() {
         return id_team_home;
@@ -112,6 +112,7 @@ public class Gamef {
         this.id_team_away = id_team_away;
     }
     private String team_home,team_away,salle,statistique;
+    private String status;
     private Date time ;
     
 }
