@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="570.0" prefWidth="955.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="compit.src.controllers.AddCompetitionController">
+   <children>
+      <Label layoutX="357.0" layoutY="178.0" prefHeight="38.0" prefWidth="242.0" text="ADD Competition" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="30.0" />
+         </font></Label>
+      <TextField fx:id="ftNameCompetition" layoutX="275.0" layoutY="248.0" onAction="#AddCompetition" prefHeight="40.0" prefWidth="405.0" promptText="..." style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" />
+      <Button fx:id="btValider" layoutX="276.0" layoutY="308.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/5402431-512.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btAnnuler" layoutX="481.0" layoutY="308.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/5402366-512.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+   </children>
+</AnchorPane>

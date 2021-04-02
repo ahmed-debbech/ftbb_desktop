@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="570.0" prefWidth="955.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="compit.src.controllers.UpdateTeamController">
+   <children>
+      <Label layoutX="406.0" layoutY="126.0" prefHeight="38.0" prefWidth="143.0" text="Edit Team" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="30.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="ListCompetition" layoutX="406.0" layoutY="256.0" prefHeight="40.0" prefWidth="300.0" style="-fx-background-radius: 50; -fx-background-color: transparent; -fx-background-color: #E5E7E9;" />
+      <Label layoutX="250.0" layoutY="258.0" prefHeight="35.0" prefWidth="129.0" text="Competition" textFill="#de020f" AnchorPane.topAnchor="258.0">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font></Label>
+      <Label layoutX="250.0" layoutY="209.0" prefHeight="35.0" prefWidth="97.0" text="Name" textFill="#de020f" AnchorPane.topAnchor="209.0">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font></Label>
+      <Label layoutX="250.0" layoutY="306.0" prefHeight="35.0" prefWidth="97.0" text="Logo" textFill="#de020f" AnchorPane.topAnchor="306.0">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font></Label>
+      <Button fx:id="btValider" layoutX="276.0" layoutY="388.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="40.0" prefWidth="200.0" style="-fx-background-radius: 50; -fx-background-color: transparent; -fx-background-color: #DE020F;">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/5402431-512.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btAnnuler" layoutX="480.0" layoutY="388.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="40.0" prefWidth="200.0" style="-fx-background-radius: 50; -fx-background-color: transparent; -fx-background-color: #DE020F;">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/5402366-512.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <TextField fx:id="ftName" layoutX="406.0" layoutY="206.0" prefHeight="40.0" prefWidth="300.0" promptText="Name" style="-fx-background-radius: 50; -fx-background-color: transparent; -fx-background-color: #E5E7E9;" />
+   </children>
+</AnchorPane>

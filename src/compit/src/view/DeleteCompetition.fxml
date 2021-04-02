@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="570.0" prefWidth="955.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="compit.src.controllers.DeleteCompetitionController">
+   <children>
+      <Label layoutX="239.0" layoutY="236.0" prefHeight="26.0" prefWidth="154.0" text="List Competition" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="20.0" />
+         </font></Label>
+      <ChoiceBox layoutX="416.0" layoutY="229.0" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" />
+      <Label layoutX="338.0" layoutY="134.0" prefHeight="38.0" prefWidth="279.0" text="Delete Competition" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="30.0" />
+         </font>
+      </Label>
+      <Button layoutX="276.0" layoutY="304.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transaprent; -fx-background-color: #DE020F; -fx-background-radius: 50;">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/326606-512.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button layoutX="479.0" layoutY="304.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: transaprent; -fx-background-color: #DE020F; -fx-background-radius: 50;">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/5402366-512.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+   </children>
+</AnchorPane>

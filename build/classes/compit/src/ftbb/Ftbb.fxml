@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="mainPane" prefHeight="570.0" prefWidth="955.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="compit.src.ftbb.FXMLDocumentController">
+   <children>
+      <Button fx:id="btStatistics" layoutX="276.0" layoutY="299.0" mnemonicParsing="false" onAction="#ShowStatistics" prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: trasnparent; -fx-background-color: #DE020F; -fx-background-radius: 50;">
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/2427699-512.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btCompetition" layoutX="276.0" layoutY="207.0" mnemonicParsing="false" onAction="#ManageCompetition" prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: trasnparent; -fx-background-color: #DE020F; -fx-background-radius: 50;">
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/6843056-512%20(3).png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btTeam" layoutX="480.0" layoutY="207.0" mnemonicParsing="false" onAction="#ListTeam" prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: trasnparent; -fx-background-color: #DE020F; -fx-background-radius: 50;">
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/3964128-512.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btPlayer" layoutX="480.0" layoutY="299.0" mnemonicParsing="false" onAction="#ListPlayer" prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: trasnparent; -fx-background-color: #DE020F; -fx-background-radius: 50;">
+         <graphic>
+            <ImageView fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../ressources/6622906-512.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Label layoutX="350.0" layoutY="93.0" prefHeight="44.0" prefWidth="257.0" text="Welcome To FTBB" textAlignment="CENTER" textFill="#de020f">
+         <font>
+            <Font name="Cambria Bold" size="30.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
