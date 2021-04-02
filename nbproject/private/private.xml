@@ -3,33 +3,35 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/report_galerie/src/ftbb/ReportController.java</file>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/report_galerie/src/ftbb/Respondreport.fxml</file>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/report_galerie/src/ftbb/respondfeedback.fxml</file>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/report_galerie/src/ftbb/FXMLfeedbackviewController.java</file>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/report_galerie/src/ftbb/RespondreportController.java</file>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/report_galerie/src/ftbb/AdminReportsController.java</file>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/report_galerie/src/ftbb/FXMLreportview.fxml</file>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/report_galerie/src/ftbb/ReportandFeedbacksController.java</file>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/report_galerie/src/ftbb/FXMLDocumentController.java</file>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/report_galerie/src/ftbb/Galerieview.fxml</file>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/report_galerie/src/ftbb/FXMLDocument.fxml</file>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/report_galerie/src/Services/ServiceReport.java</file>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/report_galerie/src/ftbb/adminhomeController.java</file>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/report_galerie/src/ftbb/FXMLreportviewController.java</file>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/report_galerie/src/ftbb/report.fxml</file>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/report_galerie/src/ftbb/AdminReports.fxml</file>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/report_galerie/src/ftbb/adminhome.fxml</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/poll/src/poll_fttb/EndedPoll.fxml</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/poll/src/poll_fttb/PollCientView.fxml</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/poll/src/Entities/Option.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/store/src/Utils/SqlConnection.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/poll/src/utils/Utilities.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/poll/src/poll_fttb/ActivePoll.fxml</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/poll/src/poll_fttb/EndedPollAdminViewController.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/poll/src/poll_fttb/EndedPollClientView.fxml</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/poll/src/poll_fttb/PollAdminViewController.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/poll/src/poll_fttb/ActivePollController.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/poll/src/utils/JavaMailUtil.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/poll/src/poll_fttb/PollAdminView.fxml</file>
             <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/pidev/AdminhomeController.java</file>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/report_galerie/src/ftbb/AdminFeedbacksController.java</file>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/report_galerie/src/ftbb/feedback.fxml</file>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/report_galerie/src/ftbb/GalerieviewController.java</file>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/report_galerie/src/ftbb/PostViewController.java</file>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/report_galerie/src/ftbb/FeedbackController.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/poll/src/poll_fttb/EndedPollAdminView.fxml</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/poll/src/Entities/Poll.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/poll/src/Service/ServicePoll.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/poll/src/Services/IServicePoll.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/poll/src/poll_fttb/PollCientViewController.java</file>
             <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/pidev/ClienthomeController.java</file>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/report_galerie/src/ftbb/ReportandFeedbacks.fxml</file>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/report_galerie/src/ftbb/PostView.fxml</file>
-            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/report_galerie/src/ftbb/FXMLfeedbackview.fxml</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/store/src/Utils/Utilities.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/poll/src/Service/ServiceVote.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/poll/src/poll_fttb/EndedPollClientViewController.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/poll/src/poll_fttb/FXMLDocumentController.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/poll/src/Entities/Vote.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/poll/src/Services/IServiceOption.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/poll/src/poll_fttb/EndedPollController.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/poll/src/poll_fttb/FXMLDocument.fxml</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/poll/src/Services/IServiceVote.java</file>
+            <file>file:/C:/Users/DELL/Desktop/integ/pidev/src/poll/src/Service/ServiceOption.java</file>
         </group>
     </open-files>
 </project-private>

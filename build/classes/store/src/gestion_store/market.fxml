@@ -171,7 +171,6 @@
                                        </font>
                                     </TextField>
                                     <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="149.0" style="-fx-background-color: #DE020F;" styleClass="search-button" stylesheets="@Style.css" text="Rechercher" textFill="WHITE">
-
                                        <font>
                                           <Font name="Cambria Bold" size="18.0" />
                                        </font></Button>
