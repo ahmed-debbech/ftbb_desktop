@@ -426,7 +426,7 @@ public void affichertable (){
         
         btDashboard.getScene().getWindow().hide();
         FXMLLoader fxmlLoader = new FXMLLoader();
-            Pane root1 =  fxmlLoader.load(getClass().getResource("/view/EditScore.fxml").openStream());
+            Pane root1 =  fxmlLoader.load(getClass().getResource("/view/EditScore.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Edit Score");
             stage.setScene(new Scene(root1));  
@@ -437,7 +437,7 @@ public void affichertable (){
     private void Back(ActionEvent event) throws IOException {
         btDashboard.getScene().getWindow().hide();
         FXMLLoader fxmlLoader = new FXMLLoader();
-            Pane root1 =  fxmlLoader.load(getClass().getResource("/ftbb/Ftbb.fxml").openStream());
+            Pane root1 =  fxmlLoader.load(getClass().getResource("/ftbb/Ftbb.fxml"));
             Stage stage = new Stage();
             stage.setTitle("FTBB Application");
             stage.setScene(new Scene(root1));  
@@ -451,7 +451,7 @@ public void affichertable (){
         
         btDashboard.getScene().getWindow().hide();
         FXMLLoader fxmlLoader = new FXMLLoader();
-            Pane root1 =  fxmlLoader.load(getClass().getResource("/view/Classement.fxml").openStream());
+            Pane root1 =  fxmlLoader.load(getClass().getResource("/view/Classement.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Edit Score");
             stage.setScene(new Scene(root1));  

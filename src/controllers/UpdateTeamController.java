@@ -86,7 +86,7 @@ private  ServiceCompetition serviceCompetition = new ServiceCompetition();
              if ( event.getSource()== btValider ){
             UpdateTeam();
            FXMLLoader fxmlLoader = new FXMLLoader();
-            Pane root1 =  fxmlLoader.load(getClass().getResource("/view/team.fxml").openStream());
+            Pane root1 =  fxmlLoader.load(getClass().getResource("/view/team.fxml"));
             Stage stage = new Stage();
             stage.setTitle("team");
             stage.setScene(new Scene(root1));  
@@ -97,7 +97,7 @@ private  ServiceCompetition serviceCompetition = new ServiceCompetition();
         else if (event.getSource()== btAnnuler){
         
          FXMLLoader fxmlLoader = new FXMLLoader();
-            Pane root1 =  fxmlLoader.load(getClass().getResource("/view/team.fxml").openStream());
+            Pane root1 =  fxmlLoader.load(getClass().getResource("/view/team.fxml"));
             Stage stage = new Stage();
             stage.setTitle("team");
             stage.setScene(new Scene(root1));  

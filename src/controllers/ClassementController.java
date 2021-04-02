@@ -154,7 +154,7 @@ ArrayList <Classement> listclassement= new ArrayList<Classement>();
     private void Back(ActionEvent event) throws IOException {
         btDashboard.getScene().getWindow().hide();
         FXMLLoader fxmlLoader = new FXMLLoader();
-            Pane root1 =  fxmlLoader.load(getClass().getResource("/view/competition.fxml").openStream());
+            Pane root1 =  fxmlLoader.load(getClass().getResource("/view/competition.fxml"));
             Stage stage = new Stage();
             stage.setTitle("FTBB Application");
             stage.setScene(new Scene(root1));  

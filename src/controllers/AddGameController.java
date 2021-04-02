@@ -164,7 +164,7 @@ public class AddGameController implements Initializable {
         btValider.getScene().getWindow().hide();
 
         FXMLLoader fxmlLoader = new FXMLLoader();
-            Pane root1 =  fxmlLoader.load(getClass().getResource("/view/competition.fxml").openStream());
+            Pane root1 =  fxmlLoader.load(getClass().getResource("/view/competition.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Competition");
             stage.setScene(new Scene(root1));  
@@ -223,7 +223,7 @@ public class AddGameController implements Initializable {
         else if (event.getSource()== btAnnuler){
         
          FXMLLoader fxmlLoader = new FXMLLoader();
-            Pane root1 =  fxmlLoader.load(getClass().getResource("/view/competition.fxml").openStream());
+            Pane root1 =  fxmlLoader.load(getClass().getResource("/view/competition.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Competition");
             stage.setScene(new Scene(root1));  

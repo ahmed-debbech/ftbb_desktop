@@ -88,7 +88,7 @@ public class AddTeamController implements Initializable {
         else if (event.getSource()== btAnnuler){
         
          FXMLLoader fxmlLoader = new FXMLLoader();
-            Pane root1 =  fxmlLoader.load(getClass().getResource("/view/team.fxml").openStream());
+            Pane root1 =  fxmlLoader.load(getClass().getResource("/view/team.fxml"));
             Stage stage = new Stage();
             stage.setTitle("team");
             stage.setScene(new Scene(root1));  
@@ -109,7 +109,7 @@ public class AddTeamController implements Initializable {
         st.AddTeam(t);
         btValider.getScene().getWindow().hide();
         FXMLLoader fxmlLoader = new FXMLLoader();
-            Pane root1 =  fxmlLoader.load(getClass().getResource("/view/team.fxml").openStream());
+            Pane root1 =  fxmlLoader.load(getClass().getResource("/view/team.fxml"));
             Stage stage = new Stage();
             stage.setTitle("team");
             stage.setScene(new Scene(root1));  
