@@ -5,6 +5,8 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -21,14 +23,28 @@
             </ScrollPane>
             <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="58.0" prefWidth="955.0" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#addArticle" prefHeight="40.0" prefWidth="230.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Add a new article" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#addArticle" prefHeight="40.0" prefWidth="230.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" textFill="WHITE">
                      <font>
                         <Font name="Cambria Bold" size="18.0" />
-                     </font></Button>
-                  <Button lineSpacing="5.0" mnemonicParsing="false" onAction="#refreshArticle" prefHeight="40.0" prefWidth="230.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="Refresh" textFill="WHITE">
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/add.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button lineSpacing="5.0" mnemonicParsing="false" onAction="#refreshArticle" prefHeight="40.0" prefWidth="230.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" textFill="WHITE">
                      <font>
                         <Font name="Cambria Bold" size="18.0" />
-                     </font></Button>
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/1564533-512.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
                   <TextField fx:id="filter" prefHeight="40.0" prefWidth="230.0" promptText="Search..." style="-fx-background-radius: 50; -fx-background-color: transparent; -fx-background-color: #E5E7E9;" />
                   <ComboBox fx:id="sort" onAction="#onSelected" prefHeight="40.0" prefWidth="220.0" style="-fx-background-radius: 50; -fx-background-color: transparent; -fx-background-color: #E5E7E9;" />
                </children>

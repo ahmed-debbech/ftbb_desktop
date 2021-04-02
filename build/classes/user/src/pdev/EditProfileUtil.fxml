@@ -44,9 +44,9 @@
          <font>
             <Font name="Cambria Bold" size="18.0" />
          </font></Button>
-      <TextField fx:id="Tnom" layoutX="541.0" layoutY="153.0" prefHeight="30.0" prefWidth="212.0" promptText="Nom" style="-fx-background-color: transparent; -fx-background-color: #F8F9F9; -fx-background-radius: 50;" />
-      <TextField fx:id="Tprenom" layoutX="542.0" layoutY="201.0" prefHeight="30.0" prefWidth="212.0" promptText="Prenom" style="-fx-background-color: transparent; -fx-background-color: #F8F9F9; -fx-background-radius: 50;" />
-      <TextField fx:id="Tnumero" layoutX="542.0" layoutY="290.0" prefHeight="30.0" prefWidth="212.0" promptText="Numero de téléphone" style="-fx-background-color: transparent; -fx-background-color: #F8F9F9; -fx-background-radius: 50;" />
+      <TextField fx:id="Tnom" layoutX="541.0" layoutY="153.0" prefHeight="30.0" prefWidth="212.0" promptText="Nom" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" />
+      <TextField fx:id="Tprenom" layoutX="542.0" layoutY="201.0" prefHeight="30.0" prefWidth="212.0" promptText="Prenom" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" />
+      <TextField fx:id="Tnumero" layoutX="542.0" layoutY="290.0" prefHeight="30.0" prefWidth="212.0" promptText="Numero de téléphone" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" />
       <DatePicker fx:id="Tdate" layoutX="541.0" layoutY="246.0" prefHeight="30.0" prefWidth="212.0" style="-fx-background-color: transparent; -fx-background-color: #F8F9F9; -fx-background-radius: 50;" />
       <Button layoutX="762.0" layoutY="337.0" mnemonicParsing="false" onAction="#path" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" text="inserer" textFill="WHITE">
          <font>
@@ -57,6 +57,6 @@
             <Font name="Cambria Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="tpath" layoutX="541.0" layoutY="336.0" prefHeight="30.0" prefWidth="212.0" promptText="votre image" style="-fx-background-color: transparent; -fx-background-color: #F8F9F9; -fx-background-radius: 50;" />
+      <TextField fx:id="tpath" layoutX="541.0" layoutY="336.0" prefHeight="30.0" prefWidth="212.0" promptText="votre image" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" />
    </children>
 </AnchorPane>

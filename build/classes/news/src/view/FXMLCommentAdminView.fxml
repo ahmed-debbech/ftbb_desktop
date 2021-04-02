@@ -19,7 +19,7 @@
                         <Insets left="15.0" />
                      </VBox.margin>
                      <font>
-                        <Font name="System Bold" size="15.0" />
+                        <Font name="Cambria Bold" size="15.0" />
                      </font>
                      <padding>
                         <Insets top="5.0" />

@@ -39,11 +39,11 @@
          <font>
             <Font name="Cambria Bold" size="18.0" />
          </font></Label>
-      <TextField fx:id="stock_p" layoutX="511.0" layoutY="65.0" prefHeight="30.0" prefWidth="200.0" promptText="stock" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" AnchorPane.leftAnchor="520.0" AnchorPane.topAnchor="65.0" />
-      <TextField fx:id="name_p" layoutX="511.0" layoutY="100.0" prefHeight="30.0" prefWidth="200.0" promptText="Nom" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" AnchorPane.leftAnchor="520.0" AnchorPane.topAnchor="100.0" />
-      <TextField fx:id="price_p" layoutX="512.0" layoutY="205.0" prefHeight="30.0" prefWidth="200.0" promptText="Prix" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" AnchorPane.leftAnchor="520.0" AnchorPane.topAnchor="205.0" />
-      <TextField fx:id="details_p" layoutX="511.0" layoutY="135.0" prefHeight="30.0" prefWidth="200.0" promptText="Détails" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" AnchorPane.leftAnchor="520.0" AnchorPane.topAnchor="135.0" />
-      <TextField fx:id="idAdmin_p" layoutX="512.0" layoutY="170.0" prefHeight="30.0" prefWidth="200.0" promptText="Id_admin" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" AnchorPane.leftAnchor="520.0" AnchorPane.topAnchor="170.0" />
+      <TextField fx:id="stock_p" layoutX="511.0" layoutY="65.0" prefHeight="30.0" prefWidth="200.0" promptText="stock" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" AnchorPane.leftAnchor="520.0" AnchorPane.topAnchor="67.0" />
+      <TextField fx:id="name_p" layoutX="511.0" layoutY="100.0" prefHeight="30.0" prefWidth="200.0" promptText="Nom" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" AnchorPane.leftAnchor="520.0" AnchorPane.topAnchor="102.0" />
+      <TextField fx:id="price_p" layoutX="512.0" layoutY="205.0" prefHeight="30.0" prefWidth="200.0" promptText="Prix" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" AnchorPane.leftAnchor="520.0" AnchorPane.topAnchor="207.0" />
+      <TextField fx:id="details_p" layoutX="511.0" layoutY="135.0" prefHeight="30.0" prefWidth="200.0" promptText="Détails" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" AnchorPane.leftAnchor="520.0" AnchorPane.topAnchor="137.0" />
+      <TextField fx:id="idAdmin_p" layoutX="512.0" layoutY="170.0" prefHeight="30.0" prefWidth="200.0" promptText="Id_admin" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" AnchorPane.leftAnchor="520.0" AnchorPane.topAnchor="172.0" />
       <Button layoutX="791.0" layoutY="312.0" mnemonicParsing="false" onAction="#insertPrduct" prefHeight="52.0" prefWidth="28.0" style="-fx-background-color: transparent; -fx-background-color: #DE020F; -fx-background-radius: 50;" textFill="WHITE" AnchorPane.topAnchor="312.0">
          <font>
             <Font name="Cambria Bold" size="18.0" />
@@ -100,7 +100,7 @@
             <TableColumn fx:id="coladddate" prefWidth="75.0" text="Add Date" />
             <TableColumn fx:id="colphoto" prefWidth="75.0" text="Url Photo " />
          </columns></TableView>
-      <TextField fx:id="photo_p" layoutX="512.0" layoutY="240.0" prefHeight="30.0" prefWidth="200.0" promptText="Photo" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" AnchorPane.leftAnchor="520.0" AnchorPane.topAnchor="240.0" />
+      <TextField fx:id="photo_p" layoutX="512.0" layoutY="240.0" prefHeight="30.0" prefWidth="200.0" promptText="Photo" style="-fx-background-color: transparent; -fx-background-color: #E5E7E9; -fx-background-radius: 50;" AnchorPane.leftAnchor="520.0" AnchorPane.topAnchor="242.0" />
       <Label layoutX="393.0" layoutY="244.0" text="Photo " textFill="#de020f" AnchorPane.leftAnchor="400.0">
          <font>
             <Font name="Cambria Bold" size="18.0" />

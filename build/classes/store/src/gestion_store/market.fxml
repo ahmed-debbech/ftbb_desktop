@@ -37,6 +37,9 @@
                            </font>
                         </Label>
                      </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
                   </HBox>
                   <Pane prefHeight="57.0" prefWidth="435.0" VBox.vgrow="ALWAYS" />
                   <VBox fx:id="chosenProductCard" alignment="CENTER" prefHeight="535.0" prefWidth="100.0" stylesheets="@Style.css">
@@ -48,7 +51,7 @@
                            <children>
                               <Label fx:id="productNameLable" prefHeight="48.0" prefWidth="173.0" text="name">
                                  <font>
-                                    <Font name="Cambria" size="15.0" />
+                                    <Font name="Cambria Bold" size="20.0" />
                                  </font>
                               </Label>
                               <Label fx:id="id" prefHeight="17.0" prefWidth="93.0" visible="false" />
@@ -157,9 +160,9 @@
                      <children>
                         <Pane prefHeight="79.0" prefWidth="641.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <HBox alignment="CENTER" prefHeight="65.0" prefWidth="483.0" stylesheets="@Style.css">
+                              <HBox alignment="CENTER" prefHeight="65.0" prefWidth="564.0" stylesheets="@Style.css">
                                  <children>
-                                    <TextField prefHeight="40.0" prefWidth="289.0" promptText="Rechercher votre article" styleClass="transparent" stylesheets="@Style.css">
+                                    <TextField prefHeight="40.0" prefWidth="341.0" promptText="Rechercher votre article" styleClass="transparent" stylesheets="@Style.css">
                                        <HBox.margin>
                                           <Insets left="20.0" />
                                        </HBox.margin>
@@ -167,7 +170,8 @@
                                           <Font name="Cambria" size="18.0" />
                                        </font>
                                     </TextField>
-                                    <Button fx:id="rechercher_command" mnemonicParsing="false" onAction="#search" prefHeight="40.0" prefWidth="142.0" style="-fx-background-color: #DE020F;" styleClass="search-button" stylesheets="@Style.css" text="Rechercher" textFill="WHITE">
+                                    <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="149.0" style="-fx-background-color: #DE020F;" styleClass="search-button" stylesheets="@Style.css" text="Rechercher" textFill="WHITE">
+
                                        <font>
                                           <Font name="Cambria Bold" size="18.0" />
                                        </font></Button>
