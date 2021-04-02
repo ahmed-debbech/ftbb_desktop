@@ -9,6 +9,7 @@ package store.src.gestion_store;
 import java.net.URL;
 import java.sql.Date;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.print.PrinterJob;
@@ -20,6 +21,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Window;
+import utils.Passable;
 import store.src.Entities.Command;
 
 /**
@@ -36,7 +38,7 @@ public class PdfViewController implements Initializable {
     @FXML
     private Button export;
     @FXML
-    private TableView tab;
+    private TableView<Command> tab;
 
     /**
      * Initializes the controller class.
@@ -55,6 +57,8 @@ public class PdfViewController implements Initializable {
         TableColumn t5 = new TableColumn("total_price");
         t5.setCellValueFactory(new PropertyValueFactory<Command, Integer>("total_price"));
         tab.getColumns().addAll(t1,t2,t3,t4,t5);
+        ObservableList<Command> data = (ObservableList<Command>) Passable.getInstance().getAnyData();
+        tab.setItems(data);
           export.setOnAction(event ->{pdf();});
     }    
     @FXML

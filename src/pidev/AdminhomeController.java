@@ -7,6 +7,7 @@ package pidev;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,16 +18,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.SplitPane;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 import javafx.util.Duration;
+import news.src.utils.Utilities;
 import utils.Passable;
 
 /**
@@ -161,6 +160,7 @@ public class AdminhomeController implements Initializable {
 
     @FXML
     private void btnactualite(ActionEvent event) {
+        if((Utilities.getAdmin().getRole()== 1)  || (Utilities.getAdmin().getRole()== 2)){
          Node node;
             try {
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
@@ -170,10 +170,18 @@ public class AdminhomeController implements Initializable {
             } catch (IOException ex) {
             Logger.getLogger(AdminhomeController.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("WARNING!");
+            alert.setHeaderText(null);
+            alert.setContentText("Not enough permission !.");
+            Optional<ButtonType> result = alert.showAndWait();
+        }
     }
 
     @FXML
     private void btnsondage(ActionEvent event) {
+        if((Utilities.getAdmin().getRole()== 1)  || (Utilities.getAdmin().getRole()== 2)){
          Node node;
             try {
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
@@ -183,10 +191,18 @@ public class AdminhomeController implements Initializable {
             } catch (IOException ex) {
             Logger.getLogger(AdminhomeController.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("WARNING!");
+            alert.setHeaderText(null);
+            alert.setContentText("Not enough permission !.");
+            Optional<ButtonType> result = alert.showAndWait();
+        }
     }
 
     @FXML
     private void btncompetition(ActionEvent event) {
+        if((Utilities.getAdmin().getRole()== 1)  || (Utilities.getAdmin().getRole()== 2)){
          Node node;
             try {
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
@@ -196,10 +212,18 @@ public class AdminhomeController implements Initializable {
             } catch (IOException ex) {
             Logger.getLogger(AdminhomeController.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("WARNING!");
+            alert.setHeaderText(null);
+            alert.setContentText("Not enough permission !.");
+            Optional<ButtonType> result = alert.showAndWait();
+        }
     }
 
     @FXML
     private void btnreport(ActionEvent event) {
+        if((Utilities.getAdmin().getRole()== 1)  || (Utilities.getAdmin().getRole()== 2)){
          Node node;
             try {
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
@@ -209,10 +233,18 @@ public class AdminhomeController implements Initializable {
             } catch (IOException ex) {
             Logger.getLogger(AdminhomeController.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("WARNING!");
+            alert.setHeaderText(null);
+            alert.setContentText("Not enough permission !.");
+            Optional<ButtonType> result = alert.showAndWait();
+        }
     }
 
     @FXML
     private void btngalerie(ActionEvent event) {
+        if((Utilities.getAdmin().getRole()== 1)  || (Utilities.getAdmin().getRole()== 2)){
          Node node;
             try {
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
@@ -222,10 +254,18 @@ public class AdminhomeController implements Initializable {
             } catch (IOException ex) {
             Logger.getLogger(AdminhomeController.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }else{
+             Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("WARNING!");
+            alert.setHeaderText(null);
+            alert.setContentText("Not enough permission !.");
+            Optional<ButtonType> result = alert.showAndWait();
+        }
     }
 
     @FXML
     private void btnstore(ActionEvent event) {
+        if((Utilities.getAdmin().getRole()== 1)  || (Utilities.getAdmin().getRole()== 3)){
          Node node;
             try {
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
@@ -235,10 +275,18 @@ public class AdminhomeController implements Initializable {
             } catch (IOException ex) {
             Logger.getLogger(AdminhomeController.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }else{
+             Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("WARNING!");
+            alert.setHeaderText(null);
+            alert.setContentText("Not enough permission !.");
+            Optional<ButtonType> result = alert.showAndWait();
+        }
     }
 
     @FXML
     private void btnprofil(ActionEvent event) {
+        if(Utilities.getAdmin().getRole() == 1){
          Node node;
             try {
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
@@ -249,6 +297,13 @@ public class AdminhomeController implements Initializable {
             } catch (IOException ex) {
                 Logger.getLogger(AdminhomeController.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }else{
+             Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("WARNING!");
+            alert.setHeaderText(null);
+            alert.setContentText("Not enough permission !.");
+            Optional<ButtonType> result = alert.showAndWait();
+        }
     }
 
 

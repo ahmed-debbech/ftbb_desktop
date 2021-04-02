@@ -6,6 +6,7 @@
 package compit.src.controllers;
 
 
+import compit.src.Entites.Classement;
 import compit.src.Entites.Competition;
 import compit.src.Entites.Team;
 import compit.src.Service.ServiceCompetition;
@@ -85,7 +86,7 @@ public class AddTeamController implements Initializable {
     @FXML    
     private void handleButtonAction (ActionEvent event) throws SQLException, Exception{
         if ( event.getSource()==btValider ){
-            AddTeam();
+           
             btValider.getScene().getWindow().hide();
           
         }

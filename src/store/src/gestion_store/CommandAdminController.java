@@ -196,6 +196,7 @@ public class CommandAdminController implements Initializable {
          Node node;
             try {
             //thott houni fil 'getResources' esm el fichier illi khadem fih el crud mte3ek  
+            Passable.getInstance().setAnyData(lcommand.getItems());
             node = (Node)FXMLLoader.load(getClass().getResource("/store/src/gestion_store/PdfView.fxml"));
             AnchorPane linker = (AnchorPane) Passable.getInstance().getContainer();
             linker.getChildren().setAll(node);

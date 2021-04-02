@@ -29,7 +29,9 @@ import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import user.src.Entities.Admin;
 import user.src.Entities.Client;
+import user.src.Service.ServiceAdmin;
 import user.src.Service.ServiceClient;
 
 /**
@@ -139,5 +141,10 @@ public class Utilities {
         ServiceClient si = new ServiceClient();
         Client  ccc = si.getA();
         return ccc;
+    }
+    public static Admin getAdmin(){
+        ServiceAdmin ss = new ServiceAdmin();
+        Admin a = ss.getA();
+        return a;
     }
 }

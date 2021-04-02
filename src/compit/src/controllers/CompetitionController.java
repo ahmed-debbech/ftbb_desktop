@@ -42,6 +42,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import pidev.AdminhomeController;
+import report_galerie.src.Utils.Utilities;
 import utils.Passable;
 /**
  * FXML Controller class
@@ -291,7 +292,7 @@ public void affichertable (){
         ServiceCompetition sc = new ServiceCompetition();
         sc.DeleteCompetition(ServiceCompetition.getCom());
       
-            
+            Utilities.sendMail("ali.dagdoug55@gmail.com", "Competition has been deleted " + ServiceCompetition.getCom().getName() );
             
              ListCompetition.getItems().remove(ServiceCompetition.getCom());
              competitions = serviceCompetition.AfficherCompetition();
